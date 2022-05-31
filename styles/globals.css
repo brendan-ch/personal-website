@@ -31,6 +31,9 @@ a:hover {
 }
 
 h1 {
-  color: var(--white);
+  font-weight: 300;
+}
+
+h2 {
   font-weight: 300;
 }
