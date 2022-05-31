@@ -40,8 +40,15 @@ main {
 
 h1 {
   font-weight: 300;
+  color: var(--white);
 }
 
 h2 {
   font-weight: 300;
+  color: var(--white);
+}
+
+/* Unless overridden */
+p {
+  color: var(--white);
 }
