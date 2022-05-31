@@ -2,15 +2,53 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--black);
 }
 
 a {
-  color: inherit;
+  color: var(--dark-gray);
+  fill: var(--dark-gray);
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--selected);
+  fill: var(--selected);
+  transition: 0.3s;
 }
 
 * {
   box-sizing: border-box;
+}
+
+main {
+  padding: 10px;
+  width: 35em;
+}
+
+:root {
+  --black: #333333;
+  --dark-gray: #7B7B7B;
+  --medium-gray: #BCBCBC;
+  --light-gray: #EFEFEF;
+  --white: #FAFAFA;
+  --selected: #E67B75;
+  --darker-gray: #3D3D3D;
+}
+
+h1 {
+  font-weight: 300;
+  color: var(--white);
+}
+
+h2 {
+  font-weight: 300;
+  color: var(--white);
+}
+
+/* Unless overridden */
+p {
+  color: var(--white);
 }
