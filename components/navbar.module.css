@@ -35,3 +35,8 @@
   width: 25px;
   border: 1px solid var(--dark-gray);
 }
+
+/* For selected text */
+.selected {
+  color: var(--selected);
+}

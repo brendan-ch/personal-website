@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './navbar.module.css';
 
 interface Props {
-  selected: string,
+  selected: 'Projects' | 'About',
 }
 
 /**
@@ -14,11 +14,11 @@ export default function NavBar({ selected }: Props) {
       {/* Navigation links */}
       <div className={styles.linksContainer}>
         <Link href="/">
-          <a>Projects</a>
+          <a className={selected === 'Projects' ? styles.selected : undefined}>Projects</a>
         </Link>
         <div className={styles.ellipse} />
         <Link href="/">
-          <a>About</a>
+          <a className={selected === 'About' ? styles.selected : undefined}>About</a>
         </Link>
       </div>
       {/* Line divider */}
