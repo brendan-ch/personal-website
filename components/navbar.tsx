@@ -17,7 +17,7 @@ export default function NavBar({ selected }: Props) {
           <a className={selected === 'Projects' ? styles.selected : undefined}>Projects</a>
         </Link>
         <div className={styles.ellipse} />
-        <Link href="/">
+        <Link href="/about">
           <a className={selected === 'About' ? styles.selected : undefined}>About</a>
         </Link>
       </div>
