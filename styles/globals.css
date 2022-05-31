@@ -7,8 +7,13 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--dark-gray);
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--selected);
+  transition: 0.3s;
 }
 
 * {
@@ -21,7 +26,7 @@ a {
   --medium-gray: #BCBCBC;
   --light-gray: #EFEFEF;
   --white: #FAFAFA;
-  --red: #E67B75;
+  --selected: #E67B75;
   --darker-gray: #3D3D3D;
 }
 
