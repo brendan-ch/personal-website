@@ -17,16 +17,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .linksContainer > a {
   writing-mode: vertical-rl;
-}
-
-.linksContainer > a:hover {
-  /* color: var(--selected); */
-  background-color: var(--selected);
 }
 
 .ellipse {
