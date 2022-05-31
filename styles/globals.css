@@ -9,11 +9,13 @@ body {
 
 a {
   color: var(--dark-gray);
+  fill: var(--dark-gray);
   text-decoration: none;
 }
 
 a:hover {
   color: var(--selected);
+  fill: var(--selected);
   transition: 0.3s;
 }
 
