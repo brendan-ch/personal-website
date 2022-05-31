@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--black);
 }
 
 a {
@@ -18,6 +19,11 @@ a:hover {
 
 * {
   box-sizing: border-box;
+}
+
+main {
+  padding: 10px;
+  width: 35em;
 }
 
 :root {

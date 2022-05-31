@@ -7,9 +7,4 @@
   gap: 20px;
   height: 100vh;
   width: 100vw;
-  background: var(--black);
-}
-
-.main {
-  padding: 10px;
 }
