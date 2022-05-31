@@ -24,7 +24,12 @@ export default function NavBar({ selected }: Props) {
       {/* Line divider */}
       <div className={styles.divider}></div>
       {/* Social links */}
-      <div></div>
+      <div className={styles.linksContainer} >
+        {/* to-do: move links to environment variables so it can be changed easily */}
+        <a href="https://github.com/brendan-ch" target="_blank" rel="noreferrer" >
+          @brendan-ch
+        </a>
+      </div>
     </div>
   );
 }
