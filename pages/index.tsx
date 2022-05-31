@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <NavBar selected="Testing" />
+      <NavBar selected="Projects" />
       <main className={styles.main}>
         <h2>Brendan Chen</h2>
         <h1>Developer and Designer</h1>
