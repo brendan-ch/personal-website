@@ -22,6 +22,21 @@
 .textContainer > h2 {
   margin: 0px;
   color: var(--medium-gray);
+  height: 30px;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+}
+
+/* .backButton {
+  
+} */
+
+.backButton:hover {
+  cursor: pointer;
+  color: var(--selected);
+  fill: var(--selected);
+  transition: 0.3s;
 }
 
 .logo {
