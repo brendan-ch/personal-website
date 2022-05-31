@@ -9,6 +9,8 @@
 
   /* width: 25px; */
   /* height: 1020px; */
+  /* transform: rotate(90deg); */
+  /* transform-origin: center left; */
 }
 
 .linksContainer {
@@ -19,7 +21,7 @@
 }
 
 .linksContainer > a {
-  transform: rotate(90deg);
+  writing-mode: vertical-rl;
 }
 
 .linksContainer > a:hover {
