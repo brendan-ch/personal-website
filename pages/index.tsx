@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import NavBar from '../components/navbar';
+import PageHeader from '../components/PageHeader';
 import utils from '../styles/utils.module.css';
 
 const Home: NextPage = () => {
@@ -7,8 +8,11 @@ const Home: NextPage = () => {
     <div className={utils.rootContainer}>
       <NavBar selected="Projects" />
       <main>
-        <h2>Brendan Chen</h2>
-        <h1>Developer and Designer</h1>
+        <PageHeader
+          aboveText="Brendan Chen"
+          belowText="Developer and Designer"
+          includeLogo
+        />
       </main>
     </div>
   )

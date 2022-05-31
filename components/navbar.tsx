@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './navbar.module.css';
+import styles from '../styles/Navbar.module.css';
 
 interface Props {
   selected: 'Projects' | 'About',

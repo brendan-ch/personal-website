@@ -1,4 +1,5 @@
 import NavBar from '../components/navbar';
+import PageHeader from '../components/PageHeader';
 import utils from '../styles/utils.module.css';
 
 export default function AboutPage() {
@@ -6,7 +7,10 @@ export default function AboutPage() {
     <div className={utils.rootContainer}>
       <NavBar selected="About" />
       <main>
-        <p>About Me</p>
+        <PageHeader
+          aboveText="Brendan Chen"
+          belowText="About Me"
+        />
       </main>
     </div>
   )
