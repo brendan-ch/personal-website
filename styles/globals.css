@@ -26,6 +26,17 @@ a:hover {
 main {
   padding: 10px;
   width: 35em;
+  animation-name: fadein;
+  animation-duration: 0.3s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 
 :root {
