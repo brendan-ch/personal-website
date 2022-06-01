@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
+import { NavigationSelected } from '../types';
 
 interface Props {
-  selected: 'Projects' | 'About',
+  selected: NavigationSelected,
 }
 
 /**

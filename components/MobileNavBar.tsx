@@ -1,9 +1,10 @@
 import styles from '../styles/MobileNavBar.module.css';
+import { NavigationSelected } from '../types';
 import Hamburger from './icons/Hamburger';
 
 interface Props {
   button: 'none' | 'hamburger' | 'back',
-  selected: 'Projects' | 'About',
+  selected: NavigationSelected,
 }
 
 /**
@@ -15,7 +16,9 @@ export default function MobileNavBar({ button, selected }: Props) {
   return (
     <div className={styles.container}>
       {/* Hamburger menu */}
-      <Hamburger width={40} height={40} />
+      <button>
+        <Hamburger width={40} height={40} />
+      </button>
       {/* Text */}
       <h2>{selected}</h2>
     </div>
