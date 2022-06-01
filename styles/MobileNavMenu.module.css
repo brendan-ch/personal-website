@@ -1,12 +1,60 @@
+/* Container that hosts all content, including
+background and actual content */
 .container {
   display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
   z-index: 1;
 }
 
 .containerDisplay {
   display: flex;
+  opacity: 100%;
+}
+
+.background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: var(--black);
+  opacity: 0%;
+}
+
+.backgroundDisplay {
+  display: flex;
+  opacity: 50%;
+}
+
+.fadeIn {
+  animation-name: fadein;
+  animation-duration: 0.3s;
+}
+
+.fadeOut {
+  animation-name: fadeout;
+  animation-duration: 0.3s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 50%;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 50%;
+  }
+  to {
+    opacity: 0%;
+  }
 }
