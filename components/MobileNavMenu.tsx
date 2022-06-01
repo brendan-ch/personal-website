@@ -3,15 +3,16 @@ import styles from '../styles/MobileNavMenu.module.css';
 
 interface Props {
   selected: NavigationSelected,
-  displayed: boolean,
+  visible?: boolean,
+  onClose?: () => any,
 }
 
 /**
  * Navigation menu on mobile, only appears on mobile.
  */
-export default function MobileNavMenu({ selected, displayed }: Props) {
+export default function MobileNavMenu({ selected, visible }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={visible ? `${styles.container} ${styles.containerDisplay}` : styles.container}>
       
     </div>
   );
