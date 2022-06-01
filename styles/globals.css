@@ -37,6 +37,7 @@ button {
   margin: 0px;
   background: transparent;
   border: none;
+  font-family: 'Inter';
 }
 
 @keyframes fadein {
