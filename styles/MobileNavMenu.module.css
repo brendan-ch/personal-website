@@ -19,8 +19,6 @@ background and actual content */
   position: fixed;
   top: 0px;
   left: 0px;
-  /* To-do: move width/height calculation to hook
-  w/ resize listener, so viewport is accurate */
   width: 100%;
   height: 100%;
   display: none;
