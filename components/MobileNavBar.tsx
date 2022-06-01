@@ -25,7 +25,7 @@ export default function MobileNavBar({ button, selected }: Props) {
     <div className={styles.container}>
       {/* Hamburger menu */}
       {button !== 'none' ? (
-        <button onClick={button === 'hamburger' ? () => setMenuToggled(!menuToggled) : () => router.back()}>
+        <button className={styles.navBarButton} onClick={button === 'hamburger' ? () => setMenuToggled(!menuToggled) : () => router.back()}>
           {button === 'hamburger' ? (
             <Hamburger width={40} height={40} />
           ) : (
