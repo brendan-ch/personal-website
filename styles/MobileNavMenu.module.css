@@ -2,11 +2,11 @@
 background and actual content */
 .container {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
@@ -16,13 +16,13 @@ background and actual content */
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   /* To-do: move width/height calculation to hook
   w/ resize listener, so viewport is accurate */
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: none;
   background-color: rgba(0, 0, 0, 0.50);
   opacity: 0%;
@@ -62,7 +62,10 @@ background and actual content */
 }
 
 .navigationPane {
-  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
   width: 15em;
   z-index: 999;
   background-color: var(--black);
