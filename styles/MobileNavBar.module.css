@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100vw;
+}
+
+.container > svg {
+  fill: var(--white);
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    display: none;
+  }
+}
