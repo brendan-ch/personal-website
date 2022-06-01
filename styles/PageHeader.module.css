@@ -32,9 +32,9 @@
   display: flex;
 }
 
-/* .backButton {
-  
-} */
+.backButton > svg { 
+  stroke: var(--medium-gray);
+}
 
 .backButton:hover {
   cursor: pointer;
