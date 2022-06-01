@@ -18,7 +18,7 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
         onClick={onClose ? () => onClose() : undefined}
       />
       <div className={styles.navigationPane}>
-        <p>Hello there</p>
+        
       </div>
     </div>
   );

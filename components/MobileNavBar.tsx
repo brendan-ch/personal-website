@@ -1,14 +1,12 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 import styles from '../styles/MobileNavBar.module.css';
 import { NavigationSelected } from '../types';
 import Back from './icons/Back';
 import Hamburger from './icons/Hamburger';
-import MobileNavMenu from './MobileNavMenu';
 
 interface Props {
   button: 'none' | 'hamburger' | 'back',
-  selected: NavigationSelected,
+  title?: NavigationSelected,
+  onPress?: () => any,
 }
 
 /**
@@ -16,16 +14,14 @@ interface Props {
  * The hamburger menu opens up an overlay with links to the other pages.
  * @param props
  */
-export default function MobileNavBar({ button, selected }: Props) {
-  // Whether or not the nav menu is open
-  const [menuToggled, setMenuToggled] = useState(false);
-  const router = useRouter();
-
+export default function MobileNavBar({ button, title, onPress }: Props) {
   return (
     <div className={styles.container}>
       {/* Hamburger menu */}
       {button !== 'none' ? (
-        <button className={styles.navBarButton} onClick={button === 'hamburger' ? () => setMenuToggled(!menuToggled) : () => router.back()}>
+        <button
+          className={styles.navBarButton}
+          onClick={onPress ? () => onPress() : undefined}>
           {button === 'hamburger' ? (
             <Hamburger width={40} height={40} />
           ) : (
@@ -34,12 +30,7 @@ export default function MobileNavBar({ button, selected }: Props) {
         </button>
       ) : undefined}
       {/* Text */}
-      <h2>{selected}</h2>
-      <MobileNavMenu
-        selected={selected}
-        visible={menuToggled}
-        onClose={() => setMenuToggled(false)}
-      />
+      <h2>{title}</h2>
     </div>
   );
 }
