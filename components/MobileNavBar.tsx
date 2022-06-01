@@ -1,11 +1,10 @@
 import styles from '../styles/MobileNavBar.module.css';
-import { NavigationSelected } from '../types';
 import Back from './icons/Back';
 import Hamburger from './icons/Hamburger';
 
 interface Props {
-  button: 'none' | 'hamburger' | 'back',
-  title?: NavigationSelected,
+  button?: 'none' | 'hamburger' | 'back',
+  title?: string,
   onPress?: () => any,
 }
 
@@ -18,7 +17,7 @@ export default function MobileNavBar({ button, title, onPress }: Props) {
   return (
     <div className={styles.container}>
       {/* Hamburger menu */}
-      {button !== 'none' ? (
+      {button && button !== 'none' ? (
         <button
           className={styles.navBarButton}
           onClick={onPress ? () => onPress() : undefined}>
