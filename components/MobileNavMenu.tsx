@@ -2,6 +2,25 @@ import { NavigationSelected } from '../types';
 import styles from '../styles/MobileNavMenu.module.css';
 import MobileNavBar from './MobileNavBar';
 
+interface NavigationButtonProps {
+  highlighted?: boolean,
+  onPress?: () => any,
+  title: string,
+}
+
+function NavigationButton({ highlighted, onPress, title }: NavigationButtonProps) {
+  return (
+    <button
+      onClick={onPress ? () => onPress() : undefined}
+      className={styles.navigationPaneButton}
+    >
+      <p>
+        {title}
+      </p>
+    </button>
+  )
+}
+
 interface Props {
   selected: NavigationSelected,
   visible?: boolean,
@@ -25,11 +44,25 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
         onClick={() => handleClose()}
       />
       <div className={styles.navigationPane}>
+        {/* Hamburger button to close nav menu */}
         <MobileNavBar
           title=""
           button="hamburger"
           onPress={() => handleClose()}
         />
+        {/* Navigation pane content */}
+        <div className={styles.navigationPaneContent}>
+          <div className={styles.navigationPaneButtonContent} >
+            <NavigationButton
+              title="Projects"
+              highlighted={selected === 'Projects'}
+            />
+            <NavigationButton
+              title="About"
+              highlighted={selected === 'About'}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
