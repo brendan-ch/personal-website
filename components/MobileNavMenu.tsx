@@ -16,6 +16,9 @@ export default function MobileNavMenu({ selected, visible }: Props) {
   return (
     <div className={visible ? `${styles.container} ${styles.containerDisplay}` : `${styles.container}`}>
       <div className={visible ? `${styles.background} ${styles.backgroundDisplay} ${styles.fadeIn}` : `${styles.background} ${styles.fadeOut}`} />
+      <div className={styles.navigationPane}>
+        <p>Hello there</p>
+      </div>
     </div>
   );
 }

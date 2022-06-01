@@ -22,7 +22,7 @@ background and actual content */
   width: 100vw;
   height: 100vh;
   display: none;
-  background-color: var(--black);
+  background-color: rgba(0, 0, 0, 0.25);
   opacity: 0%;
 }
 
@@ -57,4 +57,11 @@ background and actual content */
   to {
     opacity: 0%;
   }
+}
+
+.navigationPane {
+  height: 100vh;
+  width: 15em;
+  z-index: 999;
+  background-color: var(--black);
 }
