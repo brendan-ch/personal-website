@@ -43,7 +43,7 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
         className={visible ? `${styles.background} ${styles.backgroundDisplay} ${styles.fadeIn}` : `${styles.background} ${styles.fadeOut}`}
         onClick={() => handleClose()}
       />
-      <div className={styles.navigationPane}>
+      <div className={visible ? `${styles.navigationPane} ${styles.navigationPaneToggled}` : `${styles.navigationPane}`}>
         {/* Hamburger button to close nav menu */}
         <MobileNavBar
           title=""

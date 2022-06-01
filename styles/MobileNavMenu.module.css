@@ -62,9 +62,52 @@ background and actual content */
 .navigationPane {
   position: fixed;
   top: 0px;
-  left: 0px;
+  left: -15em;
   height: 100%;
   width: 15em;
   z-index: 999;
   background-color: var(--black);
+}
+
+.navigationPaneToggled {
+  left: 0em;
+  animation-name: slidein;
+  animation-duration: 0.3s;
+}
+
+@keyframes slidein {
+  from {
+    left: -15em;
+  }
+  to {
+    left: 0em;
+  }
+}
+
+.navigationPaneContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* padding: 0px 10px 50px 11px; */
+  gap: 20px;
+}
+
+.navigationPaneButtonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+}
+
+.navigationPaneButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0px;
+  gap: 10px;
+}
+
+.navigationPaneButtonHighlighted {
+  
 }
