@@ -38,6 +38,7 @@ export default function MobileNavBar({ button, selected }: Props) {
       <MobileNavMenu
         selected={selected}
         visible={menuToggled}
+        onClose={() => setMenuToggled(false)}
       />
     </div>
   );
