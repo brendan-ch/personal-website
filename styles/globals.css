@@ -38,6 +38,8 @@ button {
   background: transparent;
   border: none;
   font-family: 'Inter';
+
+  cursor: pointer;
 }
 
 @keyframes fadein {
