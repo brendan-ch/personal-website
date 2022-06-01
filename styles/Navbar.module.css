@@ -14,6 +14,11 @@
   /* transform-origin: center left; */
 }
 
+/* Hide on mobile */
+@media only screen and (max-width: 600px) {
+
+}
+
 .linksContainer {
   display: flex;
   flex-direction: column;
