@@ -8,6 +8,12 @@ interface Props {
   belowText: string,
 }
 
+/**
+ * Returns a page header with a back button. If width < 600px,
+ * doesn't display anything.
+ * @param props
+ * @returns
+ */
 export default function PageHeader({ includeBackButton, includeLogo, aboveText, belowText }: Props) {
   const router = useRouter();
 
