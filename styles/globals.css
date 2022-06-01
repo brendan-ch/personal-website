@@ -30,6 +30,15 @@ main {
   animation-duration: 0.3s;
 }
 
+/* Perform a reset on the button component */
+button {
+  box-sizing: unset;
+  padding: 0px;
+  margin: 0px;
+  background: transparent;
+  border: none;
+}
+
 @keyframes fadein {
   from {
     opacity: 0%;

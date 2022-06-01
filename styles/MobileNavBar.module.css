@@ -16,12 +16,6 @@
 }
 
 .navBarButton {
-  box-sizing: unset;
-  padding: 0px;
-  margin: 0px;
-  background: transparent;
-  border: none;
-
   display: flex;
   align-items: center;
   justify-content: center;
