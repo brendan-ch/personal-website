@@ -19,10 +19,12 @@ background and actual content */
   position: absolute;
   top: 0px;
   left: 0px;
+  /* To-do: move width/height calculation to hook
+  w/ resize listener, so viewport is accurate */
   width: 100vw;
   height: 100vh;
   display: none;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.50);
   opacity: 0%;
 }
 
