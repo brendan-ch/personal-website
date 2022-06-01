@@ -24,13 +24,13 @@ background and actual content */
   width: 100%;
   height: 100%;
   display: none;
-  background-color: rgba(0, 0, 0, 0.50);
+  background-color: rgba(0, 0, 0, 0.25);
   opacity: 0%;
 }
 
 .backgroundDisplay {
   display: flex;
-  opacity: 50%;
+  opacity: 100%;
 }
 
 .fadeIn {
@@ -48,13 +48,13 @@ background and actual content */
     opacity: 0%;
   }
   to {
-    opacity: 50%;
+    opacity: 100%;
   }
 }
 
 @keyframes fadeout {
   from {
-    opacity: 50%;
+    opacity: 100%;
   }
   to {
     opacity: 0%;
