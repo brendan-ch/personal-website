@@ -67,6 +67,9 @@ background and actual content */
   width: 15em;
   z-index: 999;
   background-color: var(--black);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .navigationPaneToggled {
@@ -88,8 +91,9 @@ background and actual content */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 10px 50px 11px;
+  padding: 0px 10px 30px 11px;
   gap: 20px;
+  height: 100%;
 }
 
 .navigationPaneButtonContent {
@@ -99,6 +103,8 @@ background and actual content */
   padding: 0px;
   gap: 10px;
   width: 100%;
+
+  flex: 1;
 }
 
 .navigationPaneButton {
@@ -113,4 +119,19 @@ background and actual content */
 .navigationPaneButtonTextHighlighted {
   font-weight: bold;
   color: var(--selected);
+}
+
+.navigationPaneLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+}
+
+.navigationPaneLinks > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
 }

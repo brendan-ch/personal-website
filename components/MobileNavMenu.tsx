@@ -2,6 +2,7 @@ import { NavigationSelected } from '../types';
 import styles from '../styles/MobileNavMenu.module.css';
 import MobileNavBar from './MobileNavBar';
 import Link from 'next/link';
+import GitHub from './icons/GitHub';
 
 interface NavigationButtonProps {
   highlighted?: boolean,
@@ -59,6 +60,7 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
         />
         {/* Navigation pane content */}
         <div className={styles.navigationPaneContent}>
+          {/* Navigation buttons */}
           <div className={styles.navigationPaneButtonContent} >
             <NavigationButton
               title="Projects"
@@ -70,6 +72,24 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
               highlighted={selected === 'About Me'}
               href="/about"
             />
+          </div>
+          {/* Social links */}
+          <div className={styles.navigationPaneLinks}>
+            <a href="https://github.com/brendan-ch" target="_blank" rel="noreferrer" >
+              <GitHub
+                width={21}
+                height={21}
+              />
+              {' '}
+              @brendan-ch
+            </a>
+            <Link
+              href="/"
+            >
+              <a>
+                Legal
+              </a>
+            </Link>
           </div>
         </div>
       </div>
