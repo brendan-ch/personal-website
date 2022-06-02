@@ -1,0 +1,137 @@
+/* Container that hosts all content, including
+background and actual content */
+.container {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.containerDisplay {
+  display: flex;
+  opacity: 100%;
+}
+
+.background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0%;
+}
+
+.backgroundDisplay {
+  display: flex;
+  opacity: 100%;
+}
+
+.fadeIn {
+  animation-name: fadein;
+  animation-duration: 0.3s;
+}
+
+.fadeOut {
+  animation-name: fadeout;
+  animation-duration: 0.3s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+.navigationPane {
+  position: fixed;
+  top: 0px;
+  left: -15em;
+  height: 100%;
+  width: 15em;
+  z-index: 999;
+  background-color: var(--black);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.navigationPaneToggled {
+  left: 0em;
+  animation-name: slidein;
+  animation-duration: 0.3s;
+}
+
+@keyframes slidein {
+  from {
+    left: -15em;
+  }
+  to {
+    left: 0em;
+  }
+}
+
+.navigationPaneContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px 30px 11px;
+  gap: 20px;
+  height: 100%;
+}
+
+.navigationPaneButtonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 100%;
+
+  flex: 1;
+}
+
+.navigationPaneButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0px;
+  gap: 10px;
+  width: 100%;
+}
+
+.navigationPaneButtonTextHighlighted {
+  font-weight: bold;
+  color: var(--selected);
+}
+
+.navigationPaneLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+}
+
+.navigationPaneLinks > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}

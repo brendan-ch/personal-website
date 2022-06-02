@@ -4,8 +4,12 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 10px;
+}
 
-
+@media only screen and (max-width: 600px) {
+  .container {
+    display: none;
+  }
 }
 
 .textContainer {
@@ -28,9 +32,9 @@
   display: flex;
 }
 
-/* .backButton {
-  
-} */
+.backButton > svg { 
+  stroke: var(--medium-gray);
+}
 
 .backButton:hover {
   cursor: pointer;
