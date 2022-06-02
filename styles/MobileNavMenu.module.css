@@ -98,6 +98,7 @@ background and actual content */
   align-items: flex-start;
   padding: 0px;
   gap: 10px;
+  width: 100%;
 }
 
 .navigationPaneButton {
@@ -106,6 +107,7 @@ background and actual content */
   align-items: center;
   padding: 10px 0px;
   gap: 10px;
+  width: 100%;
 }
 
 .navigationPaneButtonTextHighlighted {
