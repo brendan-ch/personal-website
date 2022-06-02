@@ -1,23 +1,30 @@
 import { NavigationSelected } from '../types';
 import styles from '../styles/MobileNavMenu.module.css';
 import MobileNavBar from './MobileNavBar';
+import Link from 'next/link';
 
 interface NavigationButtonProps {
   highlighted?: boolean,
-  onPress?: () => any,
   title: string,
+  /**
+   * Passed to the `<Link>` component.
+   */
+  href: string,
 }
 
-function NavigationButton({ highlighted, onPress, title }: NavigationButtonProps) {
+function NavigationButton({ highlighted, title, href }: NavigationButtonProps) {
   return (
-    <button
-      onClick={onPress ? () => onPress() : undefined}
-      className={styles.navigationPaneButton}
+    <Link
+      href={href}
     >
+      <button
+        className={styles.navigationPaneButton}
+      >
       <p className={highlighted ? styles.navigationPaneButtonTextHighlighted : undefined}>
         {title}
       </p>
-    </button>
+      </button>
+    </Link>
   )
 }
 
@@ -56,10 +63,12 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
             <NavigationButton
               title="Projects"
               highlighted={selected === 'Projects'}
+              href="/"
             />
             <NavigationButton
               title="About Me"
               highlighted={selected === 'About Me'}
+              href="/about"
             />
           </div>
         </div>
