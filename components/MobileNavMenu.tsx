@@ -58,8 +58,8 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
               highlighted={selected === 'Projects'}
             />
             <NavigationButton
-              title="About"
-              highlighted={selected === 'About'}
+              title="About Me"
+              highlighted={selected === 'About Me'}
             />
           </div>
         </div>

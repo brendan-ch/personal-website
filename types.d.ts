@@ -1,3 +1,3 @@
-type NavigationSelected = 'Projects' | 'About';
+type NavigationSelected = 'Projects' | 'About Me';
 
 export { NavigationSelected };
