@@ -108,6 +108,7 @@ background and actual content */
   gap: 10px;
 }
 
-.navigationPaneButtonHighlighted {
-  
+.navigationPaneButtonTextHighlighted {
+  font-weight: bold;
+  color: var(--selected);
 }

@@ -14,7 +14,7 @@ function NavigationButton({ highlighted, onPress, title }: NavigationButtonProps
       onClick={onPress ? () => onPress() : undefined}
       className={styles.navigationPaneButton}
     >
-      <p>
+      <p className={highlighted ? styles.navigationPaneButtonTextHighlighted : undefined}>
         {title}
       </p>
     </button>
