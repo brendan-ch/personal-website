@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/ListItem.module.css';
 
 interface Props {
@@ -9,15 +10,19 @@ interface Props {
 
 export default function ListItem({ imageLink, title, description }: Props) {
   return (
-    <div
-      className={styles.container}
+    <Link
+      href="/"
     >
-      <div
-        className={styles.textFrame}
+      <a
+        className={styles.container}
       >
-        <p className={styles.bold}>{title}</p>
-        <p>{description}</p>
-      </div>
-    </div>
+        <div
+          className={styles.textFrame}
+        >
+          <p className={styles.bold}>{title}</p>
+          <p>{description}</p>
+        </div>
+      </a>
+    </Link>
   );
 }
