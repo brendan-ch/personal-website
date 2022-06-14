@@ -12,19 +12,10 @@ export default function ListItem({ imageLink, title, description }: Props) {
     <div
       className={styles.container}
     >
-      {/* {imageLink ? (
-        <Image
-          className={styles.background}
-          alt={`Image background for ${title}`}
-          src={imageLink}
-          width="100%"
-          height="100%"
-        />
-      ) : undefined} */}
       <div
         className={styles.textFrame}
       >
-        <p>{title}</p>
+        <p className={styles.bold}>{title}</p>
         <p>{description}</p>
       </div>
     </div>
