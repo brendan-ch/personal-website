@@ -30,6 +30,7 @@ main {
   max-width: 37em;
   animation-name: fadein;
   animation-duration: 0.3s;
+  flex: 1;
 }
 
 /* Perform a reset on the button component */
