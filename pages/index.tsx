@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import PageHeader from '../components/PageHeader';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
+import { DatabaseItem } from '../types';
 
 /**
  * Generate Notion database content.
@@ -38,17 +39,28 @@ export async function getStaticProps() {
         },
       ],
     },
-    // sorts: [
-    //   {
-    //     property: 
-    //   }
-    // ]
   });
-
+  
   return {
     props: {
       lastRegenerated: Date.now(),
-      dbItems: response.results,
+      dbItems: response.results.map((value: any) => {
+
+        let description = '';
+        value.properties.Description.rich_text.map((textItem: any) => {
+          description += textItem.text.content;
+        });
+
+        return {
+          title: value.properties.Name.title[0].plain_text,
+          description,
+          imageLink: value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0
+            ? value.properties['Preview Image'].files[0].file.url
+            : null,
+          id: value.id,
+          tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
+        };
+      }),
     },
     revalidate: REVALIDATE,
   }
@@ -56,7 +68,7 @@ export async function getStaticProps() {
 
 interface Props {
   lastRegenerated: number,
-  dbItems: any[],
+  dbItems: DatabaseItem[],
 }
 
 /**
@@ -92,8 +104,10 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
         <div>
           {items.map((item, index) => {
+            // console.log(item);
+
             return (
-              <p key={item.id}>{item.properties.Name.title[0].plain_text} ({item.id})</p>
+              <p key={item.id}>{item.title} ({item.id})</p>
             );
           })}
         </div>
