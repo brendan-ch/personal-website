@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar';
 import PageHeader from '../components/PageHeader';
 import utils from '../styles/utils.module.css';
 import { Client } from '@notionhq/client';
-import { PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
+import { ABOUT_PAGE_ID, PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
 
 export async function getStaticProps() {
   // This is server side code
@@ -17,20 +17,18 @@ export async function getStaticProps() {
   });
 
   const response = await client.blocks.children.list({
-    block_id: 'd5f92ee0527143c7b596b28b49e03937',
+    block_id: ABOUT_PAGE_ID,
     page_size: PAGE_SIZE,
     // start_cursor: '0a85d4ad-0350-49ee-a592-128ec6652998',
   });
-
-  response.results[0]
 
   // Return block objects
   return {
     props: {
       blocks: response.results,
-      revalidate: REVALIDATE,
       lastRegenerated: Date.now(),
     },
+    revalidate: REVALIDATE,
   }
 }
 
