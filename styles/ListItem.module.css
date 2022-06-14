@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 10px;
+  gap: 10px;
+
+  width: 100%;
+  height: 150px;
+
+  background: linear-gradient(90deg, rgba(51, 51, 51, 0.95) 0%, rgba(51, 51, 51, 0.8) 52.08%, rgba(51, 51, 51, 0.6) 100%);
+}
+
+.background {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.textFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+
+  width: 100%;
+}
