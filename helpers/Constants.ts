@@ -1,4 +1,10 @@
 /**
+ * @todo move these values to environment variables
+ */
+export const PROJECTS_DATABASE_ID = '8bfa473991634d7885873cf269746b41';
+export const ABOUT_PAGE_ID = 'd5f92ee0527143c7b596b28b49e03937';
+
+/**
  * Controls when to regenerate a static page.
  * Only works in production.
  * @see https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
