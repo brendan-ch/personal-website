@@ -1,9 +1,9 @@
 interface DatabaseItem {
   title: string,
-  description: string,
-  imageLink: string | null,
-  imagePosX: number | null,
-  imagePosY: number | null,
+  description?: string,
+  imageLink?: string,
+  imagePosX?: number,
+  imagePosY?: number,
   /**
    * Notion database ID of the item.
    */
