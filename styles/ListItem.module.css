@@ -11,6 +11,10 @@
   border: 1px solid var(--dark-gray);
 }
 
+.container:hover {
+  border: 1px solid var(--selected);
+}
+
 .textFrame {
   display: flex;
   flex-direction: column;
