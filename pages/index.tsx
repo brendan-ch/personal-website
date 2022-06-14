@@ -9,6 +9,7 @@ import PageHeader from '../components/PageHeader';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
+import Database from '../components/Database';
 
 /**
  * Generate Notion database content.
@@ -84,7 +85,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
   const [items, setItems] = useState(dbItems);
 
   // Filter system to apply to with dropdown
-  const [filter, setFilter] = useState({});
+  // const [filter, setFilter] = useState({});
 
   return (
     <div className={utils.rootContainer}>
@@ -102,7 +103,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         />
         {/* Debug information */}
         <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
-        <div>
+        {/* <div>
           {items.map((item, index) => {
             // console.log(item);
 
@@ -110,7 +111,11 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
               <p key={item.id}>{item.title} ({item.id})</p>
             );
           })}
-        </div>
+        </div> */}
+        <Database
+          items={items}
+          tagOptions={['Featured']}
+        />
       </main>
       <MobileNavMenu
         selected={selected}
