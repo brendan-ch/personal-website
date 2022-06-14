@@ -26,11 +26,14 @@ a:hover {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  max-width: 37em;
+  max-width: 50em;
   animation-name: fadein;
   animation-duration: 0.3s;
   flex: 1;
+  gap: 20px;
 }
 
 /* Perform a reset on the button component */
