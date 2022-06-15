@@ -11,8 +11,6 @@ import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
 import Database from '../components/Database';
 import Link from 'next/link';
-import { DatabaseItem } from '../types';
-import Database from '../components/Database';
 
 /**
  * Generate Notion database content.
