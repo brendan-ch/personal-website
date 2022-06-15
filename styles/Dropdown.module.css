@@ -1,0 +1,36 @@
+/* Container that hosts all content, including
+background and actual content */
+.container {
+  z-index: 999;
+  position: absolute;
+  flex-direction: column;
+  gap: 5px;
+  background-color: var(--white);
+  display: none;
+
+  width: 200px;
+}
+
+.clickListener {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Toggle this class to get dropdown to display */
+.containerVisible {
+  display: flex;
+}
+
+.dropdownItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 10px;
+
+  height: 60px;
+}
+
+.dropdownItem p {
+  color: var(--black);
+}
