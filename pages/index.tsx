@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import PageHeader from '../components/PageHeader';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
+import Link from 'next/link';
 
 /**
  * Generate Notion database content.
@@ -74,7 +75,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
   // Filter system to apply to with dropdown
   const [filter, setFilter] = useState({});
 
-  return (
+  return process.env.NODE_ENV !== 'production' ? (
     <div className={utils.rootContainer}>
       <NavBar selected={selected} />
       <MobileNavBar
@@ -104,7 +105,27 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         onClose={() => setMenuToggled(false)}
       />
     </div>
-  )
+  ) : (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+        padding: 30,
+      }}
+    >
+      <p>Coming soon...</p>
+      <Link
+        href="https://github.com/brendan-ch"
+      >
+        <a>
+          GitHub (brendan-ch)
+        </a>
+      </Link>
+    </div>
+  );
 }
 
 export default Projects;
