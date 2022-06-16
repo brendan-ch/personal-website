@@ -137,14 +137,15 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
           onDropdownButtonPress={(top, left) => handleDropdownButtonPress(top, left)}
           onDropdownButtonPosChange={(top, left) => handleDropdownButtonPosChange(top, left)}
         />
-        <Dropdown
-          visible={dropdownVisible}
-          options={['Featured', 'All Projects']}
-          onSelect={(selected) => setTagSelected(selected)}
-          top={top}
-          left={left}
-        />
       </main>
+      <Dropdown
+        visible={dropdownVisible}
+        options={['Featured', 'All Projects']}
+        onSelect={(selected) => setTagSelected(selected)}
+        onClose={() => setDropdownVisible(false)}
+        top={top}
+        left={left}
+      />
       <MobileNavMenu
         selected={selected}
         visible={menuToggled}
