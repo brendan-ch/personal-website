@@ -16,11 +16,11 @@ interface Props {
 export default function Dropdown({ top, left, options, onClose, onSelect, visible }: Props) {
   return (
     <div
-      className={styles.clickListener}
+      className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
       onClick={onClose ? () => onClose() : undefined}
     >
       <div
-        className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
+        className={styles.dropdown}
         style={{
           top,
           left,

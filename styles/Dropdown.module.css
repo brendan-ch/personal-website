@@ -1,26 +1,30 @@
 /* Container that hosts all content, including
 background and actual content */
 .container {
-  z-index: 999;
-  position: absolute;
-  flex-direction: column;
-  gap: 5px;
-  background-color: var(--white);
-  display: none;
-
-  width: 200px;
-}
-
-.clickListener {
   z-index: 1;
   width: 100%;
   height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: none;
 }
 
 /* Toggle this class to get dropdown to display */
 .containerVisible {
   display: flex;
 }
+
+.dropdown {
+  z-index: 999;
+  position: absolute;
+  flex-direction: column;
+  gap: 5px;
+  background-color: var(--white);
+  
+  width: 200px;
+}
+
 
 .dropdownItem {
   display: flex;
