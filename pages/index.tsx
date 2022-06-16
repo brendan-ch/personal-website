@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { Client } from '@notionhq/client';
 
 import MobileNavBar from '../components/MobileNavBar';
@@ -11,6 +11,7 @@ import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
 import Database from '../components/Database';
 import Link from 'next/link';
+import Dropdown from '../components/Dropdown';
 
 /**
  * Generate Notion database content.
@@ -82,11 +83,33 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
   const [menuToggled, setMenuToggled] = useState(false);
   const selected = "Projects";
 
+  // To control the dropdown menu
+  const [tagSelected, setTagSelected] = useState('Featured');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [top, setTop] = useState(0);
+  const [left, setLeft] = useState(0);
+
   // Set all items in memory here
   const [items, setItems] = useState(dbItems);
 
   // Filter system to apply to with dropdown
   // const [filter, setFilter] = useState({});
+
+  /**
+   * Handle the press of the dropdown menu button.
+   * @param e
+   */
+  function handleDropdownButtonPress(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) {
+    // @ts-ignore
+    const button: HTMLButtonElement = e.target;
+
+    console.log(button.offsetTop);
+    console.log(button.offsetLeft);
+
+    setTop(button.offsetTop);
+    setLeft(button.offsetLeft);
+    setDropdownVisible(true);
+  }
 
   return process.env.NODE_ENV !== 'production' ? (
     <div className={utils.rootContainer}>
@@ -115,7 +138,15 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         </div> */}
         <Database
           items={items}
-          tagOptions={['Featured']}
+          tag={tagSelected}
+          onDropdownButtonPress={(e) => handleDropdownButtonPress(e)}
+        />
+        <Dropdown
+          visible={dropdownVisible}
+          options={['Featured', 'All Projects']}
+          onSelect={(selected) => setTagSelected(selected)}
+          top={top}
+          left={left}
         />
       </main>
       <MobileNavMenu
