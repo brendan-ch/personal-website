@@ -11,6 +11,18 @@ interface DatabaseItem {
   tags: string[],
 }
 
+interface DatabaseDropdownFilter {
+  /**
+   * The name that appears in the dropdown menu.
+   */
+  dropdownName: string,
+  /**
+   * The name of the tag to filter.
+   */
+  tagName: string,
+  type: 'gallery' | 'list',
+}
+
 type NavigationSelected = 'Projects' | 'About Me';
 
-export { NavigationSelected, DatabaseItem };
+export { NavigationSelected, DatabaseItem, DatabaseDropdownFilter };
