@@ -30,9 +30,14 @@ background and actual content */
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 10px;
+  margin: 0px 10px;
 
   height: 60px;
+  width: 190px;
+}
+
+.dropdownItem:hover {
+  background: var(--light-gray)
 }
 
 .dropdownItem p {
