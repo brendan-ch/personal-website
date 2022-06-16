@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { Client } from '@notionhq/client';
 
 import MobileNavBar from '../components/MobileNavBar';
@@ -92,23 +92,27 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
   // Set all items in memory here
   const [items, setItems] = useState(dbItems);
 
-  // Filter system to apply to with dropdown
-  // const [filter, setFilter] = useState({});
-
   /**
    * Handle the press of the dropdown menu button.
    * @param e
    */
-  function handleDropdownButtonPress(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) {
-    // @ts-ignore
-    const button: HTMLButtonElement = e.target;
+  function handleDropdownButtonPress(top: number, left: number) {
+    setTop(top);
+    setLeft(left);
 
-    console.log(button.offsetTop);
-    console.log(button.offsetLeft);
+    console.log(top);
 
-    setTop(button.offsetTop);
-    setLeft(button.offsetLeft);
     setDropdownVisible(true);
+  }
+
+  /**
+   * Handle re-setting the dropdown menu button position.
+   * @param top
+   * @param left
+   */
+  function handleDropdownButtonPosChange(top: number, left: number) {
+    setTop(top);
+    setLeft(left);
   }
 
   return process.env.NODE_ENV !== 'production' ? (
@@ -127,19 +131,11 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         />
         {/* Debug information */}
         <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
-        {/* <div>
-          {items.map((item, index) => {
-            // console.log(item);
-
-            return (
-              <p key={item.id}>{item.title} ({item.id})</p>
-            );
-          })}
-        </div> */}
         <Database
           items={items}
           tag={tagSelected}
-          onDropdownButtonPress={(e) => handleDropdownButtonPress(e)}
+          onDropdownButtonPress={(top, left) => handleDropdownButtonPress(top, left)}
+          onDropdownButtonPosChange={(top, left) => handleDropdownButtonPosChange(top, left)}
         />
         <Dropdown
           visible={dropdownVisible}

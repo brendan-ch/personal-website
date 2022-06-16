@@ -10,7 +10,7 @@ interface Props {
 }
 
 /**
- * Dropdown content. Should be wrapped 
+ * Dropdown content and wrapper.
  * @returns
  */
 export default function Dropdown({ top, left, options, onClose, onSelect, visible }: Props) {
