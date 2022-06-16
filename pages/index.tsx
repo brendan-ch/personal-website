@@ -29,12 +29,6 @@ export async function getStaticProps() {
     filter: {
       and: [
         {
-          property: 'Tags',
-          multi_select: {
-            contains: 'Featured',
-          }
-        },
-        {
           property: 'Published',
           checkbox: {
             equals: true,
