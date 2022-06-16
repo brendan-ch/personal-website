@@ -27,7 +27,11 @@ export default function Dropdown({ top, left, options, onClose, onSelect, visibl
         }}
       >
         {options.map((value, index) => (
-          <button className={styles.dropdownItem} key={index}>
+          <button
+            className={styles.dropdownItem}
+            key={index}
+            onClick={() => onSelect(value)}
+          >
             <p>{value}</p>
           </button>
         ))}
