@@ -12,9 +12,6 @@ interface Props {
   onDropdownButtonPosChange?: (top: number, left: number) => any,
 }
 
-/**
- * @todo Move dropdown implementation and state up to projects page
- */
 export default function Database({
     items,
     onDropdownButtonPress,
