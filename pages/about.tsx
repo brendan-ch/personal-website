@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader';
 import utils from '../styles/utils.module.css';
 import { Client } from '@notionhq/client';
 import { ABOUT_PAGE_ID, PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
+import NotionRenderer from '../components/NotionRenderer';
 
 export async function getStaticProps() {
   // This is server side code
@@ -72,7 +73,10 @@ export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props
         {/* Last regenerated */}
         <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
         {/* Page content */}
-        <div>
+        <NotionRenderer
+          blocks={blocks}
+        />
+        {/* <div>
           {blocks.map((item, index) => {
             if (item.type && item.type === 'paragraph') {
               // Render rich text
@@ -92,7 +96,7 @@ export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props
               <p key={index}>Paragraph object</p>
             );
           })}
-        </div>
+        </div> */}
       </main>
       <MobileNavMenu
         selected={selected}
