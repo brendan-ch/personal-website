@@ -21,7 +21,7 @@ export default function Database({
   const filteredItems = dropdownFilter.tagName !== undefined
     // @ts-ignore
     ? items.filter((value) => value.tags.includes(dropdownFilter.tagName))
-    : [];
+    : items;
   
   /**
    * Handle the press of the dropdown menu button.
