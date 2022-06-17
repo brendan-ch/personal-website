@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 5px;
+  gap: 10px;
+
+  width: 100%;
+  height: 150px;
+
+  border: 1px solid var(--dark-gray);
+}
+
+.container:hover {
+  border: 1px solid var(--selected);
+}
+
+.textFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+
+  width: 100%;
+}
+
+.bold {
+  font-weight: 500;
+  font-family: 'Red Hat Mono';
+}
