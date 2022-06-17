@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import { relative } from 'path';
 import { useEffect, useState } from 'react';
 import styles from '../styles/NotionRenderer.module.css';
 
@@ -8,6 +10,25 @@ interface Props {
   blocks: any[],
 }
 
+/**
+ * Return plain text from an array of rich text items.
+ * @param richTextItems
+ */
+function returnPlainText(richTextItems: any[]) {
+  let plainText = '';
+
+  richTextItems.forEach((item) => {
+    plainText += item.plain_text;
+  });
+
+  return plainText;
+}
+
+/**
+ * Return a JSX element from a rich text item.
+ * @param richTextItem
+ * @returns
+ */
 function richTextRenderer(richTextItem: any) {
   let toReturn: any = richTextItem.text.content;
 
@@ -63,12 +84,30 @@ const Renderers = {
       {block.rich_text.map(richTextRenderer)}
     </h3>
   ),
+  image: (block: any, key: string | number) => {
+    console.log(block);
+    
+    return (
+      <div
+        className={styles.imageContainer}
+        key={key}
+      >
+        <Image
+          alt={returnPlainText(block.caption)}
+          src={block.type === 'file' ? block.file.url : block.external.url}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+    );
+  },
 };
 
 /**
  * @todo Fix hydration error so JavaScript isn't needed
  */
 export default function NotionRenderer({ blocks }: Props) {
+  // console.log(blocks);
   const [renderBlocks, setRenderBlocks] = useState<any[]>([]);
 
   useEffect(() => {
