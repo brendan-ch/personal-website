@@ -84,9 +84,18 @@ const Renderers = {
       {block.rich_text.map(richTextRenderer)}
     </h3>
   ),
+  bulleted_list_item: (block: any, key: string | number) => {
+    console.log(block.children);
+
+    return (
+      <div key={key}>
+        <li>
+          {block.rich_text.map(richTextRenderer)}
+        </li>
+      </div>
+    )
+  },
   image: (block: any, key: string | number) => {
-    console.log(block);
-    
     return (
       <div
         className={styles.imageContainer}

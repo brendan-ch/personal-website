@@ -99,3 +99,10 @@ p {
   padding: 0px;
   margin: 0px;
 }
+
+li {
+  color: var(--white);
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px;
+}
