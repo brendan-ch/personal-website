@@ -93,6 +93,15 @@ const Renderers = {
       </div>
     )
   },
+  toggle: (block: any, key: string | number) => {
+    return (
+      <div key={key}>
+        <li>
+          {block.rich_text.map(richTextRenderer)}
+        </li>
+      </div>
+    )
+  },
   numbered_list_item: (block: any, key: string | number) => {
     return (
       <div key={key}>
