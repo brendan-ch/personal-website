@@ -18,8 +18,9 @@ interface DatabaseDropdownFilter {
   dropdownName: string,
   /**
    * The name of the tag to filter.
+   * If undefined, no tag filter will be applied.
    */
-  tagName: string,
+  tagName?: string,
   type: 'gallery' | 'list',
 }
 
