@@ -129,7 +129,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
     setLeft(left);
   }
 
-  return process.env.NODE_ENV !== 'production' ? (
+  return (
     <div className={utils.rootContainer}>
       <NavBar selected={selected} />
       <MobileNavBar
@@ -166,26 +166,6 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         visible={menuToggled}
         onClose={() => setMenuToggled(false)}
       />
-    </div>
-  ) : (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 10,
-        padding: 30,
-      }}
-    >
-      <p>Coming soon...</p>
-      <Link
-        href="https://github.com/brendan-ch"
-      >
-        <a>
-          GitHub (brendan-ch)
-        </a>
-      </Link>
     </div>
   );
 }
