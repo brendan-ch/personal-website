@@ -24,11 +24,19 @@ const Renderers = {
         }
 
         if (richTextItem.annotations.underline) {
-          toReturn = <u>{toReturn}</u>
+          toReturn = <u>{toReturn}</u>;
         }
 
         if (richTextItem.annotations.italic) {
-          toReturn = <i>{toReturn}</i>
+          toReturn = <i>{toReturn}</i>;
+        }
+
+        if (richTextItem.annotations.strikethrough) {
+          toReturn = <s>{toReturn}</s>;
+        }
+
+        if (richTextItem.text.link) {
+          toReturn = <a href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
         }
 
         return toReturn;
