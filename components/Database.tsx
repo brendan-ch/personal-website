@@ -1,4 +1,4 @@
-import { DatabaseItem } from '../types';
+import { DatabaseDropdownFilter, DatabaseItem } from '../types';
 import styles from '../styles/Database.module.css';
 import Down from './icons/Down';
 import { MouseEvent, useEffect, useState } from 'react';
@@ -7,7 +7,7 @@ import Dropdown from './Dropdown';
 
 interface Props {
   items: DatabaseItem[],
-  tag: string,
+  dropdownFilter: DatabaseDropdownFilter,
   onDropdownButtonPress?: (top: number, left: number) => any,
   onDropdownButtonPosChange?: (top: number, left: number) => any,
 }
@@ -15,8 +15,16 @@ interface Props {
 /**
  * @todo Move dropdown implementation and state up to projects page
  */
-export default function Database({ items, tag, onDropdownButtonPress, onDropdownButtonPosChange }: Props) {
-  const filteredItems = tag ? items.filter((value) => value.tags.includes(tag)) : [];
+export default function Database({
+    items,
+    onDropdownButtonPress,
+    onDropdownButtonPosChange,
+    dropdownFilter,
+  }: Props) {
+  const filteredItems = dropdownFilter.tagName !== undefined
+    // @ts-ignore
+    ? items.filter((value) => value.tags.includes(dropdownFilter.tagName))
+    : [];
   
   /**
    * Handle the press of the dropdown menu button.
@@ -49,7 +57,7 @@ export default function Database({ items, tag, onDropdownButtonPress, onDropdown
           className={styles.dropdownButton}
           onClick={onDropdownButtonPress ? (e) => handleButtonPress(e) : undefined}
         >
-          <p>{tag}</p>
+          <p>{dropdownFilter.dropdownName}</p>
           <Down
             width={40}
             height={40}

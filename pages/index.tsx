@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import PageHeader from '../components/PageHeader';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseItem } from '../types';
+import { DatabaseDropdownFilter, DatabaseItem } from '../types';
 import Database from '../components/Database';
 import Link from 'next/link';
 import Dropdown from '../components/Dropdown';
@@ -78,13 +78,33 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
   const selected = "Projects";
 
   // To control the dropdown menu
-  const [tagSelected, setTagSelected] = useState('Featured');
+  const [dropdownSelected, setDropdownSelected] = useState('Featured');
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
 
   // Set all items in memory here
   const [items, setItems] = useState(dbItems);
+
+  const dropdownFilters: DatabaseDropdownFilter[] = [
+    {
+      dropdownName: 'Featured',
+      tagName: 'Featured',
+      type: 'list',
+    },
+    {
+      dropdownName: 'All Projects',
+      type: 'list'
+    },
+  ];
+
+  let dropdownFilter = dropdownFilters.find((value) => value.dropdownName === dropdownSelected);
+  if (!dropdownFilter) {
+    dropdownFilter = {
+      dropdownName: 'All Projects',
+      type: 'list',
+    };
+  }
 
   /**
    * Handle the press of the dropdown menu button.
@@ -127,15 +147,16 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
         <Database
           items={items}
-          tag={tagSelected}
+          dropdownFilter={dropdownFilter}
+          // tag={tagSelected}
           onDropdownButtonPress={(top, left) => handleDropdownButtonPress(top, left)}
           onDropdownButtonPosChange={(top, left) => handleDropdownButtonPosChange(top, left)}
         />
       </main>
       <Dropdown
         visible={dropdownVisible}
-        options={['Featured', 'All Projects']}
-        onSelect={(selected) => setTagSelected(selected)}
+        options={dropdownFilters.map((value) => value.dropdownName)}
+        onSelect={(selected) => setDropdownSelected(selected)}
         onClose={() => setDropdownVisible(false)}
         top={top}
         left={left}
