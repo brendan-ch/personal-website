@@ -58,6 +58,7 @@ function richTextRenderer(richTextItem: any) {
 /**
  * Object containing callbacks to return JSX elements
  * based on block type.
+ * @todo Prevent cumulative layout shift with video element
  */
 const Renderers = {
   paragraph: (block: any, key: string | number) => (
