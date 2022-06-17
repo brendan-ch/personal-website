@@ -30,7 +30,7 @@ background and actual content */
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0px 10px;
+  padding: 0px 0px 0px 10px;
 
   height: 60px;
   width: 190px;
