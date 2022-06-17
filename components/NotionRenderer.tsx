@@ -85,13 +85,20 @@ const Renderers = {
     </h3>
   ),
   bulleted_list_item: (block: any, key: string | number) => {
-    console.log(block.children);
-
     return (
       <div key={key}>
         <li>
           {block.rich_text.map(richTextRenderer)}
         </li>
+      </div>
+    )
+  },
+  numbered_list_item: (block: any, key: string | number) => {
+    return (
+      <div key={key}>
+        <p>
+          {block.rich_text.map(richTextRenderer)}
+        </p>
       </div>
     )
   },
