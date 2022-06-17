@@ -16,9 +16,23 @@ const Renderers = {
   paragraph: (block: any, key: string | number) => (
     // Nest rich text items inside paragraph
     <p key={key}>
-      {block.rich_text.map((richTextItem: any, index: number) => (
-        <p key={index}>{richTextItem.text.content}</p>
-      ))}
+      {block.rich_text.map((richTextItem: any, index: number) => {
+        let toReturn: any = richTextItem.text.content;
+
+        if (richTextItem.annotations.bold) {
+          toReturn = <b>{toReturn}</b>;
+        }
+
+        if (richTextItem.annotations.underline) {
+          toReturn = <u>{toReturn}</u>
+        }
+
+        if (richTextItem.annotations.italic) {
+          toReturn = <i>{toReturn}</i>
+        }
+
+        return toReturn;
+      })}
     </p>
   )
 };
