@@ -7,26 +7,16 @@ import utils from '../styles/utils.module.css';
 import { Client } from '@notionhq/client';
 import { ABOUT_PAGE_ID, PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
 import NotionRenderer from '../components/NotionRenderer';
+import getChildrenBlocks from '../helpers/getChildrenBlocks';
 
 export async function getStaticProps() {
   // This is server side code
-  const token = process.env.NOTION_TOKEN;
-
-  // Call Notion endpoint
-  const client = new Client({
-    auth: token,
-  });
-
-  const response = await client.blocks.children.list({
-    block_id: ABOUT_PAGE_ID,
-    page_size: PAGE_SIZE,
-    // start_cursor: '0a85d4ad-0350-49ee-a592-128ec6652998',
-  });
+  const blocks = await getChildrenBlocks(ABOUT_PAGE_ID);
 
   // Return block objects
   return {
     props: {
-      blocks: response.results,
+      blocks,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
@@ -52,6 +42,7 @@ interface Props {
  * @returns
  */
 export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props) {
+  // console.log(blocks);
   // Whether the navigation menu is open
   const [menuToggled, setMenuToggled] = useState(false);
   const selected = "About Me";
