@@ -85,25 +85,45 @@ const Renderers = {
       {block.rich_text.map(richTextRenderer)}
     </h3>
   ),
-  bulleted_list_item: (block: any, key: string | number) => {
+  bulleted_list_item: (block: any, key: string | number, children?: any[]) => {
     return (
       <div key={key}>
         <li>
           {block.rich_text.map(richTextRenderer)}
         </li>
+        {/* Indent */}
+        <div className={styles.bulletedListIndentContainer}>
+          {children
+            ? children.map((child: any, i: number) => 
+              // @ts-ignore
+              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
+            )
+            : undefined
+          }
+        </div>
       </div>
     )
   },
-  toggle: (block: any, key: string | number) => {
+  toggle: (block: any, key: string | number, children?: any) => {
     return (
       <div key={key}>
         <li>
           {block.rich_text.map(richTextRenderer)}
         </li>
+        {/* Indent */}
+        <div className={styles.bulletedListIndentContainer}>
+          {children
+            ? children.map((child: any, i: number) => 
+              // @ts-ignore
+              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
+            )
+            : undefined
+          }
+        </div>
       </div>
     )
   },
-  numbered_list_item: (block: any, key: string | number) => {
+  numbered_list_item: (block: any, key: string | number, children?: any) => {
     return (
       <div key={key}>
         <p>
@@ -150,7 +170,7 @@ export default function NotionRenderer({ blocks }: Props) {
   return (
     <div className={styles.container}>
       {/* @ts-ignore */}
-      {renderBlocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index) : undefined)}
+      {renderBlocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
     </div>
   );
 }
