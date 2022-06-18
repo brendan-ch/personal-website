@@ -10,6 +10,16 @@
   position: relative;
 }
 
+.bulletedListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bulletedListIndentContainer {
+  margin-left: 20px;
+}
+
 /* .videoContainer {
   width: 100%;
   height: 25em;
