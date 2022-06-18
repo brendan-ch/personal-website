@@ -1,4 +1,9 @@
 /**
+ * Maximum depth that the `getChildrenBlocks` function can recurse to.
+ */
+export const MAX_RECURSION_DEPTH = 5;
+
+/**
  * @todo move these values to environment variables
  */
 export const PROJECTS_DATABASE_ID = '8bfa473991634d7885873cf269746b41';

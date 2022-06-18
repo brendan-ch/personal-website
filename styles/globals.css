@@ -5,6 +5,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: var(--black);
+  font-weight: 300;
   overflow: hidden;
 }
 
@@ -30,10 +31,12 @@ main {
   flex-direction: column;
   padding: 10px;
   max-width: 50em;
+  max-height: 100%;
   animation-name: fadein;
   animation-duration: 0.3s;
   flex: 1;
   gap: 20px;
+  overflow-y: scroll;
 }
 
 /* Perform a reset on the button component */
@@ -68,15 +71,23 @@ button {
 }
 
 h1 {
-  font-weight: 430;
-  font-family: 'Red Hat Mono';
+  font-weight: 400;
+  /* font-family: 'Red Hat Mono'; */
   color: var(--white);
   padding: 0px;
   margin: 0px;
 }
 
 h2 {
-  font-weight: 300;
+  font-weight: 400;
+  color: var(--white);
+  font-size: 25px;
+  padding: 0px;
+  margin: 0px;
+}
+
+h3 {
+  font-weight: 400;
   color: var(--white);
   font-size: 21px;
   padding: 0px;
@@ -85,6 +96,20 @@ h2 {
 
 /* Unless overridden */
 p {
+  color: var(--white);
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  color: var(--white);
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px;
+}
+
+ol {
   color: var(--white);
   font-size: 18px;
   padding: 0px;

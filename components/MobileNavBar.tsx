@@ -29,7 +29,7 @@ export default function MobileNavBar({ button, title, onPress }: Props) {
         </button>
       ) : undefined}
       {/* Text */}
-      <h2>{title}</h2>
+      <h3>{title}</h3>
     </div>
   );
 }
