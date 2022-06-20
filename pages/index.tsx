@@ -89,8 +89,6 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
     setTop(top);
     setLeft(left);
 
-    console.log(top);
-
     setDropdownVisible(true);
   }
 
