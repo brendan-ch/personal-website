@@ -18,16 +18,16 @@ async function getPageProperties(pageId: string): Promise<DatabaseItem> {
 
   // Return a database item
   let description = '';
-  response.Description.rich_text.map((textItem: any) => {
+  response.properties.Description.rich_text.map((textItem: any) => {
     description += textItem.text.content;
   });
 
   return {
-    title: response.Name[0].plain_text,
+    title: response.properties.Name.title[0].plain_text,
     id: response.id,
-    tags: response['Tags'].multi_select.map((item: any) => item.name),
-    imageLink: response['Preview Image'].files && response['Preview Image'].files.length > 0
-      ? response['Preview Image'].files[0].file.url
+    tags: response.properties['Tags'].multi_select.map((item: any) => item.name),
+    imageLink: response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0
+      ? response.properties['Preview Image'].files[0].file.url
       : null,
     description,
   };
