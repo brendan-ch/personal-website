@@ -4,7 +4,7 @@ import { NavigationSelected } from '../types';
 import GitHub from './icons/GitHub';
 
 interface Props {
-  selected: NavigationSelected,
+  selected?: NavigationSelected,
 }
 
 /**
