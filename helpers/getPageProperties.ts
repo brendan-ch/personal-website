@@ -14,8 +14,6 @@ async function getPageProperties(pageId: string): Promise<DatabaseItem> {
     page_id: pageId,
   });
 
-  console.log(response);
-
   // Return a database item
   let description = '';
   response.properties.Description.rich_text.map((textItem: any) => {
