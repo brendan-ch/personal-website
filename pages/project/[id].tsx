@@ -1,8 +1,14 @@
+import utils from '../../styles/utils.module.css';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDatabaseBlocks from '../../helpers/getDatabaseBlocks';
 import getPageProperties from '../../helpers/getPageProperties';
 import { DatabaseItem } from '../../types';
+import NavBar from '../../components/NavBar';
+import MobileNavBar from '../../components/MobileNavBar';
+import { useState } from 'react';
+import PageHeader from '../../components/PageHeader';
+import NotionRenderer from '../../components/NotionRenderer';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -78,10 +84,26 @@ interface Props {
  * @returns
  */
 export default function ProjectPage({ blocks, title, lastRegenerated }: Props) {
-  console.log(title);
+  const [menuToggled, setMenuToggled] = useState(false);
+
   return (
-    <div>
-      <p>Hello there</p>
+    <div className={utils.rootContainer}>
+      <NavBar />
+      <MobileNavBar
+        title={title}
+        button="hamburger"
+        onPress={() => setMenuToggled(!menuToggled)}
+      />
+      <main>
+        <PageHeader
+          aboveText="Back"
+          includeBackButton
+          belowText={title || ''}
+        />
+        <NotionRenderer
+          blocks={blocks || []}
+        />
+      </main>
     </div>
   );
 }
