@@ -1,6 +1,8 @@
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDatabaseBlocks from '../../helpers/getDatabaseBlocks';
+import getPageProperties from '../../helpers/getPageProperties';
+import { DatabaseItem } from '../../types';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -28,6 +30,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
+  let dbItem: DatabaseItem | null;
 
   if (!params || typeof params.id !== 'string') return {
     props: {
@@ -40,6 +43,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   // Get block data
   try {
     blocks = await getChildrenBlocks(params.id);
+    dbItem = await getPageProperties(params.id);
   } catch(e) {
     return {
       props: {
@@ -53,7 +57,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   return {
     props: {
       blocks,
-      title: null,
+      title: dbItem.title,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
@@ -74,6 +78,7 @@ interface Props {
  * @returns
  */
 export default function ProjectPage({ blocks, title, lastRegenerated }: Props) {
+  console.log(title);
   return (
     <div>
       <p>Hello there</p>
