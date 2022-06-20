@@ -12,52 +12,27 @@ import { DatabaseDropdownFilter, DatabaseItem } from '../types';
 import Database from '../components/Database';
 import Link from 'next/link';
 import Dropdown from '../components/Dropdown';
+import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
 
 /**
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  const token = process.env.NOTION_TOKEN;
-
-  // Get featured projects from Notion
-  const client = new Client({
-    auth: token,
-  });
-
-  const response = await client.databases.query({
-    database_id: PROJECTS_DATABASE_ID,
-    filter: {
-      and: [
-        {
-          property: 'Published',
-          checkbox: {
-            equals: true,
-          },
+  const items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
+    and: [
+      {
+        property: 'Published',
+        checkbox: {
+          equals: true,
         },
-      ],
-    },
+      },
+    ],
   });
   
   return {
     props: {
       lastRegenerated: Date.now(),
-      dbItems: response.results.map((value: any) => {
-
-        let description = '';
-        value.properties.Description.rich_text.map((textItem: any) => {
-          description += textItem.text.content;
-        });
-
-        return {
-          title: value.properties.Name.title[0].plain_text,
-          description,
-          imageLink: value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0
-            ? value.properties['Preview Image'].files[0].file.url
-            : null,
-          id: value.id,
-          tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
-        };
-      }),
+      dbItems: items,
     },
     revalidate: REVALIDATE,
   }
