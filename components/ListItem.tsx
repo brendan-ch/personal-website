@@ -6,12 +6,13 @@ interface Props {
   imageLink?: string,
   title: string,
   description?: string,
+  link?: string,
 }
 
-export default function ListItem({ imageLink, title, description }: Props) {
+export default function ListItem({ imageLink, title, description, link }: Props) {
   return (
     <Link
-      href="/"
+      href={link || '/'}
     >
       <a
         className={styles.container}
