@@ -1,7 +1,7 @@
 .tab {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 40px;
 }
@@ -9,15 +9,25 @@
 .tabLine {
   display: flex;
   width: 100%;
-  background-color: var(--emphasis);
+  background-color: transparent;
   height: 4px;
+}
+
+.tabLineSelected {
+  background-color: var(--emphasis);
 }
 
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contentContainer {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 0px;
   gap: 10px;
   height: 3.5em;
@@ -45,7 +55,6 @@
   top: 0px;
   left: 0%;
   right: 0%;
-  z-index: 1;
   background-color: var(--emphasis);
   height: 1px;
 }
