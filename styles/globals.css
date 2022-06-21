@@ -4,7 +4,8 @@ body {
   margin: 0;
   font-family: neue-haas-grotesk-display, sans-serif;
   letter-spacing: 0.01em;
-  background: var(--background);
+  background: url(../public/background-pattern.png);
+  background-color: var(--background);
   font-weight: 300;
   overflow: hidden;
 }
