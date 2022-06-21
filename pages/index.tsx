@@ -50,35 +50,7 @@ interface Props {
  * @returns
  */
 const Projects = ({ dbItems }: Props) => {
-  // Whether the navigation menu is open
-  const [menuToggled, setMenuToggled] = useState(false);
   const selected = "Featured";
-
-  // To control the dropdown menu
-  const [dropdownSelected, setDropdownSelected] = useState('Featured');
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [top, setTop] = useState(0);
-  const [left, setLeft] = useState(0);
-
-  const dropdownFilters: DatabaseDropdownFilter[] = [
-    {
-      dropdownName: 'Featured',
-      tagName: 'Featured',
-      type: 'list',
-    },
-    {
-      dropdownName: 'All Projects',
-      type: 'list'
-    },
-  ];
-
-  let dropdownFilter = dropdownFilters.find((value) => value.dropdownName === dropdownSelected);
-  if (!dropdownFilter) {
-    dropdownFilter = {
-      dropdownName: 'All Projects',
-      type: 'list',
-    };
-  }
 
   return (
     <div className={utils.rootContainer}>
