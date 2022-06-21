@@ -4,6 +4,7 @@ import Down from './icons/Down';
 import { MouseEvent, useEffect, useState } from 'react';
 import ListItem from './ListItem';
 import Dropdown from './Dropdown';
+import GalleryItem from './GalleryItem';
 
 interface Props {
   items: DatabaseItem[],
@@ -49,27 +50,21 @@ export default function Database({
 
   return (
     <div className={styles.container}>
-      <div className={styles.dropdownButtonContainer}>
-        <button id="dropdownButton"
-          className={styles.dropdownButton}
-          onClick={onDropdownButtonPress ? (e) => handleButtonPress(e) : undefined}
-        >
-          <p>{dropdownFilter.dropdownName}</p>
-          <Down
-            width={40}
-            height={40}
-          />
-        </button>
-      </div>
-      <div className={styles.divider} />
       {/* Content */}
       {filteredItems.map((item) => (
-        <ListItem
+        // <ListItem
+        //   key={item.id}
+        //   title={item.title}
+        //   description={item.description}
+        //   imageLink={item.imageLink}
+        //   link={`/project/${item.id}`}
+        // />
+        <GalleryItem
           key={item.id}
           title={item.title}
           description={item.description}
           imageLink={item.imageLink}
-          link={`/project/${item.id}`}
+          link={`/projects/${item.id}`}
         />
       ))}
     </div>
