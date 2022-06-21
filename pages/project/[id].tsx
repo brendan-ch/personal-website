@@ -86,15 +86,10 @@ interface Props {
 export default function ProjectPage({ blocks, title }: Props) {
   return (
     <div className={utils.rootContainer}>
-      <MobileNavBar
-        title={title}
-        display="project"
-      />
       <main>
-        <PageHeader
-          aboveText="Back"
-          includeBackButton
-          belowText={title || ''}
+        <MobileNavBar
+          title={title}
+          display="project"
         />
         <NotionRenderer
           blocks={blocks || []}
