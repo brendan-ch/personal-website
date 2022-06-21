@@ -1,11 +1,30 @@
+import Link from 'next/link';
 import styles from '../styles/MobileNavBar.module.css';
 import Back from './icons/Back';
 import Hamburger from './icons/Hamburger';
 
+interface TabProps {
+  selected: boolean,
+  text: string,
+  href: string,
+}
+
+function MobileNavBarTab({ selected, text, href }: TabProps) {
+  return (
+    <Link href={href}>
+      <a>{text}</a>
+    </Link>
+  )
+}
+
 interface Props {
-  button?: 'none' | 'hamburger' | 'back',
+  // button?: 'none' | 'hamburger' | 'back',
+  display: 'tabs' | 'project',
+  /**
+   * Only shown if `display` is set to `project`.
+   */
   title?: string,
-  onPress?: () => any,
+  selected?: string,
 }
 
 /**
@@ -13,11 +32,11 @@ interface Props {
  * The hamburger menu opens up an overlay with links to the other pages.
  * @param props
  */
-export default function MobileNavBar({ button, title, onPress }: Props) {
+export default function MobileNavBar({ title, display, selected }: Props) {
   return (
     <div className={styles.container}>
       {/* Hamburger menu */}
-      {button && button !== 'none' ? (
+      {/* {button && button !== 'none' ? (
         <button
           className={styles.navBarButton}
           onClick={onPress ? () => onPress() : undefined}>
@@ -27,9 +46,29 @@ export default function MobileNavBar({ button, title, onPress }: Props) {
             <Back width={40} height={40} />
           )}
         </button>
-      ) : undefined}
-      {/* Text */}
-      <h3>{title}</h3>
+      ) : undefined} */}
+      {/* <div className={styles.line} /> */}
+      {display === 'tabs' ? (
+        <div className={styles.buttonsContainer}>
+          <MobileNavBarTab
+            href="/about"
+            selected={selected === 'About Me'}
+            text="Featured"
+          />
+          <MobileNavBarTab
+            href="/about"
+            selected={selected === 'About Me'}
+            text="All"
+          />
+          <MobileNavBarTab
+            href="/about"
+            selected={selected === 'About Me'}
+            text="About Me"
+          />
+        </div>
+      ) : (
+        <h3>{title}</h3>
+      )}
     </div>
   );
 }

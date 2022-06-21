@@ -1,10 +1,27 @@
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 0px;
   gap: 10px;
-  width: 100vw;
   height: 3.5em;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.line {
+  position: relative;
+  top: 0px;
+  left: 0%;
+  right: 0%;
+  z-index: 1;
+  background-color: var(--emphasis);
+  height: 1px;
 }
 
 .container svg {
@@ -15,11 +32,11 @@
   margin: 0px;
 }
 
-.navBarButton {
+/* .navBarButton {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 /* 
 @media only screen and (min-width: 601px) {
   .container {
