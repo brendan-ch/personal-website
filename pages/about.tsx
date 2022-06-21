@@ -42,9 +42,6 @@ interface Props {
  * @returns
  */
 export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props) {
-  // console.log(blocks);
-  // Whether the navigation menu is open
-  const [menuToggled, setMenuToggled] = useState(false);
   const selected = "About Me";
 
   return (
@@ -81,11 +78,6 @@ export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props
           })}
         </div> */}
       </main>
-      <MobileNavMenu
-        selected={selected}
-        visible={menuToggled}
-        onClose={() => setMenuToggled(false)}
-      />
     </div>
   )
 }
