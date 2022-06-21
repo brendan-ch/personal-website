@@ -49,20 +49,12 @@ export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props
 
   return (
     <div className={utils.rootContainer}>
-      <NavBar selected={selected} />
-      <MobileNavBar
-        title={selected}
-        button="hamburger"
-        onPress={() => setMenuToggled(!menuToggled)}
-      />
       <main>
-        <PageHeader
-          aboveText="Brendan Chen"
-          belowText="About Me"
+        <MobileNavBar
+          title={selected}
+          display="tabs"
+          selected={selected}
         />
-        {/* Display some info about the API request */}
-        {/* Last regenerated */}
-        <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
         {/* Page content */}
         <NotionRenderer
           blocks={blocks}
