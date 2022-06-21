@@ -32,7 +32,7 @@ export default function Database({
           title={item.title}
           description={item.description}
           imageLink={item.imageLink}
-          link={`/projects/${item.id}`}
+          link={`/project/${item.id}`}
         />
       ))}
     </div>
