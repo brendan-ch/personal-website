@@ -14,7 +14,7 @@ function MobileNavBarTab({ selected, text, href }: TabProps) {
     <div className={styles.tab}>
       <Link href={href}>
         <a>
-          <p>{text}</p>
+          <h3>{text}</h3>
           {selected ? (
             <div className={styles.tabLine} />
           ) : undefined}
