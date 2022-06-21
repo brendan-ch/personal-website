@@ -70,12 +70,31 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
+  
+  .tab {
+    justify-content: flex-start;
+  }
+
   .tabLineMobile {
     display: flex;
   }
 
   .lineMobile {
     display: flex;
+  }
+
+  .contentContainer {
+    align-items: flex-start;
+  }
+
+  .line {
+    top: 1px;
   }
 }
 
