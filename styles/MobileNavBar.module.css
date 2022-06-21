@@ -1,3 +1,18 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.tabLine {
+  display: flex;
+  width: 100%;
+  background-color: var(--emphasis);
+  height: 4px;
+}
+
 .container {
   display: flex;
   flex-direction: row;

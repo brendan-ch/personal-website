@@ -11,9 +11,16 @@ interface TabProps {
 
 function MobileNavBarTab({ selected, text, href }: TabProps) {
   return (
-    <Link href={href}>
-      <a>{text}</a>
-    </Link>
+    <div className={styles.tab}>
+      <Link href={href}>
+        <a>
+          <p>{text}</p>
+          {selected ? (
+            <div className={styles.tabLine} />
+          ) : undefined}
+        </a>
+      </Link>
+    </div>
   )
 }
 
@@ -51,13 +58,13 @@ export default function MobileNavBar({ title, display, selected }: Props) {
       {display === 'tabs' ? (
         <div className={styles.buttonsContainer}>
           <MobileNavBarTab
-            href="/about"
-            selected={selected === 'About Me'}
+            href="/"
+            selected={selected === 'Featured'}
             text="Featured"
           />
           <MobileNavBarTab
-            href="/about"
-            selected={selected === 'About Me'}
+            href="/all"
+            selected={selected === 'All'}
             text="All"
           />
           <MobileNavBarTab
