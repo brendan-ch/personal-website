@@ -21,6 +21,12 @@ function MobileNavBarTab({
     <div className={styles.tab}>
       <Link href={href}>
         <a>
+          <div
+            className={selected ? `${styles.tabLineMobile} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineMobile} ${styles.tabLine}`}
+            style={{
+              backgroundColor: selected && selectedColor ? selectedColor : undefined,
+            }}
+          />
           <p
             style={{
               color: selected && selectedColor ? selectedColor : undefined,
@@ -29,7 +35,7 @@ function MobileNavBarTab({
             {text}
           </p>
           <div
-            className={selected ? `${styles.tabLine} ${styles.tabLineSelected}` : styles.tabLine}
+            className={selected ? `${styles.tabLineDesktop} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineDesktop} ${styles.tabLine}`}
             style={{
               backgroundColor: selected && selectedColor ? selectedColor : undefined,
             }}

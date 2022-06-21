@@ -8,10 +8,22 @@
 }
 
 .tabLine {
-  display: flex;
+  display: none;
   width: 100%;
   background-color: transparent;
   height: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .tabLineMobile {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .tabLineDesktop {
+    display: flex;
+  }
 }
 
 .tabLineSelected {
