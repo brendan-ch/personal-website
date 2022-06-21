@@ -1,11 +1,7 @@
-import type { NextPage } from 'next';
-import { MouseEvent, useEffect, useState } from 'react';
-import { Client } from '@notionhq/client';
-
 import MobileNavBar from '../components/MobileNavBar';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseDropdownFilter, DatabaseItem } from '../types';
+import { DatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
 import Head from 'next/head';
