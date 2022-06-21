@@ -10,15 +10,15 @@ body {
 }
 
 a {
-  color: var(--dark-gray);
-  fill: var(--dark-gray);
+  color: var(--emphasis);
+  fill: var(--emphasis);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--selected);
+  /* color: var(--selected);
   fill: var(--selected);
-  transition: 0.3s;
+  transition: 0.3s; */
   cursor: pointer;
 }
 
