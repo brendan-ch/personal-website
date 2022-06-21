@@ -8,9 +8,17 @@ interface Props {
   title: string,
   description?: string,
   link?: string,
+  /**
+   * Width of the image.
+   */
+  width?: number | string,
+  /**
+   * Height of the image.
+   */
+  height?: number | string,
 }
 
-export default function GalleryItem({ imageLink, title, description, link }: Props) {
+export default function GalleryItem({ imageLink, title, description, link, width, height }: Props) {
   return (
     <Link href={link || '/'}>
       <a className={styles.container}>
@@ -18,8 +26,8 @@ export default function GalleryItem({ imageLink, title, description, link }: Pro
           <Image
             className={styles.image}
             src={imageLink}
-            width={355}
-            height={187}
+            width={width || 700}
+            height={height || 187}
             objectFit="cover"
             alt={description}
           />
