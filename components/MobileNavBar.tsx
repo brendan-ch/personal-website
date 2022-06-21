@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { BLUE, CYAN, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import Back from './icons/Back';
 
@@ -7,15 +8,32 @@ interface TabProps {
   selected: boolean,
   text: string,
   href: string,
+  selectedColor?: string,
 }
 
-function MobileNavBarTab({ selected, text, href }: TabProps) {
+function MobileNavBarTab({
+  selected,
+  text,
+  href,
+  selectedColor,
+}: TabProps) {
   return (
     <div className={styles.tab}>
       <Link href={href}>
         <a>
-          <p>{text}</p>
-          <div className={selected ? `${styles.tabLine} ${styles.tabLineSelected}` : styles.tabLine} />
+          <p
+            style={{
+              color: selected && selectedColor ? selectedColor : undefined,
+            }}
+          >
+            {text}
+          </p>
+          <div
+            className={selected ? `${styles.tabLine} ${styles.tabLineSelected}` : styles.tabLine}
+            style={{
+              backgroundColor: selected && selectedColor ? selectedColor : undefined,
+            }}
+          />
         </a>
       </Link>
     </div>
@@ -53,16 +71,19 @@ export default function MobileNavBar({ title, display, selected }: Props) {
               href="/"
               selected={selected === 'Featured'}
               text="Featured"
+              selectedColor={RED}
             />
             <MobileNavBarTab
               href="/all"
               selected={selected === 'All'}
               text="All"
+              selectedColor={CYAN}
             />
             <MobileNavBarTab
               href="/about"
               selected={selected === 'About Me'}
               text="About Me"
+              selectedColor={BLUE}
             />
           </div>
         ) : (
