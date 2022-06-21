@@ -8,50 +8,22 @@ import GalleryItem from './GalleryItem';
 
 interface Props {
   items: DatabaseItem[],
-  dropdownFilter: DatabaseDropdownFilter,
-  onDropdownButtonPress?: (top: number, left: number) => any,
-  onDropdownButtonPosChange?: (top: number, left: number) => any,
+  // dropdownFilter: DatabaseDropdownFilter,
 }
 
 export default function Database({
-    items,
-    onDropdownButtonPress,
-    onDropdownButtonPosChange,
-    dropdownFilter,
-  }: Props) {
-  const filteredItems = dropdownFilter.tagName !== undefined
-    // @ts-ignore
-    ? items.filter((value) => value.tags.includes(dropdownFilter.tagName))
-    : items;
-  
-  /**
-   * Handle the press of the dropdown menu button.
-   * @param e
-   */
-  function handleButtonPress(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) {
-    const button = document.getElementById('dropdownButton');
-    if (!button || !onDropdownButtonPress) return;
-
-    onDropdownButtonPress(button?.offsetTop, button.offsetLeft);
-  }
-
-  useEffect(() => {
-    function resizeDropdown() {
-      if (!onDropdownButtonPosChange) return;
-      const button = document.getElementById('dropdownButton');
-      if (!button) return;
-
-      // Get position of button
-      onDropdownButtonPosChange(button?.offsetTop, button.offsetLeft);
-    }
-
-    window.addEventListener('resize', resizeDropdown);
-  }, [onDropdownButtonPosChange]);
+  items,
+  // dropdownFilter,
+}: Props) {
+  // const filteredItems = dropdownFilter.tagName !== undefined
+  //   // @ts-ignore
+  //   ? items.filter((value) => value.tags.includes(dropdownFilter.tagName))
+  //   : items;
 
   return (
     <div className={styles.container}>
       {/* Content */}
-      {filteredItems.map((item) => (
+      {items.map((item) => (
         // <ListItem
         //   key={item.id}
         //   title={item.title}
