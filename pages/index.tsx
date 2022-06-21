@@ -50,7 +50,7 @@ interface Props {
 const Projects = ({ lastRegenerated, dbItems }: Props) => {
   // Whether the navigation menu is open
   const [menuToggled, setMenuToggled] = useState(false);
-  const selected = "Projects";
+  const selected = "Featured";
 
   // To control the dropdown menu
   const [dropdownSelected, setDropdownSelected] = useState('Featured');
@@ -108,6 +108,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
       <main>
         <MobileNavBar
           title={selected}
+          selected={selected}
           display="tabs"
         />
         {/* <PageHeader
