@@ -33,7 +33,7 @@ export default function GalleryItem({ imageLink, title, description, link, width
           />
         ) : undefined}
         <div className={styles.textContainer}>
-          <h3>{title}</h3>
+          <p>{title}</p>
           <Next
             width={40}
             height={40}

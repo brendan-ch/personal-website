@@ -95,7 +95,7 @@ h2 {
 h3 {
   font-weight: 400;
   color: var(--emphasis);
-  font-size: 20px;
+  font-size: 22px;
   padding: 0px;
   margin: 0px;
 }
@@ -103,7 +103,7 @@ h3 {
 /* Unless overridden */
 p {
   color: var(--emphasis);
-  font-size: 18px;
+  font-size: 20px;
   padding: 0px;
   margin: 0px;
 }
