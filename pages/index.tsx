@@ -104,20 +104,19 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
 
   return (
     <div className={utils.rootContainer}>
-      <NavBar selected={selected} />
-      <MobileNavBar
-        title={selected}
-        button="hamburger"
-        onPress={() => setMenuToggled(!menuToggled)}
-      />
+      {/* <NavBar selected={selected} /> */}
       <main>
-        <PageHeader
+        <MobileNavBar
+          title={selected}
+          display="tabs"
+        />
+        {/* <PageHeader
           aboveText="Brendan Chen"
           belowText="Developer and Designer"
           includeLogo
-        />
+        /> */}
         {/* Debug information */}
-        <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
+        {/* <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p> */}
         <Database
           items={items}
           dropdownFilter={dropdownFilter}
@@ -126,7 +125,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
           onDropdownButtonPosChange={(top, left) => handleDropdownButtonPosChange(top, left)}
         />
       </main>
-      <Dropdown
+      {/* <Dropdown
         visible={dropdownVisible}
         options={dropdownFilters.map((value) => value.dropdownName)}
         onSelect={(selected) => setDropdownSelected(selected)}
@@ -138,7 +137,7 @@ const Projects = ({ lastRegenerated, dbItems }: Props) => {
         selected={selected}
         visible={menuToggled}
         onClose={() => setMenuToggled(false)}
-      />
+      /> */}
     </div>
   );
 }
