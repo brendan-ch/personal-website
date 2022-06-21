@@ -33,8 +33,6 @@ main {
   padding: 10px;
   max-width: 50em;
   max-height: 100%;
-  animation-name: fadein;
-  animation-duration: 0.3s;
   flex: 1;
   gap: 20px;
   overflow-y: scroll;
