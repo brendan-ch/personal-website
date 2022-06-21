@@ -1,6 +1,4 @@
-import type { NextPage } from 'next';
-import { MouseEvent, useEffect, useState } from 'react';
-import { Client } from '@notionhq/client';
+import { useState } from 'react';
 
 import MobileNavBar from '../components/MobileNavBar';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
@@ -19,12 +17,6 @@ export async function getStaticProps() {
         property: 'Published',
         checkbox: {
           equals: true,
-        },
-      },
-      {
-        property: 'Tags',
-        multi_select: {
-          contains: 'Featured',
         },
       },
     ],
@@ -48,36 +40,8 @@ interface Props {
  * Projects page.
  * @returns
  */
-const Projects = ({ dbItems }: Props) => {
-  // Whether the navigation menu is open
-  const [menuToggled, setMenuToggled] = useState(false);
-  const selected = "Featured";
-
-  // To control the dropdown menu
-  const [dropdownSelected, setDropdownSelected] = useState('Featured');
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [top, setTop] = useState(0);
-  const [left, setLeft] = useState(0);
-
-  const dropdownFilters: DatabaseDropdownFilter[] = [
-    {
-      dropdownName: 'Featured',
-      tagName: 'Featured',
-      type: 'list',
-    },
-    {
-      dropdownName: 'All Projects',
-      type: 'list'
-    },
-  ];
-
-  let dropdownFilter = dropdownFilters.find((value) => value.dropdownName === dropdownSelected);
-  if (!dropdownFilter) {
-    dropdownFilter = {
-      dropdownName: 'All Projects',
-      type: 'list',
-    };
-  }
+const All = ({ dbItems }: Props) => {
+  const selected = "All";
 
   return (
     <div className={utils.rootContainer}>
@@ -97,4 +61,4 @@ const Projects = ({ dbItems }: Props) => {
   );
 }
 
-export default Projects;
+export default All;

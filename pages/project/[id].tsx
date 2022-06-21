@@ -83,16 +83,12 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, title, lastRegenerated }: Props) {
-  const [menuToggled, setMenuToggled] = useState(false);
-
+export default function ProjectPage({ blocks, title }: Props) {
   return (
     <div className={utils.rootContainer}>
-      <NavBar />
       <MobileNavBar
         title={title}
-        button="hamburger"
-        onPress={() => setMenuToggled(!menuToggled)}
+        display="project"
       />
       <main>
         <PageHeader
