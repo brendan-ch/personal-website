@@ -1,9 +1,5 @@
 import { DatabaseDropdownFilter, DatabaseItem } from '../types';
 import styles from '../styles/Database.module.css';
-import Down from './icons/Down';
-import { MouseEvent, useEffect, useState } from 'react';
-import ListItem from './ListItem';
-import Dropdown from './Dropdown';
 import GalleryItem from './GalleryItem';
 
 interface Props {

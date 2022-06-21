@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import styles from '../styles/MobileNavBar.module.css';
-import Back from './icons/Back';
-import Hamburger from './icons/Hamburger';
 
 interface TabProps {
   selected: boolean,
