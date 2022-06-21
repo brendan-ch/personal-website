@@ -7,8 +7,9 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet" />
+          {/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet" /> */}
+          {/* <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet" /> */}
+          <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
           <meta name="robots" content="noindex,nofollow"></meta>
         </Head>
         <body>
