@@ -8,6 +8,7 @@ import { Client } from '@notionhq/client';
 import { ABOUT_PAGE_ID, PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
 import NotionRenderer from '../components/NotionRenderer';
 import getChildrenBlocks from '../helpers/getChildrenBlocks';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   // This is server side code
@@ -46,6 +47,9 @@ export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props
 
   return (
     <div className={utils.rootContainer}>
+      <Head>
+        <title>About Me | Brendan Chen</title>
+      </Head>
       <main>
         <MobileNavBar
           title={selected}

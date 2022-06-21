@@ -8,6 +8,7 @@ import utils from '../styles/utils.module.css';
 import { DatabaseDropdownFilter, DatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
+import Head from 'next/head';
 
 /**
  * Generate Notion database content.
@@ -82,6 +83,9 @@ const Projects = ({ dbItems }: Props) => {
   return (
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
+      <Head>
+        <title>Featured | Brendan Chen</title>
+      </Head>
       <main>
         <MobileNavBar
           title={selected}

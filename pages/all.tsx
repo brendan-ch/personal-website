@@ -1,11 +1,10 @@
-import { useState } from 'react';
-
 import MobileNavBar from '../components/MobileNavBar';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseDropdownFilter, DatabaseItem } from '../types';
+import { DatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
+import Head from 'next/head';
 
 /**
  * Generate Notion database content.
@@ -46,6 +45,9 @@ const All = ({ dbItems }: Props) => {
   return (
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
+      <Head>
+        <title>All | Brendan Chen</title>
+      </Head>
       <main>
         <MobileNavBar
           title={selected}
