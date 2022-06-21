@@ -29,6 +29,17 @@
   gap: 10px;
 }
 
+.projectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.projectContainer:hover {
+  cursor: pointer;
+}
+
 .line {
   position: relative;
   top: 0px;
@@ -40,21 +51,9 @@
 }
 
 .container svg {
-  fill: var(--white);
+  fill: var(--emphasis);
 }
 
 .container > h2 {
   margin: 0px;
 }
-
-/* .navBarButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-/* 
-@media only screen and (min-width: 601px) {
-  .container {
-    display: none;
-  }
-} */

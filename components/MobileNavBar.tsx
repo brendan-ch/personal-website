@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from '../styles/MobileNavBar.module.css';
+import Back from './icons/Back';
 
 interface TabProps {
   selected: boolean,
@@ -23,7 +25,11 @@ function MobileNavBarTab({ selected, text, href }: TabProps) {
 }
 
 interface Props {
-  // button?: 'none' | 'hamburger' | 'back',
+  /**|
+   * If set to `tabs`, display a set of tabs
+   * to navigate to different parts of the site.
+   * If set to `project`, display the project title and a back button.
+   */
   display: 'tabs' | 'project',
   /**
    * Only shown if `display` is set to `project`.
@@ -38,6 +44,8 @@ interface Props {
  * @param props
  */
 export default function MobileNavBar({ title, display, selected }: Props) {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       {/* Hamburger menu */}
@@ -72,7 +80,13 @@ export default function MobileNavBar({ title, display, selected }: Props) {
           />
         </div>
       ) : (
-        <h3>{title}</h3>
+        <button className={styles.projectContainer} onClick={() => router.back()}>
+          <Back
+            width={40}
+            height={40}
+          />
+          <p>{title}</p>
+        </button>
       )}
     </div>
   );
