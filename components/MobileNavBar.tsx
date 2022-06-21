@@ -70,6 +70,7 @@ export default function MobileNavBar({ title, display, selected }: Props) {
 
   return (
     <div className={styles.container}>
+      <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
         {display === 'tabs' ? (
           <div className={styles.buttonsContainer}>
@@ -102,7 +103,7 @@ export default function MobileNavBar({ title, display, selected }: Props) {
           </button>
         )}
       </div>
-      <div className={styles.line} />
+      <div className={`${styles.line} ${styles.lineDesktop}`} />
     </div>
   );
 }

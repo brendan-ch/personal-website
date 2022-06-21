@@ -14,18 +14,6 @@
   height: 4px;
 }
 
-@media only screen and (max-width: 600px) {
-  .tabLineMobile {
-    display: flex;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .tabLineDesktop {
-    display: flex;
-  }
-}
-
 .tabLineSelected {
   background-color: var(--emphasis);
 }
@@ -70,6 +58,7 @@
   right: 0%;
   background-color: var(--emphasis);
   height: 1px;
+  display: none;
 }
 
 .container svg {
@@ -78,4 +67,24 @@
 
 .container > h2 {
   margin: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .tabLineMobile {
+    display: flex;
+  }
+
+  .lineMobile {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .tabLineDesktop {
+    display: flex;
+  }
+
+  .lineDesktop {
+    display: flex;
+  }
 }
