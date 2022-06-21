@@ -37,6 +37,7 @@ main {
   flex: 1;
   gap: 20px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 /* Perform a reset on the button component */
@@ -68,6 +69,12 @@ button {
   --white: #FAFAFA;
   --selected: #E67B75;
   --darker-gray: #3D3D3D;
+
+  --background: #E6E6E6;
+  --emphasis: #121212;
+  --cyan: #59ABB2;
+  --blue: #7978BF;
+  --red: #E14B36;
 }
 
 h1 {
