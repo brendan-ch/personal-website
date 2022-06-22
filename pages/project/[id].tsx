@@ -10,7 +10,7 @@ import Head from 'next/head';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
+  const items = await getDatabaseBlocks({
     and: [
       {
         property: 'Published',

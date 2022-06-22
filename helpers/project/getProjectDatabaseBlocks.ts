@@ -1,5 +1,6 @@
 import { Client } from '@notionhq/client';
 import { DatabaseItem } from '../../types';
+import { PROJECTS_DATABASE_ID } from '../Constants';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -10,9 +11,9 @@ const client = new Client({
  * Unlike `getChildrenBlocks`, does not return children blocks from each page.
  * @param databaseId
  */
-async function getProjectDatabaseBlocks(databaseId: string, filter?: any) {
+async function getProjectDatabaseBlocks(filter?: any) {
   const response = await client.databases.query({
-    database_id: databaseId,
+    database_id: PROJECTS_DATABASE_ID,
     filter,
   });
 

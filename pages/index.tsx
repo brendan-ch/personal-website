@@ -10,7 +10,7 @@ import Head from 'next/head';
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  const items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
+  const items = await getDatabaseBlocks({
     and: [
       {
         property: 'Published',
