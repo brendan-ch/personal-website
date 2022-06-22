@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import { relative } from 'path';
-import { useEffect, useState } from 'react';
 import styles from '../styles/NotionRenderer.module.css';
 
 interface Props {
