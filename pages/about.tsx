@@ -13,7 +13,7 @@ export async function getStaticProps() {
   return {
     props: {
       blocks,
-      lastRegenerated: Date.now(),
+      // lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
   }
@@ -21,15 +21,6 @@ export async function getStaticProps() {
 
 interface Props {
   blocks: any[],
-  /**
-   * The ID of the next block, provided by the Notion API.
-   * Null if no more blocks left.
-   */
-  nextCursor: string | null,
-  /**
-   * Time in milliseconds when the page was last regenerated.
-   */
-  lastRegenerated: number,
 }
 
 /**
@@ -37,7 +28,7 @@ interface Props {
  * @param param0
  * @returns
  */
-export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props) {
+export default function AboutPage({ blocks }: Props) {
   const selected = "About Me";
 
   return (
