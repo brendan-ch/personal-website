@@ -19,15 +19,31 @@
   flex: 1;
   overflow-y: scroll;
   padding: 15px;
+  animation-name: fadein;
+  animation-duration: 500ms;
 }
 
-/* @media only screen and (max-width: 600px) {
-  .rootContainer {
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0px;
-    gap: 0px;
-    height: 100vh;
-    width: 100vw;
+.scrollableFade {
+  animation-name: fadeout;
+  animation-duration: 500ms;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 30% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
   }
-} */
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 100%;
+  } 70% {
+    opacity: 0%;
+  } 100% {
+    opacity: 0%;
+  }
+}
