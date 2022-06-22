@@ -1,5 +1,6 @@
 import { Client } from '@notionhq/client';
 import { DocumentDatabaseItem } from '../types';
+import returnPlainText from './returnPlainText';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -18,11 +19,10 @@ const client = new Client({
 
   
   const items: DocumentDatabaseItem[] = response.results.map((value: any) => {
-    console.log(value.properties);
     return {
       title: value.properties.Name.title[0].plain_text,
       id: value.id,
-      // prettyLink: value.properties['Pretty Link'] ? value.properties['Pretty Link']
+      prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
   });
 
