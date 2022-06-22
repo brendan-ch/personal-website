@@ -1,5 +1,6 @@
 import { Client } from '@notionhq/client';
 import { DatabaseItem } from '../../types';
+import { PROJECTS_DATABASE_ID } from '../Constants';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -7,16 +8,34 @@ const client = new Client({
 
 /**
  * Get a database item object for a specific page.
- * @param pageId
+ * @param prettyLink
  */
-async function getPageProperties(pageId: string): Promise<DatabaseItem | null> {
-  const response: any = await client.pages.retrieve({
-    page_id: pageId,
+async function getProjectPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
+  const dbResponse = await client.databases.query({
+    database_id: PROJECTS_DATABASE_ID,
+    filter: {
+      and: [
+        {
+          property: 'Pretty Link',
+          rich_text: {
+            equals: prettyLink
+          },
+        },
+        {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
+        },
+      ],
+    },
   });
 
-  if (!response.properties.Published.checkbox) {
+  if (dbResponse.results.length === 0) {
     return null;
   }
+
+  const response: any = dbResponse.results[0];
 
   // Return a database item
   let description = '';
@@ -42,4 +61,4 @@ async function getPageProperties(pageId: string): Promise<DatabaseItem | null> {
   };
 }
 
-export default getPageProperties;
+export default getProjectPageProperties;
