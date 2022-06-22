@@ -141,7 +141,7 @@ const Renderers = {
           alt={returnPlainText(block.caption)}
           src={block.type === 'file' ? block.file.url : block.external.url}
           layout="fill"
-          objectFit="scale-down"
+          objectFit="contain"
         />
       </div>
     );
