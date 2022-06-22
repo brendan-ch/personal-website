@@ -4,10 +4,7 @@ import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDatabaseBlocks from '../../helpers/getDatabaseBlocks';
 import getPageProperties from '../../helpers/getPageProperties';
 import { DatabaseItem } from '../../types';
-import NavBar from '../../components/NavBar';
 import MobileNavBar from '../../components/MobileNavBar';
-import { useState } from 'react';
-import PageHeader from '../../components/PageHeader';
 import NotionRenderer from '../../components/NotionRenderer';
 
 export const getStaticPaths = async () => {
@@ -83,26 +80,19 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, title, lastRegenerated }: Props) {
-  const [menuToggled, setMenuToggled] = useState(false);
-
+export default function ProjectPage({ blocks, title }: Props) {
   return (
     <div className={utils.rootContainer}>
-      <NavBar />
-      <MobileNavBar
-        title={title}
-        button="hamburger"
-        onPress={() => setMenuToggled(!menuToggled)}
-      />
       <main>
-        <PageHeader
-          aboveText="Back"
-          includeBackButton
-          belowText={title || ''}
+        <MobileNavBar
+          title={title}
+          display="project"
         />
-        <NotionRenderer
-          blocks={blocks || []}
-        />
+        <div className={utils.scrollable}>
+          <NotionRenderer
+            blocks={blocks || []}
+          />
+        </div>
       </main>
     </div>
   );

@@ -2,23 +2,24 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: var(--black);
+  font-family: neue-haas-grotesk-display, sans-serif;
+  letter-spacing: 0.01em;
+  background: url(../public/background-pattern.png);
+  background-color: var(--background);
   font-weight: 300;
   overflow: hidden;
 }
 
 a {
-  color: var(--dark-gray);
-  fill: var(--dark-gray);
+  color: var(--emphasis);
+  fill: var(--emphasis);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--selected);
+  /* color: var(--selected);
   fill: var(--selected);
-  transition: 0.3s;
+  transition: 0.3s; */
   cursor: pointer;
 }
 
@@ -29,14 +30,13 @@ a:hover {
 main {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  /* padding: 10px; */
   max-width: 50em;
   max-height: 100%;
-  animation-name: fadein;
-  animation-duration: 0.3s;
   flex: 1;
   gap: 20px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  width: 100%;
 }
 
 /* Perform a reset on the button component */
@@ -46,7 +46,7 @@ button {
   margin: 0px;
   background: transparent;
   border: none;
-  font-family: 'Inter';
+  font-family: neue-haas-grotesk-display, sans-serif;
 
   cursor: pointer;
 }
@@ -68,19 +68,24 @@ button {
   --white: #FAFAFA;
   --selected: #E67B75;
   --darker-gray: #3D3D3D;
+
+  --background: #E6E6E6;
+  --emphasis: #121212;
+  --cyan: #59ABB2;
+  --blue: #7978BF;
+  --red: #E14B36;
 }
 
 h1 {
   font-weight: 400;
-  /* font-family: 'Red Hat Mono'; */
-  color: var(--white);
+  color: var(--emphasis);
   padding: 0px;
   margin: 0px;
 }
 
 h2 {
   font-weight: 400;
-  color: var(--white);
+  color: var(--emphasis);
   font-size: 25px;
   padding: 0px;
   margin: 0px;
@@ -88,29 +93,29 @@ h2 {
 
 h3 {
   font-weight: 400;
-  color: var(--white);
-  font-size: 21px;
+  color: var(--emphasis);
+  font-size: 22px;
   padding: 0px;
   margin: 0px;
 }
 
 /* Unless overridden */
 p {
-  color: var(--white);
-  font-size: 18px;
+  color: var(--emphasis);
+  font-size: 20px;
   padding: 0px;
   margin: 0px;
 }
 
 li {
-  color: var(--white);
+  color: var(--emphasis);
   font-size: 18px;
   padding: 0px;
   margin: 0px;
 }
 
 ol {
-  color: var(--white);
+  color: var(--emphasis);
   font-size: 18px;
   padding: 0px;
   margin: 0px;

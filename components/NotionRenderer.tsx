@@ -27,29 +27,30 @@ function returnPlainText(richTextItems: any[]) {
 /**
  * Return a JSX element from a rich text item.
  * @param richTextItem
+ * @param key
  * @returns
  */
-function richTextRenderer(richTextItem: any) {
+function richTextRenderer(richTextItem: any, key: string | number) {
   let toReturn: any = richTextItem.text.content;
 
   if (richTextItem.annotations.bold) {
-    toReturn = <b>{toReturn}</b>;
+    toReturn = <b key={key}>{toReturn}</b>;
   }
 
   if (richTextItem.annotations.underline) {
-    toReturn = <u>{toReturn}</u>;
+    toReturn = <u key={key}>{toReturn}</u>;
   }
 
   if (richTextItem.annotations.italic) {
-    toReturn = <i>{toReturn}</i>;
+    toReturn = <i key={key}>{toReturn}</i>;
   }
 
   if (richTextItem.annotations.strikethrough) {
-    toReturn = <s>{toReturn}</s>;
+    toReturn = <s key={key}>{toReturn}</s>;
   }
 
   if (richTextItem.text.link) {
-    toReturn = <a href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
+    toReturn = <a key={key} href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
   }
 
   return toReturn;

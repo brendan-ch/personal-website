@@ -5,7 +5,6 @@ import { DatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
 import Head from 'next/head';
-import Image from 'next/image';
 
 /**
  * Generate Notion database content.
@@ -17,12 +16,6 @@ export async function getStaticProps() {
         property: 'Published',
         checkbox: {
           equals: true,
-        },
-      },
-      {
-        property: 'Tags',
-        multi_select: {
-          contains: 'Featured',
         },
       },
     ],
@@ -46,14 +39,14 @@ interface Props {
  * Projects page.
  * @returns
  */
-const Projects = ({ dbItems }: Props) => {
-  const selected = "Featured";
+const All = ({ dbItems }: Props) => {
+  const selected = "All";
 
   return (
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
       <Head>
-        <title>Brendan Chen</title>
+        <title>All | Brendan Chen</title>
       </Head>
       <main>
         <MobileNavBar
@@ -64,7 +57,6 @@ const Projects = ({ dbItems }: Props) => {
         <div className={utils.scrollable}>
           <Database
             items={dbItems}
-            // tag={tagSelected}
           />
         </div>
       </main>
@@ -72,4 +64,4 @@ const Projects = ({ dbItems }: Props) => {
   );
 }
 
-export default Projects;
+export default All;

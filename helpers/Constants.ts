@@ -1,3 +1,8 @@
+/* Colors */
+export const RED = '#E14B36';
+export const BLUE = '#7978BF';
+export const CYAN = '#59ABB2';
+
 /**
  * Maximum depth that the `getChildrenBlocks` function can recurse to.
  */

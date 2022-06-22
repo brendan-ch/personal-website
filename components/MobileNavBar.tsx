@@ -1,11 +1,63 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { BLUE, CYAN, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import Back from './icons/Back';
-import Hamburger from './icons/Hamburger';
+
+interface TabProps {
+  selected: boolean,
+  text: string,
+  href: string,
+  selectedColor?: string,
+}
+
+function MobileNavBarTab({
+  selected,
+  text,
+  href,
+  selectedColor,
+}: TabProps) {
+  return (
+    <div className={styles.tab}>
+      <Link href={href}>
+        <a>
+          <div
+            className={selected ? `${styles.tabLineMobile} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineMobile} ${styles.tabLine}`}
+            style={{
+              backgroundColor: selected && selectedColor ? selectedColor : undefined,
+            }}
+          />
+          <p
+            style={{
+              color: selected && selectedColor ? selectedColor : undefined,
+            }}
+          >
+            {text}
+          </p>
+          <div
+            className={selected ? `${styles.tabLineDesktop} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineDesktop} ${styles.tabLine}`}
+            style={{
+              backgroundColor: selected && selectedColor ? selectedColor : undefined,
+            }}
+          />
+        </a>
+      </Link>
+    </div>
+  )
+}
 
 interface Props {
-  button?: 'none' | 'hamburger' | 'back',
+  /**|
+   * If set to `tabs`, display a set of tabs
+   * to navigate to different parts of the site.
+   * If set to `project`, display the project title and a back button.
+   */
+  display: 'tabs' | 'project',
+  /**
+   * Only shown if `display` is set to `project`.
+   */
   title?: string,
-  onPress?: () => any,
+  selected?: string,
 }
 
 /**
@@ -13,23 +65,45 @@ interface Props {
  * The hamburger menu opens up an overlay with links to the other pages.
  * @param props
  */
-export default function MobileNavBar({ button, title, onPress }: Props) {
+export default function MobileNavBar({ title, display, selected }: Props) {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
-      {/* Hamburger menu */}
-      {button && button !== 'none' ? (
-        <button
-          className={styles.navBarButton}
-          onClick={onPress ? () => onPress() : undefined}>
-          {button === 'hamburger' ? (
-            <Hamburger width={40} height={40} />
-          ) : (
-            <Back width={40} height={40} />
-          )}
-        </button>
-      ) : undefined}
-      {/* Text */}
-      <h3>{title}</h3>
+      <div className={`${styles.line} ${styles.lineMobile}`} />
+      <div className={styles.contentContainer}>
+        {display === 'tabs' ? (
+          <div className={styles.buttonsContainer}>
+            <MobileNavBarTab
+              href="/"
+              selected={selected === 'Featured'}
+              text="Featured"
+              selectedColor={RED}
+            />
+            <MobileNavBarTab
+              href="/all"
+              selected={selected === 'All'}
+              text="All"
+              selectedColor={CYAN}
+            />
+            <MobileNavBarTab
+              href="/about"
+              selected={selected === 'About Me'}
+              text="About Me"
+              selectedColor={BLUE}
+            />
+          </div>
+        ) : (
+          <button className={styles.projectContainer} onClick={() => router.back()}>
+            <Back
+              width={40}
+              height={40}
+            />
+            <p>{title}</p>
+          </button>
+        )}
+      </div>
+      <div className={`${styles.line} ${styles.lineDesktop}`} />
     </div>
   );
 }

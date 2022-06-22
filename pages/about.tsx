@@ -1,13 +1,9 @@
-import { useState } from 'react';
 import MobileNavBar from '../components/MobileNavBar';
-import MobileNavMenu from '../components/MobileNavMenu';
-import NavBar from '../components/NavBar';
-import PageHeader from '../components/PageHeader';
 import utils from '../styles/utils.module.css';
-import { Client } from '@notionhq/client';
-import { ABOUT_PAGE_ID, PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
+import { ABOUT_PAGE_ID, REVALIDATE } from '../helpers/Constants';
 import NotionRenderer from '../components/NotionRenderer';
 import getChildrenBlocks from '../helpers/getChildrenBlocks';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   // This is server side code
@@ -17,7 +13,7 @@ export async function getStaticProps() {
   return {
     props: {
       blocks,
-      lastRegenerated: Date.now(),
+      // lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
   }
@@ -25,15 +21,6 @@ export async function getStaticProps() {
 
 interface Props {
   blocks: any[],
-  /**
-   * The ID of the next block, provided by the Notion API.
-   * Null if no more blocks left.
-   */
-  nextCursor: string | null,
-  /**
-   * Time in milliseconds when the page was last regenerated.
-   */
-  lastRegenerated: number,
 }
 
 /**
@@ -41,59 +28,27 @@ interface Props {
  * @param param0
  * @returns
  */
-export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props) {
-  // console.log(blocks);
-  // Whether the navigation menu is open
-  const [menuToggled, setMenuToggled] = useState(false);
+export default function AboutPage({ blocks }: Props) {
   const selected = "About Me";
 
   return (
     <div className={utils.rootContainer}>
-      <NavBar selected={selected} />
-      <MobileNavBar
-        title={selected}
-        button="hamburger"
-        onPress={() => setMenuToggled(!menuToggled)}
-      />
+      <Head>
+        <title>About Me | Brendan Chen</title>
+      </Head>
       <main>
-        <PageHeader
-          aboveText="Brendan Chen"
-          belowText="About Me"
+        <MobileNavBar
+          title={selected}
+          display="tabs"
+          selected={selected}
         />
-        {/* Display some info about the API request */}
-        {/* Last regenerated */}
-        <p>Last regenerated: {(new Date(lastRegenerated)).toDateString()} {(new Date(lastRegenerated)).toTimeString()}</p>
         {/* Page content */}
-        <NotionRenderer
-          blocks={blocks}
-        />
-        {/* <div>
-          {blocks.map((item, index) => {
-            if (item.type && item.type === 'paragraph') {
-              // Render rich text
-              return (
-                <div>
-                  {item.paragraph.rich_text.map((richText: any, index: number) => {
-                    
-                    return (
-                      <p key={index}>{richText.plain_text}</p>
-                    );
-                  })}
-                </div>
-              )
-            }
-
-            return (
-              <p key={index}>Paragraph object</p>
-            );
-          })}
-        </div> */}
+        <div className={utils.scrollable}>
+          <NotionRenderer
+            blocks={blocks}
+          />
+        </div>
       </main>
-      <MobileNavMenu
-        selected={selected}
-        visible={menuToggled}
-        onClose={() => setMenuToggled(false)}
-      />
     </div>
   )
 }
