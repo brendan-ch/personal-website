@@ -8,7 +8,6 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
-          <meta name="robots" content="noindex,nofollow"></meta>
           <meta name="description" content="Hi there! I’m Brendan, a designer and developer living in Orange, California."></meta>
           <meta name="og:image" content="/link-preview-image.png"></meta>
         </Head>
