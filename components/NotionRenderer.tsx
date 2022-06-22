@@ -172,6 +172,7 @@ export default function NotionRenderer({ blocks }: Props) {
     <div className={styles.container}>
       {/* @ts-ignore */}
       {renderBlocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
+      <div className={styles.spacer}></div>
     </div>
   );
 }
