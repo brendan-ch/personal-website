@@ -9,6 +9,12 @@
   padding: 20px 0px;
 }
 
+@media only screen and (max-width: 600px) {
+  .rootContainer {
+    padding: 0px 0px 57px 0px;
+  }
+}
+
 .scrollable {
   flex: 1;
   overflow-y: scroll;
