@@ -53,7 +53,7 @@ const Projects = ({ dbItems }: Props) => {
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
       <Head>
-        <title>Featured | Brendan Chen</title>
+        <title>Brendan Chen</title>
       </Head>
       <main>
         <MobileNavBar
