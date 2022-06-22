@@ -24,6 +24,12 @@ export async function getStaticProps() {
           contains: 'Featured',
         },
       },
+      {
+        property: 'Pretty Link',
+        rich_text: {
+          is_not_empty: true,
+        },
+      },
     ],
   });
   
