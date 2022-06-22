@@ -12,6 +12,7 @@ export const MAX_RECURSION_DEPTH = 5;
  * @todo move these values to environment variables
  */
 export const PROJECTS_DATABASE_ID = '8bfa473991634d7885873cf269746b41';
+export const ADDITIONAL_DOCS_DATABASE_ID = '475cc85e2ecf416eb4a816feba2a7f26';
 export const ABOUT_PAGE_ID = 'd5f92ee0527143c7b596b28b49e03937';
 
 /**
