@@ -85,7 +85,7 @@ export default function ProjectPage({ blocks, title }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
-        <title>{title}</title>
+        <title>{title} | Brendan Chen</title>
       </Head>
       <main>
         <MobileNavBar
