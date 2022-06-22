@@ -10,6 +10,7 @@ class MyDocument extends Document {
           <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
           <meta name="description" content="Hi there! I’m Brendan, a developer living in Orange, California."></meta>
           <meta name="og:image" content="/link-preview-image.png"></meta>
+          <meta name="google-site-verification" content="4f6AZxwJwKFUlOFOJdcfAbCKMqxOiEcGQ4N7NefSsI4"></meta>
           {/* Fallback title */}
           {/* eslint-disable-next-line */}
           {/* <title>Brendan Chen</title> */}
