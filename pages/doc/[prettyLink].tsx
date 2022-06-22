@@ -1,16 +1,16 @@
 import utils from '../../styles/utils.module.css';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
+import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
+import getDocumentDatabaseBlocks from '../../helpers/getDocumentDatabaseBlocks';
+import { DocumentDatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDatabaseBlocks from '../../helpers/getProjectDatabaseBlocks';
-import getPageProperties from '../../helpers/getProjectPageProperties';
-import { DatabaseItem } from '../../types';
+import getDocumentPageProperties from '../../helpers/getDocumentPageProperties';
+import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
-import Head from 'next/head';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
+  const items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -18,14 +18,19 @@ export const getStaticPaths = async () => {
           equals: true,
         },
       },
+      {
+        property: 'Pretty Link',
+        rich_text: {
+          is_not_empty: true,
+        },
+      }
     ],
   });
 
   return {
-    paths: items.map((value) => ({
+    paths: items.map((value: DocumentDatabaseItem) => ({
       params: {
-        id: value.id,
-        title: value.title,
+        prettyLink: value.prettyLink!,
       }
     })),
     fallback: true,
@@ -34,9 +39,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: DatabaseItem | null;
+  let dbItem: DocumentDatabaseItem | null;
 
-  if (!params || typeof params.id !== 'string') return {
+  if (!params || typeof params.prettyLink !== 'string') return {
     props: {
       blocks,
       title: null,
@@ -46,9 +51,9 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getPageProperties(params.id);
+    dbItem = await getDocumentPageProperties(params.prettyLink);
     if (dbItem) {
-      blocks = await getChildrenBlocks(params.id);
+      blocks = await getChildrenBlocks(dbItem.id);
     } else {
       throw new Error('Page not published');
     }
@@ -76,26 +81,24 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 interface Props {
   blocks?: any[],
   title?: string,
-  /**
-   * Time in milliseconds when the page was last regenerated.
-   */
-  lastRegenerated: number,
 }
 
 /**
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, title }: Props) {
+ export default function DocumentPage({ blocks, title }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
         <title>{title} | Brendan Chen</title>
+        {/* Block indexing */}
+        <meta name="robots" content="noindex"></meta>
       </Head>
       <main>
         <MobileNavBar
           title={title}
-          display="project"
+          display="title"
         />
         <div className={utils.scrollable}>
           <NotionRenderer

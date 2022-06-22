@@ -1,9 +1,23 @@
-interface DatabaseItem {
+/**
+ * Schema for the `Additional Documents` database.
+ */
+interface DocumentDatabaseItem {
+  title: string,
+  /**
+   * Notion database ID of the item.
+   */
+  id: string,
+  prettyLink?: string,
+}
+
+/**
+ * Schema for the `Projects` databsae.
+ */
+interface ProjectDatabaseItem {
   title: string,
   description?: string,
+  prettyLink?: string,
   imageLink?: string,
-  imagePosX?: number,
-  imagePosY?: number,
   /**
    * Notion database ID of the item.
    */
@@ -26,4 +40,10 @@ interface DatabaseDropdownFilter {
 
 type NavigationSelected = 'Projects' | 'About Me';
 
-export { NavigationSelected, DatabaseItem, DatabaseDropdownFilter };
+export {
+  NavigationSelected,
+  ProjectDatabaseItem as DatabaseItem,
+  DocumentDatabaseItem,
+  DatabaseDropdownFilter,
+
+};

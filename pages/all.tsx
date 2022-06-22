@@ -3,7 +3,7 @@ import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
 import Database from '../components/Database';
-import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
+import getDatabaseBlocks from '../helpers/getProjectDatabaseBlocks';
 import Head from 'next/head';
 
 /**

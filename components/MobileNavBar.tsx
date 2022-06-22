@@ -51,8 +51,9 @@ interface Props {
    * If set to `tabs`, display a set of tabs
    * to navigate to different parts of the site.
    * If set to `project`, display the project title and a back button.
+   * If set to `title`, display only a title without a back button.
    */
-  display: 'tabs' | 'project',
+  display: 'tabs' | 'project' | 'title',
   /**
    * Only shown if `display` is set to `project`.
    */
@@ -94,11 +95,13 @@ export default function MobileNavBar({ title, display, selected }: Props) {
             />
           </div>
         ) : (
-          <button className={styles.projectContainer} onClick={() => router.back()}>
-            <Back
-              width={40}
-              height={40}
-            />
+          <button className={styles.projectContainer} onClick={display === 'project' ? () => router.back() : undefined}>
+            {display === 'project' ? (
+              <Back
+                width={40}
+                height={40}
+              />
+            ) : undefined}
             <p>{title}</p>
           </button>
         )}

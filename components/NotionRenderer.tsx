@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
+import returnPlainText from '../helpers/returnPlainText';
 
 interface Props {
   /**
@@ -9,26 +10,18 @@ interface Props {
 }
 
 /**
- * Return plain text from an array of rich text items.
- * @param richTextItems
- */
-function returnPlainText(richTextItems: any[]) {
-  let plainText = '';
-
-  richTextItems.forEach((item) => {
-    plainText += item.plain_text;
-  });
-
-  return plainText;
-}
-
-/**
  * Return a JSX element from a rich text item.
  * @param richTextItem
  * @param key
  * @returns
  */
 function richTextRenderer(richTextItem: any, key: string | number) {
+  // Deal with mentions
+  if (richTextItem.type !== 'text') {
+    return richTextItem.plain_text;
+  }
+
+  // Assume at this point that it's of type text
   let toReturn: any = richTextItem.text.content;
 
   if (richTextItem.annotations.bold) {
