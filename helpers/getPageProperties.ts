@@ -20,13 +20,20 @@ async function getPageProperties(pageId: string): Promise<DatabaseItem> {
     description += textItem.text.content;
   });
 
+  let imageLink = null;
+    if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
+      if (response.properties['Preview Image'].files[0].type === 'file') {
+        imageLink = response.properties['Preview Image'].files[0].file.url;
+      } else {
+        imageLink = response.properties['Preview Image'].files[0].external.url;
+      }
+    }
+
   return {
     title: response.properties.Name.title[0].plain_text,
     id: response.id,
     tags: response.properties['Tags'].multi_select.map((item: any) => item.name),
-    imageLink: response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0
-      ? response.properties['Preview Image'].files[0].file.url
-      : null,
+    imageLink,
     description,
   };
 }

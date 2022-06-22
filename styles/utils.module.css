@@ -1,10 +1,12 @@
 .rootContainer {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  position: fixed;
   align-items: center;
   gap: 10px;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   padding: 20px 0px;
 }

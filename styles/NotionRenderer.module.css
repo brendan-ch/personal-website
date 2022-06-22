@@ -6,7 +6,7 @@
 
 .imageContainer {
   width: 100%;
-  height: 25em;
+  height: 300px;
   position: relative;
 }
 
@@ -18,6 +18,10 @@
 
 .bulletedListIndentContainer {
   margin-left: 20px;
+}
+
+.spacer {
+  height: 50px;
 }
 
 /* .videoContainer {

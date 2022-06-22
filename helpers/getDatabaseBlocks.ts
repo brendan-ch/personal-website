@@ -22,12 +22,19 @@ async function getDatabaseBlocks(databaseId: string, filter?: any) {
       description += textItem.text.content;
     });
 
+    let imageLink = null;
+    if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
+      if (value.properties['Preview Image'].files[0].type === 'file') {
+        imageLink = value.properties['Preview Image'].files[0].file.url;
+      } else {
+        imageLink = value.properties['Preview Image'].files[0].external.url;
+      }
+    }
+
     return {
       title: value.properties.Name.title[0].plain_text,
       description,
-      imageLink: value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0
-        ? value.properties['Preview Image'].files[0].file.url
-        : null,
+      imageLink,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
     };
