@@ -46,8 +46,13 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    blocks = await getChildrenBlocks(params.id);
     dbItem = await getPageProperties(params.id);
+    if (dbItem) {
+      blocks = await getChildrenBlocks(params.id);
+    } else {
+      throw new Error('Page not published');
+    }
+
   } catch(e) {
     return {
       props: {

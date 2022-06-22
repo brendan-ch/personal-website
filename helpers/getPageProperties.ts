@@ -9,10 +9,14 @@ const client = new Client({
  * Get a database item object for a specific page.
  * @param pageId
  */
-async function getPageProperties(pageId: string): Promise<DatabaseItem> {
+async function getPageProperties(pageId: string): Promise<DatabaseItem | null> {
   const response: any = await client.pages.retrieve({
     page_id: pageId,
   });
+
+  if (!response.properties.Published.checkbox) {
+    return null;
+  }
 
   // Return a database item
   let description = '';
