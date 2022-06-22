@@ -57,30 +57,11 @@ export default function AboutPage({ blocks, nextCursor, lastRegenerated }: Props
           selected={selected}
         />
         {/* Page content */}
-        <NotionRenderer
-          blocks={blocks}
-        />
-        {/* <div>
-          {blocks.map((item, index) => {
-            if (item.type && item.type === 'paragraph') {
-              // Render rich text
-              return (
-                <div>
-                  {item.paragraph.rich_text.map((richText: any, index: number) => {
-                    
-                    return (
-                      <p key={index}>{richText.plain_text}</p>
-                    );
-                  })}
-                </div>
-              )
-            }
-
-            return (
-              <p key={index}>Paragraph object</p>
-            );
-          })}
-        </div> */}
+        <div className={utils.scrollable}>
+          <NotionRenderer
+            blocks={blocks}
+          />
+        </div>
       </main>
     </div>
   )
