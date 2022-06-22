@@ -6,7 +6,7 @@ const client = new Client({
 });
 
 /**
- * Get all database items that match the filter object.
+ * Get all database items from the Project database that match the filter object.
  * Unlike `getChildrenBlocks`, does not return children blocks from each page.
  * @param databaseId
  */
