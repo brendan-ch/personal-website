@@ -6,6 +6,7 @@ import getPageProperties from '../../helpers/getPageProperties';
 import { DatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
+import Head from 'next/head';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -83,6 +84,9 @@ interface Props {
 export default function ProjectPage({ blocks, title }: Props) {
   return (
     <div className={utils.rootContainer}>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <main>
         <MobileNavBar
           title={title}
