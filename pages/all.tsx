@@ -54,10 +54,11 @@ const All = ({ dbItems }: Props) => {
           selected={selected}
           display="tabs"
         />
-        <Database
-          items={dbItems}
-          // tag={tagSelected}
-        />
+        <div className={utils.scrollable}>
+          <Database
+            items={dbItems}
+          />
+        </div>
       </main>
     </div>
   );

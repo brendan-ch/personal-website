@@ -4,10 +4,7 @@ import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDatabaseBlocks from '../../helpers/getDatabaseBlocks';
 import getPageProperties from '../../helpers/getPageProperties';
 import { DatabaseItem } from '../../types';
-import NavBar from '../../components/NavBar';
 import MobileNavBar from '../../components/MobileNavBar';
-import { useState } from 'react';
-import PageHeader from '../../components/PageHeader';
 import NotionRenderer from '../../components/NotionRenderer';
 
 export const getStaticPaths = async () => {
@@ -91,9 +88,11 @@ export default function ProjectPage({ blocks, title }: Props) {
           title={title}
           display="project"
         />
-        <NotionRenderer
-          blocks={blocks || []}
-        />
+        <div className={utils.scrollable}>
+          <NotionRenderer
+            blocks={blocks || []}
+          />
+        </div>
       </main>
     </div>
   );
