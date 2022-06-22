@@ -93,6 +93,8 @@ interface Props {
     <div className={utils.rootContainer}>
       <Head>
         <title>{title} | Brendan Chen</title>
+        {/* Block indexing */}
+        <meta name="robots" content="noindex"></meta>
       </Head>
       <main>
         <MobileNavBar
