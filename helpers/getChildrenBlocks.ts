@@ -34,7 +34,7 @@ async function getChildrenBlocks(blockId: string, depth?: number, blockObj?: any
       page_size: PAGE_SIZE,
       start_cursor: response.next_cursor,
     });
-    blocks.concat(response.results);
+    blocks = blocks.concat(response.results);
   }
 
   // Loop through children and recursively get child blocks
