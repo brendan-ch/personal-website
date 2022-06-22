@@ -5,6 +5,7 @@ import { DatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/getDatabaseBlocks';
 import Head from 'next/head';
+import Image from 'next/image';
 
 /**
  * Generate Notion database content.
@@ -54,6 +55,12 @@ const Projects = ({ dbItems }: Props) => {
       <Head>
         <title>Featured | Brendan Chen</title>
       </Head>
+      <Image
+        width={0}
+        height={0}
+        src="/link-preview-image.png"
+        alt=""
+      />
       <main>
         <MobileNavBar
           title={selected}
