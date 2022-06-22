@@ -1,6 +1,6 @@
 import { Client } from '@notionhq/client';
-import { DocumentDatabaseItem } from '../types';
-import returnPlainText from './returnPlainText';
+import { DocumentDatabaseItem } from '../../types';
+import returnPlainText from '../returnPlainText';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,

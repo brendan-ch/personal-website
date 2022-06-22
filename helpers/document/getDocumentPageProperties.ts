@@ -1,6 +1,6 @@
 import { Client } from '@notionhq/client';
-import { DocumentDatabaseItem } from '../types';
-import { ADDITIONAL_DOCS_DATABASE_ID } from './Constants';
+import { DocumentDatabaseItem } from '../../types';
+import { ADDITIONAL_DOCS_DATABASE_ID } from '../Constants';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
