@@ -56,10 +56,13 @@ const Projects = ({ dbItems }: Props) => {
         <title>Featured | Brendan Chen</title>
       </Head>
       <Image
-        width={0}
-        height={0}
+        width={50}
+        height={50}
         src="/link-preview-image.png"
         alt=""
+        style={{
+          display: 'none',
+        }}
       />
       <main>
         <MobileNavBar
