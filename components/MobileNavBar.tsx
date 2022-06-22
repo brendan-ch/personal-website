@@ -81,12 +81,12 @@ export default function MobileNavBar({ title, display, selected }: Props) {
               text="Featured"
               selectedColor={RED}
             />
-            <MobileNavBarTab
+            {/* <MobileNavBarTab
               href="/all"
               selected={selected === 'All'}
               text="All"
               selectedColor={CYAN}
-            />
+            /> */}
             <MobileNavBarTab
               href="/about"
               selected={selected === 'About Me'}
