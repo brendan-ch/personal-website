@@ -1,11 +1,6 @@
-import { useState } from 'react';
 import MobileNavBar from '../components/MobileNavBar';
-import MobileNavMenu from '../components/MobileNavMenu';
-import NavBar from '../components/NavBar';
-import PageHeader from '../components/PageHeader';
 import utils from '../styles/utils.module.css';
-import { Client } from '@notionhq/client';
-import { ABOUT_PAGE_ID, PAGE_SIZE, REVALIDATE } from '../helpers/Constants';
+import { ABOUT_PAGE_ID, REVALIDATE } from '../helpers/Constants';
 import NotionRenderer from '../components/NotionRenderer';
 import getChildrenBlocks from '../helpers/getChildrenBlocks';
 import Head from 'next/head';
