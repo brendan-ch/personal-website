@@ -14,10 +14,20 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
   const dbResponse = await client.databases.query({
     database_id: ADDITIONAL_DOCS_DATABASE_ID,
     filter: {
-      property: 'Pretty Link',
-      rich_text: {
-        equals: prettyLink,
-      },
+      and: [
+        {
+          property: 'Pretty Link',
+          rich_text: {
+            equals: prettyLink,
+          },
+        },
+        {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
+        },
+      ]
     },
   });
   if (dbResponse.results.length === 0) {
