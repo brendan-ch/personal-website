@@ -95,7 +95,7 @@ export default function MobileNavBar({ title, display, selected }: Props) {
             />
           </div>
         ) : (
-          <button className={styles.projectContainer} onClick={() => router.back()}>
+          <button className={styles.projectContainer} onClick={display === 'project' ? () => router.back() : undefined}>
             {display === 'project' ? (
               <Back
                 width={40}
