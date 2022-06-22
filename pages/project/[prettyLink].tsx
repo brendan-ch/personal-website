@@ -1,5 +1,5 @@
 import utils from '../../styles/utils.module.css';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
+import { REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDatabaseBlocks from '../../helpers/project/getProjectDatabaseBlocks';
 import getPageProperties from '../../helpers/project/getProjectPageProperties';
@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
   return {
     paths: items.map((value) => ({
       params: {
-        id: value.id,
+        prettyLink: value.prettyLink,
         title: value.title,
       }
     })),
@@ -36,7 +36,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
   let dbItem: DatabaseItem | null;
 
-  if (!params || typeof params.id !== 'string') return {
+  if (!params || typeof params.prettyLink !== 'string') return {
     props: {
       blocks,
       title: null,
@@ -46,9 +46,9 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getPageProperties(params.id);
+    dbItem = await getPageProperties(params.prettyLink);
     if (dbItem) {
-      blocks = await getChildrenBlocks(params.id);
+      blocks = await getChildrenBlocks(dbItem.id);
     } else {
       throw new Error('Page not published');
     }
