@@ -12,7 +12,7 @@ class MyDocument extends Document {
           <meta name="og:image" content="/link-preview-image.png"></meta>
           {/* Fallback title */}
           {/* eslint-disable-next-line */}
-          <title>Brendan Chen</title>
+          {/* <title>Brendan Chen</title> */}
         </Head>
         <body>
           <Main />
