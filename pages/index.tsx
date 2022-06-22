@@ -3,14 +3,14 @@ import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
 import Database from '../components/Database';
-import getDatabaseBlocks from '../helpers/getProjectDatabaseBlocks';
+import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
 
 /**
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  const items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
+  const items = await getDatabaseBlocks({
     and: [
       {
         property: 'Published',
@@ -22,6 +22,12 @@ export async function getStaticProps() {
         property: 'Tags',
         multi_select: {
           contains: 'Featured',
+        },
+      },
+      {
+        property: 'Pretty Link',
+        rich_text: {
+          is_not_empty: true,
         },
       },
     ],

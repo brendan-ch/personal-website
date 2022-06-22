@@ -1,5 +1,7 @@
 import { Client } from '@notionhq/client';
-import { DatabaseItem } from '../types';
+import { DatabaseItem } from '../../types';
+import { PROJECTS_DATABASE_ID } from '../Constants';
+import returnPlainText from '../returnPlainText';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -10,9 +12,9 @@ const client = new Client({
  * Unlike `getChildrenBlocks`, does not return children blocks from each page.
  * @param databaseId
  */
-async function getProjectDatabaseBlocks(databaseId: string, filter?: any) {
+async function getProjectDatabaseBlocks(filter?: any) {
   const response = await client.databases.query({
-    database_id: databaseId,
+    database_id: PROJECTS_DATABASE_ID,
     filter,
   });
 
@@ -37,6 +39,7 @@ async function getProjectDatabaseBlocks(databaseId: string, filter?: any) {
       imageLink,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
+      prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
   });
 

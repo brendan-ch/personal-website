@@ -1,9 +1,9 @@
 import utils from '../../styles/utils.module.css';
 import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
-import getDocumentDatabaseBlocks from '../../helpers/getDocumentDatabaseBlocks';
+import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabaseBlocks';
 import { DocumentDatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDocumentPageProperties from '../../helpers/getDocumentPageProperties';
+import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
 import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
