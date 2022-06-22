@@ -161,17 +161,10 @@ const Renderers = {
  * @todo Fix hydration error so JavaScript isn't needed
  */
 export default function NotionRenderer({ blocks }: Props) {
-  // console.log(blocks);
-  const [renderBlocks, setRenderBlocks] = useState<any[]>([]);
-
-  useEffect(() => {
-    setRenderBlocks(blocks);
-  }, [blocks]);
-
   return (
     <div className={styles.container}>
       {/* @ts-ignore */}
-      {renderBlocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
+      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
       <div className={styles.spacer}></div>
     </div>
   );
