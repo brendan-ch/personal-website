@@ -1,5 +1,5 @@
 import MobileNavBar from '../components/MobileNavBar';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
+import { REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
 import Database from '../components/Database';
