@@ -10,7 +10,7 @@ const client = new Client({
  * Unlike `getChildrenBlocks`, does not return children blocks from each page.
  * @param databaseId
  */
-async function getDatabaseBlocks(databaseId: string, filter?: any) {
+async function getProjectDatabaseBlocks(databaseId: string, filter?: any) {
   const response = await client.databases.query({
     database_id: databaseId,
     filter,
@@ -43,4 +43,4 @@ async function getDatabaseBlocks(databaseId: string, filter?: any) {
   return items;
 }
 
-export default getDatabaseBlocks;
+export default getProjectDatabaseBlocks;

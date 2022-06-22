@@ -1,7 +1,7 @@
 import utils from '../../styles/utils.module.css';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDatabaseBlocks from '../../helpers/getDatabaseBlocks';
+import getDatabaseBlocks from '../../helpers/getProjectDatabaseBlocks';
 import getPageProperties from '../../helpers/getPageProperties';
 import { DatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
