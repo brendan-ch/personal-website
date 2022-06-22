@@ -1,25 +1,12 @@
 import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
+import returnPlainText from '../helpers/returnPlainText';
 
 interface Props {
   /**
    * Array of Notion blocks to render on the page.
    */
   blocks: any[],
-}
-
-/**
- * Return plain text from an array of rich text items.
- * @param richTextItems
- */
-function returnPlainText(richTextItems: any[]) {
-  let plainText = '';
-
-  richTextItems.forEach((item) => {
-    plainText += item.plain_text;
-  });
-
-  return plainText;
 }
 
 /**
