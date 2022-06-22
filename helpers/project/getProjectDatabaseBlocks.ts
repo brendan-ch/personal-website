@@ -1,6 +1,7 @@
 import { Client } from '@notionhq/client';
 import { DatabaseItem } from '../../types';
 import { PROJECTS_DATABASE_ID } from '../Constants';
+import returnPlainText from '../returnPlainText';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -38,6 +39,7 @@ async function getProjectDatabaseBlocks(filter?: any) {
       imageLink,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
+      prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
   });
 
