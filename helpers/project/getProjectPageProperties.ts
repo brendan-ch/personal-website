@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client';
-import { DatabaseItem } from '../types';
+import { DatabaseItem } from '../../types';
 
 const client = new Client({
   auth: process.env.NOTION_TOKEN,
