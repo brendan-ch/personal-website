@@ -16,6 +16,12 @@ interface Props {
  * @returns
  */
 function richTextRenderer(richTextItem: any, key: string | number) {
+  // Deal with mentions
+  if (richTextItem.type !== 'text') {
+    return richTextItem.plain_text;
+  }
+
+  // Assume at this point that it's of type text
   let toReturn: any = richTextItem.text.content;
 
   if (richTextItem.annotations.bold) {
