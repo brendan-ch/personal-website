@@ -23,6 +23,7 @@
   padding: 15px;
   animation-name: fadein;
   animation-duration: 500ms;
+  overflow-wrap: break-word;
 }
 
 .scrollableFade {
