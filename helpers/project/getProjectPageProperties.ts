@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client';
-import { DatabaseItem } from '../../types';
+import { ProjectDatabaseItem } from '../../types';
 import { PROJECTS_DATABASE_ID } from '../Constants';
 import returnPlainText from '../returnPlainText';
 
@@ -11,7 +11,7 @@ const client = new Client({
  * Get a database item object for a specific page.
  * @param prettyLink
  */
-async function getProjectPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
+async function getProjectPageProperties(prettyLink: string): Promise<ProjectDatabaseItem | null> {
   const dbResponse = await client.databases.query({
     database_id: PROJECTS_DATABASE_ID,
     filter: {

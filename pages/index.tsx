@@ -1,7 +1,7 @@
 import MobileNavBar from '../components/MobileNavBar';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseItem } from '../types';
+import { ProjectDatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
@@ -44,7 +44,7 @@ export async function getStaticProps() {
 
 interface Props {
   // lastRegenerated: number,
-  dbItems: DatabaseItem[],
+  dbItems: ProjectDatabaseItem[],
 }
 
 /**

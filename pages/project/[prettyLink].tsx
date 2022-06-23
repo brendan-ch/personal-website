@@ -3,7 +3,7 @@ import { REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDatabaseBlocks from '../../helpers/project/getProjectDatabaseBlocks';
 import getPageProperties from '../../helpers/project/getProjectPageProperties';
-import { DatabaseItem } from '../../types';
+import { ProjectDatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import Head from 'next/head';
@@ -34,7 +34,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: DatabaseItem | null;
+  let dbItem: ProjectDatabaseItem | null;
 
   if (!params || typeof params.prettyLink !== 'string') return {
     props: {
