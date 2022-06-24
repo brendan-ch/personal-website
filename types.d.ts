@@ -3,7 +3,6 @@ interface DatabaseItem {
   id: string,
   prettyLink?: string,
   imageLink?: string,
-  imageName?: string,
 }
 
 /**
@@ -40,7 +39,6 @@ type NavigationSelected = 'Projects' | 'About Me';
  */
 interface UpdatedDatabaseItem {
   imageLink: string,
-  imageName: string,
   /**
    * Notion page ID to update.
    */

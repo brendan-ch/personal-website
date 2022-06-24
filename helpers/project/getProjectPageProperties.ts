@@ -55,7 +55,6 @@ async function getProjectPageProperties(prettyLink: string): Promise<ProjectData
     id: response.id,
     tags: response.properties['Tags'].multi_select.map((item: any) => item.name),
     imageLink,
-    imageName,
     description,
     prettyLink: response.properties['Pretty Link'] ? returnPlainText(response.properties['Pretty Link'].rich_text) : undefined,
   };

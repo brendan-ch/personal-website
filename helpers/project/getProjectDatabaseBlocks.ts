@@ -21,9 +21,7 @@ async function getProjectDatabaseBlocks(filter?: any) {
     });
 
     let imageLink = null;
-    let imageName = null;
     if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
-      imageName = value.properties['Preview Image'].files[0].name;
       if (value.properties['Preview Image'].files[0].type === 'file') {
         imageLink = value.properties['Preview Image'].files[0].file.url;
       } else {
@@ -35,7 +33,6 @@ async function getProjectDatabaseBlocks(filter?: any) {
       title: value.properties.Name.title[0].plain_text,
       description,
       imageLink,
-      imageName,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
