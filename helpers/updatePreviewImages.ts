@@ -17,9 +17,9 @@ export default async function updatePreviewImages(updatedItems: UpdatedDatabaseI
               {
                 type: 'external',
                 external: {
-                  url: item.link,
+                  url: item.imageLink,
                 },
-                name: item.pageId,
+                name: item.imageName,
               }
             ],
           },

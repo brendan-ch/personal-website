@@ -35,8 +35,12 @@ interface DatabaseDropdownFilter {
 
 type NavigationSelected = 'Projects' | 'About Me';
 
+/**
+ * Database item with updated preview image.
+ */
 interface UpdatedDatabaseItem {
-  link: string,
+  imageLink: string,
+  imageName: string,
   /**
    * Notion page ID to update.
    */
