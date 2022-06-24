@@ -77,10 +77,12 @@ const Projects = ({ dbItems }: Props) => {
             belowText="I’m Brendan, a developer and designer living in Orange, CA."
           />
         </div>
-        <Database
-          items={dbItems}
-          // tag={tagSelected}
-        />
+        <div className={utils.itemWrapper}>
+          <Database
+            items={dbItems}
+            // tag={tagSelected}
+          />
+        </div>
         <Footer />
         {/* <div className={utils.scrollable}>
         </div> */}
