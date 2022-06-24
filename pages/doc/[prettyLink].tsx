@@ -7,6 +7,8 @@ import getDocumentPageProperties from '../../helpers/document/getDocumentPagePro
 import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
+import uploadImageBlocks from '../../helpers/aws/uploadImageBlocks';
+import updateImageBlocks from '../../helpers/updateImageBlocks';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -40,6 +42,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
   let dbItem: DocumentDatabaseItem | null;
+  let updated = null;
 
   if (!params || typeof params.prettyLink !== 'string') return {
     props: {
@@ -56,6 +59,14 @@ export const getStaticProps = async ({ params }: { params: any }) => {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
       throw new Error('Page not published');
+    }
+
+    if (blocks) {
+      // Upload images to AWS
+      updated = await uploadImageBlocks(blocks);
+
+      // Write back to Notion
+      await updateImageBlocks(updated);
     }
 
   } catch(e) {
