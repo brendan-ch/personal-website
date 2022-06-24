@@ -7,6 +7,7 @@ import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
 import updatePreviewImages from '../helpers/updatePreviewImages';
 import Footer from '../components/Footer';
+import PageHeader from '../components/PageHeader';
 
 /**
  * Generate Notion database content.
@@ -70,6 +71,12 @@ const Projects = ({ dbItems }: Props) => {
         display="tabs"
       />
       <main>
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText=""
+            belowText="I’m Brendan, a developer and designer living in Orange, CA."
+          />
+        </div>
         <Database
           items={dbItems}
           // tag={tagSelected}
