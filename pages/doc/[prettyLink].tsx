@@ -8,7 +8,7 @@ import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import uploadImageBlocks from '../../helpers/aws/uploadImageBlocks';
-import updateImageBlocks from '../../helpers/updateImageBlocks';
+import updateImageBlocks from '../../helpers/writeImageBlocks';
 
 export const getStaticPaths = async () => {
   // Get pages in database

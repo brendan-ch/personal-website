@@ -4,7 +4,7 @@ import { UpdatedDatabaseItem } from '../types';
 /**
  * Write preview images back to Notion.
  */
-export default async function updatePreviewImages(updatedItems: UpdatedDatabaseItem[]) {
+export default async function writePreviewImages(updatedItems: UpdatedDatabaseItem[]) {
   for (let i = 0; i < updatedItems.length; i++) {
     const item = updatedItems[i];
 

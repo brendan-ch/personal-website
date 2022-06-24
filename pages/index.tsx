@@ -6,7 +6,7 @@ import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
 import uploadPreviewImages from '../helpers/aws/uploadPreviewImages';
-import updatePreviewImages from '../helpers/updatePreviewImages';
+import updatePreviewImages from '../helpers/writePreviewImages';
 
 /**
  * Generate Notion database content.
