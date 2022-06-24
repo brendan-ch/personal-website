@@ -47,6 +47,12 @@ interface UpdatedDatabaseItem {
   pageId: string,
 }
 
+interface UpdatedBlockItem {
+  imageLink: string,
+  imageName: string,
+  blockId: string,
+}
+
 export {
   NavigationSelected,
   ProjectDatabaseItem,
@@ -54,4 +60,5 @@ export {
   DatabaseDropdownFilter,
   DatabaseItem,
   UpdatedDatabaseItem,
+  UpdatedBlockItem,
 };
