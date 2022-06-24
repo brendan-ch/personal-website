@@ -63,9 +63,7 @@ interface Props {
  * The hamburger menu opens up an overlay with links to the other pages.
  * @param props
  */
-export default function MobileNavBar({ title, display, selected }: Props) {
-  const router = useRouter();
-
+export default function MobileNavBar({ title, selected }: Props) {
   return (
     <div className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
