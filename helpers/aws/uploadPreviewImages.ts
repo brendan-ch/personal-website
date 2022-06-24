@@ -4,7 +4,7 @@ import { BUCKET_NAME, REGION } from '../Constants';
 import s3Client from './S3Client';
 
 /**
- * Upload files from the provided items to AWS.
+ * Upload preview images from the provided items to AWS.
  * Returns a list of `UpdatedDatabaseItem` objects.
  * @param items
  */
