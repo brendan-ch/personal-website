@@ -54,7 +54,6 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
     }
   }
 
-  console.log(updated);
   return updated;
 }
 
