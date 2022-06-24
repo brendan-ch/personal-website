@@ -30,6 +30,13 @@
   animation-duration: 500ms;
 }
 
+.itemWrapper {
+  padding: 15px;
+  min-width: 20em;
+  max-width: 60em;
+  width: 100%;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0%;
