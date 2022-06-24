@@ -7,7 +7,6 @@ import { UpdatedBlockItem } from '../types';
 export default async function updateImageBlocks(updatedItems: UpdatedBlockItem[]) {
   for (let i = 0; i < updatedItems.length; i++) {
     const item = updatedItems[i];
-    console.log(item);
 
     try {
       await client.blocks.update({
