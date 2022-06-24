@@ -19,7 +19,7 @@ export default async function writePreviewImages(updatedItems: UpdatedDatabaseIt
                 external: {
                   url: item.imageLink,
                 },
-                name: item.imageName,
+                name: 'image',
               }
             ],
           },
