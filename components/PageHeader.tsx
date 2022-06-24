@@ -21,13 +21,15 @@ export default function PageHeader({ includeBackButton, aboveText, belowText }: 
     <div className={styles.container}>
       <div className={styles.textContainer}>
         {includeBackButton ? (
-          <h3 className={styles.backButton} onClick={() => router.back()}>
-            <Back
-              width={30}
-              height={30}
-            />
-            {aboveText}
-          </h3>
+          <button onClick={() => router.back()}>
+            <h3 className={styles.backButton}>
+              <Back
+                width={30}
+                height={30}
+              />
+              {aboveText}
+            </h3>
+          </button>
         ) : (
           <h2>
             {aboveText}

@@ -31,7 +31,7 @@
   align-items: center;
 }
 
-.backButton > svg { 
+.backButton svg { 
   stroke: var(--emphasis);
 }
 
