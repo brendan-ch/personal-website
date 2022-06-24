@@ -38,8 +38,8 @@ export default async function uploadImageBlocks(blocks: any[]): Promise<UpdatedB
       // Add to updated
       updated.push({
         imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/blocks/${id}`,
-        imageName: id,
         blockId: id,
+        caption: blockContent.caption,
       });
       
     } catch(e) {

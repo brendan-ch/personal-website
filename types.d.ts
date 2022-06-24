@@ -49,7 +49,7 @@ interface UpdatedDatabaseItem {
 
 interface UpdatedBlockItem {
   imageLink: string,
-  imageName: string,
+  caption: any[],
   blockId: string,
 }
 
