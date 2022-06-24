@@ -37,7 +37,8 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
 
       // Add to updated
       updated.push({
-        link: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/${item.id}`,
+        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/${item.imageName}`,
+        imageName: item.imageName!,
         pageId: item.id,
       });
     } catch(e) {
