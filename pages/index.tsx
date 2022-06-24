@@ -63,12 +63,12 @@ const Projects = ({ dbItems }: Props) => {
       <Head>
         <title>Brendan Chen</title>
       </Head>
+      <MobileNavBar
+        title={selected}
+        selected={selected}
+        display="tabs"
+      />
       <main>
-        <MobileNavBar
-          title={selected}
-          selected={selected}
-          display="tabs"
-        />
         <div className={utils.scrollable}>
           <Database
             items={dbItems}
