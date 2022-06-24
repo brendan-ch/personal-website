@@ -30,11 +30,9 @@ main {
   display: flex;
   flex-direction: column;
   /* padding: 10px; */
-  max-width: 50em;
-  max-height: 100%;
-  flex: 1;
-  gap: 20px;
-  /* overflow-y: scroll; */
+  padding: 20px 0px 0px;
+  gap: 30px;
+  overflow-y: scroll;
   width: 100%;
 }
 
@@ -73,6 +71,7 @@ button {
   --cyan: #59ABB2;
   --blue: #7978BF;
   --red: #E14B36;
+  --gray: #DCDCDC;
 }
 
 h1 {
