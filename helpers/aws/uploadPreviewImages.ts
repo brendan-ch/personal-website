@@ -11,7 +11,7 @@ import s3Client from './S3Client';
 async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDatabaseItem[]> {
   let updated: UpdatedDatabaseItem[] = [];
 
-  const itemsWithImage = items.filter((item) => item.imageLink && !item.imageLink.startsWith(`https://${BUCKET_NAME}`));
+  const itemsWithImage = items.filter((item) => item.imageLink && item.imageName && !item.imageLink.startsWith(`https://${BUCKET_NAME}`));
 
   // Use regular for loop to avoid 429 errors
   for (let i = 0; i < itemsWithImage.length; i++) {
@@ -26,7 +26,7 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
       const arrayBuffer = await response.arrayBuffer();
       const params: PutObjectCommandInput = {
         Bucket: BUCKET_NAME,
-        Key: `${item.id}`,
+        Key: `preview/${item.id}/${item.imageName}`,
         Body: Buffer.from(arrayBuffer),
         ACL: 'public-read',
       };
