@@ -4,7 +4,7 @@ import { UpdatedBlockItem } from '../types';
 /**
  * Write preview images back to Notion.
  */
-export default async function updateImageBlocks(updatedItems: UpdatedBlockItem[]) {
+export default async function writeImageBlocks(updatedItems: UpdatedBlockItem[]) {
   for (let i = 0; i < updatedItems.length; i++) {
     const item = updatedItems[i];
 
