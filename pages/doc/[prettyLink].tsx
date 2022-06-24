@@ -11,10 +11,11 @@ import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 import Image from 'next/image';
+import updatePreviewImages from '../../helpers/updatePreviewImages';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
+  let items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -30,6 +31,8 @@ export const getStaticPaths = async () => {
       }
     ],
   });
+
+  items = await updatePreviewImages(items);
 
   return {
     paths: items.map((value: DocumentDatabaseItem) => ({
