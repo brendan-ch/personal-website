@@ -36,6 +36,9 @@ main {
   overflow-y: scroll;
   width: 100%;
   overflow-wrap: break-word;
+
+  animation-name: fadein;
+  animation-duration: 500ms;
 }
 
 /* Perform a reset on the button component */
@@ -51,10 +54,11 @@ button {
 }
 
 @keyframes fadein {
-  from {
+  0% {
     opacity: 0%;
-  }
-  to {
+  } 30% {
+    opacity: 0%;
+  } 100% {
     opacity: 100%;
   }
 }
