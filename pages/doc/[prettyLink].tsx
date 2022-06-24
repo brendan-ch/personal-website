@@ -8,6 +8,7 @@ import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
+import Footer from '../../components/Footer';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -100,16 +101,17 @@ interface Props {
         {/* Block indexing */}
         <meta name="robots" content="noindex"></meta>
       </Head>
+      <MobileNavBar
+        title={title}
+        display="title"
+      />
       <main>
-        <MobileNavBar
-          title={title}
-          display="title"
-        />
-        <div className={utils.scrollable}>
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}
           />
         </div>
+        <Footer />
       </main>
     </div>
   );

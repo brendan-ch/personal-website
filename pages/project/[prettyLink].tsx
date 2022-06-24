@@ -8,6 +8,7 @@ import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import Head from 'next/head';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
+import Footer from '../../components/Footer';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -97,16 +98,17 @@ export default function ProjectPage({ blocks, title }: Props) {
       <Head>
         <title>{title} | Brendan Chen</title>
       </Head>
+      <MobileNavBar
+        title={title}
+        display="project"
+      />
       <main>
-        <MobileNavBar
-          title={title}
-          display="project"
-        />
-        <div className={utils.scrollable}>
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}
           />
         </div>
+        <Footer />
       </main>
     </div>
   );
