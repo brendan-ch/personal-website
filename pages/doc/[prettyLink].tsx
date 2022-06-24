@@ -10,6 +10,7 @@ import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
+import Image from 'next/image';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -79,6 +80,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     props: {
       blocks,
       title: dbItem.title,
+      imageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
@@ -88,13 +90,14 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 interface Props {
   blocks?: any[],
   title?: string,
+  imageLink?: string,
 }
 
 /**
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({ blocks, title }: Props) {
+ export default function DocumentPage({ blocks, imageLink, title }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
@@ -114,6 +117,16 @@ interface Props {
             // includeBackButton
           />
         </div>
+        {imageLink ? (
+          <div className={utils.fullWidthImageWrapper}>
+            <Image
+              alt={`${title} preview image`}
+              src={imageLink}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : undefined}
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}
