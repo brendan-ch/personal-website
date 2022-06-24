@@ -4,16 +4,29 @@ import { ABOUT_PAGE_ID, REVALIDATE } from '../helpers/Constants';
 import NotionRenderer from '../components/NotionRenderer';
 import getChildrenBlocks from '../helpers/getChildrenBlocks';
 import Head from 'next/head';
+// import uploadImageBlocks from '../helpers/aws/uploadImageBlocks';
+// import writeImageBlocks from '../helpers/writeImageBlocks';
+import updateImageBlocks from '../helpers/updateImageBlocks';
 
 export async function getStaticProps() {
   // This is server side code
-  const blocks = await getChildrenBlocks(ABOUT_PAGE_ID);
+  let blocks = await getChildrenBlocks(ABOUT_PAGE_ID);
+  if (!blocks) {
+    return {
+      props: {
+        blocks: [],
+      },
+      revalidate: REVALIDATE,
+    }
+  }
+
+  // Upload images to AWS
+  blocks = await updateImageBlocks(blocks);
 
   // Return block objects
   return {
     props: {
       blocks,
-      // lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
   }
