@@ -9,6 +9,7 @@ import NotionRenderer from '../../components/NotionRenderer';
 import Head from 'next/head';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
+import PageHeader from '../../components/PageHeader';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -103,6 +104,13 @@ export default function ProjectPage({ blocks, title }: Props) {
         display="project"
       />
       <main>
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText="Back"
+            belowText={title || ''}
+            includeBackButton
+          />
+        </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}

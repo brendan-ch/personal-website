@@ -9,6 +9,7 @@ import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
+import PageHeader from '../../components/PageHeader';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -106,6 +107,13 @@ interface Props {
         display="title"
       />
       <main>
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText=""
+            belowText={title || ''}
+            // includeBackButton
+          />
+        </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}
