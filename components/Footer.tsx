@@ -5,12 +5,12 @@ export default function Footer() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <LogoFull
+        {/* <LogoFull
           width={272}
           height={1}
-        />
+        /> */}
         <p>© 2022 Brendan Chen</p>
-        <p>Privacy Policy | Licenses</p>
+        {/* <p>Privacy Policy | Licenses</p> */}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: center; */
   padding: 0px;
   background: var(--gray);
   width: 100%;
@@ -15,6 +15,9 @@
   gap: 20px;
 }
 
+.content p {
+  opacity: 70%;
+}
 
 @media only screen and (min-width: 601px) {
   .content svg {
@@ -27,7 +30,7 @@
     align-items: center;
     padding: 15px;
     min-width: 20em;
-    max-width: 60em;
+    /* max-width: 60em; */
     gap: 10px;
     width: 100%;
   }
