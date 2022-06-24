@@ -34,16 +34,16 @@ export default async function uploadImageBlocks(blocks: any[]): Promise<UpdatedB
       const arrayBuffer = await response.arrayBuffer();
       const params: PutObjectCommandInput = {
         Bucket: BUCKET_NAME,
-        Key: `blocks/${id}.${saveAs}`,
+        Key: `blocks/${id}/image.${saveAs}`,
         Body: Buffer.from(arrayBuffer),
         ACL: 'public-read',
       };
 
-      const result = await s3Client.send(new PutObjectCommand(params));
+      await s3Client.send(new PutObjectCommand(params));
 
       // Add to updated
       updated.push({
-        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/blocks/${id}.${saveAs}`,
+        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/blocks/${id}/image.${saveAs}`,
         blockId: id,
         caption: blockContent.caption,
       });

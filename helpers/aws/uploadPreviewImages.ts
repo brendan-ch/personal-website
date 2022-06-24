@@ -11,7 +11,7 @@ import s3Client from './S3Client';
 async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDatabaseItem[]> {
   let updated: UpdatedDatabaseItem[] = [];
 
-  const itemsWithImage = items.filter((item) => item.imageLink && item.imageName && !item.imageLink.startsWith(`https://${BUCKET_NAME}`));
+  const itemsWithImage = items.filter((item) => item.imageLink && !item.imageLink.startsWith(`https://${BUCKET_NAME}`));
 
   // Use regular for loop to avoid 429 errors
   for (let i = 0; i < itemsWithImage.length; i++) {
@@ -22,23 +22,29 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
       const response = await fetch(item.imageLink!, {
         method: 'GET',
       });
+      const contentType = response.headers.get('Content-Type');
+      if (!contentType?.startsWith('image/')) {
+        // Throw an error
+        throw new Error('Invalid content type on response');
+      }
+
+      const saveAs = contentType.substring(contentType.indexOf('/') + 1);
 
       const arrayBuffer = await response.arrayBuffer();
       const params: PutObjectCommandInput = {
         Bucket: BUCKET_NAME,
-        Key: `preview/${item.id}/${item.imageName}`,
+        Key: `preview/${item.id}/image.${saveAs}`,
         Body: Buffer.from(arrayBuffer),
         ACL: 'public-read',
       };
 
       // Overwrite if necessary
-      const result = await s3Client.send(new PutObjectCommand(params));
+      await s3Client.send(new PutObjectCommand(params));
       // Successfully put object in S3 bucket
 
       // Add to updated
       updated.push({
-        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/${item.imageName}`,
-        imageName: item.imageName!,
+        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/image.${saveAs}`,
         pageId: item.id,
       });
     } catch(e) {
