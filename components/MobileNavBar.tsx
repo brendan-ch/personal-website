@@ -68,10 +68,14 @@ export default function MobileNavBar({ title, selected }: Props) {
     <div className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
-        <LogoFull
-          width={200}
-          height={1}
-        />
+        <Link href="/">
+          <a>
+            <LogoFull
+              width={200}
+              height={1}
+            />
+          </a>
+        </Link>
         <div className={styles.buttonsContainer}>
           <MobileNavBarTab
             href="/"
