@@ -29,6 +29,8 @@
   animation-duration: 500ms;
 }
 
+/* Apply to items on a page that need to
+stretch until a maximum width. */
 .itemWrapper {
   padding: 15px;
   min-width: 20em;
@@ -36,6 +38,8 @@
   width: 100%;
 }
 
+/* Apply to items on a page that need to stretch
+to the bottom of the page. */
 .stretchToEnd {
   flex: 1;
 }
