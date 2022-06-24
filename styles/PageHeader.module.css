@@ -6,12 +6,6 @@
   gap: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-  .container {
-    display: none;
-  }
-}
-
 .textContainer {
   display: flex;
   flex-direction: column;
