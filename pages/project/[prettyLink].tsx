@@ -114,7 +114,7 @@ export default function ProjectPage({ blocks, imageLink, title }: Props) {
             includeBackButton
           />
         </div>
-        {imageLink ? (
+        {/* {imageLink ? (
           <div className={utils.fullWidthImageWrapper}>
             <Image
               alt={`${title} preview image`}
@@ -123,7 +123,7 @@ export default function ProjectPage({ blocks, imageLink, title }: Props) {
               objectFit="cover"
             />
           </div>
-        ) : undefined}
+        ) : undefined} */}
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}

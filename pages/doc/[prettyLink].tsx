@@ -120,7 +120,7 @@ interface Props {
             // includeBackButton
           />
         </div>
-        {imageLink ? (
+        {/* {imageLink ? (
           <div className={utils.fullWidthImageWrapper}>
             <Image
               alt={`${title} preview image`}
@@ -129,7 +129,7 @@ interface Props {
               objectFit="cover"
             />
           </div>
-        ) : undefined}
+        ) : undefined} */}
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}
