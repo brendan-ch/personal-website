@@ -15,9 +15,19 @@ import returnPlainText from '../returnPlainText';
 
   
   const items: DocumentDatabaseItem[] = response.results.map((value: any) => {
+    let imageLink = null;
+    if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
+      if (value.properties['Preview Image'].files[0].type === 'file') {
+        imageLink = value.properties['Preview Image'].files[0].file.url;
+      } else {
+        imageLink = value.properties['Preview Image'].files[0].external.url;
+      }
+    }
+
     return {
       title: value.properties.Name.title[0].plain_text,
       id: value.id,
+      imageLink,
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
   });

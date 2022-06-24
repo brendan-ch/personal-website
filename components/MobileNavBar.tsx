@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { BLUE, CYAN, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
-import Back from './icons/Back';
+import LogoFull from './icons/LogoFull';
 
 interface TabProps {
   selected: boolean,
@@ -47,11 +47,8 @@ function MobileNavBarTab({
 }
 
 interface Props {
-  /**|
-   * If set to `tabs`, display a set of tabs
-   * to navigate to different parts of the site.
-   * If set to `project`, display the project title and a back button.
-   * If set to `title`, display only a title without a back button.
+  /**
+   * @deprecated This prop has no effect.
    */
   display: 'tabs' | 'project' | 'title',
   /**
@@ -66,45 +63,33 @@ interface Props {
  * The hamburger menu opens up an overlay with links to the other pages.
  * @param props
  */
-export default function MobileNavBar({ title, display, selected }: Props) {
-  const router = useRouter();
-
+export default function MobileNavBar({ title, selected }: Props) {
   return (
     <div className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
-        {display === 'tabs' ? (
-          <div className={styles.buttonsContainer}>
-            <MobileNavBarTab
-              href="/"
-              selected={selected === 'Featured'}
-              text="Featured"
-              selectedColor={RED}
+        <Link href="/">
+          <a>
+            <LogoFull
+              width={200}
+              height={1}
             />
-            {/* <MobileNavBarTab
-              href="/all"
-              selected={selected === 'All'}
-              text="All"
-              selectedColor={CYAN}
-            /> */}
-            <MobileNavBarTab
-              href="/about"
-              selected={selected === 'About Me'}
-              text="About Me"
-              selectedColor={BLUE}
-            />
-          </div>
-        ) : (
-          <button className={styles.projectContainer} onClick={display === 'project' ? () => router.back() : undefined}>
-            {display === 'project' ? (
-              <Back
-                width={40}
-                height={40}
-              />
-            ) : undefined}
-            <p>{title}</p>
-          </button>
-        )}
+          </a>
+        </Link>
+        <div className={styles.buttonsContainer}>
+          <MobileNavBarTab
+            href="/"
+            selected={selected === 'Featured'}
+            text="Home"
+            selectedColor={RED}
+          />
+          <MobileNavBarTab
+            href="/about"
+            selected={selected === 'About Me'}
+            text="About Me"
+            selectedColor={BLUE}
+          />
+        </div>
       </div>
       <div className={`${styles.line} ${styles.lineDesktop}`} />
     </div>

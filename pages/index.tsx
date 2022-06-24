@@ -6,6 +6,8 @@ import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
 import updatePreviewImages from '../helpers/updatePreviewImages';
+import Footer from '../components/Footer';
+import PageHeader from '../components/PageHeader';
 
 /**
  * Generate Notion database content.
@@ -63,18 +65,24 @@ const Projects = ({ dbItems }: Props) => {
       <Head>
         <title>Brendan Chen</title>
       </Head>
+      <MobileNavBar
+        title={selected}
+        selected={selected}
+        display="tabs"
+      />
       <main>
-        <MobileNavBar
-          title={selected}
-          selected={selected}
-          display="tabs"
-        />
-        <div className={utils.scrollable}>
-          <Database
-            items={dbItems}
-            // tag={tagSelected}
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText=""
+            belowText="I’m Brendan, a developer and designer living in Orange, CA."
           />
         </div>
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+          <Database
+            items={dbItems}
+          />
+        </div>
+        <Footer />
       </main>
     </div>
   );

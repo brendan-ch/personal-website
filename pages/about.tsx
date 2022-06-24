@@ -7,6 +7,8 @@ import Head from 'next/head';
 // import uploadImageBlocks from '../helpers/aws/uploadImageBlocks';
 // import writeImageBlocks from '../helpers/writeImageBlocks';
 import updateImageBlocks from '../helpers/updateImageBlocks';
+import PageHeader from '../components/PageHeader';
+import Footer from '../components/Footer';
 
 export async function getStaticProps() {
   // This is server side code
@@ -49,18 +51,25 @@ export default function AboutPage({ blocks }: Props) {
       <Head>
         <title>About Me | Brendan Chen</title>
       </Head>
+      <MobileNavBar
+        title={selected}
+        display="tabs"
+        selected={selected}
+      />
       <main>
-        <MobileNavBar
-          title={selected}
-          display="tabs"
-          selected={selected}
-        />
         {/* Page content */}
-        <div className={utils.scrollable}>
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText=""
+            belowText="About Me"
+          />
+        </div>
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks}
           />
         </div>
+        <Footer />
       </main>
     </div>
   )

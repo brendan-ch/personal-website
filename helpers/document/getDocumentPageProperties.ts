@@ -32,9 +32,19 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
 
   const response: any = dbResponse.results[0];
 
+  let imageLink = null;
+  if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
+    if (response.properties['Preview Image'].files[0].type === 'file') {
+      imageLink = response.properties['Preview Image'].files[0].file.url;
+    } else {
+      imageLink = response.properties['Preview Image'].files[0].external.url;
+    }
+  }
+
   return {
     title: response.properties.Name.title[0].plain_text,
     id: response.id,
+    imageLink,
     prettyLink,
   };
 }

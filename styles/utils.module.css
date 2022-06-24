@@ -5,10 +5,8 @@
   justify-content: flex-start;
   position: fixed;
   align-items: center;
-  gap: 10px;
   height: 100%;
   width: 100vw;
-  padding: 20px 0px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -29,6 +27,28 @@
 .scrollableFade {
   animation-name: fadeout;
   animation-duration: 500ms;
+}
+
+/* Apply to items on a page that need to
+stretch until a maximum width. */
+.itemWrapper {
+  padding: 15px;
+  min-width: 20em;
+  max-width: 60em;
+  width: 100%;
+}
+
+/* Apply to items on a page that need to stretch
+to the bottom of the page. */
+.stretchToEnd {
+  flex: 1;
+}
+
+/* Use to wrap a full-width image on a page */
+.fullWidthImageWrapper {
+  width: 100vw;
+  min-height: calc(100vw / 4);
+  position: relative;
 }
 
 @keyframes fadein {

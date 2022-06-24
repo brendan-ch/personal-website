@@ -8,10 +8,14 @@ import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
+import Footer from '../../components/Footer';
+import PageHeader from '../../components/PageHeader';
+import Image from 'next/image';
+import updatePreviewImages from '../../helpers/updatePreviewImages';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
+  let items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -27,6 +31,8 @@ export const getStaticPaths = async () => {
       }
     ],
   });
+
+  items = await updatePreviewImages(items);
 
   return {
     paths: items.map((value: DocumentDatabaseItem) => ({
@@ -77,6 +83,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     props: {
       blocks,
       title: dbItem.title,
+      imageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
@@ -86,13 +93,14 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 interface Props {
   blocks?: any[],
   title?: string,
+  imageLink?: string,
 }
 
 /**
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({ blocks, title }: Props) {
+ export default function DocumentPage({ blocks, imageLink, title }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
@@ -100,16 +108,34 @@ interface Props {
         {/* Block indexing */}
         <meta name="robots" content="noindex"></meta>
       </Head>
+      <MobileNavBar
+        title={title}
+        display="title"
+      />
       <main>
-        <MobileNavBar
-          title={title}
-          display="title"
-        />
-        <div className={utils.scrollable}>
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText=""
+            belowText={title || ''}
+            // includeBackButton
+          />
+        </div>
+        {/* {imageLink ? (
+          <div className={utils.fullWidthImageWrapper}>
+            <Image
+              alt={`${title} preview image`}
+              src={imageLink}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : undefined} */}
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <NotionRenderer
             blocks={blocks || []}
           />
         </div>
+        <Footer />
       </main>
     </div>
   );
