@@ -1,10 +1,5 @@
-import { Client } from '@notionhq/client';
+import client from './notionClient';
 import { MAX_RECURSION_DEPTH, PAGE_SIZE } from './Constants';
-
-// Call Notion endpoint
-const client = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
 
 /**
  * Recursively get children blocks from a Notion block.

@@ -1,10 +1,6 @@
-import { Client } from '@notionhq/client';
+import client from '../notionClient';
 import { DocumentDatabaseItem } from '../../types';
 import returnPlainText from '../returnPlainText';
-
-const client = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
 
 /**
  * Get all database items from the Project database that match the filter object.

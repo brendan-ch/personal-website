@@ -1,10 +1,6 @@
-import { Client } from '@notionhq/client';
+import client from '../notionClient';
 import { DocumentDatabaseItem } from '../../types';
 import { ADDITIONAL_DOCS_DATABASE_ID } from '../Constants';
-
-const client = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
 
 /**
  * Get a database item object for a specific page.
