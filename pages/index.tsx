@@ -5,14 +5,13 @@ import { ProjectDatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
-import uploadPreviewImages from '../helpers/aws/uploadPreviewImages';
-import updatePreviewImages from '../helpers/writePreviewImages';
+import updatePreviewImages from '../helpers/updatePreviewImages';
 
 /**
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  const items = await getDatabaseBlocks({
+  let items = await getDatabaseBlocks({
     and: [
       {
         property: 'Published',
@@ -35,10 +34,7 @@ export async function getStaticProps() {
     ],
   });
 
-  // Upload to AWS
-  const updatedItems = await uploadPreviewImages(items);
-  // Write back to Notion
-  await updatePreviewImages(updatedItems);
+  items = await updatePreviewImages(items);
   
   return {
     props: {
