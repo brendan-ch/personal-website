@@ -19,25 +19,22 @@
 
 .textContainer > h2 {
   margin: 0px;
-  color: var(--medium-gray);
   height: 30px;
   align-items: center;
   flex-direction: row;
   display: flex;
 }
 
+.backButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .backButton > svg { 
-  stroke: var(--medium-gray);
+  stroke: var(--emphasis);
 }
 
 .backButton:hover {
   cursor: pointer;
-  color: var(--selected);
-  fill: var(--selected);
-  transition: 0.3s;
-}
-
-.logo {
-  width: 80px;
-  height: 80px;
 }
