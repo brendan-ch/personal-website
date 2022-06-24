@@ -5,6 +5,7 @@ import { ProjectDatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
+import uploadPreviewImages from '../helpers/aws/uploadPreviewImages';
 
 /**
  * Generate Notion database content.
@@ -32,6 +33,10 @@ export async function getStaticProps() {
       },
     ],
   });
+
+  // Upload to AWS
+  const updatedItems = await uploadPreviewImages(items);
+  // Write back to Notion
   
   return {
     props: {

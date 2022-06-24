@@ -34,10 +34,19 @@ interface DatabaseDropdownFilter {
 
 type NavigationSelected = 'Projects' | 'About Me';
 
+interface UpdatedDatabaseItem {
+  link: string,
+  /**
+   * Notion page ID to update.
+   */
+  pageId: string,
+}
+
 export {
   NavigationSelected,
   ProjectDatabaseItem,
   DocumentDatabaseItem,
   DatabaseDropdownFilter,
   DatabaseItem,
+  UpdatedDatabaseItem,
 };
