@@ -6,6 +6,7 @@ import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
 import updatePreviewImages from '../helpers/updatePreviewImages';
+import Footer from '../components/Footer';
 
 /**
  * Generate Notion database content.
@@ -69,12 +70,13 @@ const Projects = ({ dbItems }: Props) => {
         display="tabs"
       />
       <main>
-        <div className={utils.scrollable}>
-          <Database
-            items={dbItems}
-            // tag={tagSelected}
-          />
-        </div>
+        <Database
+          items={dbItems}
+          // tag={tagSelected}
+        />
+        <Footer />
+        {/* <div className={utils.scrollable}>
+        </div> */}
       </main>
     </div>
   );
