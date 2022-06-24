@@ -24,11 +24,17 @@ export default async function uploadImageBlocks(blocks: any[]): Promise<UpdatedB
       const response = await fetch(blockContent.file.url, {
         method: 'GET',
       });
+      const contentType = response.headers.get('Content-Type');
+      if (!contentType?.startsWith('image/')) {
+        // Throw an error
+        throw new Error('Invalid content type on response');
+      }
 
+      const saveAs = contentType.substring(contentType.indexOf('/') + 1);
       const arrayBuffer = await response.arrayBuffer();
       const params: PutObjectCommandInput = {
         Bucket: BUCKET_NAME,
-        Key: `blocks/${id}`,
+        Key: `blocks/${id}.${saveAs}`,
         Body: Buffer.from(arrayBuffer),
         ACL: 'public-read',
       };
@@ -37,7 +43,7 @@ export default async function uploadImageBlocks(blocks: any[]): Promise<UpdatedB
 
       // Add to updated
       updated.push({
-        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/blocks/${id}`,
+        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/blocks/${id}.${saveAs}`,
         blockId: id,
         caption: blockContent.caption,
       });
