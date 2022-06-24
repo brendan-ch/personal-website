@@ -1,3 +1,10 @@
+/**
+ * AWS region.
+ */
+export const REGION = 'us-west-1';
+
+export const BUCKET_NAME = 'bchen-personal-website';
+
 /* Colors */
 export const RED = '#E14B36';
 export const BLUE = '#7978BF';

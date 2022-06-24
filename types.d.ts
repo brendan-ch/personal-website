@@ -1,27 +1,21 @@
+interface DatabaseItem {
+  title: string,
+  id: string,
+  prettyLink?: string,
+  imageLink?: string,
+}
+
 /**
  * Schema for the `Additional Documents` database.
  */
-interface DocumentDatabaseItem {
-  title: string,
-  /**
-   * Notion database ID of the item.
-   */
-  id: string,
-  prettyLink?: string,
+interface DocumentDatabaseItem extends DatabaseItem {
 }
 
 /**
  * Schema for the `Projects` databsae.
  */
-interface ProjectDatabaseItem {
-  title: string,
+interface ProjectDatabaseItem extends DatabaseItem {
   description?: string,
-  prettyLink?: string,
-  imageLink?: string,
-  /**
-   * Notion database ID of the item.
-   */
-  id: string,
   tags: string[],
 }
 
@@ -40,10 +34,29 @@ interface DatabaseDropdownFilter {
 
 type NavigationSelected = 'Projects' | 'About Me';
 
+/**
+ * Database item with updated preview image.
+ */
+interface UpdatedDatabaseItem {
+  imageLink: string,
+  /**
+   * Notion page ID to update.
+   */
+  pageId: string,
+}
+
+interface UpdatedBlockItem {
+  imageLink: string,
+  caption: any[],
+  blockId: string,
+}
+
 export {
   NavigationSelected,
-  ProjectDatabaseItem as DatabaseItem,
+  ProjectDatabaseItem,
   DocumentDatabaseItem,
   DatabaseDropdownFilter,
-
+  DatabaseItem,
+  UpdatedDatabaseItem,
+  UpdatedBlockItem,
 };

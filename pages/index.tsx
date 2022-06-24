@@ -1,16 +1,17 @@
 import MobileNavBar from '../components/MobileNavBar';
 import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseItem } from '../types';
+import { ProjectDatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
+import updatePreviewImages from '../helpers/updatePreviewImages';
 
 /**
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  const items = await getDatabaseBlocks({
+  let items = await getDatabaseBlocks({
     and: [
       {
         property: 'Published',
@@ -32,6 +33,8 @@ export async function getStaticProps() {
       },
     ],
   });
+
+  items = await updatePreviewImages(items);
   
   return {
     props: {
@@ -44,7 +47,7 @@ export async function getStaticProps() {
 
 interface Props {
   // lastRegenerated: number,
-  dbItems: DatabaseItem[],
+  dbItems: ProjectDatabaseItem[],
 }
 
 /**

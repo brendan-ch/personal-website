@@ -1,4 +1,4 @@
-import { DatabaseDropdownFilter, DatabaseItem } from '../types';
+import { DatabaseItem, ProjectDatabaseItem } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 
@@ -30,7 +30,7 @@ export default function Database({
         <GalleryItem
           key={item.id}
           title={item.title}
-          description={item.description}
+          // description={item.description}
           imageLink={item.imageLink}
           link={`/project/${item.prettyLink}`}
         />

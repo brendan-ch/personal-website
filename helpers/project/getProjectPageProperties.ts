@@ -1,17 +1,13 @@
-import { Client } from '@notionhq/client';
-import { DatabaseItem } from '../../types';
+import client from '../notionClient';
+import { ProjectDatabaseItem } from '../../types';
 import { PROJECTS_DATABASE_ID } from '../Constants';
 import returnPlainText from '../returnPlainText';
-
-const client = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
 
 /**
  * Get a database item object for a specific page.
  * @param prettyLink
  */
-async function getProjectPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
+async function getProjectPageProperties(prettyLink: string): Promise<ProjectDatabaseItem | null> {
   const dbResponse = await client.databases.query({
     database_id: PROJECTS_DATABASE_ID,
     filter: {
@@ -45,14 +41,15 @@ async function getProjectPageProperties(prettyLink: string): Promise<DatabaseIte
   });
 
   let imageLink = null;
-    if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
-      if (response.properties['Preview Image'].files[0].type === 'file') {
-        imageLink = response.properties['Preview Image'].files[0].file.url;
-      } else {
-        imageLink = response.properties['Preview Image'].files[0].external.url;
-      }
+  let imageName = null;
+  if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
+    imageName = response.properties['Preview Image'].files[0].name;
+    if (response.properties['Preview Image'].files[0].type === 'file') {
+      imageLink = response.properties['Preview Image'].files[0].file.url;
+    } else {
+      imageLink = response.properties['Preview Image'].files[0].external.url;
     }
-
+  }
   return {
     title: response.properties.Name.title[0].plain_text,
     id: response.id,

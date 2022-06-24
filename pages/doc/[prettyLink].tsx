@@ -7,6 +7,7 @@ import getDocumentPageProperties from '../../helpers/document/getDocumentPagePro
 import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
+import updateImageBlocks from '../../helpers/updateImageBlocks';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -56,6 +57,10 @@ export const getStaticProps = async ({ params }: { params: any }) => {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
       throw new Error('Page not published');
+    }
+
+    if (blocks) {
+      blocks = await updateImageBlocks(blocks);
     }
 
   } catch(e) {
