@@ -30,7 +30,6 @@ export default function Database({
         <GalleryItem
           key={item.id}
           title={item.title}
-          // description={item.description}
           imageLink={item.imageLink}
           link={`/project/${item.prettyLink}`}
         />
