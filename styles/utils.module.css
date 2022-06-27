@@ -51,6 +51,10 @@ to the bottom of the page. */
   position: relative;
 }
 
+.spacer {
+  height: 30px;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0%;

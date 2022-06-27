@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
+import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
 
 interface Props {
@@ -148,7 +149,7 @@ export default function NotionRenderer({ blocks }: Props) {
     <div className={styles.container}>
       {/* @ts-ignore */}
       {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
-      <div className={styles.spacer}></div>
+      <div className={utils.spacer}></div>
     </div>
   );
 }
