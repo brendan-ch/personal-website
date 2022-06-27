@@ -12,6 +12,7 @@ import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 import Image from 'next/image';
 import Link from 'next/link';
+import DatabaseItemHead from '../../components/DatabaseItemHead';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -110,21 +111,11 @@ export default function ProjectPage({
 }: Props) {
   return (
     <div className={utils.rootContainer}>
-      <Head>
-        <title>{title} | Brendan Chen</title>
-
-        {previewImageLink ? (
-          <meta name="og:image" content={previewImageLink}></meta>
-        ) : undefined}
-
-        {description ? (
-          <meta name="description" content={description}></meta>
-        ) : undefined}
-
-        {description ? (
-          <meta name="og:description" content={description}></meta>
-        ) : undefined}
-      </Head>
+      <DatabaseItemHead
+        title={title}
+        description={description}
+        previewImageLink={previewImageLink}
+      />
       <MobileNavBar
         title={title}
         display="project"
