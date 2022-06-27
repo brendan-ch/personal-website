@@ -32,11 +32,6 @@
   align-items: center;
   width: 100%;
 
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  background-color: var(--background);
   z-index: 999;
 }
 
@@ -99,7 +94,8 @@
   }
 
   .container {
-    position: absolute;
+    position: fixed;
+    
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -130,6 +126,14 @@
 }
 
 @media only screen and (min-width: 601px) {
+  .container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: var(--background);
+  }
+
   .tabLineDesktop {
     display: flex;
   }
