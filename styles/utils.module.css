@@ -55,6 +55,12 @@ to the bottom of the page. */
   height: 30px;
 }
 
+@media only screen and (max-width: 600px) {
+  .spacer {
+    height: 0px;
+  }
+}
+
 @keyframes fadein {
   0% {
     opacity: 0%;
