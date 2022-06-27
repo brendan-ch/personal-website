@@ -79,7 +79,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     props: {
       blocks,
       title: dbItem.title,
-      imageLink: dbItem.imageLink,
+      previewImageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
