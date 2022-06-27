@@ -9,6 +9,8 @@
   max-height: 400px;
   height: calc(100vw / 2);
   position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .bulletedListContainer {
