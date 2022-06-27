@@ -6,7 +6,12 @@ body {
   letter-spacing: 0.01em;
   background-color: var(--background);
   font-weight: 300;
-  overflow: hidden;
+
+  min-height: 100vh;
+}
+
+html {
+  overflow: auto;
 }
 
 a {
@@ -33,7 +38,6 @@ main {
   align-items: center;
   padding: 20px 0px 0px;
   gap: 30px;
-  overflow-y: scroll;
   width: 100%;
   overflow-wrap: break-word;
 
