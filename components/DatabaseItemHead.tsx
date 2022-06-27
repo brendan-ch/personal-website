@@ -18,12 +18,20 @@ export default function DatabaseItemHead({ title, description, previewImageLink 
         <meta name="og:image" content={previewImageLink}></meta>
       ) : undefined}
 
+      {previewImageLink ? (
+        <meta name="twitter:image" content={previewImageLink}></meta>
+      ) : undefined}
+
       {description ? (
         <meta name="description" content={description}></meta>
       ) : undefined}
 
       {description ? (
         <meta name="og:description" content={description}></meta>
+      ) : undefined}
+
+      {description ? (
+        <meta name="twitter:description" content={description}></meta>
       ) : undefined}
     </Head>
   );
