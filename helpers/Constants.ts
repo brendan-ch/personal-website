@@ -6,9 +6,9 @@ export const REGION = 'us-west-1';
 export const BUCKET_NAME = 'bchen-personal-website';
 
 /* Colors */
-export const RED = '#E14B36';
-export const BLUE = '#7978BF';
-export const CYAN = '#59ABB2';
+export const RED = '#BE3223';
+export const BLUE = '#5D5CB2';
+export const CYAN = '#376E77';
 
 /**
  * Maximum depth that the `getChildrenBlocks` function can recurse to.
