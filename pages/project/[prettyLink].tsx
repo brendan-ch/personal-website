@@ -88,24 +88,25 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
 interface Props {
   blocks?: any[],
-  imageLink?: string,
+  previewImageLink?: string,
+  coverImageLink?: string,
   title?: string,
   error?: string,
-  /**
-   * Time in milliseconds when the page was last regenerated.
-   */
-  lastRegenerated: number,
 }
 
 /**
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, imageLink, title, error }: Props) {
+export default function ProjectPage({ blocks, previewImageLink, coverImageLink, title, error }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
         <title>{title} | Brendan Chen</title>
+
+        {previewImageLink ? (
+          <meta name="og:image" content={previewImageLink}></meta>
+        ) : undefined}
       </Head>
       <MobileNavBar
         title={title}
