@@ -99,7 +99,14 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, previewImageLink, coverImageLink, title, description, error }: Props) {
+export default function ProjectPage({
+  blocks,
+  previewImageLink,
+  coverImageLink,
+  title,
+  description,
+  error
+}: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
