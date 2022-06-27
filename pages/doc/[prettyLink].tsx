@@ -86,6 +86,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     props: {
       blocks,
       title: dbItem.title,
+      description: dbItem.description || null,
       previewImageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
     },
@@ -96,6 +97,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 interface Props {
   blocks?: any[],
   title?: string,
+  description?: string,
   previewImageLink?: string,
   coverImageLink?: string,
   error?: string,
@@ -105,7 +107,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({ blocks, previewImageLink, coverImageLink, title, error }: Props) {
+ export default function DocumentPage({ blocks, previewImageLink, coverImageLink, title, description, error }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
@@ -116,6 +118,10 @@ interface Props {
         {previewImageLink ? (
           <meta name="og:image" content={previewImageLink}></meta>
           ) : undefined}
+
+        {description ? (
+          <meta name="description" content={description}></meta>
+        ) : undefined}
       </Head>
       <MobileNavBar
         title={title}
