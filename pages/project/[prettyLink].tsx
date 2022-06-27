@@ -91,6 +91,7 @@ interface Props {
   previewImageLink?: string,
   coverImageLink?: string,
   title?: string,
+  description?: string,
   error?: string,
 }
 
@@ -98,7 +99,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, previewImageLink, coverImageLink, title, error }: Props) {
+export default function ProjectPage({ blocks, previewImageLink, coverImageLink, title, description, error }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
@@ -106,6 +107,10 @@ export default function ProjectPage({ blocks, previewImageLink, coverImageLink, 
 
         {previewImageLink ? (
           <meta name="og:image" content={previewImageLink}></meta>
+        ) : undefined}
+
+        {description ? (
+          <meta name="description" content={description}></meta>
         ) : undefined}
       </Head>
       <MobileNavBar
