@@ -85,12 +85,13 @@ h1 {
   color: var(--emphasis);
   padding: 0px;
   margin: 0px;
+  font-size: 33px;
 }
 
 h2 {
   font-weight: 400;
   color: var(--emphasis);
-  font-size: 25px;
+  font-size: 26px;
   padding: 0px;
   margin: 0px;
 }
@@ -98,7 +99,7 @@ h2 {
 h3 {
   font-weight: 400;
   color: var(--emphasis);
-  font-size: 22px;
+  font-size: 24px;
   padding: 0px;
   margin: 0px;
 }
