@@ -11,6 +11,7 @@ import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -40,6 +41,13 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
   let dbItem: ProjectDatabaseItem | null;
 
+  const errorProps = {
+    blocks: [],
+    title: 'Page not found',
+    lastRegenerated: Date.now(),
+    error: 'We couldn\'t find the page you were looking for.',
+  };
+
   if (!params || typeof params.prettyLink !== 'string') return {
     props: {
       blocks,
@@ -63,11 +71,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   } catch(e) {
     return {
-      props: {
-        blocks,
-        title: null,
-        lastRegenerated: Date.now(),
-      }
+      props: errorProps,
     };
   }
 
@@ -86,6 +90,7 @@ interface Props {
   blocks?: any[],
   imageLink?: string,
   title?: string,
+  error?: string,
   /**
    * Time in milliseconds when the page was last regenerated.
    */
@@ -96,7 +101,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({ blocks, imageLink, title }: Props) {
+export default function ProjectPage({ blocks, imageLink, title, error }: Props) {
   return (
     <div className={utils.rootContainer}>
       <Head>
@@ -106,31 +111,48 @@ export default function ProjectPage({ blocks, imageLink, title }: Props) {
         title={title}
         display="project"
       />
-      <main>
-        <div className={utils.itemWrapper}>
-          <PageHeader
-            aboveText="Back"
-            belowText={title || ''}
-            includeBackButton
-          />
-        </div>
-        {/* {imageLink ? (
-          <div className={utils.fullWidthImageWrapper}>
-            <Image
-              alt={`${title} preview image`}
-              src={imageLink}
-              layout="fill"
-              objectFit="cover"
+      {error ? (
+        <main>
+          <div className={utils.itemWrapper}>
+            <PageHeader
+              aboveText="Back"
+              belowText={title || ''}
+              includeBackButton
             />
           </div>
-        ) : undefined} */}
-        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <NotionRenderer
-            blocks={blocks || []}
-          />
-        </div>
-        <Footer />
-      </main>
+          <div className={utils.itemWrapper}>
+            <p>
+              {error}
+            </p>
+          </div>
+        </main>
+      ) : (
+        <main>
+          <div className={utils.itemWrapper}>
+            <PageHeader
+              aboveText="Back"
+              belowText={title || ''}
+              includeBackButton
+            />
+          </div>
+          {/* {imageLink ? (
+            <div className={utils.fullWidthImageWrapper}>
+              <Image
+                alt={`${title} preview image`}
+                src={imageLink}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : undefined} */}
+          <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+            <NotionRenderer
+              blocks={blocks || []}
+            />
+          </div>
+          <Footer />
+        </main>
+      )}
     </div>
   );
 }
