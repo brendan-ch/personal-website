@@ -79,6 +79,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     props: {
       blocks,
       title: dbItem.title,
+      description: dbItem.description || null,
       previewImageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
     },
