@@ -79,7 +79,7 @@ const Renderers = {
   ),
   bulleted_list_item: (block: any, key: string | number, children?: any[]) => {
     return (
-      <div key={key}>
+      <ul key={key}>
         <li>
           {block.rich_text.map(richTextRenderer)}
         </li>
@@ -93,8 +93,11 @@ const Renderers = {
             : undefined
           }
         </div>
-      </div>
+      </ul>
     )
+  },
+  numbered_list_item: (block: any, key: string | number, children?: any[]) => {
+    return Renderers.bulleted_list_item(block, key, children);
   },
   toggle: (block: any, key: string | number, children?: any) => {
     return (
@@ -103,24 +106,13 @@ const Renderers = {
           {block.rich_text.map(richTextRenderer)}
         </li>
         {/* Indent */}
-        <div className={styles.bulletedListIndentContainer}>
-          {children
-            ? children.map((child: any, i: number) => 
-              // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
-            )
-            : undefined
-          }
-        </div>
-      </div>
-    )
-  },
-  numbered_list_item: (block: any, key: string | number, children?: any) => {
-    return (
-      <div key={key}>
-        <p>
-          {block.rich_text.map(richTextRenderer)}
-        </p>
+        {children
+          ? children.map((child: any, i: number) => 
+            // @ts-ignore
+            Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
+          )
+          : undefined
+        }
       </div>
     )
   },

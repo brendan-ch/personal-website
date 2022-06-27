@@ -18,7 +18,7 @@
 }
 
 .bulletedListIndentContainer {
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
 .spacer {
@@ -40,9 +40,19 @@
   margin-bottom: 5px;
 }
 
+.container ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 30px;
+}
+
 .container li {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.container ::marker {
+  font-size: 1.2em;
 }
 
 /* .videoContainer {
