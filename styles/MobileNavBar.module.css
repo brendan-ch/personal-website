@@ -31,6 +31,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+
+  z-index: 999;
 }
 
 .contentContainer {
@@ -92,7 +94,8 @@
   }
 
   .container {
-    position: absolute;
+    position: fixed;
+    
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -123,6 +126,14 @@
 }
 
 @media only screen and (min-width: 601px) {
+  .container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: var(--background);
+  }
+
   .tabLineDesktop {
     display: flex;
   }

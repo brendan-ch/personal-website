@@ -71,6 +71,7 @@ const Projects = ({ dbItems }: Props) => {
         display="tabs"
       />
       <main>
+        <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
             aboveText=""

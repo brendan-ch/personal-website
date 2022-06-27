@@ -10,8 +10,9 @@ import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
-import Image from 'next/image';
 import updatePreviewImages from '../../helpers/updatePreviewImages';
+import Link from 'next/link';
+import DatabaseItemHead from '../../components/DatabaseItemHead';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -48,6 +49,13 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
   let dbItem: DocumentDatabaseItem | null;
 
+  const errorProps = {
+    blocks: [],
+    title: 'Page not found',
+    lastRegenerated: Date.now(),
+    error: 'We couldn\'t find the page you were looking for.',
+  };
+
   if (!params || typeof params.prettyLink !== 'string') return {
     props: {
       blocks,
@@ -71,11 +79,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   } catch(e) {
     return {
-      props: {
-        blocks,
-        title: null,
-        lastRegenerated: Date.now(),
-      }
+      props: errorProps,
     };
   }
 
@@ -83,7 +87,8 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     props: {
       blocks,
       title: dbItem.title,
-      imageLink: dbItem.imageLink || null,
+      description: dbItem.description || null,
+      previewImageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
@@ -93,50 +98,79 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 interface Props {
   blocks?: any[],
   title?: string,
-  imageLink?: string,
+  description?: string,
+  previewImageLink?: string,
+  coverImageLink?: string,
+  error?: string,
 }
 
 /**
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({ blocks, imageLink, title }: Props) {
+ export default function DocumentPage({
+  blocks,
+  previewImageLink,
+  coverImageLink,
+  title,
+  description,
+  error
+}: Props) {
   return (
     <div className={utils.rootContainer}>
-      <Head>
-        <title>{title} | Brendan Chen</title>
-        {/* Block indexing */}
-        <meta name="robots" content="noindex"></meta>
-      </Head>
+      <DatabaseItemHead
+        title={title}
+        description={description}
+        previewImageLink={previewImageLink}
+      />
       <MobileNavBar
         title={title}
         display="title"
       />
-      <main>
-        <div className={utils.itemWrapper}>
-          <PageHeader
-            aboveText=""
-            belowText={title || ''}
-            // includeBackButton
-          />
-        </div>
-        {/* {imageLink ? (
-          <div className={utils.fullWidthImageWrapper}>
-            <Image
-              alt={`${title} preview image`}
-              src={imageLink}
-              layout="fill"
-              objectFit="cover"
+      {error ? (
+        <main>
+          <div className={utils.spacer} />
+          <div className={utils.itemWrapper}>
+            <PageHeader
+              aboveText="Back"
+              belowText={title || ''}
+              includeBackButton
             />
           </div>
-        ) : undefined} */}
-        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <NotionRenderer
-            blocks={blocks || []}
-          />
-        </div>
-        <Footer />
-      </main>
+          <div className={utils.itemWrapper}>
+            <p>
+              {error}
+            </p>
+          </div>
+        </main>
+      ) : (
+        <main>
+          <div className={utils.spacer} />
+          <div className={utils.itemWrapper}>
+            <PageHeader
+              aboveText=""
+              belowText={title || ''}
+              // includeBackButton
+            />
+          </div>
+          {/* {imageLink ? (
+            <div className={utils.fullWidthImageWrapper}>
+              <Image
+                alt={`${title} preview image`}
+                src={imageLink}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : undefined} */}
+          <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+            <NotionRenderer
+              blocks={blocks || []}
+            />
+          </div>
+          <Footer />
+        </main>
+      )}
     </div>
   );
 }

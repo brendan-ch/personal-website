@@ -15,10 +15,7 @@ async function getProjectDatabaseBlocks(filter?: any) {
   });
 
   const items: DatabaseItem[] = response.results.map((value: any) => {
-    let description = '';
-    value.properties.Description.rich_text.map((textItem: any) => {
-      description += textItem.text.content;
-    });
+    const description = returnPlainText(value.properties['Description'].rich_text);
 
     let imageLink = null;
     if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {

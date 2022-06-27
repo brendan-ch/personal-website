@@ -65,7 +65,7 @@ interface Props {
  */
 export default function MobileNavBar({ title, selected }: Props) {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
         <Link href="/">
@@ -92,6 +92,6 @@ export default function MobileNavBar({ title, selected }: Props) {
         </div>
       </div>
       <div className={`${styles.line} ${styles.lineDesktop}`} />
-    </div>
+    </nav>
   );
 }

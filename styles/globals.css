@@ -6,7 +6,12 @@ body {
   letter-spacing: 0.01em;
   background-color: var(--background);
   font-weight: 300;
-  overflow: hidden;
+
+  min-height: 100vh;
+}
+
+html {
+  overflow: auto;
 }
 
 a {
@@ -33,7 +38,6 @@ main {
   align-items: center;
   padding: 20px 0px 0px;
   gap: 30px;
-  overflow-y: scroll;
   width: 100%;
   overflow-wrap: break-word;
 
@@ -74,9 +78,9 @@ button {
 
   --background: #E6E6E6;
   --emphasis: #121212;
-  --cyan: #59ABB2;
-  --blue: #7978BF;
-  --red: #E14B36;
+  --cyan: #376E77;
+  --blue: #5D5CB2;
+  --red: #BE3223;
   --gray: #DCDCDC;
 }
 
@@ -85,12 +89,13 @@ h1 {
   color: var(--emphasis);
   padding: 0px;
   margin: 0px;
+  font-size: 33px;
 }
 
 h2 {
   font-weight: 400;
   color: var(--emphasis);
-  font-size: 25px;
+  font-size: 26px;
   padding: 0px;
   margin: 0px;
 }
@@ -98,7 +103,7 @@ h2 {
 h3 {
   font-weight: 400;
   color: var(--emphasis);
-  font-size: 22px;
+  font-size: 23px;
   padding: 0px;
   margin: 0px;
 }
@@ -112,8 +117,9 @@ p {
 }
 
 li {
+  list-style-position: outside;
   color: var(--emphasis);
-  font-size: 18px;
+  font-size: 20px;
   padding: 0px;
   margin: 0px;
 }

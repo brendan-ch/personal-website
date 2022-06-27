@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/PageHeader.module.css';
 import Back from './icons/Back';
 
 interface Props {
   includeBackButton?: boolean,
+  backButtonHref?: string,
   aboveText: string,
   belowText: string,
 }
@@ -14,22 +16,24 @@ interface Props {
  * @param props
  * @returns
  */
-export default function PageHeader({ includeBackButton, aboveText, belowText }: Props) {
-  const router = useRouter();
+export default function PageHeader({ includeBackButton, aboveText, belowText, backButtonHref }: Props) {
+  // const router = useRouter();
 
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
         {includeBackButton ? (
-          <button onClick={() => router.back()}>
-            <h3 className={styles.backButton}>
-              <Back
-                width={30}
-                height={30}
-              />
-              {aboveText}
-            </h3>
-          </button>
+          <Link href={backButtonHref || '/'}>
+            <a>
+              <h3 className={styles.backButton}>
+                <Back
+                  width={30}
+                  height={30}
+                />
+                {aboveText}
+              </h3>
+            </a>
+          </Link>
         ) : (
           <h2>
             {aboveText}

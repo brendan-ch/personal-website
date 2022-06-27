@@ -35,15 +35,10 @@ async function getProjectPageProperties(prettyLink: string): Promise<ProjectData
   const response: any = dbResponse.results[0];
 
   // Return a database item
-  let description = '';
-  response.properties.Description.rich_text.map((textItem: any) => {
-    description += textItem.text.content;
-  });
+  const description = returnPlainText(response.properties['Description'].rich_text);
 
   let imageLink = null;
-  let imageName = null;
   if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
-    imageName = response.properties['Preview Image'].files[0].name;
     if (response.properties['Preview Image'].files[0].type === 'file') {
       imageLink = response.properties['Preview Image'].files[0].file.url;
     } else {

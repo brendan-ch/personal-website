@@ -57,6 +57,7 @@ export default function AboutPage({ blocks }: Props) {
         selected={selected}
       />
       <main>
+        <div className={utils.spacer} />
         {/* Page content */}
         <div className={utils.itemWrapper}>
           <PageHeader

@@ -3,10 +3,10 @@
   flex: 1;
   flex-direction: column;
   justify-content: flex-start;
-  position: fixed;
   align-items: center;
-  height: 100%;
   width: 100vw;
+
+  min-height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {
@@ -17,7 +17,7 @@
 
 .scrollable {
   flex: 1;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   padding: 15px;
   animation-name: fadein;
   animation-duration: 500ms;
@@ -32,7 +32,7 @@
 /* Apply to items on a page that need to
 stretch until a maximum width. */
 .itemWrapper {
-  padding: 15px;
+  padding: 0px 15px;
   min-width: 20em;
   max-width: 60em;
   width: 100%;
@@ -49,6 +49,16 @@ to the bottom of the page. */
   width: 100vw;
   min-height: calc(100vw / 4);
   position: relative;
+}
+
+.spacer {
+  height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .spacer {
+    height: 0px;
+  }
 }
 
 @keyframes fadein {

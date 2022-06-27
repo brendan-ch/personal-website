@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .imageContainer {
@@ -10,6 +9,8 @@
   max-height: 400px;
   height: calc(100vw / 2);
   position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .bulletedListContainer {
@@ -19,11 +20,45 @@
 }
 
 .bulletedListIndentContainer {
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
-.spacer {
-  height: 50px;
+.container h1 {
+  margin-top: 1.0em;
+  margin-bottom: 0.15em;
+  font-weight: 600;
+}
+
+.container h2 {
+  margin-top: 0.8em;
+  margin-bottom: 0.15em;
+  font-weight: 600;
+}
+
+.container h3 {
+  font-weight: 600;
+  margin-top: 0.5em;
+  margin-bottom: 0.15em;
+}
+
+.container p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.container ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 30px;
+}
+
+.container li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.container ::marker {
+  font-size: 1.2em;
 }
 
 /* .videoContainer {

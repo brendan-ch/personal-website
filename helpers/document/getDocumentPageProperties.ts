@@ -1,6 +1,7 @@
 import client from '../notionClient';
 import { DocumentDatabaseItem } from '../../types';
 import { ADDITIONAL_DOCS_DATABASE_ID } from '../Constants';
+import returnPlainText from '../returnPlainText';
 
 /**
  * Get a database item object for a specific page.
@@ -31,6 +32,7 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
   }
 
   const response: any = dbResponse.results[0];
+  const description = returnPlainText(response.properties['Description'].rich_text);
 
   let imageLink = null;
   if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
@@ -44,6 +46,7 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
   return {
     title: response.properties.Name.title[0].plain_text,
     id: response.id,
+    description,
     imageLink,
     prettyLink,
   };

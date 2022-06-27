@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
+import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
 
 interface Props {
@@ -79,7 +80,7 @@ const Renderers = {
   ),
   bulleted_list_item: (block: any, key: string | number, children?: any[]) => {
     return (
-      <div key={key}>
+      <ul key={key}>
         <li>
           {block.rich_text.map(richTextRenderer)}
         </li>
@@ -93,8 +94,11 @@ const Renderers = {
             : undefined
           }
         </div>
-      </div>
+      </ul>
     )
+  },
+  numbered_list_item: (block: any, key: string | number, children?: any[]) => {
+    return Renderers.bulleted_list_item(block, key, children);
   },
   toggle: (block: any, key: string | number, children?: any) => {
     return (
@@ -103,24 +107,13 @@ const Renderers = {
           {block.rich_text.map(richTextRenderer)}
         </li>
         {/* Indent */}
-        <div className={styles.bulletedListIndentContainer}>
-          {children
-            ? children.map((child: any, i: number) => 
-              // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
-            )
-            : undefined
-          }
-        </div>
-      </div>
-    )
-  },
-  numbered_list_item: (block: any, key: string | number, children?: any) => {
-    return (
-      <div key={key}>
-        <p>
-          {block.rich_text.map(richTextRenderer)}
-        </p>
+        {children
+          ? children.map((child: any, i: number) => 
+            // @ts-ignore
+            Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
+          )
+          : undefined
+        }
       </div>
     )
   },
@@ -156,7 +149,7 @@ export default function NotionRenderer({ blocks }: Props) {
     <div className={styles.container}>
       {/* @ts-ignore */}
       {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
-      <div className={styles.spacer}></div>
+      <div className={utils.spacer}></div>
     </div>
   );
 }
