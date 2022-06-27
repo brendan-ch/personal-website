@@ -15,6 +15,8 @@ import returnPlainText from '../returnPlainText';
 
   
   const items: DocumentDatabaseItem[] = response.results.map((value: any) => {
+    const description = returnPlainText(value.properties['Description'].rich_text);
+
     let imageLink = null;
     if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
       if (value.properties['Preview Image'].files[0].type === 'file') {
@@ -27,6 +29,7 @@ import returnPlainText from '../returnPlainText';
     return {
       title: value.properties.Name.title[0].plain_text,
       id: value.id,
+      description,
       imageLink,
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
