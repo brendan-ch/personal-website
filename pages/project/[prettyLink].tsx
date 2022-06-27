@@ -120,6 +120,10 @@ export default function ProjectPage({
         {description ? (
           <meta name="description" content={description}></meta>
         ) : undefined}
+
+        {description ? (
+          <meta name="og:description" content={description}></meta>
+        ) : undefined}
       </Head>
       <MobileNavBar
         title={title}
