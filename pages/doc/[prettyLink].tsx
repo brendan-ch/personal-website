@@ -136,6 +136,7 @@ interface Props {
       />
       {error ? (
         <main>
+          <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
               aboveText="Back"
@@ -151,6 +152,7 @@ interface Props {
         </main>
       ) : (
         <main>
+          <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
               aboveText=""

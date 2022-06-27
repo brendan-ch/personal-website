@@ -126,6 +126,7 @@ export default function ProjectPage({
       />
       {error ? (
         <main>
+          <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
               aboveText="Back"
@@ -141,6 +142,7 @@ export default function ProjectPage({
         </main>
       ) : (
         <main>
+          <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
               aboveText="Back"
