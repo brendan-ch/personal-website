@@ -1,6 +1,7 @@
 {
     "name": "Brendan Chen",
     "short_name": "Brendan Chen",
+    "description": "I'm Brendan, a developer and designer living in Orange, California.",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
