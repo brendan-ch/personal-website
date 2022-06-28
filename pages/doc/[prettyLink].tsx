@@ -135,6 +135,7 @@ interface Props {
               aboveText="Back"
               belowText={title || ''}
               includeBackButton
+              backButtonHref="/"
             />
           </div>
           <div className={utils.itemWrapper}>
