@@ -60,8 +60,7 @@ interface Props {
 }
 
 /**
- * Navigation bar on mobile. Includes a hamburger menu/back button.
- * The hamburger menu opens up an overlay with links to the other pages.
+ * Navigation bar on mobile and desktop.
  * @param props
  */
 export default function MobileNavBar({ title, selected }: Props) {
