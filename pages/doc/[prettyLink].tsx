@@ -132,7 +132,7 @@ interface Props {
           <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
-              aboveText="Back"
+              aboveText="Home"
               belowText={title || ''}
               includeBackButton
               backButtonHref="/"
@@ -149,7 +149,7 @@ interface Props {
           <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
-              aboveText="Back"
+              aboveText="Home"
               belowText={title || ''}
               includeBackButton
               backButtonHref="/"

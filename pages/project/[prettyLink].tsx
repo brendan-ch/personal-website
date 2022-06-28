@@ -125,7 +125,7 @@ export default function ProjectPage({
           <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
-              aboveText="Back"
+              aboveText="Home"
               belowText={title || ''}
               includeBackButton
             />
@@ -141,7 +141,7 @@ export default function ProjectPage({
           <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
-              aboveText="Back"
+              aboveText="Home"
               belowText={title || ''}
               includeBackButton
             />
