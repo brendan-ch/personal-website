@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { BLUE, CYAN, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import LogoFull from './icons/LogoFull';
+import LogoStandalone from './icons/LogoStandalone';
 
 interface TabProps {
   selected: boolean,
@@ -69,10 +70,18 @@ export default function MobileNavBar({ title, selected }: Props) {
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
         <Link href="/">
-          <a>
+          <a className={styles.logoFull}>
             <LogoFull
               width={200}
               height={1}
+            />
+          </a>
+        </Link>
+        <Link href="/">
+          <a className={styles.logoStandalone}>
+            <LogoStandalone
+              width={30}
+              height={30}
             />
           </a>
         </Link>
