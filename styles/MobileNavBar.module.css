@@ -33,6 +33,12 @@
   width: 100%;
 
   z-index: 999;
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: var(--background);
 }
 
 .contentContainer {
@@ -93,7 +99,7 @@
     display: none;
   }
 
-  .container {
+  /* .container {
     position: fixed;
     
     bottom: 0px;
@@ -101,18 +107,18 @@
     right: 0px;
     padding: 0px;
     background-color: var(--background);
-  }
+  } */
   
   .contentContainer {
     padding-left: 15px;
   }
 
-  .tab a {
+  /* .tab a {
     justify-content: flex-start;
     height: 100%;
-  }
+  } */
 
-  .tabLineMobile {
+  /* .tabLineMobile {
     display: flex;
   }
 
@@ -122,23 +128,15 @@
 
   .line {
     top: 1px;
-  }
+  } */
 }
 
-@media only screen and (min-width: 601px) {
-  .container {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: var(--background);
-  }
-
-  .tabLineDesktop {
-    display: flex;
-  }
-
-  .lineDesktop {
-    display: flex;
-  }
+.tabLineDesktop {
+  display: flex;
 }
+.lineDesktop {
+  display: flex;
+}
+/* @media only screen and (min-width: 601px) {
+
+} */

@@ -9,12 +9,6 @@
   min-height: 100vh;
 }
 
-@media only screen and (max-width: 600px) {
-  .rootContainer {
-    padding: 0px 0px 57px 0px;
-  }
-}
-
 .scrollable {
   flex: 1;
   /* overflow-y: scroll; */
@@ -53,12 +47,6 @@ to the bottom of the page. */
 
 .spacer {
   height: 30px;
-}
-
-@media only screen and (max-width: 600px) {
-  .spacer {
-    height: 0px;
-  }
 }
 
 @keyframes fadein {
