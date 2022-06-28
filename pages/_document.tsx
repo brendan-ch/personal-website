@@ -8,8 +8,18 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
+
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#be3223" />
+          <meta name="msapplication-TileColor" content="#e6e6e6" />
+          <meta name="theme-color" content="#E6E6E6"></meta>
+
           <meta name="description" content="I'm Brendan, a developer and designer living in Orange, California."></meta>
 
+          <meta charSet="utf-8" />
           <meta name="og:description" content="I'm Brendan, a developer and designer living in Orange, California."></meta>
           <meta name="og:image" content="/link-preview-image.png"></meta>
 

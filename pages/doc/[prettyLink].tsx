@@ -41,7 +41,7 @@ export const getStaticPaths = async () => {
         prettyLink: value.prettyLink!,
       }
     })),
-    fallback: true,
+    fallback: 'blocking',
   }
 };
 
@@ -135,6 +135,7 @@ interface Props {
               aboveText="Back"
               belowText={title || ''}
               includeBackButton
+              backButtonHref="/"
             />
           </div>
           <div className={utils.itemWrapper}>
@@ -148,9 +149,10 @@ interface Props {
           <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
-              aboveText=""
+              aboveText="Back"
               belowText={title || ''}
-              // includeBackButton
+              includeBackButton
+              backButtonHref="/"
             />
           </div>
           {/* {imageLink ? (
