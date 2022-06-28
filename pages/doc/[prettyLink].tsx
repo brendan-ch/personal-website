@@ -149,9 +149,10 @@ interface Props {
           <div className={utils.spacer} />
           <div className={utils.itemWrapper}>
             <PageHeader
-              aboveText=""
+              aboveText="Back"
               belowText={title || ''}
-              // includeBackButton
+              includeBackButton
+              backButtonHref="/"
             />
           </div>
           {/* {imageLink ? (
