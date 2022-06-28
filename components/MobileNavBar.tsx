@@ -80,8 +80,8 @@ export default function MobileNavBar({ title, selected }: Props) {
         <Link href="/">
           <a className={styles.logoStandalone}>
             <LogoStandalone
-              width={30}
-              height={30}
+              width={30.5}
+              height={30.5}
             />
           </a>
         </Link>
