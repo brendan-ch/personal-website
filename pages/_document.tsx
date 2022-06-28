@@ -10,6 +10,7 @@ class MyDocument extends Document {
           <link rel="stylesheet" href="https://use.typekit.net/upd1iml.css" />
           <meta name="description" content="I'm Brendan, a developer and designer living in Orange, California."></meta>
 
+          <meta charSet="utf-8" />
           <meta name="og:description" content="I'm Brendan, a developer and designer living in Orange, California."></meta>
           <meta name="og:image" content="/link-preview-image.png"></meta>
 
