@@ -69,7 +69,7 @@ export default function MobileNavBar({ title, selected }: Props) {
     <nav className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
-        <Link href="/">
+        <Link href="/" aria-label="Website Logo">
           <a className={styles.logoFull}>
             <LogoFull
               width={200}
@@ -77,7 +77,7 @@ export default function MobileNavBar({ title, selected }: Props) {
             />
           </a>
         </Link>
-        <Link href="/">
+        <Link href="/" aria-label="Website Logo">
           <a className={styles.logoStandalone}>
             <LogoStandalone
               width={30.5}
