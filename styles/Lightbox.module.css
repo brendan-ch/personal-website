@@ -28,7 +28,10 @@
   justify-content: flex-end;
   align-items: center;
 
-  z-index: 1000;
+  height: 80px;
+  padding: 0px 15px;
+
+  z-index: 1001;
 }
 
 .closeTabBar svg:hover {
@@ -49,6 +52,7 @@
   max-width: 80em;
   width: 100%;
   position: relative;
+  z-index: 1000;
 }
 
 /* .image {
