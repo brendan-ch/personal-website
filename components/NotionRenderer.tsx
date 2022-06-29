@@ -138,9 +138,8 @@ const Renderers = {
           src={src}
           layout="fill"
           objectFit="contain"
-          style={{
-            transition: '0.3s',
-          }}
+          objectPosition="50%"
+          className={styles.image}
         />
       </div>
     );
