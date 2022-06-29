@@ -15,6 +15,17 @@
 
 .containerVisible {
   display: flex;
+  
+  animation-name: fadein;
+  animation-duration: 300ms;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
+  }
 }
 
 .closeTabBar {
@@ -34,7 +45,17 @@
   z-index: 1001;
 }
 
-.closeTabBar svg:hover {
+.closeButtonWrapper {
+  height: 40px;
+  width: 40px;
+
+  background-color: var(--background);
+  border-color: var(--emphasis);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.closeButtonWrapper:hover {
   cursor: pointer;
 }
 

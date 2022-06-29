@@ -19,7 +19,9 @@ export default function Lightbox({ imageLink, caption, visible, onClose }: Props
       onClick={onClose ? () => onClose() : undefined}
     >
       <div className={styles.closeTabBar}>
-        <Exit width={40} height={40} />
+        <div className={styles.closeButtonWrapper}>
+          <Exit width={38} height={38} />
+        </div>
       </div>
       <div className={styles.imageFrame}>
         {imageLink ? (
