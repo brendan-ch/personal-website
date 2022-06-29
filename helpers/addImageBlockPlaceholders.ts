@@ -1,4 +1,5 @@
 import { getPlaiceholder } from 'plaiceholder';
+import { PLACEHOLDER_SIZE } from './Constants';
 
 export default async function addImageBlockPlaceholders(blocks: any[]) {
   const blocksWithPlaceholders = await Promise.all(blocks.map(async (block: any) => {
@@ -6,8 +7,9 @@ export default async function addImageBlockPlaceholders(blocks: any[]) {
 
     const url = block.image.external.url;
 
-    const { base64, img } = await getPlaiceholder(url);
-    console.log(base64);
+    const { base64 } = await getPlaiceholder(url, {
+      size: PLACEHOLDER_SIZE,
+    });
     return {
       ...block,
       image: {
