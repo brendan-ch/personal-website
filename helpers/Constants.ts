@@ -42,4 +42,4 @@ export const PAGE_SIZE = 50;
  * 
  * @see https://plaiceholder.co/docs/usage
  */
-export const PLACEHOLDER_SIZE = 32;
+export const PLACEHOLDER_SIZE = 24;
