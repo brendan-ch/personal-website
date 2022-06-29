@@ -13,6 +13,10 @@
   margin-bottom: 5px;
 }
 
+.imageContainer:hover {
+  cursor: pointer;
+}
+
 .bulletedListContainer {
   display: flex;
   flex-direction: column;
