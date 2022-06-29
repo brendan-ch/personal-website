@@ -2,21 +2,24 @@
 // uploads images to AWS, writes image blocks back to Notion,
 // and returns array with updated images
 
+import addImageBlockPlaceholders from './addImageBlockPlaceholders';
 import uploadImageBlocks from './aws/uploadImageBlocks';
 import writeImageBlocks from './writeImageBlocks';
 
 /**
  * Returns a deep copy of the Notion block array, with
- * Notion-hosted image links replaced with AWS permalinks.
+ * Notion-hosted image links replaced with AWS permalinks. Also adds image block placeholders.
  * @param blocks
  * @returns
  */
 export default async function updateImageBlocks(blocks: any[]) {
-  const copy: any[] = JSON.parse(JSON.stringify(blocks));
+  let copy: any[] = JSON.parse(JSON.stringify(blocks));
 
   const updated = await uploadImageBlocks(blocks);
   if (updated.length < 1) {
-    return blocks;
+    copy = await addImageBlockPlaceholders(copy);
+
+    return copy;
   }
 
   await writeImageBlocks(updated);
@@ -45,6 +48,8 @@ export default async function updateImageBlocks(blocks: any[]) {
       updated.splice(updatedItemIndex, 1);
     }
   });
+
+  copy = await addImageBlockPlaceholders(copy);
 
   return copy;
 }
