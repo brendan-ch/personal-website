@@ -1,7 +1,8 @@
 import client from '../notionClient';
 import { DocumentDatabaseItem } from '../../types';
-import { ADDITIONAL_DOCS_DATABASE_ID } from '../Constants';
+import { ADDITIONAL_DOCS_DATABASE_ID, PLACEHOLDER_SIZE } from '../Constants';
 import returnPlainText from '../returnPlainText';
+import { getPlaiceholder } from 'plaiceholder';
 
 /**
  * Get a database item object for a specific page.
@@ -48,6 +49,7 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
     id: response.id,
     description,
     imageLink,
+    previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
     prettyLink,
   };
 }

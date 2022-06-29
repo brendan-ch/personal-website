@@ -1,7 +1,8 @@
 import client from '../notionClient';
 import { DatabaseItem } from '../../types';
-import { PROJECTS_DATABASE_ID } from '../Constants';
+import { PLACEHOLDER_SIZE, PROJECTS_DATABASE_ID } from '../Constants';
 import returnPlainText from '../returnPlainText';
+import { getPlaiceholder } from 'plaiceholder';
 
 /**
  * Get all database items from the Project database that match the filter object.
@@ -14,7 +15,7 @@ async function getProjectDatabaseBlocks(filter?: any) {
     filter,
   });
 
-  const items: DatabaseItem[] = response.results.map((value: any) => {
+  const items: DatabaseItem[] = await Promise.all(response.results.map(async (value: any) => {
     const description = returnPlainText(value.properties['Description'].rich_text);
 
     let imageLink = null;
@@ -30,11 +31,12 @@ async function getProjectDatabaseBlocks(filter?: any) {
       title: value.properties.Name.title[0].plain_text,
       description,
       imageLink,
+      previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
-  });
+  }));
 
   return items;
 }

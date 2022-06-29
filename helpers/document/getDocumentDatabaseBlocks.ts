@@ -1,6 +1,8 @@
 import client from '../notionClient';
 import { DocumentDatabaseItem } from '../../types';
 import returnPlainText from '../returnPlainText';
+import { getPlaiceholder } from 'plaiceholder';
+import { PLACEHOLDER_SIZE } from '../Constants';
 
 /**
  * Get all database items from the Project database that match the filter object.
@@ -14,7 +16,7 @@ import returnPlainText from '../returnPlainText';
   });
 
   
-  const items: DocumentDatabaseItem[] = response.results.map((value: any) => {
+  const items: DocumentDatabaseItem[] = await Promise.all(response.results.map(async (value: any) => {
     const description = returnPlainText(value.properties['Description'].rich_text);
 
     let imageLink = null;
@@ -31,9 +33,10 @@ import returnPlainText from '../returnPlainText';
       id: value.id,
       description,
       imageLink,
+      previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
-  });
+  }));
 
   return items;
 }
