@@ -122,6 +122,8 @@ const Renderers = {
   image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     const src = block.type === 'file' ? block.file.url : block.external.url;
     const caption = returnPlainText(block.caption);
+
+    const placeholder: string | undefined = block.placeholder;
     
     return (
       <div
@@ -129,11 +131,16 @@ const Renderers = {
         key={key}
       >
         <Image
+          blurDataURL={placeholder}
+          placeholder={placeholder ? 'blur' : 'empty'}
           onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
           alt={caption}
           src={src}
           layout="fill"
           objectFit="contain"
+          style={{
+            transition: '0.3s',
+          }}
         />
       </div>
     );
