@@ -5,6 +5,7 @@ import Next from './icons/Next';
 
 interface Props {
   imageLink?: string,
+  imagePlaceholder?: string,
   title: string,
   link?: string,
   /**
@@ -17,17 +18,20 @@ interface Props {
   height?: number | string,
 }
 
-export default function GalleryItem({ imageLink, title, link, width, height }: Props) {
+export default function GalleryItem({ imageLink, imagePlaceholder, title, link, width, height }: Props) {
   return (
     <Link href={link || '/'}>
       <a className={styles.container}>
         {imageLink ? (
           <Image
+            blurDataURL={imagePlaceholder}
+            placeholder={imagePlaceholder ? 'blur' : 'empty'}
             className={styles.image}
             src={imageLink}
             width={width || 700}
             height={height || 187}
             objectFit="cover"
+            objectPosition="50%"
             alt={`Preview banner for ${title}.`}
           />
         ) : undefined}
