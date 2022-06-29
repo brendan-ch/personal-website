@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { BLUE, CYAN, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import LogoFull from './icons/LogoFull';
+import LogoStandalone from './icons/LogoStandalone';
 
 interface TabProps {
   selected: boolean,
@@ -59,8 +60,7 @@ interface Props {
 }
 
 /**
- * Navigation bar on mobile. Includes a hamburger menu/back button.
- * The hamburger menu opens up an overlay with links to the other pages.
+ * Navigation bar on mobile and desktop.
  * @param props
  */
 export default function MobileNavBar({ title, selected }: Props) {
@@ -68,11 +68,19 @@ export default function MobileNavBar({ title, selected }: Props) {
     <nav className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
-        <Link href="/">
-          <a>
+        <Link href="/" aria-label="Website Logo">
+          <a className={styles.logoFull}>
             <LogoFull
               width={200}
               height={1}
+            />
+          </a>
+        </Link>
+        <Link href="/" aria-label="Website Logo">
+          <a className={styles.logoStandalone}>
+            <LogoStandalone
+              width={30.5}
+              height={30.5}
             />
           </a>
         </Link>

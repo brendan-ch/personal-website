@@ -27,7 +27,7 @@
 stretch until a maximum width. */
 .itemWrapper {
   padding: 0px 15px;
-  min-width: 20em;
+  /* min-width: 20em; */
   max-width: 60em;
   width: 100%;
 }
