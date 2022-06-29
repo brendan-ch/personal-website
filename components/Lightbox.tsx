@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
 import styles from '../styles/Lightbox.module.css';
 import Exit from './icons/Exit';
 
@@ -13,6 +14,21 @@ interface Props {
  * Lightbox component that takes an image prop and a caption.
  */
 export default function Lightbox({ imageLink, caption, visible, onClose }: Props) {
+  
+  useEffect(() => {
+    function handleKeyPress(e: globalThis.KeyboardEvent) {
+      if (e.key === 'Escape' && onClose) {
+        onClose();
+      }
+    }
+    // Add keyboard listener
+    window.document.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      window.document.removeEventListener('keydown', handleKeyPress); 
+    }
+  }, [onClose]);
+
   return (
     <div
       className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
