@@ -13,8 +13,6 @@ interface Props {
  * Lightbox component that takes an image prop and a caption.
  */
 export default function Lightbox({ imageLink, caption, visible, onClose }: Props) {
-  console.log(imageLink);
-
   return (
     <div
       className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
