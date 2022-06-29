@@ -27,6 +27,12 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+
+  z-index: 1000;
+}
+
+.closeTabBar svg:hover {
+  cursor: pointer;
 }
 
 .imageFrame {
