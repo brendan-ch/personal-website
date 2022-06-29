@@ -35,3 +35,11 @@ export const REVALIDATE = 30;
  * @see https://developers.notion.com/reference/pagination
  */
 export const PAGE_SIZE = 50;
+
+/**
+ * Value between 1 and 64 to supply to `getPlaiceholder`.
+ * Determines the size of the placeholder image.
+ * 
+ * @see https://plaiceholder.co/docs/usage
+ */
+export const PLACEHOLDER_SIZE = 32;
