@@ -2,6 +2,8 @@ import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
 import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
+import { useState } from 'react';
+import Lightbox from './Lightbox';
 
 interface Props {
   /**
@@ -117,15 +119,19 @@ const Renderers = {
       </div>
     )
   },
-  image: (block: any, key: string | number) => {
+  image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+    const src = block.type === 'file' ? block.file.url : block.external.url;
+    const caption = returnPlainText(block.caption);
+    
     return (
       <div
         className={styles.imageContainer}
         key={key}
       >
         <Image
-          alt={returnPlainText(block.caption)}
-          src={block.type === 'file' ? block.file.url : block.external.url}
+          onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
+          alt={caption}
+          src={src}
           layout="fill"
           objectFit="contain"
         />
@@ -142,14 +148,36 @@ const Renderers = {
 };
 
 /**
- * @todo Fix hydration error so JavaScript isn't needed
+ * Notion rendering component which takes an array of block objects
+ * from the official API.
+ * @param props
+ * @returns
  */
 export default function NotionRenderer({ blocks }: Props) {
+  const [lightboxImageLink, setLightboxImageLink] = useState<string>();
+  const [lightboxCaption, setLightboxCaption] = useState<string>();
+  
+  function handleImageClick(link: string, caption: string) {
+    setLightboxImageLink(link);
+    setLightboxCaption(caption);
+  }
+
+  function handleImageClose() {
+    setLightboxImageLink(undefined);
+    setLightboxCaption(undefined);
+  }
+
   return (
     <div className={styles.container}>
       {/* @ts-ignore */}
-      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children) : undefined)}
+      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children, handleImageClick) : undefined)}
       <div className={utils.spacer}></div>
+      <Lightbox
+        imageLink={lightboxImageLink}
+        visible={lightboxImageLink !== undefined}
+        caption={lightboxCaption}
+        onClose={handleImageClose}
+      />
     </div>
   );
 }
