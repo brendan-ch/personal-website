@@ -1,0 +1,50 @@
+.container {
+  z-index: 999;
+
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--background-translucent);
+}
+
+.containerVisible {
+  display: flex;
+}
+
+.closeTabBar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.imageFrame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.imageWrapper {
+  height: 100vh;
+  max-width: 60em;
+  width: 100%;
+  position: relative;
+}
+
+/* .image {
+  width: 50px;
+} */
