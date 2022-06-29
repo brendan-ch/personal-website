@@ -31,6 +31,7 @@ export default function GalleryItem({ imageLink, imagePlaceholder, title, link, 
             width={width || 700}
             height={height || 187}
             objectFit="cover"
+            objectPosition="50%"
             alt={`Preview banner for ${title}.`}
           />
         ) : undefined}
