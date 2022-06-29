@@ -12,11 +12,14 @@ interface Props {
 /**
  * Lightbox component that takes an image prop and a caption.
  */
-export default function Lightbox({ imageLink, caption, visible }: Props) {
+export default function Lightbox({ imageLink, caption, visible, onClose }: Props) {
   console.log(imageLink);
 
   return (
-    <div className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}>
+    <div
+      className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
+      onClick={onClose ? () => onClose() : undefined}
+    >
       <div className={styles.closeTabBar}>
         <Exit width={40} height={40} />
       </div>

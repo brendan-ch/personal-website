@@ -154,8 +154,6 @@ const Renderers = {
  * @returns
  */
 export default function NotionRenderer({ blocks }: Props) {
-  const [lightboxVisible, setLightboxVisible] = useState(false);
-
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
   
@@ -178,6 +176,7 @@ export default function NotionRenderer({ blocks }: Props) {
         imageLink={lightboxImageLink}
         visible={lightboxImageLink !== undefined}
         caption={lightboxCaption}
+        onClose={handleImageClose}
       />
     </div>
   );
