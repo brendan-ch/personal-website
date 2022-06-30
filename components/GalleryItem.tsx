@@ -6,7 +6,6 @@ import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   imageLink?: string,
-  imagePlaceholder?: string,
   title: string,
   link?: string,
   /**
@@ -19,14 +18,12 @@ interface Props {
   height?: number | string,
 }
 
-export default function GalleryItem({ imageLink, imagePlaceholder, title, link, width, height }: Props) {
+export default function GalleryItem({ imageLink, title, link, width, height }: Props) {
   return (
     <Link href={link || '/'}>
       <a className={styles.container}>
         {imageLink ? (
           <ImageWithFadeIn
-            blurDataURL={imagePlaceholder}
-            placeholder={imagePlaceholder ? 'blur' : 'empty'}
             className={styles.image}
             src={imageLink}
             width={width || 700}
