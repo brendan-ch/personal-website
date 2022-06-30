@@ -10,14 +10,18 @@ export default function Footer() {
           <Link href="/doc/privacy">
             <a>
               <p>
-                Privacy
+                <u>
+                  Privacy Policy
+                </u>
               </p>
             </a>
           </Link>
           <Link href="/doc/copyright">
             <a>
               <p>
-                Licenses
+                <u>
+                  Licenses
+                </u>
               </p>
             </a>
           </Link>

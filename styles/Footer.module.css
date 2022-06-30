@@ -12,11 +12,19 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 20px 15px;
-  gap: 20px;
+  gap: 15px;
 }
 
 .content p {
   opacity: 70%;
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  width: 100%;
 }
 
 @media only screen and (min-width: 601px) {
@@ -36,8 +44,6 @@
   }
 
   .linksContainer {
-    display: flex;
     flex-direction: row;
-    gap: 15px;
   }
 }
