@@ -77,6 +77,33 @@
   font-size: 1.2em;
 }
 
+/* Used for the callout */
+.container aside {
+  border-width: 1px;
+  border-color: var(--emphasis);
+  border-style: solid;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.calloutIconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px 0px 20px 20px;
+}
+
+.titleChildrenContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 15px;
+  gap: 10px;
+}
+
 /* .videoContainer {
   width: 100%;
   height: 25em;
