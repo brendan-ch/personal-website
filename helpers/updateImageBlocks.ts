@@ -2,7 +2,6 @@
 // uploads images to AWS, writes image blocks back to Notion,
 // and returns array with updated images
 
-import addImageBlockPlaceholders from './addImageBlockPlaceholders';
 import uploadImageBlocks from './aws/uploadImageBlocks';
 import writeImageBlocks from './writeImageBlocks';
 
