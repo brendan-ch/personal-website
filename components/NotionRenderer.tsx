@@ -144,12 +144,8 @@ const Renderers = {
       </div>
     );
   },
-  video: (block: any, key: string | number) => (
-    // <div className={styles.videoContainer}>
-    <video controls>
-      <source src={block.type === 'file' ? block.file.url : block.external.url} />
-      This browser does not support the video tag.
-    </video>
+  divider: (block: any, key: string | number) => (
+    <div key={key} className={styles.divider} />
   ),
 };
 
