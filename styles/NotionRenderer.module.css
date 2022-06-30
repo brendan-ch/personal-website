@@ -27,6 +27,7 @@
 
 .image {
   background-repeat: no-repeat;
+  transition: 0.1s;
 }
 
 .bulletedListContainer {
