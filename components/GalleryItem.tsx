@@ -23,7 +23,7 @@ export default function GalleryItem({ imageLink, title, link, width, height }: P
     <Link href={link || '/'}>
       <a className={styles.container}>
         {imageLink ? (
-          <ImageWithFadeIn
+          <Image
             className={styles.image}
             src={imageLink}
             width={width || 700}

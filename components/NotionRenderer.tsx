@@ -129,7 +129,7 @@ const Renderers = {
         className={styles.imageContainer}
         key={key}
       >
-        <ImageWithFadeIn
+        <Image
           onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
           alt={caption}
           src={src}
