@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/GalleryItem.module.css';
 import Next from './icons/Next';
@@ -23,7 +22,7 @@ export default function GalleryItem({ imageLink, title, link, width, height }: P
     <Link href={link || '/'}>
       <a className={styles.container}>
         {imageLink ? (
-          <Image
+          <ImageWithFadeIn
             className={styles.image}
             src={imageLink}
             width={width || 700}
