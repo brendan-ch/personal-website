@@ -16,15 +16,20 @@ enum LoadingState {
  * @returns
  */
 export default function ImageWithFadeIn(props: ImageProps) {
-  const [loaded, setLoaded] = useState(false);
   const [loadingState, setLoadingState] = useState(LoadingState.BEFORE);
+  const [fullOpacity, setFullOpacity] = useState(false);
 
   useEffect(() => {
+    let isSafari = navigator.userAgent.indexOf("Chrome") <= -1 && navigator.userAgent.indexOf("Safari") > -1;
+
     setLoadingState(LoadingState.LOADING);
+    if (isSafari) {
+      setFullOpacity(true);
+    }
   }, []);
 
   let className = `${props.className}`;
-  if (loadingState === LoadingState.LOADING) {
+  if (loadingState === LoadingState.LOADING && !fullOpacity) {
     className = `${props.className} ${styles.invisible}`;
   } else if (loadingState === LoadingState.DONE) {
     className = `${props.className} ${styles.fadeIn}`;
