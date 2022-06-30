@@ -31,7 +31,7 @@ async function getProjectDatabaseBlocks(filter?: any) {
       title: value.properties.Name.title[0].plain_text,
       description,
       imageLink,
-      previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
+      // previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,

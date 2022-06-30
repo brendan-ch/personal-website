@@ -17,7 +17,7 @@ export default async function updateImageBlocks(blocks: any[]) {
 
   const updated = await uploadImageBlocks(blocks);
   if (updated.length < 1) {
-    copy = await addImageBlockPlaceholders(copy);
+    // copy = await addImageBlockPlaceholders(copy);
 
     return copy;
   }
@@ -49,7 +49,7 @@ export default async function updateImageBlocks(blocks: any[]) {
     }
   });
 
-  copy = await addImageBlockPlaceholders(copy);
+  // copy = await addImageBlockPlaceholders(copy);
 
   return copy;
 }

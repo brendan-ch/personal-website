@@ -33,7 +33,7 @@ import { PLACEHOLDER_SIZE } from '../Constants';
       id: value.id,
       description,
       imageLink,
-      previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
+      // previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
   }));

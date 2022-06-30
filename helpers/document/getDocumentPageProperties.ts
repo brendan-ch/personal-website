@@ -49,7 +49,7 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
     id: response.id,
     description,
     imageLink,
-    previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
+    // previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
     prettyLink,
   };
 }
