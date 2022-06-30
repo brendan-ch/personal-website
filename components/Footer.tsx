@@ -20,7 +20,7 @@ export default function Footer() {
             <a>
               <p>
                 <u>
-                  Licenses
+                  Copyright and Licenses
                 </u>
               </p>
             </a>
