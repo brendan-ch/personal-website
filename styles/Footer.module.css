@@ -34,4 +34,10 @@
     gap: 10px;
     width: 100%;
   }
+
+  .linksContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
 }

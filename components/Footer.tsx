@@ -6,13 +6,22 @@ export default function Footer() {
     <div className={styles.container}>
       <div className={styles.content}>
         <p>© 2022 Brendan Chen</p>
-        <Link href="/doc/copyright">
-          <a>
-            <p>
-              Licenses
-            </p>
-          </a>
-        </Link>
+        <div className={styles.linksContainer}>
+          <Link href="/doc/privacy">
+            <a>
+              <p>
+                Privacy
+              </p>
+            </a>
+          </Link>
+          <Link href="/doc/copyright">
+            <a>
+              <p>
+                Licenses
+              </p>
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );
