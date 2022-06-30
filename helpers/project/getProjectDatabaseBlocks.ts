@@ -1,8 +1,7 @@
 import client from '../notionClient';
 import { DatabaseItem } from '../../types';
-import { PLACEHOLDER_SIZE, PROJECTS_DATABASE_ID } from '../Constants';
+import { PROJECTS_DATABASE_ID } from '../Constants';
 import returnPlainText from '../returnPlainText';
-import { getPlaiceholder } from 'plaiceholder';
 
 /**
  * Get all database items from the Project database that match the filter object.
@@ -31,7 +30,6 @@ async function getProjectDatabaseBlocks(filter?: any) {
       title: value.properties.Name.title[0].plain_text,
       description,
       imageLink,
-      previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,

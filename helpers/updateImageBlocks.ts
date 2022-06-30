@@ -2,7 +2,6 @@
 // uploads images to AWS, writes image blocks back to Notion,
 // and returns array with updated images
 
-import addImageBlockPlaceholders from './addImageBlockPlaceholders';
 import uploadImageBlocks from './aws/uploadImageBlocks';
 import writeImageBlocks from './writeImageBlocks';
 
@@ -17,7 +16,7 @@ export default async function updateImageBlocks(blocks: any[]) {
 
   const updated = await uploadImageBlocks(blocks);
   if (updated.length < 1) {
-    copy = await addImageBlockPlaceholders(copy);
+    // copy = await addImageBlockPlaceholders(copy);
 
     return copy;
   }
@@ -49,7 +48,7 @@ export default async function updateImageBlocks(blocks: any[]) {
     }
   });
 
-  copy = await addImageBlockPlaceholders(copy);
+  // copy = await addImageBlockPlaceholders(copy);
 
   return copy;
 }

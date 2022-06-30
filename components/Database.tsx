@@ -32,7 +32,6 @@ export default function Database({
           title={item.title}
           imageLink={item.imageLink}
           link={`/project/${item.prettyLink}`}
-          imagePlaceholder={item.previewImagePlaceholder}
         />
       ))}
     </div>

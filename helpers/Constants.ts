@@ -41,5 +41,6 @@ export const PAGE_SIZE = 50;
  * Determines the size of the placeholder image.
  * 
  * @see https://plaiceholder.co/docs/usage
+ * @deprecated Plaiceholder no longer used for generation.
  */
 export const PLACEHOLDER_SIZE = 32;

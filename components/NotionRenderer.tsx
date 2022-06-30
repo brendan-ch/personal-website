@@ -4,6 +4,7 @@ import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
 import { useState } from 'react';
 import Lightbox from './Lightbox';
+import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   /**
@@ -122,17 +123,13 @@ const Renderers = {
   image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     const src = block.type === 'file' ? block.file.url : block.external.url;
     const caption = returnPlainText(block.caption);
-
-    const placeholder: string | undefined = block.placeholder;
     
     return (
       <div
         className={styles.imageContainer}
         key={key}
       >
-        <Image
-          blurDataURL={placeholder}
-          placeholder={placeholder ? 'blur' : 'empty'}
+        <ImageWithFadeIn
           onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
           alt={caption}
           src={src}

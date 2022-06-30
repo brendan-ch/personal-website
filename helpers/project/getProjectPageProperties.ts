@@ -1,8 +1,7 @@
 import client from '../notionClient';
 import { ProjectDatabaseItem } from '../../types';
-import { PLACEHOLDER_SIZE, PROJECTS_DATABASE_ID } from '../Constants';
+import { PROJECTS_DATABASE_ID } from '../Constants';
 import returnPlainText from '../returnPlainText';
-import { getPlaiceholder } from 'plaiceholder';
 
 /**
  * Get a database item object for a specific page.
@@ -51,7 +50,6 @@ async function getProjectPageProperties(prettyLink: string): Promise<ProjectData
     id: response.id,
     tags: response.properties['Tags'].multi_select.map((item: any) => item.name),
     imageLink,
-    previewImagePlaceholder: imageLink ? (await getPlaiceholder(imageLink, { size: PLACEHOLDER_SIZE })).base64 : undefined,
     description,
     prettyLink: response.properties['Pretty Link'] ? returnPlainText(response.properties['Pretty Link'].rich_text) : undefined,
   };

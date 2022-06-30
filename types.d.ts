@@ -3,7 +3,6 @@ interface DatabaseItem {
   id: string,
   prettyLink?: string,
   imageLink?: string,
-  previewImagePlaceholder?: string,
   description?: string,
 }
 
