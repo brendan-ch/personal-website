@@ -4,6 +4,7 @@ import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
 import { useState } from 'react';
 import Lightbox from './Lightbox';
+import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   /**
@@ -130,7 +131,7 @@ const Renderers = {
         className={styles.imageContainer}
         key={key}
       >
-        <Image
+        <ImageWithFadeIn
           blurDataURL={placeholder}
           placeholder={placeholder ? 'blur' : 'empty'}
           onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
