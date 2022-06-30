@@ -153,7 +153,7 @@ const Renderers = {
         {/* <div className={styles.calloutIconContainer}> */}
           {/* Icon placeholder component */}
         {/* </div> */}
-        <div className={styles.titleChildrenContainer}>
+        <div className={`${styles.calloutTitleChildrenContainer} ${styles.titleChildrenContainer}`}>
           <p>
             {block.rich_text.map(richTextRenderer)}
           </p>
@@ -169,6 +169,25 @@ const Renderers = {
       </aside>
     );
   },
+  quote: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+    return (
+      <blockquote key={key}>
+        <div className={`${styles.titleChildrenContainer} ${styles.quoteTitleChildrenContainer}`}>
+          <p>
+            {block.rich_text.map(richTextRenderer)}
+          </p>
+          {/* Render children */}
+          {children
+            ? children.map((child: any, i: number) => 
+              // @ts-ignore
+              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children, onImageClick) : undefined
+            )
+            : undefined
+          }
+        </div>
+      </blockquote>
+    );
+  }
 };
 
 /**
