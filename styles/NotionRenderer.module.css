@@ -3,6 +3,14 @@
   flex-direction: column;
 }
 
+.divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: var(--emphasis);
+}
+
 .imageContainer {
   width: 100%;
   min-height: 200px;
@@ -67,6 +75,56 @@
 
 .container ::marker {
   font-size: 1.2em;
+}
+
+/* Used for the callout */
+.container aside {
+  border-width: 1px;
+  border-color: var(--emphasis);
+  border-style: solid;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.container blockquote {
+  /* box-sizing: border-box; */
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-left: 4px solid var(--emphasis);
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.calloutIconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px 0px 20px 20px;
+}
+
+/* Used for callouts and quotes. */
+.titleChildrenContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.calloutTitleChildrenContainer {
+  padding: 20px 15px;
+}
+
+.quoteTitleChildrenContainer {
+  padding: 10px 15px;
 }
 
 /* .videoContainer {
