@@ -19,13 +19,12 @@ describe('ImageWithFadeIn', () => {
   it('sets initial class to invisible', async () => {
     // Instead of checking for state change
     // Check for whether the image styling changes
-    const { debug, getByRole } = render(<ImageWithFadeIn
+    const { getByRole } = render(<ImageWithFadeIn
       src="/link-preview-image.png"
       alt="Testing Image"
       layout="fill"
     />);
 
-    debug();
     // Wait for the CSS to change
     await waitFor(() => expect(getByRole('img')).toHaveClass('invisible'));
   });
