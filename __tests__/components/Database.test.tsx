@@ -1,10 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import Database from '../../components/Database';
 import { DatabaseItem } from '../../types';
+import '@testing-library/jest-dom';
 
 describe('Database', () => {
   it('Renders a blank database', () => {
     render(<Database items={[]} />);
+
+    const container = screen.getByRole('list');
+    expect(container).toBeInTheDocument();
   });
 
   it('Renders a database with items', () => {
@@ -23,7 +27,7 @@ describe('Database', () => {
     // Check the number of `GalleryItem` children
     render(<Database items={items} />);
     const container = screen.getByRole('list');
-    expect(container).toBeDefined();
+    expect(container).toBeInTheDocument();
     expect(container.childElementCount).toBe(items.length);
   });
 });
