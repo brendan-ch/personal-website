@@ -116,9 +116,7 @@ export default function ProjectPage({
         description={description}
         previewImageLink={previewImageLink}
       />
-      <MobileNavBar
-        title={title}
-      />
+      <MobileNavBar />
       {error ? (
         <main>
           <div className={utils.spacer} />

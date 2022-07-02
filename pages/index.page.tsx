@@ -66,7 +66,6 @@ const Projects = ({ dbItems }: Props) => {
         <title>Brendan Chen</title>
       </Head>
       <MobileNavBar
-        title={selected}
         selected={selected}
       />
       <main>

@@ -48,10 +48,6 @@ function MobileNavBarTab({
 }
 
 interface Props {
-  /**
-   * Only shown if `display` is set to `project`.
-   */
-  title?: string,
   selected?: string,
 }
 
@@ -59,7 +55,7 @@ interface Props {
  * Navigation bar on mobile and desktop.
  * @param props
  */
-export default function MobileNavBar({ title, selected }: Props) {
+export default function MobileNavBar({ selected }: Props) {
   return (
     <nav className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
