@@ -116,7 +116,7 @@ const Renderers = {
   },
   quote: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     return (
-      <blockquote key={key}>
+      <blockquote key={key} role="complementary">
         <div className={`${styles.titleChildrenContainer} ${styles.quoteTitleChildrenContainer}`}>
           <p>
             {block.rich_text.map(richTextRenderer)}
