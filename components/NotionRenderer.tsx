@@ -90,7 +90,7 @@ const Renderers = {
     );
   },
   divider: (block: any, key: string | number) => (
-    <div key={key} className={styles.divider} />
+    <div key={key} className={styles.divider} role="separator" />
   ),
   callout: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     return (
