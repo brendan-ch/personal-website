@@ -54,6 +54,8 @@ interface Props {
 /**
  * Navigation bar on mobile and desktop.
  * @param props
+ * 
+ * @todo make tab list customizable, and add tests for it
  */
 export default function MobileNavBar({ selected }: Props) {
   return (
@@ -76,7 +78,7 @@ export default function MobileNavBar({ selected }: Props) {
             />
           </a>
         </Link>
-        <div className={styles.buttonsContainer}>
+        <div className={styles.buttonsContainer} role="tablist">
           <MobileNavBarTab
             href="/"
             selected={selected === 'Featured'}
