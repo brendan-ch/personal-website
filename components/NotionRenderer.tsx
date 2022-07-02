@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
 import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
@@ -67,21 +66,7 @@ const Renderers = {
     return Renderers.bulleted_list_item(block, key, children);
   },
   toggle: (block: any, key: string | number, children?: any) => {
-    return (
-      <div key={key}>
-        <li>
-          {block.rich_text.map(richTextRenderer)}
-        </li>
-        {/* Indent */}
-        {children
-          ? children.map((child: any, i: number) => 
-            // @ts-ignore
-            Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
-          )
-          : undefined
-        }
-      </div>
-    )
+    return Renderers.bulleted_list_item(block, key, children);
   },
   image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     const src = block.type === 'file' ? block.file.url : block.external.url;
