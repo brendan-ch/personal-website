@@ -32,7 +32,8 @@ export default function Lightbox({ imageLink, caption, visible, onClose }: Props
   return (
     <div
       className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
-      onClick={onClose ? () => onClose() : undefined}
+      onClick={onClose ? onClose : undefined}
+      role="group"
     >
       <div className={styles.closeTabBar}>
         <div className={styles.closeButtonWrapper}>
