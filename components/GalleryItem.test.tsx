@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import GalleryItem from '../../components/GalleryItem';
+import GalleryItem from './GalleryItem';
 import '@testing-library/jest-dom';
 
 const title = 'coffeetype';

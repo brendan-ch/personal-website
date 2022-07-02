@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Lightbox from '../../components/Lightbox';
+import Lightbox from './Lightbox';
 
 describe('Lightbox', () => {
   it('Doesn\'t render an image if no link provided', () => {

@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import ImageWithFadeIn from "../../components/ImageWithFadeIn";
+import ImageWithFadeIn from "./ImageWithFadeIn";
 import '@testing-library/jest-dom';
 
 // Component tests for the ImageWithFadeIn component

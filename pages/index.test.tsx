@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import Projects from '../pages';
+import { render } from '@testing-library/react';
+import Projects from './index.page';
 import { ProjectDatabaseItem } from '../types';
 
 describe('Projects', () => {

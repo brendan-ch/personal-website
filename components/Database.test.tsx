@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import Database from '../../components/Database';
-import { DatabaseItem } from '../../types';
+import Database from './Database';
+import { DatabaseItem } from '../types';
 import '@testing-library/jest-dom';
 
 describe('Database', () => {
