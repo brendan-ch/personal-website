@@ -24,9 +24,14 @@ function richTextRenderer(richTextItem: any, key: string | number) {
   if (richTextItem.type !== 'text') {
     return richTextItem.plain_text;
   }
-
+  
   // Assume at this point that it's of type text
   let toReturn: any = richTextItem.text.content;
+
+  if (richTextItem.text.link) {
+    toReturn = <a key={key} href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
+  }
+  if (!richTextItem.annotations) return toReturn;
 
   if (richTextItem.annotations.bold) {
     toReturn = <b key={key}>{toReturn}</b>;
@@ -42,10 +47,6 @@ function richTextRenderer(richTextItem: any, key: string | number) {
 
   if (richTextItem.annotations.strikethrough) {
     toReturn = <s key={key}>{toReturn}</s>;
-  }
-
-  if (richTextItem.text.link) {
-    toReturn = <a key={key} href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
   }
 
   return toReturn;
