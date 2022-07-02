@@ -16,16 +16,10 @@ describe('ImageWithFadeIn', () => {
     expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
-  it('sets initial class to invisible', async () => {
-    // Instead of checking for state change
-    // Check for whether the image styling changes
-    render(<ImageWithFadeIn
-      src="/link-preview-image.png"
-      alt="Testing Image"
-      layout="fill"
-    />);
-
-    // Wait for the CSS to change
-    await waitFor(() => expect(screen.getByRole('img')).toHaveClass('invisible'));
-  });
+  // No need to test whether props work, hopefully Next.JS tests their
+  // image component
+  
+  // Ideally would also test whether opacity changes,
+  // but not possible to simulate `onLoadingComplete` prop
+  // without real browser
 });
