@@ -68,7 +68,6 @@ const Projects = ({ dbItems }: Props) => {
       <MobileNavBar
         title={selected}
         selected={selected}
-        display="tabs"
       />
       <main>
         <div className={utils.spacer} />

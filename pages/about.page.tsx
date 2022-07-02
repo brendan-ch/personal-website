@@ -53,7 +53,6 @@ export default function AboutPage({ blocks }: Props) {
       </Head>
       <MobileNavBar
         title={selected}
-        display="tabs"
         selected={selected}
       />
       <main>

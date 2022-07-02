@@ -49,10 +49,6 @@ function MobileNavBarTab({
 
 interface Props {
   /**
-   * @deprecated This prop has no effect.
-   */
-  display: 'tabs' | 'project' | 'title',
-  /**
    * Only shown if `display` is set to `project`.
    */
   title?: string,

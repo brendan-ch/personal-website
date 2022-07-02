@@ -125,7 +125,6 @@ interface Props {
       />
       <MobileNavBar
         title={title}
-        display="title"
       />
       {error ? (
         <main>

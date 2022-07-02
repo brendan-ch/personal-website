@@ -118,7 +118,6 @@ export default function ProjectPage({
       />
       <MobileNavBar
         title={title}
-        display="project"
       />
       {error ? (
         <main>
