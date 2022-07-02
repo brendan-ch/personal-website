@@ -6,26 +6,26 @@ import '@testing-library/jest-dom';
 describe('ImageWithFadeIn', () => {
   it('renders an image without erroring', () => {
     // Render the element
-    const { getByRole } = render(<ImageWithFadeIn
+    render(<ImageWithFadeIn
       src="/link-preview-image.png"
       alt="Testing Image"
       layout="fill"
     />);
 
     // Expect there to be an image
-    expect(getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
   it('sets initial class to invisible', async () => {
     // Instead of checking for state change
     // Check for whether the image styling changes
-    const { getByRole } = render(<ImageWithFadeIn
+    render(<ImageWithFadeIn
       src="/link-preview-image.png"
       alt="Testing Image"
       layout="fill"
     />);
 
     // Wait for the CSS to change
-    await waitFor(() => expect(getByRole('img')).toHaveClass('invisible'));
+    await waitFor(() => expect(screen.getByRole('img')).toHaveClass('invisible'));
   });
 });
