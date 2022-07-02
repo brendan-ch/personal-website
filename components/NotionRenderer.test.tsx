@@ -16,13 +16,10 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
           "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default",
-      "children":[{
-        "type": "paragraph"
-        // ..other keys excluded
-      }]
     }
   },
   {
@@ -34,7 +31,8 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
           "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default"
     }
@@ -48,7 +46,8 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
           "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default"
     }
@@ -62,7 +61,8 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
           "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default"
     }
@@ -92,6 +92,7 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
         },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default"
     }
@@ -105,7 +106,8 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
           "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default",
       "children": [
@@ -118,7 +120,8 @@ const mockBlocks: any[] = [
               "text": {
                 "content": "Lacinato kale",
                 "link": null
-              }
+              },
+              "plain_text": "Lacinato kale",
             }],
             "color": "default",
           }
@@ -132,7 +135,8 @@ const mockBlocks: any[] = [
               "text": {
                 "content": "Lacinato kale",
                 "link": null
-              }
+              },
+              "plain_text": "Lacinato kale",
             }],
             "color": "default",
           }
@@ -162,7 +166,8 @@ const mockBlocks: any[] = [
               "text": {
                 "content": "Lacinato kale",
                 "link": null
-              }
+              },
+              "plain_text": "Lacinato kale",
             }],
             "color": "default",
           }
@@ -176,7 +181,8 @@ const mockBlocks: any[] = [
               "text": {
                 "content": "Lacinato kale",
                 "link": null
-              }
+              },
+              "plain_text": "Lacinato kale",
             }],
             "color": "default",
           }
@@ -193,7 +199,8 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
           "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default",
       "children": [
@@ -206,7 +213,8 @@ const mockBlocks: any[] = [
               "text": {
                 "content": "Lacinato kale",
                 "link": null
-              }
+              },
+              "plain_text": "Lacinato kale",
             }],
             "color": "default",
           }
@@ -220,13 +228,36 @@ const mockBlocks: any[] = [
               "text": {
                 "content": "Lacinato kale",
                 "link": null
-              }
+              },
+              "plain_text": "Lacinato kale",
             }],
             "color": "default",
           }
         },
       ],
     },
+  },
+  {
+    "type": "image",
+    //...other keys excluded
+    "image": {
+      "type": "external",
+      "external": {
+        "url": "https://bchen-personal-website.s3.us-west-1.amazonaws.com/test-image.jpg"
+      },
+      "caption": [{
+        "type": "text",
+        "text": {
+          "content": "Lacinato kale",
+          "link": null
+        },
+        "plain_text": "Lacinato kale",
+      }],
+    },
+  },
+  {
+    "type": "divider",
+    "divider": {},
   },
 ];
 
@@ -345,4 +376,38 @@ describe('NotionRenderer', () => {
   it('Renders toggle lists', () => {
     checkForList('toggle', 3);
   });
+
+  it('Renders the image block', () => {
+    const block = mockBlocks.find((block) => block.type === 'image');
+
+    render(<NotionRenderer blocks={[block]} />);
+    screen.debug();
+
+    // Check for image
+    const img = screen.getByRole('img');
+    expect(img).toBeInTheDocument();
+
+    // Make sure some sort of alt text is generated
+    expect(img.getAttribute('alt')).toBeDefined();
+    expect(img.getAttribute('alt')?.length).toBeGreaterThan(0);
+  });
+
+  it('Renders the divider block', () => {
+    const block = mockBlocks.find((block) => block.type === 'divider');
+    render(<NotionRenderer blocks={[block]} />);
+
+    // Check for divider
+    const separator = screen.getByRole('separator');
+    expect(separator).toBeInTheDocument();
+  });
+
+  it('Renders the callout block', () => {
+
+  });
+
+  it('Renders the quote block', () => {
+    
+  });
+
+
 });
