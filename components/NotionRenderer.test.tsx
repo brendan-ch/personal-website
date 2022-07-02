@@ -108,11 +108,125 @@ const mockBlocks: any[] = [
         }
       }],
       "color": "default",
-      "children":[{
-        "type": "paragraph"
-        // ..other keys excluded
-      }]
-    }
+      "children": [
+        {
+          "type": "bulleted_list_item",
+          //...other keys excluded
+          "bulleted_list_item": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              }
+            }],
+            "color": "default",
+          }
+        },
+        {
+          "type": "bulleted_list_item",
+          //...other keys excluded
+          "bulleted_list_item": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              }
+            }],
+            "color": "default",
+          }
+        },
+      ],
+    },
+  },
+  {
+    "type": "numbered_list_item",
+    //...other keys excluded
+    "numbered_list_item": {
+      "rich_text": [{
+        "type": "text",
+        "text": {
+          "content": "Lacinato kale",
+          "link": null
+        }
+      }],
+      "color": "default",
+      "children": [
+        {
+          "type": "bulleted_list_item",
+          //...other keys excluded
+          "bulleted_list_item": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              }
+            }],
+            "color": "default",
+          }
+        },
+        {
+          "type": "bulleted_list_item",
+          //...other keys excluded
+          "bulleted_list_item": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              }
+            }],
+            "color": "default",
+          }
+        },
+      ],
+    },
+  },
+  {
+    "type": "toggle",
+    //...other keys excluded
+    "toggle": {
+      "rich_text": [{
+        "type": "text",
+        "text": {
+          "content": "Lacinato kale",
+          "link": null
+        }
+      }],
+      "color": "default",
+      "children": [
+        {
+          "type": "bulleted_list_item",
+          //...other keys excluded
+          "bulleted_list_item": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              }
+            }],
+            "color": "default",
+          }
+        },
+        {
+          "type": "bulleted_list_item",
+          //...other keys excluded
+          "bulleted_list_item": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              }
+            }],
+            "color": "default",
+          }
+        },
+      ],
+    },
   },
 ];
 
@@ -149,8 +263,49 @@ const checkForText = (blockType: string, expectedTag: string, text: string) => {
   // Normally it's not necessary to worry about this level of implementation detail,
   // but these tests need to check the type of element, since there
   // can be multiple types of text (h1, ul, etc.)
+  // There should be no custom implementations of these basic text elements
   expect(expected.tagName).toStrictEqual(expectedTag);
-}
+};
+
+/**
+ * Modify the location of `children` so it works with the renderer.
+ * Remove once location of `children` is migrated into the data object.
+ * @param block
+ */
+const modifyChildrenLocation = (block: any) => {
+  block.children = block[block.type].children;
+};
+
+/**
+ * Render the `NotionRenderer` component and check for lists (elements with role `list`).
+ * Works across different types of lists (bullet lists, numbered lists, etc.).
+ * @param blockType
+ * @param expectedListCount Number of lists to expect. This can be more than 1
+ * if there are nested children lists in the mocked block.
+ */
+const checkForList = (blockType: string, expectedListCount: number) => {
+  const block = mockBlocks.find((block) => block.type === blockType);
+  modifyChildrenLocation(block);
+
+  render(<NotionRenderer blocks={[block]} />)
+
+  // Get the bullet list
+  // Ensures that some sort of list is used, and that role="list" is used
+  // if creating a custom implementation of the <ul> element
+  const lists = screen.getAllByRole('list');
+  expect(lists).toHaveLength(expectedListCount);
+
+  for (let i = 0; i < expectedListCount; i++) {
+    // Check whether list is in the document
+    expect(lists[i]).toBeInTheDocument();
+
+    // Check the number of children
+    // Should be 2 children, either a <li> item and a nested <ul>, or an <li>
+    // and nested <div>
+    // This is enforced because of the way <ul> nesting works
+    expect(lists[i].childElementCount).toBe(2);
+  }
+};
 
 describe('NotionRenderer', () => {
   const mockText = 'Lacinato kale';
@@ -177,5 +332,17 @@ describe('NotionRenderer', () => {
 
   it('Renders the h3 block', () => {
     checkForText('heading_3', 'H3', mockText);
+  });
+
+  it('Renders bullet lists', () => {
+    checkForList('bulleted_list_item', 3);
+  });
+
+  it('Renders number lists', () => {
+    checkForList('numbered_list_item', 3);
+  });
+
+  it('Renders toggle lists', () => {
+    checkForList('toggle', 3);
   });
 });
