@@ -76,12 +76,49 @@ const mockBlocks: any[] = [
         "text": {
           "content": "Lacinato kale",
         },
+        "plain_text": "Lacinato kale",
       }],
       "icon": {
         "emoji": "⭐"
       },
-      "color": "default"
-    }
+      "color": "default",
+      "children": [
+        {
+          "type": "callout",
+          // ..other keys excluded
+          "callout": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+              },
+              "plain_text": "Lacinato kale",
+            }],
+            "icon": {
+              "emoji": "⭐"
+            },
+            "color": "default",
+          },
+        },
+        {
+          "type": "callout",
+          // ..other keys excluded
+          "callout": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+              },
+              "plain_text": "Lacinato kale",
+            }],
+            "icon": {
+              "emoji": "⭐"
+            },
+            "color": "default",
+          },
+        },
+      ],
+    },
   },
   {
     "type": "quote",
@@ -402,7 +439,16 @@ describe('NotionRenderer', () => {
   });
 
   it('Renders the callout block', () => {
+    const block = mockBlocks.find((block) => block.type === 'callout');
+    render(<NotionRenderer blocks={[block]} />);
 
+    // Check for complementary
+    const aside = screen.getByRole('complementary');
+    expect(aside).toBeInTheDocument();
+
+    // Check for nested children blocks
+    // Unlike lists, children blocks in callouts and quotes have the same
+    // parent element
   });
 
   it('Renders the quote block', () => {
