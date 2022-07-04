@@ -84,38 +84,34 @@ const mockBlocks: any[] = [
       "color": "default",
       "children": [
         {
-          "type": "callout",
-          // ..other keys excluded
-          "callout": {
+          "type": "paragraph",
+          //...other keys excluded
+          "paragraph": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
+                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
-            "icon": {
-              "emoji": "⭐"
-            },
             "color": "default",
-          },
+          }
         },
         {
-          "type": "callout",
-          // ..other keys excluded
-          "callout": {
+          "type": "paragraph",
+          //...other keys excluded
+          "paragraph": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
+                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
-            "icon": {
-              "emoji": "⭐"
-            },
             "color": "default",
-          },
+          }
         },
       ],
     },
@@ -131,7 +127,39 @@ const mockBlocks: any[] = [
         },
         "plain_text": "Lacinato kale",
       }],
-      "color": "default"
+      "color": "default",
+      "children": [
+        {
+          "type": "paragraph",
+          //...other keys excluded
+          "paragraph": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              },
+              "plain_text": "Lacinato kale",
+            }],
+            "color": "default",
+          }
+        },
+        {
+          "type": "paragraph",
+          //...other keys excluded
+          "paragraph": {
+            "rich_text": [{
+              "type": "text",
+              "text": {
+                "content": "Lacinato kale",
+                "link": null
+              },
+              "plain_text": "Lacinato kale",
+            }],
+            "color": "default",
+          }
+        },
+      ]
     }
   },
   {
@@ -335,6 +363,23 @@ const checkForText = (blockType: string, expectedTag: string, text: string) => {
   expect(expected.tagName).toStrictEqual(expectedTag);
 };
 
+const checkForComplementary = (blockType: string, text: string) => {
+  const block = mockBlocks.find((block) => block.type === blockType);
+  modifyChildrenLocation(block);
+  render(<NotionRenderer blocks={[block]} />);
+
+  // Check for complementary
+  const aside = screen.getByRole('complementary');
+  expect(aside).toBeInTheDocument();
+
+  // Check for nested children blocks
+  // Unlike lists, children blocks in callouts and quotes have the same
+  // parent element
+  // Check for three paragraph elements with plain text
+  const paragraphs = screen.getAllByText(text);
+  expect(paragraphs).toHaveLength(3);
+};
+
 /**
  * Modify the location of `children` so it works with the renderer.
  * Remove once location of `children` is migrated into the data object.
@@ -418,7 +463,6 @@ describe('NotionRenderer', () => {
     const block = mockBlocks.find((block) => block.type === 'image');
 
     render(<NotionRenderer blocks={[block]} />);
-    screen.debug();
 
     // Check for image
     const img = screen.getByRole('img');
@@ -439,21 +483,10 @@ describe('NotionRenderer', () => {
   });
 
   it('Renders the callout block', () => {
-    const block = mockBlocks.find((block) => block.type === 'callout');
-    render(<NotionRenderer blocks={[block]} />);
-
-    // Check for complementary
-    const aside = screen.getByRole('complementary');
-    expect(aside).toBeInTheDocument();
-
-    // Check for nested children blocks
-    // Unlike lists, children blocks in callouts and quotes have the same
-    // parent element
+    checkForComplementary('callout', mockText);
   });
 
   it('Renders the quote block', () => {
-    
+    checkForComplementary('quote', mockText);
   });
-
-
 });
