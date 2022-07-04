@@ -1,17 +1,19 @@
 /**
- * Return a JSX element from a rich text item.
+ * Return a JSX element or plain string from a rich text item.
  * @param richTextItem
  * @param key
  * @returns
+ * 
+ * @todo add improved type definitions for rich text item
  */
-function richTextRenderer(richTextItem: any, key: string | number) {
+function richTextRenderer(richTextItem: any, key: string | number): JSX.Element | string {
   // Deal with mentions
   if (richTextItem.type !== 'text') {
     return richTextItem.plain_text;
   }
   
   // Assume at this point that it's of type text
-  let toReturn: any = richTextItem.text.content;
+  let toReturn: JSX.Element | string = richTextItem.text.content;
 
   if (richTextItem.text.link) {
     toReturn = <a key={key} href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
