@@ -35,9 +35,9 @@ export default function PageHeader({ includeBackButton, aboveText, belowText, ba
             </a>
           </Link>
         ) : (
-          <h2>
+          <h3>
             {aboveText}
-          </h2>
+          </h3>
         )}
         <h1>{belowText}</h1>
       </div>
