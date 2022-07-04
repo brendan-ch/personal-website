@@ -9,8 +9,13 @@ interface MockBlockChildrenListObject {
 }
 
 export const updateBlocks = jest.fn();
+export const updatePages = jest.fn();
 
 export class Client {
+  readonly pages = {
+    update: updatePages,
+  };
+
   readonly blocks = {
     retrieve: () => {},
     update: updateBlocks,
