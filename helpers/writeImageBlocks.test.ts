@@ -5,7 +5,6 @@ beforeEach(() => {
   updateBlocks.mockReset();
 });
 describe('writeImageBlocks', () => {
-
   it('Calls the `client.blocks.update` method', () => {
     writeImageBlocks([
       {
@@ -15,6 +14,6 @@ describe('writeImageBlocks', () => {
       },
     ]);
 
-    expect(updateBlocks).toBeCalledTimes(1);
+    expect(updateBlocks).toHaveBeenCalled();
   });
 });
