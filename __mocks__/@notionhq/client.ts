@@ -2,20 +2,22 @@ interface MockAuthConstructor {
   auth: string,
 }
 
-interface MockBlockListObject {
+interface MockBlockChildrenListObject {
   block_id: string,
   page_size: number,
   start_cursor?: string,
 }
 
+export const updateBlocks = jest.fn();
+
 export class Client {
   readonly blocks = {
     retrieve: () => {},
-    update: () => {},
+    update: updateBlocks,
     delete: () => {},
     children: {
       append: () => {},
-      list: (obj: MockBlockListObject) => {
+      list: (obj: MockBlockChildrenListObject) => {
         if (obj.block_id === '0') {
           // Return sample block with children
           return {
