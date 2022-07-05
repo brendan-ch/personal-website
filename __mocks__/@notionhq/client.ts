@@ -2,6 +2,11 @@ interface MockAuthConstructor {
   auth: string,
 }
 
+interface MockDatabaseQueryObject {
+  database_id: string,
+  filter: any,
+}
+
 interface MockBlockChildrenListObject {
   block_id: string,
   page_size: number,
@@ -10,6 +15,97 @@ interface MockBlockChildrenListObject {
 
 export const updateBlocks = jest.fn();
 export const updatePages = jest.fn();
+
+/**
+ * @todo add additional rich text attributes
+ */
+export const databaseQuery = jest.fn(async (obj: MockDatabaseQueryObject) => {
+  if (obj.database_id === '0') {
+    return {
+      results: [],
+    };
+  }
+  
+  else if (obj.database_id === '1') {
+    return {
+      results: [
+        {
+          id: '0',
+          properties: {
+            'Name': {
+              title: [
+                {
+                  plain_text: 'Item with internal image',
+                },
+              ],
+            },
+            // 'Pretty Link': {
+            //   rich_text: [
+            //     {
+            //       plain_text: 'pretty-link',
+            //     },
+            //   ],
+            // },
+            'Description': {
+              rich_text: [
+                {
+                  plain_text: 'Description',
+                },
+              ],
+            },
+            'Preview Image': {
+              files: [
+                {
+                  type: 'file',
+                  file: {
+                    url: 'https://image.link',
+                    expiry_date: 0,
+                  },
+                },
+              ],
+            },
+          },
+        },
+        {
+          id: '1',
+          properties: {
+            'Name': {
+              title: [
+                {
+                  plain_text: 'Item with external image',
+                },
+              ],
+            },
+            'Pretty Link': {
+              rich_text: [
+                {
+                  plain_text: 'pretty-link',
+                },
+              ],
+            },
+            'Description': {
+              rich_text: [
+                {
+                  plain_text: 'Description',
+                },
+              ],
+            },
+            'Preview Image': {
+              files: [
+                {
+                  type: 'external',
+                  external: {
+                    url: 'https://image.link',
+                  },
+                },
+              ],
+            },
+          },
+        },
+      ],
+    }
+  }
+});
 
 export class Client {
   readonly pages = {
@@ -104,7 +200,7 @@ export class Client {
   readonly databases = {
     list: () => {},
     retrieve: () => {},
-    query: () => {},
+    query: databaseQuery,
     create: () => {},
     update: () => {},
   };
