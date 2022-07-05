@@ -102,6 +102,105 @@ export const databaseQuery = jest.fn(async (obj: MockDatabaseQueryObject) => {
       ],
     }
   }
+  
+
+  return {
+    results: [
+      {
+        id: '0',
+        properties: {
+          'Name': {
+            title: [
+              {
+                plain_text: 'Item with internal image',
+              },
+            ],
+          },
+          // 'Pretty Link': {
+          //   rich_text: [
+          //     {
+          //       plain_text: 'pretty-link',
+          //     },
+          //   ],
+          // },
+          'Description': {
+            rich_text: [
+              {
+                plain_text: 'Description',
+              },
+            ],
+          },
+          'Preview Image': {
+            files: [
+              {
+                type: 'file',
+                file: {
+                  url: 'https://image.link',
+                  expiry_date: 0,
+                },
+              },
+            ],
+          },
+          'Tags': {
+            multi_select: [
+              {
+                name: 'Tag #1',
+              },
+              {
+                name: 'Tag #2',
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: '1',
+        properties: {
+          'Name': {
+            title: [
+              {
+                plain_text: 'Item with external image',
+              },
+            ],
+          },
+          'Pretty Link': {
+            rich_text: [
+              {
+                plain_text: 'pretty-link',
+              },
+            ],
+          },
+          'Description': {
+            rich_text: [
+              {
+                plain_text: 'Description',
+              },
+            ],
+          },
+          'Preview Image': {
+            files: [
+              {
+                type: 'external',
+                external: {
+                  url: 'https://image.link',
+                },
+              },
+            ],
+          },
+          'Tags': {
+            multi_select: [
+              {
+                name: 'Tag #1',
+              },
+              {
+                name: 'Tag #2',
+              },
+            ],
+          },
+        },
+      },
+    ],
+  };
 });
 
 export class Client {
