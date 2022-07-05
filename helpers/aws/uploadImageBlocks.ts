@@ -48,9 +48,9 @@ export default async function uploadImageBlocks(blocks: any[]): Promise<UpdatedB
         caption: blockContent.caption,
       });
       
-    } catch(e) {
+    } catch(e: any) {
       // Log and manually resolve later
-      console.error(e);
+      throw new Error(e);
     }
   }
 
