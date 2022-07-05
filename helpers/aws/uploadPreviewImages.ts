@@ -47,10 +47,11 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
         imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/image.${saveAs}`,
         pageId: item.id,
       });
-    } catch(e) {
+    } catch(e: any) {
       // Failed to update an item
       // Log and manually resolve later
-      console.error(e);
+      // console.error(e);
+      throw new Error(e);
     }
   }
 
