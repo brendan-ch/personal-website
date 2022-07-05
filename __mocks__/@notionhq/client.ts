@@ -20,13 +20,13 @@ export const updatePages = jest.fn();
  * @todo add additional rich text attributes
  */
 export const databaseQuery = jest.fn(async (obj: MockDatabaseQueryObject) => {
-  if (obj.database_id === '0') {
+  if (obj.database_id === 'document-0') {
     return {
       results: [],
     };
   }
   
-  else if (obj.database_id === '1') {
+  else if (obj.database_id === 'document-1') {
     return {
       results: [
         {
