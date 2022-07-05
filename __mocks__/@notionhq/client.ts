@@ -1,3 +1,5 @@
+import { ADDITIONAL_DOCS_DATABASE_ID } from "../../helpers/Constants";
+
 interface MockAuthConstructor {
   auth: string,
 }
@@ -20,13 +22,7 @@ export const updatePages = jest.fn();
  * @todo add additional rich text attributes
  */
 export const databaseQuery = jest.fn(async (obj: MockDatabaseQueryObject) => {
-  if (obj.database_id === 'document-0') {
-    return {
-      results: [],
-    };
-  }
-  
-  else if (obj.database_id === 'document-1') {
+  if (obj.database_id === ADDITIONAL_DOCS_DATABASE_ID) {
     return {
       results: [
         {
