@@ -40,7 +40,10 @@ interface Props {
  */
 export default function MobileNavMenu({ selected, visible }: Props) {
   return (
-    <div className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}>
+    <div
+      className={visible ? `${styles.container} ${styles.containerVisible}` : styles.container}
+      role="menu"
+    >
       <Image
         src={require('../public/background-pattern.png')}
         layout="fill"
