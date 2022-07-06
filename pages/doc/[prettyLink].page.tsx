@@ -4,15 +4,14 @@ import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabas
 import { DocumentDatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
-import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 import updatePreviewImages from '../../helpers/updatePreviewImages';
-import Link from 'next/link';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
+import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -89,6 +88,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
       title: dbItem.title,
       description: dbItem.description || null,
       previewImageLink: dbItem.imageLink || null,
+      coverImageLink: dbItem.coverImageLink || null,
       lastRegenerated: Date.now(),
     },
     revalidate: REVALIDATE,
@@ -152,16 +152,16 @@ interface Props {
               backButtonHref="/"
             />
           </div>
-          {/* {imageLink ? (
+          {coverImageLink ? (
             <div className={utils.fullWidthImageWrapper}>
-              <Image
+              <ImageWithFadeIn
                 alt={`${title} preview image`}
-                src={imageLink}
+                src={coverImageLink}
                 layout="fill"
                 objectFit="cover"
               />
             </div>
-          ) : undefined} */}
+          ) : undefined}
           <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
             <NotionRenderer
               blocks={blocks || []}

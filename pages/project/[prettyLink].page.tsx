@@ -6,13 +6,11 @@ import getPageProperties from '../../helpers/project/getProjectPageProperties';
 import { ProjectDatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
-import Head from 'next/head';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
-import Image from 'next/image';
-import Link from 'next/link';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
+import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -83,6 +81,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
       description: dbItem.description || null,
       previewImageLink: dbItem.imageLink || null,
       lastRegenerated: Date.now(),
+      coverImageLink: dbItem.coverImageLink || null,
     },
     revalidate: REVALIDATE,
   };
@@ -143,16 +142,16 @@ export default function ProjectPage({
               includeBackButton
             />
           </div>
-          {/* {imageLink ? (
+          {coverImageLink ? (
             <div className={utils.fullWidthImageWrapper}>
-              <Image
+              <ImageWithFadeIn
                 alt={`${title} preview image`}
-                src={imageLink}
+                src={coverImageLink}
                 layout="fill"
                 objectFit="cover"
               />
             </div>
-          ) : undefined} */}
+          ) : undefined}
           <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
             <NotionRenderer
               blocks={blocks || []}
