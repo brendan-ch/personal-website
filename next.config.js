@@ -12,6 +12,11 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/project/:prettyLink',
+        destination: '/work/:prettyLink',
+        permanent: true,
+      },
     ];
   },
 }
