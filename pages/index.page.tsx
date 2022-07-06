@@ -1,13 +1,13 @@
 import MobileNavBar from '../components/MobileNavBar';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
+import { REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { ProjectDatabaseItem } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
 import Head from 'next/head';
 import updatePreviewImages from '../helpers/updatePreviewImages';
-import Footer from '../components/Footer';
 import PageHeader from '../components/PageHeader';
+import Footer from '../components/Footer';
 
 /**
  * Generate Notion database content.
@@ -81,7 +81,10 @@ const Projects = ({ dbItems }: Props) => {
             items={dbItems}
           />
         </div>
-        <Footer />
+        <div className={utils.spacer} />
+        <div className={utils.footerWrapper}>
+          <Footer />
+        </div>
       </main>
     </div>
   );

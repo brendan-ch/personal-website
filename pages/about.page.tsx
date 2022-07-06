@@ -68,7 +68,10 @@ export default function AboutPage({ blocks }: Props) {
             blocks={blocks}
           />
         </div>
-        <Footer />
+        <div className={utils.spacer} />
+        <div className={utils.footerWrapper}>
+          <Footer />
+        </div>
       </main>
     </div>
   )

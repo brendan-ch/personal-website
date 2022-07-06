@@ -51,6 +51,7 @@ to the bottom of the page. */
 
 .footerWrapper {
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
