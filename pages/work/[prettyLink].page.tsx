@@ -100,7 +100,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({
+export default function WorkPage({
   blocks,
   previewImageLink,
   coverImageLink,
