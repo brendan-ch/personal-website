@@ -77,6 +77,7 @@ const Projects = ({ dbItems }: Props) => {
           />
         </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+          <h3>Featured Work</h3>
           <Database
             items={dbItems}
           />
