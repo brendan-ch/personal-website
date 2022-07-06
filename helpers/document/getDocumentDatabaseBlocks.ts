@@ -18,11 +18,20 @@ import returnPlainText from '../returnPlainText';
     const description = returnPlainText(value.properties['Description'].rich_text);
 
     let imageLink = null;
-    if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
+    if (value.properties['Preview Image'] && value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
       if (value.properties['Preview Image'].files[0].type === 'file') {
         imageLink = value.properties['Preview Image'].files[0].file.url;
       } else {
         imageLink = value.properties['Preview Image'].files[0].external.url;
+      }
+    }
+
+    let coverImageLink = null;
+    if (value.properties['Cover Image'] && value.properties['Cover Image'].files && value.properties['Cover Image'].files.length > 0) {
+      if (value.properties['Cover Image'].files[0].type === 'file') {
+        coverImageLink = value.properties['Cover Image'].files[0].file.url;
+      } else {
+        coverImageLink = value.properties['Cover Image'].files[0].external.url;
       }
     }
 
@@ -31,6 +40,7 @@ import returnPlainText from '../returnPlainText';
       id: value.id,
       description,
       imageLink,
+      coverImageLink,
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
     };
   }));
