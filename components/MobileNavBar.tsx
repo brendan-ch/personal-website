@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { BLUE, CYAN, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
+import Hamburger from './icons/Hamburger';
 import LogoFull from './icons/LogoFull';
 import LogoStandalone from './icons/LogoStandalone';
+import MobileNavMenu from './MobileNavMenu';
 
 interface TabProps {
   selected: boolean,
@@ -58,8 +61,18 @@ interface Props {
  * @todo make tab list customizable, and add tests for it
  */
 export default function MobileNavBar({ selected }: Props) {
+  const [menuToggled, setMenuToggled] = useState(false);
+
+  function handleMenuPress() {
+    setMenuToggled(!menuToggled);
+  }
+
   return (
     <nav className={styles.container}>
+      <MobileNavMenu 
+        selected={selected}
+        visible={menuToggled}
+      />
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
         <Link href="/" aria-label="Website Logo">
@@ -92,6 +105,15 @@ export default function MobileNavBar({ selected }: Props) {
             selectedColor={BLUE}
           />
         </div>
+        <button
+          className={styles.menuContainer}
+          onClick={handleMenuPress}
+        >
+          <Hamburger
+            width={45}
+            height={45}
+          />
+        </button>
       </div>
       <div className={`${styles.line} ${styles.lineDesktop}`} />
     </nav>

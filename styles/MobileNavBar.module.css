@@ -101,17 +101,30 @@
   margin: 0px;
 }
 
+.menuContainer {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
-  .logoFull {
+
+  .buttonsContainer {
     display: none;
   }
 
   .logoStandalone {
-    display: flex;
+    display: none;
   }
   
   .contentContainer {
     padding-left: 15px;
+  }
+
+  .menuContainer {
+    display: flex;
+  }
+
+  .menuContainer svg {
+    fill: var(--emphasis);
   }
 }
 
