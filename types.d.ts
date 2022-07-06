@@ -40,7 +40,8 @@ type NavigationSelected = 'Projects' | 'About Me';
  * Database item with updated preview image.
  */
 interface UpdatedDatabaseItem {
-  imageLink: string,
+  imageLink?: string,
+  coverImageLink?: string,
   /**
    * Notion page ID to update.
    */
