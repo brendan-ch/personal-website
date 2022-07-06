@@ -105,12 +105,18 @@
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
-  .buttonsContainer {
-    display: none;
+@media only screen and (max-width: 300px) {
+  .logoStandalone {
+    display: flex;
   }
 
-  .logoStandalone {
+  .logoFull {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .buttonsContainer {
     display: none;
   }
   
