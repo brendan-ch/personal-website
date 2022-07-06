@@ -26,10 +26,20 @@ async function getProjectDatabaseBlocks(filter?: any) {
       }
     }
 
+    let coverImageLink = null;
+    if (value.properties['Cover Image'] && value.properties['Cover Image'].files && value.properties['Cover Image'].files.length > 0) {
+      if (value.properties['Cover Image'].files[0].type === 'file') {
+        coverImageLink = value.properties['Cover Image'].files[0].file.url;
+      } else {
+        coverImageLink = value.properties['Cover Image'].files[0].external.url;
+      }
+    }
+
     return {
       title: value.properties.Name.title[0].plain_text,
       description,
       imageLink,
+      coverImageLink,
       id: value.id,
       tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
       prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
