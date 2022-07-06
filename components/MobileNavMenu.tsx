@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/MobileNavMenu.module.css';
 import Footer from './Footer';
+import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -44,12 +44,13 @@ export default function MobileNavMenu({ selected, visible }: Props) {
       className={visible ? `${styles.container}` : styles.containerInvisible}
       role="menu"
     >
-      <Image
+      <div className={styles.grayBackground} />
+      <ImageWithFadeIn
         src={require('../public/background-pattern.png')}
         layout="fill"
         objectFit="cover"
         style={{
-          zIndex: 2
+          zIndex: 3,
         }}
         alt="Background image"
       />
