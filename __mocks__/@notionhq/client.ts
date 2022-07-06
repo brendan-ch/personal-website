@@ -61,6 +61,17 @@ export const databaseQuery = jest.fn(async (obj: MockDatabaseQueryObject) => {
                 },
               ],
             },
+            'Cover Image': {
+              files: [
+                {
+                  type: 'file',
+                  file: {
+                    url: 'https://image.link',
+                    expiry_date: 0,
+                  },
+                },
+              ],
+            },
           },
         },
         {
@@ -131,6 +142,17 @@ export const databaseQuery = jest.fn(async (obj: MockDatabaseQueryObject) => {
             ],
           },
           'Preview Image': {
+            files: [
+              {
+                type: 'file',
+                file: {
+                  url: 'https://image.link',
+                  expiry_date: 0,
+                },
+              },
+            ],
+          },
+          'Cover Image': {
             files: [
               {
                 type: 'file',
