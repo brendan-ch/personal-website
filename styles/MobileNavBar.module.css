@@ -106,7 +106,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-
   .buttonsContainer {
     display: none;
   }
@@ -116,7 +115,7 @@
   }
   
   .contentContainer {
-    padding-left: 15px;
+    padding-right: 8px;
   }
 
   .menuContainer {
