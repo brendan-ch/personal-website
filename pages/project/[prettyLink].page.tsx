@@ -1,22 +1,22 @@
 import utils from '../../styles/utils.module.css';
-import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
-import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabaseBlocks';
-import { DocumentDatabaseItem } from '../../types';
+import { REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
-import Head from 'next/head';
+import getDatabaseBlocks from '../../helpers/project/getProjectDatabaseBlocks';
+import getPageProperties from '../../helpers/project/getProjectPageProperties';
+import { ProjectDatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
+import Head from 'next/head';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
-import updatePreviewImages from '../../helpers/updatePreviewImages';
+import Image from 'next/image';
 import Link from 'next/link';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  let items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
+  const items = await getDatabaseBlocks({
     and: [
       {
         property: 'Published',
@@ -24,21 +24,14 @@ export const getStaticPaths = async () => {
           equals: true,
         },
       },
-      {
-        property: 'Pretty Link',
-        rich_text: {
-          is_not_empty: true,
-        },
-      }
     ],
   });
 
-  items = await updatePreviewImages(items);
-
   return {
-    paths: items.map((value: DocumentDatabaseItem) => ({
+    paths: items.map((value) => ({
       params: {
-        prettyLink: value.prettyLink!,
+        prettyLink: value.prettyLink,
+        title: value.title,
       }
     })),
     fallback: 'blocking',
@@ -47,7 +40,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: DocumentDatabaseItem | null;
+  let dbItem: ProjectDatabaseItem | null;
 
   const errorProps = {
     blocks: [],
@@ -66,7 +59,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getDocumentPageProperties(params.prettyLink);
+    dbItem = await getPageProperties(params.prettyLink);
     if (dbItem) {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
@@ -97,10 +90,10 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
 interface Props {
   blocks?: any[],
-  title?: string,
-  description?: string,
   previewImageLink?: string,
   coverImageLink?: string,
+  title?: string,
+  description?: string,
   error?: string,
 }
 
@@ -108,7 +101,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({
+export default function ProjectPage({
   blocks,
   previewImageLink,
   coverImageLink,
@@ -123,10 +116,7 @@ interface Props {
         description={description}
         previewImageLink={previewImageLink}
       />
-      <MobileNavBar
-        title={title}
-        display="title"
-      />
+      <MobileNavBar />
       {error ? (
         <main>
           <div className={utils.spacer} />
@@ -135,7 +125,6 @@ interface Props {
               aboveText="Home"
               belowText={title || ''}
               includeBackButton
-              backButtonHref="/"
             />
           </div>
           <div className={utils.itemWrapper}>
@@ -152,7 +141,6 @@ interface Props {
               aboveText="Home"
               belowText={title || ''}
               includeBackButton
-              backButtonHref="/"
             />
           </div>
           {/* {imageLink ? (

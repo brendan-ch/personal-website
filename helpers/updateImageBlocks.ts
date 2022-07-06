@@ -7,7 +7,7 @@ import writeImageBlocks from './writeImageBlocks';
 
 /**
  * Returns a deep copy of the Notion block array, with
- * Notion-hosted image links replaced with AWS permalinks. Also adds image block placeholders.
+ * Notion-hosted image links replaced with AWS permalinks.
  * @param blocks
  * @returns
  */

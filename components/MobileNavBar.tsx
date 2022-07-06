@@ -48,22 +48,16 @@ function MobileNavBarTab({
 }
 
 interface Props {
-  /**
-   * @deprecated This prop has no effect.
-   */
-  display: 'tabs' | 'project' | 'title',
-  /**
-   * Only shown if `display` is set to `project`.
-   */
-  title?: string,
   selected?: string,
 }
 
 /**
  * Navigation bar on mobile and desktop.
  * @param props
+ * 
+ * @todo make tab list customizable, and add tests for it
  */
-export default function MobileNavBar({ title, selected }: Props) {
+export default function MobileNavBar({ selected }: Props) {
   return (
     <nav className={styles.container}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
@@ -84,7 +78,7 @@ export default function MobileNavBar({ title, selected }: Props) {
             />
           </a>
         </Link>
-        <div className={styles.buttonsContainer}>
+        <div className={styles.buttonsContainer} role="tablist">
           <MobileNavBarTab
             href="/"
             selected={selected === 'Featured'}

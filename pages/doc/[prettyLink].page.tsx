@@ -1,22 +1,22 @@
 import utils from '../../styles/utils.module.css';
-import { REVALIDATE } from '../../helpers/Constants';
+import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
+import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabaseBlocks';
+import { DocumentDatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDatabaseBlocks from '../../helpers/project/getProjectDatabaseBlocks';
-import getPageProperties from '../../helpers/project/getProjectPageProperties';
-import { ProjectDatabaseItem } from '../../types';
+import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
+import Head from 'next/head';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
-import Head from 'next/head';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
-import Image from 'next/image';
+import updatePreviewImages from '../../helpers/updatePreviewImages';
 import Link from 'next/link';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getDatabaseBlocks({
+  let items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -24,14 +24,21 @@ export const getStaticPaths = async () => {
           equals: true,
         },
       },
+      {
+        property: 'Pretty Link',
+        rich_text: {
+          is_not_empty: true,
+        },
+      }
     ],
   });
 
+  items = await updatePreviewImages(items);
+
   return {
-    paths: items.map((value) => ({
+    paths: items.map((value: DocumentDatabaseItem) => ({
       params: {
-        prettyLink: value.prettyLink,
-        title: value.title,
+        prettyLink: value.prettyLink!,
       }
     })),
     fallback: 'blocking',
@@ -40,7 +47,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: ProjectDatabaseItem | null;
+  let dbItem: DocumentDatabaseItem | null;
 
   const errorProps = {
     blocks: [],
@@ -59,7 +66,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getPageProperties(params.prettyLink);
+    dbItem = await getDocumentPageProperties(params.prettyLink);
     if (dbItem) {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
@@ -90,10 +97,10 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
 interface Props {
   blocks?: any[],
-  previewImageLink?: string,
-  coverImageLink?: string,
   title?: string,
   description?: string,
+  previewImageLink?: string,
+  coverImageLink?: string,
   error?: string,
 }
 
@@ -101,7 +108,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({
+ export default function DocumentPage({
   blocks,
   previewImageLink,
   coverImageLink,
@@ -116,10 +123,7 @@ export default function ProjectPage({
         description={description}
         previewImageLink={previewImageLink}
       />
-      <MobileNavBar
-        title={title}
-        display="project"
-      />
+      <MobileNavBar />
       {error ? (
         <main>
           <div className={utils.spacer} />
@@ -128,6 +132,7 @@ export default function ProjectPage({
               aboveText="Home"
               belowText={title || ''}
               includeBackButton
+              backButtonHref="/"
             />
           </div>
           <div className={utils.itemWrapper}>
@@ -144,6 +149,7 @@ export default function ProjectPage({
               aboveText="Home"
               belowText={title || ''}
               includeBackButton
+              backButtonHref="/"
             />
           </div>
           {/* {imageLink ? (

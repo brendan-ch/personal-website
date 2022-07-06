@@ -66,9 +66,7 @@ const Projects = ({ dbItems }: Props) => {
         <title>Brendan Chen</title>
       </Head>
       <MobileNavBar
-        title={selected}
         selected={selected}
-        display="tabs"
       />
       <main>
         <div className={utils.spacer} />

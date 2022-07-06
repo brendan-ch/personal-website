@@ -52,8 +52,6 @@ export default function AboutPage({ blocks }: Props) {
         <title>About Me | Brendan Chen</title>
       </Head>
       <MobileNavBar
-        title={selected}
-        display="tabs"
         selected={selected}
       />
       <main>

@@ -1,54 +1,16 @@
-import Image from 'next/image';
 import styles from '../styles/NotionRenderer.module.css';
 import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
 import { useState } from 'react';
 import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
+import richTextRenderer from '../helpers/richTextRenderer';
 
 interface Props {
   /**
    * Array of Notion blocks to render on the page.
    */
   blocks: any[],
-}
-
-/**
- * Return a JSX element from a rich text item.
- * @param richTextItem
- * @param key
- * @returns
- */
-function richTextRenderer(richTextItem: any, key: string | number) {
-  // Deal with mentions
-  if (richTextItem.type !== 'text') {
-    return richTextItem.plain_text;
-  }
-
-  // Assume at this point that it's of type text
-  let toReturn: any = richTextItem.text.content;
-
-  if (richTextItem.annotations.bold) {
-    toReturn = <b key={key}>{toReturn}</b>;
-  }
-
-  if (richTextItem.annotations.underline) {
-    toReturn = <u key={key}>{toReturn}</u>;
-  }
-
-  if (richTextItem.annotations.italic) {
-    toReturn = <i key={key}>{toReturn}</i>;
-  }
-
-  if (richTextItem.annotations.strikethrough) {
-    toReturn = <s key={key}>{toReturn}</s>;
-  }
-
-  if (richTextItem.text.link) {
-    toReturn = <a key={key} href={richTextItem.text.link.url} target="_blank" rel="noreferrer">{toReturn}</a>;
-  }
-
-  return toReturn;
 }
 
 /**
@@ -104,21 +66,7 @@ const Renderers = {
     return Renderers.bulleted_list_item(block, key, children);
   },
   toggle: (block: any, key: string | number, children?: any) => {
-    return (
-      <div key={key}>
-        <li>
-          {block.rich_text.map(richTextRenderer)}
-        </li>
-        {/* Indent */}
-        {children
-          ? children.map((child: any, i: number) => 
-            // @ts-ignore
-            Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
-          )
-          : undefined
-        }
-      </div>
-    )
+    return Renderers.bulleted_list_item(block, key, children);
   },
   image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     const src = block.type === 'file' ? block.file.url : block.external.url;
@@ -142,7 +90,7 @@ const Renderers = {
     );
   },
   divider: (block: any, key: string | number) => (
-    <div key={key} className={styles.divider} />
+    <div key={key} className={styles.divider} role="separator" />
   ),
   callout: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     return (
@@ -168,7 +116,7 @@ const Renderers = {
   },
   quote: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
     return (
-      <blockquote key={key}>
+      <blockquote key={key} role="complementary">
         <div className={`${styles.titleChildrenContainer} ${styles.quoteTitleChildrenContainer}`}>
           <p>
             {block.rich_text.map(richTextRenderer)}
