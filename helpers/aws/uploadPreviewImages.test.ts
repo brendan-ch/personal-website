@@ -12,6 +12,7 @@ const mockDatabaseItems: DatabaseItem[] = [
     title: 'Item #2',
     id: '1',
     imageLink: 'https://image-link-2.com',
+    coverImageLink: 'https://image-link-3.com',
   },
 ];
 
@@ -42,7 +43,7 @@ describe('uploadPreviewImages', () => {
   it('Uploads the preview images and returns the correct values', async () => {
     const updated = await uploadPreviewImages(mockDatabaseItems);
     expect(updated.length).toBeGreaterThan(0);
-    expect(s3Client.send).toHaveBeenCalledTimes(2);
+    expect(s3Client.send).toHaveBeenCalledTimes(3);
   });
 
   it('Throws an error if invalid response type', async () => {

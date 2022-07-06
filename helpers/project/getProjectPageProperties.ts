@@ -45,11 +45,22 @@ async function getProjectPageProperties(prettyLink: string): Promise<ProjectData
       imageLink = response.properties['Preview Image'].files[0].external.url;
     }
   }
+
+  let coverImageLink = null;
+  if (response.properties['Cover Image'] && response.properties['Cover Image'].files && response.properties['Cover Image'].files.length > 0) {
+    if (response.properties['Cover Image'].files[0].type === 'file') {
+      coverImageLink = response.properties['Cover Image'].files[0].file.url;
+    } else {
+      coverImageLink = response.properties['Cover Image'].files[0].external.url;
+    }
+  }
+
   return {
     title: response.properties.Name.title[0].plain_text,
     id: response.id,
     tags: response.properties['Tags'].multi_select.map((item: any) => item.name),
     imageLink,
+    coverImageLink,
     description,
     prettyLink: response.properties['Pretty Link'] ? returnPlainText(response.properties['Pretty Link'].rich_text) : undefined,
   };

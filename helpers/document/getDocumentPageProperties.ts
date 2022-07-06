@@ -35,11 +35,20 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
   const description = returnPlainText(response.properties['Description'].rich_text);
 
   let imageLink = null;
-  if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
+  if (response.properties['Preview Image'] && response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
     if (response.properties['Preview Image'].files[0].type === 'file') {
       imageLink = response.properties['Preview Image'].files[0].file.url;
     } else {
       imageLink = response.properties['Preview Image'].files[0].external.url;
+    }
+  }
+
+  let coverImageLink = null;
+  if (response.properties['Cover Image'] && response.properties['Cover Image'].files && response.properties['Cover Image'].files.length > 0) {
+    if (response.properties['Cover Image'].files[0].type === 'file') {
+      coverImageLink = response.properties['Cover Image'].files[0].file.url;
+    } else {
+      coverImageLink = response.properties['Cover Image'].files[0].external.url;
     }
   }
 
@@ -48,6 +57,7 @@ async function getDocumentPageProperties(prettyLink: string): Promise<DocumentDa
     id: response.id,
     description,
     imageLink,
+    coverImageLink,
     prettyLink,
   };
 }
