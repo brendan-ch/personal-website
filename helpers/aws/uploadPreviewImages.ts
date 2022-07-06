@@ -24,9 +24,9 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
       let saveAsPreview = null;
       let saveAsCover = null;
 
-      if (item.imageLink) {
+      if (item.imageLink && !item.imageLink.startsWith(`https://${BUCKET_NAME}`)) {
         // Download the image
-        const response = await fetch(item.imageLink!, {
+        const response = await fetch(item.imageLink, {
           method: 'GET',
         });
         const contentType = response.headers.get('Content-Type');
@@ -50,7 +50,7 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
         // Successfully put object in S3 bucket
       }
 
-      if (item.coverImageLink) {
+      if (item.coverImageLink && !item.coverImageLink.startsWith(`https://${BUCKET_NAME}`)) {
         // Download the image
         const response = await fetch(item.coverImageLink, {
           method: 'GET',
@@ -80,8 +80,8 @@ async function uploadPreviewImages(items: DatabaseItem[]): Promise<UpdatedDataba
 
       // Add to updated
       updated.push({
-        imageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/preview.${saveAsPreview}`,
-        coverImageLink: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/cover.${saveAsCover}`,
+        imageLink: saveAsPreview ? `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/preview.${saveAsPreview}` : undefined,
+        coverImageLink: saveAsCover ? `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/preview/${item.id}/cover.${saveAsCover}` : undefined,
         pageId: item.id,
       });
     } catch(e: any) {
