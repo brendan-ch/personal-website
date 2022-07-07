@@ -1,4 +1,4 @@
-import getProjectPageProperties from './getProjectPageProperties';
+import getProjectPageProperties from './getPageProperties';
 
 describe('getProjectPageProperties', () => {
   const mockPrettyLink = 'pretty-link';

@@ -1,16 +1,15 @@
-import client from '../notionClient';
-import { DatabaseItem } from '../../types';
-import { PROJECTS_DATABASE_ID } from '../Constants';
-import returnPlainText from '../returnPlainText';
+import client from './notionClient';
+import { DatabaseItem } from '../types';
+import returnPlainText from './returnPlainText';
 
 /**
- * Get all database items from the Project database that match the filter object.
+ * Get all database items from the specified database that match the filter object.
  * Unlike `getChildrenBlocks`, does not return children blocks from each page.
- * @param databaseId
+ * @param filter
  */
-async function getProjectDatabaseBlocks(filter?: any) {
+async function getDatabaseItems(dbId: string, filter?: any) {
   const response = await client.databases.query({
-    database_id: PROJECTS_DATABASE_ID,
+    database_id: dbId,
     filter,
   });
 
@@ -49,4 +48,4 @@ async function getProjectDatabaseBlocks(filter?: any) {
   return items;
 }
 
-export default getProjectDatabaseBlocks;
+export default getDatabaseItems;

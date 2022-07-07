@@ -1,13 +1,13 @@
-import client from '../notionClient';
-import { ProjectDatabaseItem } from '../../types';
-import { PROJECTS_DATABASE_ID } from '../Constants';
-import returnPlainText from '../returnPlainText';
+import client from './notionClient';
+import { DatabaseItem } from '../types';
+import { PROJECTS_DATABASE_ID } from './Constants';
+import returnPlainText from './returnPlainText';
 
 /**
  * Get a database item object for a specific page.
  * @param prettyLink
  */
-async function getProjectPageProperties(prettyLink: string): Promise<ProjectDatabaseItem | null> {
+async function getProjectPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
   const dbResponse = await client.databases.query({
     database_id: PROJECTS_DATABASE_ID,
     filter: {
