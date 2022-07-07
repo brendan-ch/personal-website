@@ -20,7 +20,7 @@ interface Props {
 export default function GalleryItem({ imageLink, title, link, width, height }: Props) {
   return (
     <Link href={link || '/'}>
-      <a className={styles.container}>
+      <a className={styles.container} role="listitem">
         {imageLink ? (
           <ImageWithFadeIn
             className={styles.image}

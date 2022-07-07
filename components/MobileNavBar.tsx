@@ -24,7 +24,7 @@ function MobileNavBarTab({
   return (
     <div className={styles.tab}>
       <Link href={href}>
-        <a>
+        <a role="tab">
           <div
             className={selected ? `${styles.tabLineMobile} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineMobile} ${styles.tabLine}`}
             style={{
