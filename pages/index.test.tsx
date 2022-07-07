@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import Projects from './index.page';
-import { ProjectDatabaseItem } from '../types';
+import { DatabaseItem } from '../types';
 import '@testing-library/jest-dom';
 
 describe('Projects', () => {
-  const dbItems: ProjectDatabaseItem[] = [
+  const dbItems: DatabaseItem[] = [
     {
       title: 'Example Database Item',
       tags: ['testing'],

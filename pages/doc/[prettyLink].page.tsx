@@ -1,9 +1,7 @@
 import utils from '../../styles/utils.module.css';
 import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
-import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabaseBlocks';
 import { DatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
@@ -14,10 +12,12 @@ import DatabaseItemHead from '../../components/DatabaseItemHead';
 import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
+import getDatabaseItems from '../../helpers/getDatabaseItems';
+import getPageProperties from '../../helpers/getPageProperties';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  let items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
+  let items = await getDatabaseItems(ADDITIONAL_DOCS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -67,7 +67,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getDocumentPageProperties(params.prettyLink);
+    dbItem = await getPageProperties(params.prettyLink);
     if (dbItem) {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
