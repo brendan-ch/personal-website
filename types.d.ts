@@ -138,5 +138,6 @@ export {
   NotionBlock,
   NotionBlockData,
   NotionTextData,
+  RichTextObject,
   SupportedBlockType,
 };

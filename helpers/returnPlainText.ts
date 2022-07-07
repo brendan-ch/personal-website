@@ -1,9 +1,11 @@
+import { RichTextObject } from '../types';
+
 /**
  * Return plain text from an array of rich text items.
  * Designed for use with the Notion API.
  * @param richTextItems
  */
-function returnPlainText(richTextItems: any[]) {
+function returnPlainText(richTextItems: RichTextObject[]) {
   let plainText = '';
   if (!richTextItems || richTextItems.length === 0) return plainText;
 
