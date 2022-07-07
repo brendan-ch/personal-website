@@ -6,6 +6,23 @@ import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import richTextRenderer from '../helpers/richTextRenderer';
 
+/**
+ * Object containing callbacks passed to each renderer.
+ */
+interface Callbacks {
+  // User actions start with "on"
+  /**
+   * Called when the user clicks on an image.
+   */
+  onImageClick?: (link: string, caption: string) => any,
+  
+  /**
+   * Called when the table of contents block is rendered.
+   * @todo render the table of contents block
+   */
+  renderTableOfContents?: () => any,
+}
+
 interface Props {
   /**
    * Array of Notion blocks to render on the page.
@@ -16,7 +33,6 @@ interface Props {
 /**
  * Object containing callbacks to return JSX elements
  * based on block type.
- * @todo Prevent cumulative layout shift with video element
  */
 const Renderers = {
   paragraph: (block: any, key: string | number) => (
@@ -43,7 +59,7 @@ const Renderers = {
       {block.rich_text.map(richTextRenderer)}
     </h3>
   ),
-  bulleted_list_item: (block: any, key: string | number, children?: any[]) => {
+  bulleted_list_item: (block: any, key: string | number, children?: any[], callbacks?: Callbacks) => {
     return (
       <ul key={key}>
         <li>
@@ -54,7 +70,7 @@ const Renderers = {
           {children
             ? children.map((child: any, i: number) => 
               // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
+              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child[child.type].children, callbacks) : undefined
             )
             : undefined
           }
@@ -68,7 +84,7 @@ const Renderers = {
   toggle: (block: any, key: string | number, children?: any) => {
     return Renderers.bulleted_list_item(block, key, children);
   },
-  image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+  image: (block: any, key: string | number, children?: any, callbacks?: Callbacks) => {
     const src = block.type === 'file' ? block.file.url : block.external.url;
     const caption = returnPlainText(block.caption);
     
@@ -78,7 +94,8 @@ const Renderers = {
         key={key}
       >
         <ImageWithFadeIn
-          onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
+          // @ts-ignore
+          onClick={callbacks?.onImageClick ? () => callbacks.onImageClick(src, caption) : undefined}
           alt={caption}
           src={src}
           layout="fill"
@@ -92,7 +109,7 @@ const Renderers = {
   divider: (block: any, key: string | number) => (
     <div key={key} className={styles.divider} role="separator" />
   ),
-  callout: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+  callout: (block: any, key: string | number, children?: any, callbacks?: Callbacks) => {
     return (
       <aside key={key}>
         {/* <div className={styles.calloutIconContainer}> */}
@@ -106,7 +123,7 @@ const Renderers = {
           {children
             ? children.map((child: any, i: number) => 
               // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children, onImageClick) : undefined
+              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child[child.type].children, callbacks) : undefined
             )
             : undefined
           }
@@ -114,7 +131,7 @@ const Renderers = {
       </aside>
     );
   },
-  quote: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+  quote: (block: any, key: string | number, children?: any, callbacks?: Callbacks) => {
     return (
       <blockquote key={key} role="complementary">
         <div className={`${styles.titleChildrenContainer} ${styles.quoteTitleChildrenContainer}`}>
@@ -125,7 +142,7 @@ const Renderers = {
           {children
             ? children.map((child: any, i: number) => 
               // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children, onImageClick) : undefined
+              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child[child.type].children, callbacks) : undefined
             )
             : undefined
           }
@@ -155,10 +172,14 @@ export default function NotionRenderer({ blocks }: Props) {
     setLightboxCaption(undefined);
   }
 
+  const callbacks: Callbacks = {
+    onImageClick: handleImageClick,
+  };
+
   return (
     <div className={styles.container}>
       {/* @ts-ignore */}
-      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children, handleImageClick) : undefined)}
+      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block[block.type].children, callbacks) : undefined)}
       <div className={utils.spacer}></div>
       <Lightbox
         imageLink={lightboxImageLink}
