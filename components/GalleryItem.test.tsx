@@ -39,7 +39,7 @@ describe('GalleryItem', () => {
     // imageLink prop currently converts into a base64 string
 
     // Check that it still renders the link correctly
-    const a = screen.getByRole('listitem');
+    const a = screen.getByRole('link');
     expect(a.getAttribute('href')).toStrictEqual(link);
 
     // Check that the image is somewhere in the tree
