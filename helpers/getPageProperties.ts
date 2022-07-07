@@ -1,15 +1,15 @@
 import client from './notionClient';
 import { DatabaseItem } from '../types';
 import { PROJECTS_DATABASE_ID } from './Constants';
-import returnPlainText from './returnPlainText';
+import getDatabaseItemFromResponse from './getDatabaseItemFromResponse';
 
 /**
  * Get a database item object for a specific page.
  * @param prettyLink
  */
-async function getPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
+async function getPageProperties(dbId: string, prettyLink: string): Promise<DatabaseItem | null> {
   const dbResponse = await client.databases.query({
-    database_id: PROJECTS_DATABASE_ID,
+    database_id: dbId,
     filter: {
       and: [
         {
@@ -35,35 +35,7 @@ async function getPageProperties(prettyLink: string): Promise<DatabaseItem | nul
   const response: any = dbResponse.results[0];
 
   // Return a database item
-  const description = returnPlainText(response.properties['Description'].rich_text);
-
-  let imageLink = null;
-  if (response.properties['Preview Image'].files && response.properties['Preview Image'].files.length > 0) {
-    if (response.properties['Preview Image'].files[0].type === 'file') {
-      imageLink = response.properties['Preview Image'].files[0].file.url;
-    } else {
-      imageLink = response.properties['Preview Image'].files[0].external.url;
-    }
-  }
-
-  let coverImageLink = null;
-  if (response.properties['Cover Image'] && response.properties['Cover Image'].files && response.properties['Cover Image'].files.length > 0) {
-    if (response.properties['Cover Image'].files[0].type === 'file') {
-      coverImageLink = response.properties['Cover Image'].files[0].file.url;
-    } else {
-      coverImageLink = response.properties['Cover Image'].files[0].external.url;
-    }
-  }
-
-  return {
-    title: response.properties.Name.title[0].plain_text,
-    id: response.id,
-    tags: response.properties['Tags'].multi_select.map((item: any) => item.name),
-    imageLink,
-    coverImageLink,
-    description,
-    prettyLink: response.properties['Pretty Link'] ? returnPlainText(response.properties['Pretty Link'].rich_text) : undefined,
-  };
+  return getDatabaseItemFromResponse(response);
 }
 
 export default getPageProperties;

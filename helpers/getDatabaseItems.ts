@@ -1,6 +1,6 @@
 import client from './notionClient';
 import { DatabaseItem } from '../types';
-import returnPlainText from './returnPlainText';
+import getDatabaseItemFromResponse from './getDatabaseItemFromResponse';
 
 /**
  * Get all database items from the specified database that match the filter object.
@@ -14,35 +14,7 @@ async function getDatabaseItems(dbId: string, filter?: any) {
   });
 
   const items: DatabaseItem[] = await Promise.all(response.results.map(async (value: any) => {
-    const description = returnPlainText(value.properties['Description'].rich_text);
-
-    let imageLink = null;
-    if (value.properties['Preview Image'].files && value.properties['Preview Image'].files.length > 0) {
-      if (value.properties['Preview Image'].files[0].type === 'file') {
-        imageLink = value.properties['Preview Image'].files[0].file.url;
-      } else {
-        imageLink = value.properties['Preview Image'].files[0].external.url;
-      }
-    }
-
-    let coverImageLink = null;
-    if (value.properties['Cover Image'] && value.properties['Cover Image'].files && value.properties['Cover Image'].files.length > 0) {
-      if (value.properties['Cover Image'].files[0].type === 'file') {
-        coverImageLink = value.properties['Cover Image'].files[0].file.url;
-      } else {
-        coverImageLink = value.properties['Cover Image'].files[0].external.url;
-      }
-    }
-
-    return {
-      title: value.properties.Name.title[0].plain_text,
-      description,
-      imageLink,
-      coverImageLink,
-      id: value.id,
-      tags: value.properties['Tags'].multi_select.map((item: any) => item.name),
-      prettyLink: value.properties['Pretty Link'] ? returnPlainText(value.properties['Pretty Link'].rich_text) : undefined,
-    };
+    return getDatabaseItemFromResponse(value);
   }));
 
   return items;
