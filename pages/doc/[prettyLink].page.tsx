@@ -12,6 +12,7 @@ import PageHeader from '../../components/PageHeader';
 import updatePreviewImages from '../../helpers/updatePreviewImages';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 import ImageWithFadeIn from '../../components/ImageWithFadeIn';
+import MobileNavMenu from '../../components/MobileNavMenu';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -124,6 +125,7 @@ interface Props {
         previewImageLink={previewImageLink}
       />
       <MobileNavBar />
+      <MobileNavMenu />
       {error ? (
         <main>
           <div className={utils.spacer} />

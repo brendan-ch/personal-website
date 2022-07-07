@@ -9,6 +9,7 @@ import Head from 'next/head';
 import updateImageBlocks from '../helpers/updateImageBlocks';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
+import MobileNavMenu from '../components/MobileNavMenu';
 
 export async function getStaticProps() {
   // This is server side code
@@ -54,6 +55,7 @@ export default function AboutPage({ blocks }: Props) {
       <MobileNavBar
         selected={selected}
       />
+      <MobileNavMenu />
       <main>
         <div className={utils.spacer} />
         {/* Page content */}

@@ -8,6 +8,7 @@ import Head from 'next/head';
 import updatePreviewImages from '../helpers/updatePreviewImages';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
+import MobileNavMenu from '../components/MobileNavMenu';
 
 /**
  * Generate Notion database content.
@@ -66,6 +67,9 @@ const Projects = ({ dbItems }: Props) => {
         <title>Brendan Chen</title>
       </Head>
       <MobileNavBar
+        selected={selected}
+      />
+      <MobileNavMenu
         selected={selected}
       />
       <main>
