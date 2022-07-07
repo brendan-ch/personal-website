@@ -13,6 +13,76 @@ interface DatabaseItem {
   tags?: string[],
 }
 
+type SupportedBlockType = 'paragraph'
+  | 'heading_1'
+  | 'heading_2'
+  | 'heading_3'
+  | 'bulleted_list_item'
+  | 'numbered_list_item'
+  | 'toggle'
+  | 'image'
+  | 'divider'
+  | 'callout'
+  | 'quote';
+
+interface RichTextObject {
+  type: 'text' | 'date',
+  text: {
+    content: string,
+    link: string | null,
+  },
+  plain_text: string,
+}
+
+interface NotionBlockDataWithChildren {
+  children?: NotionBlock[],
+}
+
+interface NotionTextData extends NotionBlockDataWithChildren {
+  rich_text: RichTextObject[],
+  color: string,
+}
+
+interface NotionBulletedData extends NotionTextData {}
+
+interface NotionCalloutData extends NotionTextData {
+  icon: {
+    emoji: string,
+  },
+}
+
+interface NotionFileData extends NotionBlockDataWithChildren {
+  type: 'file' | 'external',
+  file?: {
+    url: string,
+    expiry_date: number,
+  },
+  external?: {
+    url: string,
+  },
+  caption?: RichTextObject[],
+}
+
+type NotionBlockData = NotionBlockDataWithChildren | NotionTextData | NotionBulletedData | NotionCalloutData | NotionFileData;
+
+/**
+ * Block object compatible with Notion's API and the `NotionRenderer`.
+ */
+interface NotionBlock {
+  type: SupportedBlockType;
+  paragraph?: NotionTextData
+  heading_1?: NotionTextData,
+  heading_2?: NotionTextData,
+  heading_3?: NotionTextData,
+  bulleted_list_item?: NotionBulletedData,
+  numbered_list_item?: NotionBulletedData,
+  toggle?: NotionBulletedData,
+  image?: NotionFileData,
+  divider?: NotionBlockDataWithChildren,
+  callout?: NotionCalloutData,
+  quote?: NotionCalloutData,
+}
+
 /**
  * Schema for the `Additional Documents` database.
  */
@@ -65,4 +135,8 @@ export {
   DatabaseItem,
   UpdatedDatabaseItem,
   UpdatedBlockItem,
+  NotionBlock,
+  NotionBlockData,
+  NotionTextData,
+  SupportedBlockType,
 };

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import richTextRenderer from '../helpers/richTextRenderer';
+import { NotionBlock, NotionTextData, SupportedBlockType } from '../types';
 
 /**
  * Object containing callbacks passed to each renderer.
@@ -27,39 +28,41 @@ interface Props {
   /**
    * Array of Notion blocks to render on the page.
    */
-  blocks: any[],
+  blocks: NotionBlock[],
 }
 
 /**
  * Object containing callbacks to return JSX elements
  * based on block type.
  */
-const Renderers = {
-  paragraph: (block: any, key: string | number) => (
+const Renderers: {
+  [key in SupportedBlockType]: (block: any, key: string | number, children?: NotionBlock[], callbacks?: Callbacks) => JSX.Element
+} = {
+  paragraph: (block: any, key) => (
     // Nest rich text items inside paragraph
     <p key={key}>
       {block.rich_text.map(richTextRenderer)}
     </p>
   ),
-  heading_1: (block: any, key: string | number) => (
+  heading_1: (block: any, key) => (
     // Nest rich text items inside heading
     <h1 key={key}>
       {block.rich_text.map(richTextRenderer)}
     </h1>
   ),
-  heading_2: (block: any, key: string | number) => (
+  heading_2: (block: any, key) => (
     // Nest rich text items inside heading
     <h2 key={key}>
       {block.rich_text.map(richTextRenderer)}
     </h2>
   ),
-  heading_3: (block: any, key: string | number) => (
+  heading_3: (block: any, key) => (
     // Nest rich text items inside heading
     <h3 key={key}>
       {block.rich_text.map(richTextRenderer)}
     </h3>
   ),
-  bulleted_list_item: (block: any, key: string | number, children?: any[], callbacks?: Callbacks) => {
+  bulleted_list_item: (block: any, key, children?, callbacks?) => {
     return (
       <ul key={key}>
         <li>
@@ -78,13 +81,13 @@ const Renderers = {
       </ul>
     )
   },
-  numbered_list_item: (block: any, key: string | number, children?: any[]) => {
+  numbered_list_item: (block: any, key, children?) => {
     return Renderers.bulleted_list_item(block, key, children);
   },
-  toggle: (block: any, key: string | number, children?: any) => {
+  toggle: (block: any, key, children?) => {
     return Renderers.bulleted_list_item(block, key, children);
   },
-  image: (block: any, key: string | number, children?: any, callbacks?: Callbacks) => {
+  image: (block: any, key, children?, callbacks?) => {
     const src = block.type === 'file' ? block.file.url : block.external.url;
     const caption = returnPlainText(block.caption);
     
@@ -106,10 +109,10 @@ const Renderers = {
       </div>
     );
   },
-  divider: (block: any, key: string | number) => (
+  divider: (block: any, key) => (
     <div key={key} className={styles.divider} role="separator" />
   ),
-  callout: (block: any, key: string | number, children?: any, callbacks?: Callbacks) => {
+  callout: (block: any, key, children?, callbacks?) => {
     return (
       <aside key={key}>
         {/* <div className={styles.calloutIconContainer}> */}
@@ -131,7 +134,7 @@ const Renderers = {
       </aside>
     );
   },
-  quote: (block: any, key: string | number, children?: any, callbacks?: Callbacks) => {
+  quote: (block: any, key, children?, callbacks?) => {
     return (
       <blockquote key={key} role="complementary">
         <div className={`${styles.titleChildrenContainer} ${styles.quoteTitleChildrenContainer}`}>
@@ -178,8 +181,7 @@ export default function NotionRenderer({ blocks }: Props) {
 
   return (
     <div className={styles.container}>
-      {/* @ts-ignore */}
-      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block[block.type].children, callbacks) : undefined)}
+      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block[block.type]?.children, callbacks) : undefined)}
       <div className={utils.spacer}></div>
       <Lightbox
         imageLink={lightboxImageLink}
