@@ -1,5 +1,6 @@
 import client from './notionClient';
 import { MAX_RECURSION_DEPTH, PAGE_SIZE } from './Constants';
+import { NotionBlock } from '../types';
 
 /**
  * Recursively get children blocks from a Notion block.
@@ -19,7 +20,7 @@ async function getChildrenBlocks(blockId: string, depth?: number, blockObj?: any
     block_id: blockId,
     page_size: PAGE_SIZE,
   });
-  let blocks = response.results;
+  let blocks: NotionBlock[] = response.results as NotionBlock[];
 
   // If cursor detected, loop until all blocks received
   while (response.has_more && response.next_cursor) {
@@ -29,7 +30,7 @@ async function getChildrenBlocks(blockId: string, depth?: number, blockObj?: any
       page_size: PAGE_SIZE,
       start_cursor: response.next_cursor,
     });
-    blocks = blocks.concat(response.results);
+    blocks = blocks.concat(response.results as NotionBlock[]);
   }
 
   // Loop through children and recursively get child blocks
