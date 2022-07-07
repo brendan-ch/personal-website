@@ -10,6 +10,7 @@ import updateImageBlocks from '../helpers/updateImageBlocks';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
+import { useState } from 'react';
 
 export async function getStaticProps() {
   // This is server side code
@@ -47,6 +48,8 @@ interface Props {
 export default function AboutPage({ blocks }: Props) {
   const selected = "About Me";
 
+  const [menuVisible, setMenuVisible] = useState(false);
+
   return (
     <div className={utils.rootContainer}>
       <Head>
@@ -54,8 +57,13 @@ export default function AboutPage({ blocks }: Props) {
       </Head>
       <MobileNavBar
         selected={selected}
+        onMobileButtonClick={() => setMenuVisible(true)}
       />
-      <MobileNavMenu />
+      <MobileNavMenu
+        selected={selected}
+        visible={menuVisible}
+        onClose={() => setMenuVisible(false)}
+      />
       <main>
         <div className={utils.spacer} />
         {/* Page content */}

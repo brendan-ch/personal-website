@@ -9,6 +9,7 @@ import updatePreviewImages from '../helpers/updatePreviewImages';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
+import { useState } from 'react';
 
 /**
  * Generate Notion database content.
@@ -60,6 +61,11 @@ interface Props {
 const Projects = ({ dbItems }: Props) => {
   const selected = "Featured";
 
+  /**
+   * @todo move this to the _app page
+   */
+  const [menuVisible, setMenuVisible] = useState(false);
+
   return (
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
@@ -68,9 +74,12 @@ const Projects = ({ dbItems }: Props) => {
       </Head>
       <MobileNavBar
         selected={selected}
+        onMobileButtonClick={() => setMenuVisible(true)}
       />
       <MobileNavMenu
         selected={selected}
+        visible={menuVisible}
+        onClose={() => setMenuVisible(false)}
       />
       <main>
         <div className={utils.spacer} />

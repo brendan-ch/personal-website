@@ -12,6 +12,7 @@ import PageHeader from '../../components/PageHeader';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 import MobileNavMenu from '../../components/MobileNavMenu';
+import { useState } from 'react';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -109,6 +110,8 @@ export default function WorkPage({
   description,
   error
 }: Props) {
+  const [menuVisible, setMenuVisible] = useState(false);
+
   return (
     <div className={utils.rootContainer}>
       <DatabaseItemHead
@@ -116,8 +119,13 @@ export default function WorkPage({
         description={description}
         previewImageLink={previewImageLink}
       />
-      <MobileNavBar />
-      <MobileNavMenu />
+      <MobileNavBar
+        onMobileButtonClick={() => setMenuVisible(true)}
+      />
+      <MobileNavMenu
+        visible={menuVisible}
+        onClose={() => setMenuVisible(false)}
+      />
       {error ? (
         <main>
           <div className={utils.spacer} />
