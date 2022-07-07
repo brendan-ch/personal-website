@@ -180,7 +180,7 @@ const Renderers: {
       </aside>
     );
   },
-  quote: ({ index, blocks }, callbacks?) => {
+  quote: ({ index, blocks }, callbacks) => {
     const item = blocks[index];
     const children = item[item.type]?.children;
 
@@ -203,7 +203,21 @@ const Renderers: {
         </div>
       </blockquote>
     );
-  }
+  },
+  // column_list: ({ index, blocks }, callbacks) => {
+  //   console.log(blocks[index]);
+
+  //   return (
+  //     <div />
+  //   );
+  // },
+  // column: ({ index, blocks }, callbacks) => {
+  //   console.log(blocks[index]);
+    
+  //   return (
+  //     <div />
+  //   );
+  // },
 };
 
 /**

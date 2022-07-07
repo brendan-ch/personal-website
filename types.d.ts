@@ -24,6 +24,8 @@ type SupportedBlockType = 'paragraph'
   | 'divider'
   | 'callout'
   | 'quote';
+  // | 'column_list'
+  // | 'column';
 
 interface RichTextObject {
   type: 'text' | 'date',
@@ -82,6 +84,8 @@ interface NotionBlock {
   divider?: NotionBlockDataWithChildren,
   callout?: NotionCalloutData,
   quote?: NotionTextData,
+  // column_list?: NotionBlockDataWithChildren,
+  // column?: NotionBlockDataWithChildren,
 }
 
 /**
