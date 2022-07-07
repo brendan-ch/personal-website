@@ -26,13 +26,13 @@ describe('MobileNavMenuButton', () => {
 
 describe('MobileNavMenu', () => {
   it('Renders without passing selected', () => {
-    render(<MobileNavMenu visible />);
+    render(<MobileNavMenu />);
     
     expect(screen.getByRole('menu')).toBeInTheDocument();
   });
 
   it('Renders with passing selected', () => {
-    render(<MobileNavMenu visible selected="About Me" />);
+    render(<MobileNavMenu selected="About Me" />);
     
     expect(screen.getByRole('menu')).toBeInTheDocument();
   });
