@@ -365,7 +365,7 @@ const checkForText = (blockType: string, expectedTag: string, text: string) => {
 
 const checkForComplementary = (blockType: string, text: string) => {
   const block = mockBlocks.find((block) => block.type === blockType);
-  modifyChildrenLocation(block);
+  // modifyChildrenLocation(block);
   render(<NotionRenderer blocks={[block]} />);
 
   // Check for complementary
@@ -385,9 +385,9 @@ const checkForComplementary = (blockType: string, text: string) => {
  * Remove once location of `children` is migrated into the data object.
  * @param block
  */
-const modifyChildrenLocation = (block: any) => {
-  block.children = block[block.type].children;
-};
+// const modifyChildrenLocation = (block: any) => {
+//   block.children = block[block.type].children;
+// };
 
 /**
  * Render the `NotionRenderer` component and check for lists (elements with role `list`).
@@ -398,7 +398,7 @@ const modifyChildrenLocation = (block: any) => {
  */
 const checkForList = (blockType: string, expectedListCount: number) => {
   const block = mockBlocks.find((block) => block.type === blockType);
-  modifyChildrenLocation(block);
+  // modifyChildrenLocation(block);
 
   render(<NotionRenderer blocks={[block]} />)
 
