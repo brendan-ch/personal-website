@@ -14,6 +14,7 @@ import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
 import getDatabaseItems from '../../helpers/getDatabaseItems';
 import getPageProperties from '../../helpers/getPageProperties';
+import DatabaseItemContent from '../../components/DatabaseItemContent';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -135,55 +136,12 @@ interface Props {
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
       />
-      {error ? (
-        <main>
-          <div className={utils.spacer} />
-          <div className={utils.itemWrapper}>
-            <PageHeader
-              aboveText="Home"
-              belowText={title || ''}
-              includeBackButton
-              backButtonHref="/"
-            />
-          </div>
-          <div className={utils.itemWrapper}>
-            <p>
-              {error}
-            </p>
-          </div>
-        </main>
-      ) : (
-        <main>
-          <div className={utils.spacer} />
-          <div className={utils.itemWrapper}>
-            <PageHeader
-              aboveText="Home"
-              belowText={title || ''}
-              includeBackButton
-              backButtonHref="/"
-            />
-          </div>
-          {coverImageLink ? (
-            <div className={utils.fullWidthImageWrapper}>
-              <ImageWithFadeIn
-                alt={`${title} preview image`}
-                src={coverImageLink}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          ) : undefined}
-          <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-            <NotionRenderer
-              blocks={blocks || []}
-            />
-          </div>
-          <div className={utils.spacer} />
-          <div className={utils.footerWrapper}>
-            <Footer />
-          </div>
-        </main>
-      )}
+      <DatabaseItemContent
+        title={title}
+        coverImageLink={coverImageLink}
+        blocks={blocks}
+        error={error}
+      />
     </div>
   );
 }
