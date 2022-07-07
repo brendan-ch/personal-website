@@ -46,7 +46,7 @@ async function getChildrenBlocks(blockId: string, depth?: number, blockObj?: any
   if (!blockObj) {
     return blocks;
   } else {
-    blockObj.children = blocks;
+    blockObj[blockObj.type].children = blocks;
   }
 }
 
