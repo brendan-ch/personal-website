@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import styles from '../styles/MobileNavMenu.module.css';
 import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
@@ -31,7 +32,8 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 
 interface Props {
   selected?: string,
-  // visible: boolean,
+  visible?: boolean,
+  onClose?: () => any,
 }
 
 /**
@@ -39,11 +41,17 @@ interface Props {
  * @param props
  * @returns
  */
-export default function MobileNavMenu({ selected }: Props) {
+export default function MobileNavMenu({ selected, visible, onClose }: Props) {
+  const [jsLoaded, setJsLoaded] = useState(false);
+
+  useEffect(() => {
+    setJsLoaded(true);
+  }, []);
+  
   return (
     <div
-      className={styles.container}
-      id={styles.navMenuContainer}
+      className={!visible ? `${styles.container} ${styles.containerInvisible}` : `${styles.container} ${styles.containerVisible}`}
+      id={jsLoaded ? undefined : styles.navMenuContainer}
       role="menu"
     >
       <div className={styles.grayBackground} />
@@ -62,7 +70,8 @@ export default function MobileNavMenu({ selected }: Props) {
             zIndex: 4,
             position: 'relative',
           }}
-          mobileButtonType={1}
+          mobileButtonType="close"
+          onMobileButtonClick={onClose}
         />
         <div className={styles.buttons}>
           <MobileNavMenuButton

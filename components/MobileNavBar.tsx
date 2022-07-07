@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { BLUE, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import menuStyles from '../styles/MobileNavMenu.module.css';
@@ -50,15 +50,11 @@ function MobileNavBarTab({
   )
 }
 
-enum MobileButtonType {
-  HAMBURGER,
-  CLOSE,
-}
-
 interface Props {
   selected?: string,
   style?: CSSProperties,
-  mobileButtonType?: MobileButtonType,
+  mobileButtonType?: 'hamburger' | 'close',
+  onMobileButtonClick?: () => any,
 }
 
 /**
@@ -67,7 +63,67 @@ interface Props {
  * 
  * @todo make tab list customizable, and add tests for it
  */
-export default function MobileNavBar({ selected, style, mobileButtonType }: Props) {
+export default function MobileNavBar({ selected, style, mobileButtonType, onMobileButtonClick }: Props) {
+  const [jsLoaded, setJsLoaded] = useState(false);
+
+  useEffect(() => {
+    setJsLoaded(true);
+  }, []);
+
+  let button = (
+    <a
+      className={styles.menuContainer}
+      href={`#${menuStyles.navMenuContainer}`}
+      tabIndex={0}
+    >
+      <Hamburger
+        width={45}
+        height={45}
+      />
+    </a>
+  );
+
+  if (jsLoaded && mobileButtonType === 'close') {
+    button = (
+      <button
+        className={styles.menuContainer}
+        onClick={onMobileButtonClick}
+        tabIndex={0}
+      >
+        <Exit
+          width={45}
+          height={45}
+        />
+      </button>
+    );
+  } else if (jsLoaded) {
+    button = (
+      <button
+        className={styles.menuContainer}
+        onClick={onMobileButtonClick}
+        tabIndex={0}
+      >
+        <Hamburger
+          width={45}
+          height={45}
+        />
+      </button>
+    );
+  } else if (mobileButtonType === 'close') {
+    button = (
+      <a
+        className={styles.menuContainer}
+        href="#"
+        tabIndex={0}
+      >
+        <Exit
+          width={45}
+          height={45}
+        />
+      </a>
+    );
+  }
+
   return (
     <nav className={styles.container} style={style}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
@@ -102,28 +158,7 @@ export default function MobileNavBar({ selected, style, mobileButtonType }: Prop
             selectedColor={BLUE}
           />
         </div>
-        {mobileButtonType === MobileButtonType.CLOSE ? (
-          <a
-            className={styles.menuContainer}
-            href="#"
-          >
-            <Exit
-              width={45}
-              height={45}
-            />
-          </a>
-        ) : (
-          <a
-            className={styles.menuContainer}
-            href={`#${menuStyles.navMenuContainer}`}
-          >
-            <Hamburger
-              width={45}
-              height={45}
-            />
-          </a>
-        )
-        }
+        {button}
       </div>
       <div className={`${styles.line} ${styles.lineDesktop}`} />
     </nav>
