@@ -10,6 +10,7 @@ import { NotionBlock } from '../types';
 const mockBlocks: NotionBlock[] = [
   {
     "type": "paragraph",
+    "id": "0",
     //...other keys excluded
     "paragraph": {
       "rich_text": [{
@@ -25,6 +26,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "heading_1",
+    "id": "1",
     //...other keys excluded
     "heading_1": {
       "rich_text": [{
@@ -40,6 +42,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "heading_2",
+    "id": "2",
     //...other keys excluded
     "heading_2": {
       "rich_text": [{
@@ -55,6 +58,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "heading_3",
+    "id": "3",
     //...other keys excluded
     "heading_3": {
       "rich_text": [{
@@ -70,6 +74,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "callout",
+    "id": "4",
     // ..other keys excluded
     "callout": {
       "rich_text": [{
@@ -86,6 +91,7 @@ const mockBlocks: NotionBlock[] = [
       "children": [
         {
           "type": "paragraph",
+          "id": "5",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
@@ -100,6 +106,7 @@ const mockBlocks: NotionBlock[] = [
         },
         {
           "type": "paragraph",
+          "id": "6",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
@@ -117,6 +124,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "quote",
+    "id": "7",
     // ..other keys excluded
     "quote": {
       "rich_text": [{
@@ -130,6 +138,7 @@ const mockBlocks: NotionBlock[] = [
       "children": [
         {
           "type": "paragraph",
+          "id": "8",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
@@ -144,6 +153,7 @@ const mockBlocks: NotionBlock[] = [
         },
         {
           "type": "paragraph",
+          "id": "9",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
@@ -161,6 +171,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "bulleted_list_item",
+    "id": "10",
     //...other keys excluded
     "bulleted_list_item": {
       "rich_text": [{
@@ -174,6 +185,7 @@ const mockBlocks: NotionBlock[] = [
       "children": [
         {
           "type": "bulleted_list_item",
+          "id": "11",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
@@ -189,6 +201,7 @@ const mockBlocks: NotionBlock[] = [
         },
         {
           "type": "bulleted_list_item",
+          "id": "12",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
@@ -207,6 +220,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "numbered_list_item",
+    "id": "13",
     //...other keys excluded
     "numbered_list_item": {
       "rich_text": [{
@@ -220,6 +234,7 @@ const mockBlocks: NotionBlock[] = [
       "children": [
         {
           "type": "bulleted_list_item",
+          "id": "14",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
@@ -234,6 +249,7 @@ const mockBlocks: NotionBlock[] = [
         },
         {
           "type": "bulleted_list_item",
+          "id": "15",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
@@ -251,6 +267,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "toggle",
+    "id": "16",
     //...other keys excluded
     "toggle": {
       "rich_text": [{
@@ -264,6 +281,7 @@ const mockBlocks: NotionBlock[] = [
       "children": [
         {
           "type": "bulleted_list_item",
+          "id": "17",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
@@ -278,6 +296,7 @@ const mockBlocks: NotionBlock[] = [
         },
         {
           "type": "bulleted_list_item",
+          "id": "18",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
@@ -295,6 +314,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "image",
+    "id": "19",
     //...other keys excluded
     "image": {
       "type": "external",
@@ -312,6 +332,7 @@ const mockBlocks: NotionBlock[] = [
   },
   {
     "type": "divider",
+    "id": "20",
     "divider": {},
   },
 ];
