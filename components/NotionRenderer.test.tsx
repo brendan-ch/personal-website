@@ -2,20 +2,22 @@ import { render, screen } from '@testing-library/react';
 import richTextRenderer from '../helpers/richTextRenderer';
 import NotionRenderer from './NotionRenderer';
 import '@testing-library/jest-dom';
+import { NotionBlock } from '../types';
 
 // Array of mock Notion blocks returned from the API
 // Most of them are copied from the official Notion docs
 // https://developers.notion.com/reference/block#paragraph-blocks
-const mockBlocks: any[] = [
+const mockBlocks: NotionBlock[] = [
   {
     "type": "paragraph",
+    "id": "0",
     //...other keys excluded
     "paragraph": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
+          
         },
         "plain_text": "Lacinato kale",
       }],
@@ -24,13 +26,14 @@ const mockBlocks: any[] = [
   },
   {
     "type": "heading_1",
+    "id": "1",
     //...other keys excluded
     "heading_1": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
+          
         },
         "plain_text": "Lacinato kale",
       }],
@@ -39,13 +42,14 @@ const mockBlocks: any[] = [
   },
   {
     "type": "heading_2",
+    "id": "2",
     //...other keys excluded
     "heading_2": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
+          
         },
         "plain_text": "Lacinato kale",
       }],
@@ -54,13 +58,14 @@ const mockBlocks: any[] = [
   },
   {
     "type": "heading_3",
+    "id": "3",
     //...other keys excluded
     "heading_3": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
+          
         },
         "plain_text": "Lacinato kale",
       }],
@@ -69,6 +74,7 @@ const mockBlocks: any[] = [
   },
   {
     "type": "callout",
+    "id": "4",
     // ..other keys excluded
     "callout": {
       "rich_text": [{
@@ -85,13 +91,13 @@ const mockBlocks: any[] = [
       "children": [
         {
           "type": "paragraph",
+          "id": "5",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -100,13 +106,13 @@ const mockBlocks: any[] = [
         },
         {
           "type": "paragraph",
+          "id": "6",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -118,6 +124,7 @@ const mockBlocks: any[] = [
   },
   {
     "type": "quote",
+    "id": "7",
     // ..other keys excluded
     "quote": {
       "rich_text": [{
@@ -131,13 +138,13 @@ const mockBlocks: any[] = [
       "children": [
         {
           "type": "paragraph",
+          "id": "8",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -146,13 +153,13 @@ const mockBlocks: any[] = [
         },
         {
           "type": "paragraph",
+          "id": "9",
           //...other keys excluded
           "paragraph": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -164,13 +171,13 @@ const mockBlocks: any[] = [
   },
   {
     "type": "bulleted_list_item",
+    "id": "10",
     //...other keys excluded
     "bulleted_list_item": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
         },
         "plain_text": "Lacinato kale",
       }],
@@ -178,13 +185,14 @@ const mockBlocks: any[] = [
       "children": [
         {
           "type": "bulleted_list_item",
+          "id": "11",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
+                
               },
               "plain_text": "Lacinato kale",
             }],
@@ -193,13 +201,14 @@ const mockBlocks: any[] = [
         },
         {
           "type": "bulleted_list_item",
+          "id": "12",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
+                
               },
               "plain_text": "Lacinato kale",
             }],
@@ -211,26 +220,27 @@ const mockBlocks: any[] = [
   },
   {
     "type": "numbered_list_item",
+    "id": "13",
     //...other keys excluded
     "numbered_list_item": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
-        }
+        },
+        "plain_text": "Lacinato kale",
       }],
       "color": "default",
       "children": [
         {
           "type": "bulleted_list_item",
+          "id": "14",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -239,13 +249,13 @@ const mockBlocks: any[] = [
         },
         {
           "type": "bulleted_list_item",
+          "id": "15",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -257,13 +267,13 @@ const mockBlocks: any[] = [
   },
   {
     "type": "toggle",
+    "id": "16",
     //...other keys excluded
     "toggle": {
       "rich_text": [{
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
         },
         "plain_text": "Lacinato kale",
       }],
@@ -271,13 +281,13 @@ const mockBlocks: any[] = [
       "children": [
         {
           "type": "bulleted_list_item",
+          "id": "17",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -286,13 +296,13 @@ const mockBlocks: any[] = [
         },
         {
           "type": "bulleted_list_item",
+          "id": "18",
           //...other keys excluded
           "bulleted_list_item": {
             "rich_text": [{
               "type": "text",
               "text": {
                 "content": "Lacinato kale",
-                "link": null
               },
               "plain_text": "Lacinato kale",
             }],
@@ -304,6 +314,7 @@ const mockBlocks: any[] = [
   },
   {
     "type": "image",
+    "id": "19",
     //...other keys excluded
     "image": {
       "type": "external",
@@ -314,7 +325,6 @@ const mockBlocks: any[] = [
         "type": "text",
         "text": {
           "content": "Lacinato kale",
-          "link": null
         },
         "plain_text": "Lacinato kale",
       }],
@@ -322,6 +332,7 @@ const mockBlocks: any[] = [
   },
   {
     "type": "divider",
+    "id": "20",
     "divider": {},
   },
 ];
@@ -347,6 +358,7 @@ const invalidBlocks: any[] = [
  */
 const checkForText = (blockType: string, expectedTag: string, text: string) => {
   const block = mockBlocks.find((block) => block.type === blockType);
+  if (!block) throw new Error('Unable to find block type.');
     
   render(<NotionRenderer blocks={[block]} />);
   
@@ -365,7 +377,7 @@ const checkForText = (blockType: string, expectedTag: string, text: string) => {
 
 const checkForComplementary = (blockType: string, text: string) => {
   const block = mockBlocks.find((block) => block.type === blockType);
-  modifyChildrenLocation(block);
+  if (!block) throw new Error('Unable to find block type.');
   render(<NotionRenderer blocks={[block]} />);
 
   // Check for complementary
@@ -385,9 +397,9 @@ const checkForComplementary = (blockType: string, text: string) => {
  * Remove once location of `children` is migrated into the data object.
  * @param block
  */
-const modifyChildrenLocation = (block: any) => {
-  block.children = block[block.type].children;
-};
+// const modifyChildrenLocation = (block: any) => {
+//   block.children = block[block.type].children;
+// };
 
 /**
  * Render the `NotionRenderer` component and check for lists (elements with role `list`).
@@ -398,7 +410,7 @@ const modifyChildrenLocation = (block: any) => {
  */
 const checkForList = (blockType: string, expectedListCount: number) => {
   const block = mockBlocks.find((block) => block.type === blockType);
-  modifyChildrenLocation(block);
+  if (!block) throw new Error('Unable to find block type.');
 
   render(<NotionRenderer blocks={[block]} />)
 
@@ -461,7 +473,7 @@ describe('NotionRenderer', () => {
 
   it('Renders the image block', () => {
     const block = mockBlocks.find((block) => block.type === 'image');
-
+    if (!block) throw new Error('No blocks with this data type provided');
     render(<NotionRenderer blocks={[block]} />);
 
     // Check for image
@@ -475,6 +487,7 @@ describe('NotionRenderer', () => {
 
   it('Renders the divider block', () => {
     const block = mockBlocks.find((block) => block.type === 'divider');
+    if (!block) throw new Error('No blocks with this data type provided');
     render(<NotionRenderer blocks={[block]} />);
 
     // Check for divider

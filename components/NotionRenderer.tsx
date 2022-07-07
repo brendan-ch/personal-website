@@ -5,56 +5,110 @@ import { useState } from 'react';
 import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import richTextRenderer from '../helpers/richTextRenderer';
+import { NotionBlock, SupportedBlockType } from '../types';
+
+/**
+ * Object containing block data passed down to each renderer.
+ */
+interface BlockData {
+  /**
+   * All blocks passed down from the page.
+   */
+  blocks: NotionBlock[],
+  /**
+   * Array index number of the block to render.
+   */
+  index: number,
+}
+
+/**
+ * Object containing callbacks passed to each renderer.
+ */
+interface Callbacks {
+  // User actions start with "on"
+  /**
+   * Called when the user clicks on an image.
+   */
+  onImageClick?: (link: string, caption: string) => any,
+  
+  /**
+   * Called when the table of contents block is rendered.
+   * @todo render the table of contents block
+   */
+  renderTableOfContents?: () => any,
+}
 
 interface Props {
   /**
    * Array of Notion blocks to render on the page.
    */
-  blocks: any[],
+  blocks: NotionBlock[],
 }
 
 /**
  * Object containing callbacks to return JSX elements
  * based on block type.
- * @todo Prevent cumulative layout shift with video element
  */
-const Renderers = {
-  paragraph: (block: any, key: string | number) => (
+const Renderers: {
+  [key in SupportedBlockType]: (blockData: BlockData, callbacks?: Callbacks) => JSX.Element
+} = {
+  paragraph: (blockData, callbacks) => {
+    const item = blockData.blocks[blockData.index];
+
     // Nest rich text items inside paragraph
-    <p key={key}>
-      {block.rich_text.map(richTextRenderer)}
-    </p>
-  ),
-  heading_1: (block: any, key: string | number) => (
-    // Nest rich text items inside heading
-    <h1 key={key}>
-      {block.rich_text.map(richTextRenderer)}
-    </h1>
-  ),
-  heading_2: (block: any, key: string | number) => (
-    // Nest rich text items inside heading
-    <h2 key={key}>
-      {block.rich_text.map(richTextRenderer)}
-    </h2>
-  ),
-  heading_3: (block: any, key: string | number) => (
-    // Nest rich text items inside heading
-    <h3 key={key}>
-      {block.rich_text.map(richTextRenderer)}
-    </h3>
-  ),
-  bulleted_list_item: (block: any, key: string | number, children?: any[]) => {
     return (
-      <ul key={key}>
+      <p key={blockData.index}>
+        {item.paragraph?.rich_text.map(richTextRenderer)}
+      </p>
+    );
+  },
+  heading_1: ({ index, blocks }, callbacks) => {
+    const block = blocks[index];
+
+    return (
+      // Nest rich text items inside heading
+      <h1 key={index} id={block.id}>
+        {block.heading_1?.rich_text.map(richTextRenderer)}
+      </h1>
+    );
+  },
+  heading_2: ({ blocks, index }, callbacks) => {
+    const block = blocks[index];
+
+    return (
+      // Nest rich text items inside heading
+      <h2 key={index} id={block.id}>
+        {block.heading_2?.rich_text?.map(richTextRenderer)}
+      </h2>
+    );
+  },
+  heading_3: ({ blocks, index }, callbacks) => {
+    const block = blocks[index];
+
+    return (
+      // Nest rich text items inside heading
+      <h3 key={index} id={block.id}>
+        {block.heading_3?.rich_text?.map(richTextRenderer)}
+      </h3>
+    );
+  },
+  bulleted_list_item: ({ index, blocks }, callbacks) => {
+    const block = blocks[index];
+    const children = block[block.type]?.children;
+
+    return (
+      <ul key={index}>
         <li>
-          {block.rich_text.map(richTextRenderer)}
+          {block.bulleted_list_item?.rich_text.map(richTextRenderer)}
         </li>
         {/* Indent */}
         <div className={styles.bulletedListIndentContainer}>
           {children
-            ? children.map((child: any, i: number) => 
-              // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children) : undefined
+            ? children.map((child: NotionBlock, i: number) => 
+              Renderers[child.type] ? Renderers[child.type]({
+                blocks: children,
+                index: i,
+              }) : undefined
             )
             : undefined
           }
@@ -62,23 +116,30 @@ const Renderers = {
       </ul>
     )
   },
-  numbered_list_item: (block: any, key: string | number, children?: any[]) => {
-    return Renderers.bulleted_list_item(block, key, children);
+  numbered_list_item: (blockData, callbacks) => {
+    return Renderers.bulleted_list_item(blockData, callbacks);
   },
-  toggle: (block: any, key: string | number, children?: any) => {
-    return Renderers.bulleted_list_item(block, key, children);
+  toggle: (blockData, callbacks) => {
+    return Renderers.bulleted_list_item(blockData, callbacks);
   },
-  image: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
-    const src = block.type === 'file' ? block.file.url : block.external.url;
-    const caption = returnPlainText(block.caption);
+  image: ({ blocks, index }, callbacks) => {
+    const block = blocks[index];
+
+    let src = block.image?.type === 'file' ? block.image.file?.url : block.image?.external?.url;
+    const caption = block.image?.caption ? returnPlainText(block.image.caption) : undefined;
+
+    if (!src) {
+      src = '';
+    }
     
     return (
       <div
         className={styles.imageContainer}
-        key={key}
+        key={index}
       >
         <ImageWithFadeIn
-          onClick={onImageClick ? () => onImageClick(src, caption) : undefined}
+          // @ts-ignore
+          onClick={callbacks?.onImageClick ? () => callbacks.onImageClick(src, caption) : undefined}
           alt={caption}
           src={src}
           layout="fill"
@@ -89,24 +150,29 @@ const Renderers = {
       </div>
     );
   },
-  divider: (block: any, key: string | number) => (
-    <div key={key} className={styles.divider} role="separator" />
+  divider: ({ index, blocks }, callbacks) => (
+    <div key={index} className={styles.divider} role="separator" />
   ),
-  callout: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+  callout: ({ index, blocks }, callbacks) => {
+    const block = blocks[index];
+    const children = block[block.type]?.children;
+
     return (
-      <aside key={key}>
+      <aside key={index}>
         {/* <div className={styles.calloutIconContainer}> */}
           {/* Icon placeholder component */}
         {/* </div> */}
         <div className={`${styles.calloutTitleChildrenContainer} ${styles.titleChildrenContainer}`}>
           <p>
-            {block.rich_text.map(richTextRenderer)}
+            {block.callout?.rich_text.map(richTextRenderer)}
           </p>
           {/* Render children */}
           {children
-            ? children.map((child: any, i: number) => 
-              // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children, onImageClick) : undefined
+            ? children.map((child: NotionBlock, i: number) => 
+              Renderers[child.type] ? Renderers[child.type]({
+                blocks: children,
+                index: i,
+              }) : undefined
             )
             : undefined
           }
@@ -114,25 +180,44 @@ const Renderers = {
       </aside>
     );
   },
-  quote: (block: any, key: string | number, children?: any, onImageClick?: (src?: string, caption?: string) => any) => {
+  quote: ({ index, blocks }, callbacks) => {
+    const item = blocks[index];
+    const children = item[item.type]?.children;
+
     return (
-      <blockquote key={key} role="complementary">
+      <blockquote key={index} role="complementary">
         <div className={`${styles.titleChildrenContainer} ${styles.quoteTitleChildrenContainer}`}>
           <p>
-            {block.rich_text.map(richTextRenderer)}
+            {item.quote?.rich_text.map(richTextRenderer)}
           </p>
           {/* Render children */}
           {children
-            ? children.map((child: any, i: number) => 
-              // @ts-ignore
-              Renderers[child.type] ? Renderers[child.type](child[child.type], i, child.children, onImageClick) : undefined
+            ? children.map((child: NotionBlock, i: number) => 
+              Renderers[child.type] ? Renderers[child.type]({ 
+                blocks: children,
+                index: i,
+               }) : undefined
             )
             : undefined
           }
         </div>
       </blockquote>
     );
-  }
+  },
+  // column_list: ({ index, blocks }, callbacks) => {
+  //   console.log(blocks[index]);
+
+  //   return (
+  //     <div />
+  //   );
+  // },
+  // column: ({ index, blocks }, callbacks) => {
+  //   console.log(blocks[index]);
+    
+  //   return (
+  //     <div />
+  //   );
+  // },
 };
 
 /**
@@ -155,10 +240,16 @@ export default function NotionRenderer({ blocks }: Props) {
     setLightboxCaption(undefined);
   }
 
+  const callbacks: Callbacks = {
+    onImageClick: handleImageClick,
+  };
+
   return (
     <div className={styles.container}>
-      {/* @ts-ignore */}
-      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type](block[block.type], index, block.children, handleImageClick) : undefined)}
+      {blocks.map((block, index) => Renderers[block.type] ? Renderers[block.type]({
+        blocks,
+        index,
+      }, callbacks) : undefined)}
       <div className={utils.spacer}></div>
       <Lightbox
         imageLink={lightboxImageLink}

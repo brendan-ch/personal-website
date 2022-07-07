@@ -3,13 +3,9 @@ import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants
 import { DatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import MobileNavBar from '../../components/MobileNavBar';
-import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
-import Footer from '../../components/Footer';
-import PageHeader from '../../components/PageHeader';
 import updatePreviewImages from '../../helpers/updatePreviewImages';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
-import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
 import getDatabaseItems from '../../helpers/getDatabaseItems';
@@ -80,7 +76,6 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     }
 
   } catch(e) {
-    console.error(e);
     return {
       props: errorProps,
     };
