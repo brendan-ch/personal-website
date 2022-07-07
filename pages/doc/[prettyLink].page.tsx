@@ -67,7 +67,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getPageProperties(params.prettyLink);
+    dbItem = await getPageProperties(ADDITIONAL_DOCS_DATABASE_ID, params.prettyLink);
     if (dbItem) {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
@@ -79,6 +79,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     }
 
   } catch(e) {
+    console.error(e);
     return {
       props: errorProps,
     };
