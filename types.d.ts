@@ -29,9 +29,9 @@ interface RichTextObject {
   type: 'text' | 'date',
   text: {
     content: string,
-    link: string | null,
+    link?: string,
   },
-  plain_text: string,
+  plain_text?: string,
 }
 
 interface NotionBlockDataWithChildren {
@@ -80,7 +80,7 @@ interface NotionBlock {
   image?: NotionFileData,
   divider?: NotionBlockDataWithChildren,
   callout?: NotionCalloutData,
-  quote?: NotionCalloutData,
+  quote?: NotionTextData,
 }
 
 /**
