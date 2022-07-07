@@ -1,9 +1,7 @@
 import utils from '../../styles/utils.module.css';
 import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
-import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabaseBlocks';
-import { DocumentDatabaseItem } from '../../types';
+import { DatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
@@ -14,10 +12,13 @@ import DatabaseItemHead from '../../components/DatabaseItemHead';
 import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
+import getDatabaseItems from '../../helpers/getDatabaseItems';
+import getPageProperties from '../../helpers/getPageProperties';
+import DatabaseItemContent from '../../components/DatabaseItemContent';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  let items = await getDocumentDatabaseBlocks(ADDITIONAL_DOCS_DATABASE_ID, {
+  let items = await getDatabaseItems(ADDITIONAL_DOCS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -37,7 +38,7 @@ export const getStaticPaths = async () => {
   items = await updatePreviewImages(items);
 
   return {
-    paths: items.map((value: DocumentDatabaseItem) => ({
+    paths: items.map((value: DatabaseItem) => ({
       params: {
         prettyLink: value.prettyLink!,
       }
@@ -48,7 +49,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: DocumentDatabaseItem | null;
+  let dbItem: DatabaseItem | null;
 
   const errorProps = {
     blocks: [],
@@ -67,7 +68,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getDocumentPageProperties(params.prettyLink);
+    dbItem = await getPageProperties(ADDITIONAL_DOCS_DATABASE_ID, params.prettyLink);
     if (dbItem) {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
@@ -79,6 +80,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     }
 
   } catch(e) {
+    console.error(e);
     return {
       props: errorProps,
     };
@@ -134,55 +136,12 @@ interface Props {
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
       />
-      {error ? (
-        <main>
-          <div className={utils.spacer} />
-          <div className={utils.itemWrapper}>
-            <PageHeader
-              aboveText="Home"
-              belowText={title || ''}
-              includeBackButton
-              backButtonHref="/"
-            />
-          </div>
-          <div className={utils.itemWrapper}>
-            <p>
-              {error}
-            </p>
-          </div>
-        </main>
-      ) : (
-        <main>
-          <div className={utils.spacer} />
-          <div className={utils.itemWrapper}>
-            <PageHeader
-              aboveText="Home"
-              belowText={title || ''}
-              includeBackButton
-              backButtonHref="/"
-            />
-          </div>
-          {coverImageLink ? (
-            <div className={utils.fullWidthImageWrapper}>
-              <ImageWithFadeIn
-                alt={`${title} preview image`}
-                src={coverImageLink}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          ) : undefined}
-          <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-            <NotionRenderer
-              blocks={blocks || []}
-            />
-          </div>
-          <div className={utils.spacer} />
-          <div className={utils.footerWrapper}>
-            <Footer />
-          </div>
-        </main>
-      )}
+      <DatabaseItemContent
+        title={title}
+        coverImageLink={coverImageLink}
+        blocks={blocks}
+        error={error}
+      />
     </div>
   );
 }

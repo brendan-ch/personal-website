@@ -1,9 +1,9 @@
 import MobileNavBar from '../components/MobileNavBar';
-import { REVALIDATE } from '../helpers/Constants';
+import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { ProjectDatabaseItem } from '../types';
+import { DatabaseItem } from '../types';
 import Database from '../components/Database';
-import getDatabaseBlocks from '../helpers/project/getProjectDatabaseBlocks';
+import getDatabaseBlocks from '../helpers/getDatabaseItems';
 import Head from 'next/head';
 import updatePreviewImages from '../helpers/updatePreviewImages';
 import PageHeader from '../components/PageHeader';
@@ -15,7 +15,7 @@ import { useState } from 'react';
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  let items = await getDatabaseBlocks({
+  let items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -51,7 +51,7 @@ export async function getStaticProps() {
 
 interface Props {
   // lastRegenerated: number,
-  dbItems: ProjectDatabaseItem[],
+  dbItems: DatabaseItem[],
 }
 
 /**

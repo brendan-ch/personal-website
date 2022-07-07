@@ -1,3 +1,8 @@
+/**
+ * Represents a database item from Notion.
+ * Only the `title` and `id` keys are guaranteed to be in the object.
+ * The rest are dependent on the structure of each database.
+ */
 interface DatabaseItem {
   title: string,
   id: string,
@@ -5,21 +10,21 @@ interface DatabaseItem {
   imageLink?: string,
   coverImageLink?: string,
   description?: string,
+  tags?: string[],
 }
 
 /**
  * Schema for the `Additional Documents` database.
  */
-interface DocumentDatabaseItem extends DatabaseItem {
-}
+// interface DocumentDatabaseItem extends DatabaseItem {
+// }
 
-/**
- * Schema for the `Projects` databsae.
- */
-interface ProjectDatabaseItem extends DatabaseItem {
-  description?: string,
-  tags: string[],
-}
+// /**
+//  * Schema for the `Projects` databsae.
+//  */
+// interface ProjectDatabaseItem extends DatabaseItem {
+  
+// }
 
 interface DatabaseDropdownFilter {
   /**
@@ -56,8 +61,6 @@ interface UpdatedBlockItem {
 
 export {
   NavigationSelected,
-  ProjectDatabaseItem,
-  DocumentDatabaseItem,
   DatabaseDropdownFilter,
   DatabaseItem,
   UpdatedDatabaseItem,
