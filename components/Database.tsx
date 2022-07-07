@@ -1,10 +1,9 @@
-import { DatabaseItem, ProjectDatabaseItem } from '../types';
+import { DatabaseItem } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 
 interface Props {
   items: DatabaseItem[],
-  // dropdownFilter: DatabaseDropdownFilter,
 }
 
 export default function Database({

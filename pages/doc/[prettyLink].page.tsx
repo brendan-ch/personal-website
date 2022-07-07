@@ -1,7 +1,7 @@
 import utils from '../../styles/utils.module.css';
 import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
 import getDocumentDatabaseBlocks from '../../helpers/document/getDocumentDatabaseBlocks';
-import { DocumentDatabaseItem } from '../../types';
+import { DatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import getDocumentPageProperties from '../../helpers/document/getDocumentPageProperties';
 import MobileNavBar from '../../components/MobileNavBar';
@@ -37,7 +37,7 @@ export const getStaticPaths = async () => {
   items = await updatePreviewImages(items);
 
   return {
-    paths: items.map((value: DocumentDatabaseItem) => ({
+    paths: items.map((value: DatabaseItem) => ({
       params: {
         prettyLink: value.prettyLink!,
       }
@@ -48,7 +48,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: DocumentDatabaseItem | null;
+  let dbItem: DatabaseItem | null;
 
   const errorProps = {
     blocks: [],

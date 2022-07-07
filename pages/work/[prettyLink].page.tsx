@@ -1,9 +1,9 @@
 import utils from '../../styles/utils.module.css';
-import { REVALIDATE } from '../../helpers/Constants';
+import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDatabaseBlocks from '../../helpers/project/getProjectDatabaseBlocks';
-import getPageProperties from '../../helpers/project/getProjectPageProperties';
-import { ProjectDatabaseItem } from '../../types';
+import getDatabaseBlocks from '../../helpers/getDatabaseItems';
+import getPageProperties from '../../helpers/getPageProperties';
+import { DatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
 import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
@@ -16,7 +16,7 @@ import { useState } from 'react';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getDatabaseBlocks({
+  const items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -40,7 +40,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let blocks = null;
-  let dbItem: ProjectDatabaseItem | null;
+  let dbItem: DatabaseItem | null;
 
   const errorProps = {
     blocks: [],
