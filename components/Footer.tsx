@@ -1,9 +1,14 @@
 import Link from 'next/link';
+import { CSSProperties } from 'react';
 import styles from '../styles/Footer.module.css';
 
-export default function Footer() {
+interface Props {
+  style?: CSSProperties,
+}
+
+export default function Footer({ style }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={style}>
       <div className={styles.content}>
         <p>© 2022 Brendan Chen</p>
         <div className={styles.linksContainer}>

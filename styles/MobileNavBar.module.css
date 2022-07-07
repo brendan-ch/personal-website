@@ -101,17 +101,35 @@
   margin: 0px;
 }
 
-@media only screen and (max-width: 600px) {
-  .logoFull {
-    display: none;
-  }
+.menuContainer {
+  display: none;
+}
 
+@media only screen and (max-width: 300px) {
   .logoStandalone {
     display: flex;
   }
+
+  .logoFull {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .buttonsContainer {
+    display: none;
+  }
   
   .contentContainer {
-    padding-left: 15px;
+    padding-right: 8px;
+  }
+
+  .menuContainer {
+    display: flex;
+  }
+
+  .menuContainer svg {
+    fill: var(--emphasis);
   }
 }
 

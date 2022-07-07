@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { BLUE, CYAN, RED } from '../helpers/Constants';
+import { CSSProperties, useEffect, useState } from 'react';
+import { BLUE, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
+import menuStyles from '../styles/MobileNavMenu.module.css';
+import Exit from './icons/Exit';
+import Hamburger from './icons/Hamburger';
 import LogoFull from './icons/LogoFull';
 import LogoStandalone from './icons/LogoStandalone';
 
@@ -21,7 +24,7 @@ function MobileNavBarTab({
   return (
     <div className={styles.tab}>
       <Link href={href}>
-        <a>
+        <a role="tab">
           <div
             className={selected ? `${styles.tabLineMobile} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineMobile} ${styles.tabLine}`}
             style={{
@@ -49,6 +52,9 @@ function MobileNavBarTab({
 
 interface Props {
   selected?: string,
+  style?: CSSProperties,
+  mobileButtonType?: 'hamburger' | 'close',
+  onMobileButtonClick?: () => any,
 }
 
 /**
@@ -57,9 +63,69 @@ interface Props {
  * 
  * @todo make tab list customizable, and add tests for it
  */
-export default function MobileNavBar({ selected }: Props) {
+export default function MobileNavBar({ selected, style, mobileButtonType, onMobileButtonClick }: Props) {
+  const [jsLoaded, setJsLoaded] = useState(false);
+
+  useEffect(() => {
+    setJsLoaded(true);
+  }, []);
+
+  let button = (
+    <a
+      className={styles.menuContainer}
+      href={`#${menuStyles.navMenuContainer}`}
+      tabIndex={0}
+    >
+      <Hamburger
+        width={45}
+        height={45}
+      />
+    </a>
+  );
+
+  if (jsLoaded && mobileButtonType === 'close') {
+    button = (
+      <button
+        className={styles.menuContainer}
+        onClick={onMobileButtonClick}
+        tabIndex={0}
+      >
+        <Exit
+          width={45}
+          height={45}
+        />
+      </button>
+    );
+  } else if (jsLoaded) {
+    button = (
+      <button
+        className={styles.menuContainer}
+        onClick={onMobileButtonClick}
+        tabIndex={0}
+      >
+        <Hamburger
+          width={45}
+          height={45}
+        />
+      </button>
+    );
+  } else if (mobileButtonType === 'close') {
+    button = (
+      <a
+        className={styles.menuContainer}
+        href="#"
+        tabIndex={0}
+      >
+        <Exit
+          width={45}
+          height={45}
+        />
+      </a>
+    );
+  }
+
   return (
-    <nav className={styles.container}>
+    <nav className={styles.container} style={style}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
         <Link href="/" aria-label="Website Logo">
@@ -92,6 +158,7 @@ export default function MobileNavBar({ selected }: Props) {
             selectedColor={BLUE}
           />
         </div>
+        {button}
       </div>
       <div className={`${styles.line} ${styles.lineDesktop}`} />
     </nav>

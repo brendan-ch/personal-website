@@ -11,6 +11,8 @@ import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 import ImageWithFadeIn from '../../components/ImageWithFadeIn';
+import MobileNavMenu from '../../components/MobileNavMenu';
+import { useState } from 'react';
 
 export const getStaticPaths = async () => {
   // Get pages in database
@@ -100,7 +102,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
-export default function ProjectPage({
+export default function WorkPage({
   blocks,
   previewImageLink,
   coverImageLink,
@@ -108,6 +110,8 @@ export default function ProjectPage({
   description,
   error
 }: Props) {
+  const [menuVisible, setMenuVisible] = useState(false);
+
   return (
     <div className={utils.rootContainer}>
       <DatabaseItemHead
@@ -115,7 +119,13 @@ export default function ProjectPage({
         description={description}
         previewImageLink={previewImageLink}
       />
-      <MobileNavBar />
+      <MobileNavBar
+        onMobileButtonClick={() => setMenuVisible(true)}
+      />
+      <MobileNavMenu
+        visible={menuVisible}
+        onClose={() => setMenuVisible(false)}
+      />
       {error ? (
         <main>
           <div className={utils.spacer} />
@@ -157,7 +167,10 @@ export default function ProjectPage({
               blocks={blocks || []}
             />
           </div>
-          <Footer />
+          <div className={utils.spacer} />
+          <div className={utils.footerWrapper}>
+            <Footer />
+          </div>
         </main>
       )}
     </div>

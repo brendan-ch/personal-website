@@ -17,7 +17,7 @@ export default function Database({
   //   : items;
 
   return (
-    <div className={styles.container} role="list">
+    <div className={styles.container}>
       {/* Content */}
       {items.map((item) => (
         // <ListItem
@@ -31,7 +31,7 @@ export default function Database({
           key={item.id}
           title={item.title}
           imageLink={item.imageLink}
-          link={`/project/${item.prettyLink}`}
+          link={`/work/${item.prettyLink}`}
         />
       ))}
     </div>

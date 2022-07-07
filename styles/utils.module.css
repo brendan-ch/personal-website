@@ -30,6 +30,10 @@ stretch until a maximum width. */
   /* min-width: 20em; */
   max-width: 60em;
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* Apply to items on a page that need to stretch
@@ -47,6 +51,18 @@ to the bottom of the page. */
 
 .spacer {
   height: 30px;
+}
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .footerWrapper {
+    display: none;
+  }
 }
 
 @keyframes fadein {
