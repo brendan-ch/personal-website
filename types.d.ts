@@ -70,6 +70,7 @@ type NotionBlockData = NotionBlockDataWithChildren | NotionTextData | NotionBull
  */
 interface NotionBlock {
   type: SupportedBlockType;
+  id: string,
   paragraph?: NotionTextData
   heading_1?: NotionTextData,
   heading_2?: NotionTextData,

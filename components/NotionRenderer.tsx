@@ -67,7 +67,7 @@ const Renderers: {
 
     return (
       // Nest rich text items inside heading
-      <h1 key={index}>
+      <h1 key={index} id={block.id}>
         {block.heading_1?.rich_text.map(richTextRenderer)}
       </h1>
     );
@@ -77,7 +77,7 @@ const Renderers: {
 
     return (
       // Nest rich text items inside heading
-      <h2 key={index}>
+      <h2 key={index} id={block.id}>
         {block.heading_2?.rich_text?.map(richTextRenderer)}
       </h2>
     );
@@ -87,7 +87,7 @@ const Renderers: {
 
     return (
       // Nest rich text items inside heading
-      <h3 key={index}>
+      <h3 key={index} id={block.id}>
         {block.heading_3?.rich_text?.map(richTextRenderer)}
       </h3>
     );
