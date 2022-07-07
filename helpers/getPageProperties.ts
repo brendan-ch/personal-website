@@ -7,7 +7,7 @@ import returnPlainText from './returnPlainText';
  * Get a database item object for a specific page.
  * @param prettyLink
  */
-async function getProjectPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
+async function getPageProperties(prettyLink: string): Promise<DatabaseItem | null> {
   const dbResponse = await client.databases.query({
     database_id: PROJECTS_DATABASE_ID,
     filter: {
@@ -66,4 +66,4 @@ async function getProjectPageProperties(prettyLink: string): Promise<DatabaseIte
   };
 }
 
-export default getProjectPageProperties;
+export default getPageProperties;
