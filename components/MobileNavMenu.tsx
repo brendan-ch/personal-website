@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from '../styles/MobileNavMenu.module.css';
 import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
+import MobileNavBar from './MobileNavBar';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -30,7 +31,7 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 
 interface Props {
   selected?: string,
-  visible: boolean,
+  // visible: boolean,
 }
 
 /**
@@ -38,10 +39,11 @@ interface Props {
  * @param props
  * @returns
  */
-export default function MobileNavMenu({ selected, visible }: Props) {
+export default function MobileNavMenu({ selected }: Props) {
   return (
     <div
-      className={visible ? `${styles.container}` : styles.containerInvisible}
+      className={styles.container}
+      id={styles.navMenuContainer}
       role="menu"
     >
       <div className={styles.grayBackground} />
@@ -55,6 +57,13 @@ export default function MobileNavMenu({ selected, visible }: Props) {
         alt="Background image"
       />
       <div className={styles.contentContainer}>
+        <MobileNavBar
+          style={{
+            zIndex: 4,
+            position: 'relative',
+          }}
+          mobileButtonType={1}
+        />
         <div className={styles.buttons}>
           <MobileNavMenuButton
             toggled={selected === 'Featured'}

@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { BLUE, CYAN, RED } from '../helpers/Constants';
+import { CSSProperties, useState } from 'react';
+import { BLUE, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
+import menuStyles from '../styles/MobileNavMenu.module.css';
+import Exit from './icons/Exit';
 import Hamburger from './icons/Hamburger';
 import LogoFull from './icons/LogoFull';
 import LogoStandalone from './icons/LogoStandalone';
-import MobileNavMenu from './MobileNavMenu';
 
 interface TabProps {
   selected: boolean,
@@ -50,8 +50,15 @@ function MobileNavBarTab({
   )
 }
 
+enum MobileButtonType {
+  HAMBURGER,
+  CLOSE,
+}
+
 interface Props {
   selected?: string,
+  style?: CSSProperties,
+  mobileButtonType?: MobileButtonType,
 }
 
 /**
@@ -60,19 +67,9 @@ interface Props {
  * 
  * @todo make tab list customizable, and add tests for it
  */
-export default function MobileNavBar({ selected }: Props) {
-  const [menuToggled, setMenuToggled] = useState(false);
-
-  function handleMenuPress() {
-    setMenuToggled(!menuToggled);
-  }
-
+export default function MobileNavBar({ selected, style, mobileButtonType }: Props) {
   return (
-    <nav className={styles.container}>
-      <MobileNavMenu 
-        selected={selected}
-        visible={menuToggled}
-      />
+    <nav className={styles.container} style={style}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
         <Link href="/" aria-label="Website Logo">
@@ -105,15 +102,28 @@ export default function MobileNavBar({ selected }: Props) {
             selectedColor={BLUE}
           />
         </div>
-        <button
-          className={styles.menuContainer}
-          onClick={handleMenuPress}
-        >
-          <Hamburger
-            width={45}
-            height={45}
-          />
-        </button>
+        {mobileButtonType === MobileButtonType.CLOSE ? (
+          <a
+            className={styles.menuContainer}
+            href="#"
+          >
+            <Exit
+              width={45}
+              height={45}
+            />
+          </a>
+        ) : (
+          <a
+            className={styles.menuContainer}
+            href={`#${menuStyles.navMenuContainer}`}
+          >
+            <Hamburger
+              width={45}
+              height={45}
+            />
+          </a>
+        )
+        }
       </div>
       <div className={`${styles.line} ${styles.lineDesktop}`} />
     </nav>
