@@ -131,3 +131,8 @@ ol {
   padding: 0px;
   margin: 0px;
 }
+
+code {
+  font-family: space-mono, monospace;
+  font-weight: 400;
+}
