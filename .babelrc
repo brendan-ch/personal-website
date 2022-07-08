@@ -1,7 +1,21 @@
 {
   "presets": ["next/babel"],
   "plugins": [["prismjs", {
-    "languages": ["javascript", "css", "markup", "python", "java"],
+    "languages": [
+      "javascript",
+      "typescript",
+      "html",
+      "jsx",
+      "css",
+      "markup",
+      "python",
+      "java",
+      "php",
+      "rust",
+      "cpp",
+      "swift",
+      "json"
+    ],
     "css": true
   }]]
 }
