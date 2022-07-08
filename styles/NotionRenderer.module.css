@@ -133,6 +133,27 @@
   padding: 10px 15px;
 }
 
+.tocContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tocLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.tocLine p {
+  color: var(--gray3);
+  padding: 0px;
+  margin: 0px;
+}
+
+.tocSpacer {
+  height: 100%;
+}
+
 /* .videoContainer {
   width: 100%;
   height: 25em;

@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import richTextRenderer from '../helpers/richTextRenderer';
-import { NotionBlock, SupportedBlockType } from '../types';
+import { NotionBlock, NotionTextData, SupportedBlockType } from '../types';
 import Prism from 'prismjs';
+import Link from 'next/link';
 
 /**
  * Object containing block data passed down to each renderer.
@@ -216,6 +217,40 @@ const Renderers: {
       </pre>
     );
   },
+  table_of_contents: ({ index, blocks }, callbacks) => {
+    const headingBlocks = blocks.filter((block) => block.type.startsWith('heading'));
+
+    return (
+      <div className={styles.tocContainer} key={index}>
+        {headingBlocks.map((headingBlock, index) => {
+          let numSpacers = 0;
+          if (headingBlock.type === 'heading_2') {
+            numSpacers = 1;
+          } else if (headingBlock.type === 'heading_3') {
+            numSpacers = 2;
+          }
+
+          return (
+            <div className={styles.tocLine} key={index}>
+              <div
+                className={styles.tocSpacer}
+                style={{
+                  width: 24 * numSpacers,
+                }}
+              />
+              <Link href={`#${headingBlock.id}`}>
+                <a>
+                  <p>
+                    {(headingBlock[headingBlock.type] as NotionTextData).rich_text.map(richTextRenderer)}
+                  </p>
+                </a>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
   // column_list: ({ index, blocks }, callbacks) => {
   //   console.log(blocks[index]);
 
