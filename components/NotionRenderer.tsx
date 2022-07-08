@@ -211,7 +211,7 @@ const Renderers: {
     const code = item.code?.rich_text ? returnPlainText(item.code?.rich_text) : undefined;
 
     return (
-      <pre key={index}>
+      <pre key={index} role="code">
         <code className={`language-${lang}`}>{code}</code>
       </pre>
     );
