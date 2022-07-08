@@ -350,6 +350,13 @@ const mockBlocks: NotionBlock[] = [
       "language": "javascript"
     },
   },
+  {
+    "type": "table_of_contents",
+    "id": "22",
+    "table_of_contents": {
+      
+    },
+  },
 ];
 
 const unsupportedBlocks: any[] = [
@@ -526,5 +533,25 @@ describe('NotionRenderer', () => {
     // Check for code block
     const pre = screen.getByRole('code');
     expect(pre).toBeInTheDocument();
+  });
+
+  it('Renders the table of contents block', () => {
+    const headingBlocks = mockBlocks.filter((block) => block.type.startsWith('heading'));
+    const tocBlock = mockBlocks.find((block) => block.type === 'table_of_contents');
+
+    if (!tocBlock || !headingBlocks) throw new Error('No blocks with this data type provided');
+
+    render(<NotionRenderer blocks={[...headingBlocks, tocBlock]} />);
+    
+    screen.debug();
+    // Check for table of contents block
+
+    const toc = screen.getByRole('list');
+    expect(toc).toBeInTheDocument();
+
+    const headings = screen.getAllByText(mockText);
+
+    // Twice the # of actual headings with same text
+    expect(headings).toHaveLength(6);
   });
 });
