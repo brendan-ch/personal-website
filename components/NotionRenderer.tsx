@@ -110,7 +110,7 @@ const Renderers: {
               Renderers[child.type] ? Renderers[child.type]({
                 blocks: children,
                 index: i,
-              }) : undefined
+              }, callbacks) : undefined
             )
             : undefined
           }
@@ -174,7 +174,7 @@ const Renderers: {
               Renderers[child.type] ? Renderers[child.type]({
                 blocks: children,
                 index: i,
-              }) : undefined
+              }, callbacks) : undefined
             )
             : undefined
           }
@@ -198,7 +198,7 @@ const Renderers: {
               Renderers[child.type] ? Renderers[child.type]({ 
                 blocks: children,
                 index: i,
-               }) : undefined
+               }, callbacks) : undefined
             )
             : undefined
           }
