@@ -24,7 +24,8 @@ type SupportedBlockType = 'paragraph'
   | 'divider'
   | 'callout'
   | 'quote'
-  | 'code';
+  | 'code'
+  | 'table_of_contents';
   // | 'column_list'
   // | 'column';
 
@@ -90,6 +91,7 @@ interface NotionBlock {
   callout?: NotionCalloutData,
   quote?: NotionTextData,
   code?: NotionCodeData,
+  table_of_contents?: NotionBlockDataWithChildren,
   // column_list?: NotionBlockDataWithChildren,
   // column?: NotionBlockDataWithChildren,
 }
