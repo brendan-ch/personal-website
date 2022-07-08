@@ -1,11 +1,12 @@
 import styles from '../styles/NotionRenderer.module.css';
 import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import richTextRenderer from '../helpers/richTextRenderer';
 import { NotionBlock, SupportedBlockType } from '../types';
+import Prism from 'prismjs';
 
 /**
  * Object containing block data passed down to each renderer.
@@ -204,6 +205,17 @@ const Renderers: {
       </blockquote>
     );
   },
+  code: ({ index, blocks }, callbacks) => {
+    const item = blocks[index];
+    const lang = item.code?.language;
+    const code = item.code?.rich_text ? returnPlainText(item.code?.rich_text) : undefined;
+
+    return (
+      <pre key={index}>
+        <code className={`language-${lang}`}>{code}</code>
+      </pre>
+    );
+  },
   // column_list: ({ index, blocks }, callbacks) => {
   //   console.log(blocks[index]);
 
@@ -239,6 +251,10 @@ export default function NotionRenderer({ blocks }: Props) {
     setLightboxImageLink(undefined);
     setLightboxCaption(undefined);
   }
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   const callbacks: Callbacks = {
     onImageClick: handleImageClick,

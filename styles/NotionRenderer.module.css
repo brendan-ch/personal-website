@@ -58,6 +58,11 @@
   margin-bottom: 0.15em;
 }
 
+.container pre {
+  padding: 24px 16px;
+  background-color: var(--gray);
+}
+
 .container p {
   margin-top: 5px;
   margin-bottom: 5px;
