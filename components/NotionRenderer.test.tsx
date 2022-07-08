@@ -543,9 +543,8 @@ describe('NotionRenderer', () => {
 
     render(<NotionRenderer blocks={[...headingBlocks, tocBlock]} />);
     
-    screen.debug();
+    
     // Check for table of contents block
-
     const toc = screen.getByRole('list');
     expect(toc).toBeInTheDocument();
 

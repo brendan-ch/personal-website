@@ -231,7 +231,7 @@ const Renderers: {
           }
 
           return (
-            <div className={styles.tocLine} key={index}>
+            <div className={styles.tocLine} key={index} role="listitem">
               <div
                 className={styles.tocSpacer}
                 style={{
@@ -240,7 +240,7 @@ const Renderers: {
               />
               <Link href={`#${headingBlock.id}`}>
                 <a>
-                  <p role="listitem">
+                  <p>
                     {(headingBlock[headingBlock.type] as NotionTextData).rich_text.map(richTextRenderer)}
                   </p>
                 </a>
