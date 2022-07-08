@@ -23,7 +23,9 @@ type SupportedBlockType = 'paragraph'
   | 'image'
   | 'divider'
   | 'callout'
-  | 'quote';
+  | 'quote'
+  | 'code'
+  | 'table_of_contents';
   // | 'column_list'
   // | 'column';
 
@@ -65,6 +67,10 @@ interface NotionFileData extends NotionBlockDataWithChildren {
   caption?: RichTextObject[],
 }
 
+interface NotionCodeData extends NotionTextData {
+  language: string,
+}
+
 type NotionBlockData = NotionBlockDataWithChildren | NotionTextData | NotionBulletedData | NotionCalloutData | NotionFileData;
 
 /**
@@ -84,6 +90,8 @@ interface NotionBlock {
   divider?: NotionBlockDataWithChildren,
   callout?: NotionCalloutData,
   quote?: NotionTextData,
+  code?: NotionCodeData,
+  table_of_contents?: NotionBlockDataWithChildren,
   // column_list?: NotionBlockDataWithChildren,
   // column?: NotionBlockDataWithChildren,
 }

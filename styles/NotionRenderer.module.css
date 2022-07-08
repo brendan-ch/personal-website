@@ -58,6 +58,11 @@
   margin-bottom: 0.15em;
 }
 
+.container pre {
+  padding: 24px 16px;
+  background-color: var(--gray);
+}
+
 .container p {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -126,6 +131,34 @@
 
 .quoteTitleChildrenContainer {
   padding: 10px 15px;
+}
+
+.tocContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.tocLine {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.tocLine a {
+  flex: 1;
+}
+
+.tocLine p {
+  color: var(--gray3);
+  padding: 0px;
+  margin: 0px;
+}
+
+.tocSpacer {
+  height: 100%;
 }
 
 /* .videoContainer {

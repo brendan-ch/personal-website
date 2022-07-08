@@ -60,7 +60,7 @@ button {
 @keyframes fadein {
   0% {
     opacity: 0%;
-  } 30% {
+  } 10% {
     opacity: 0%;
   } 100% {
     opacity: 100%;
@@ -83,6 +83,8 @@ button {
   --blue: #5D5CB2;
   --red: #BE3223;
   --gray: #DCDCDC;
+  --gray2: #999999;
+  --gray3: #666666;
 }
 
 h1 {
@@ -127,7 +129,12 @@ li {
 
 ol {
   color: var(--emphasis);
-  font-size: 18px;
+  font-size: 20px;
   padding: 0px;
   margin: 0px;
+}
+
+code {
+  font-family: space-mono, monospace;
+  font-weight: 400;
 }

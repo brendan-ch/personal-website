@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { getByRole, render, screen } from '@testing-library/react';
 import richTextRenderer from '../helpers/richTextRenderer';
 import NotionRenderer from './NotionRenderer';
 import '@testing-library/jest-dom';
@@ -335,6 +335,28 @@ const mockBlocks: NotionBlock[] = [
     "id": "20",
     "divider": {},
   },
+  {
+    "type": "code",
+    "id": "21",
+    //...other keys excluded
+    "code": {
+      "color": "default",
+      "rich_text": [{
+        "type": "text",
+        "text": {
+          "content": "const a = 3"
+        }
+      }],
+      "language": "javascript"
+    },
+  },
+  {
+    "type": "table_of_contents",
+    "id": "22",
+    "table_of_contents": {
+      
+    },
+  },
 ];
 
 const unsupportedBlocks: any[] = [
@@ -501,5 +523,34 @@ describe('NotionRenderer', () => {
 
   it('Renders the quote block', () => {
     checkForComplementary('quote', mockText);
+  });
+
+  it('Renders the code block', () => {
+    const block = mockBlocks.find((block) => block.type === 'code');
+    if (!block) throw new Error('No blocks with this data type provided');
+    render(<NotionRenderer blocks={[block]} />);
+
+    // Check for code block
+    const pre = screen.getByRole('code');
+    expect(pre).toBeInTheDocument();
+  });
+
+  it('Renders the table of contents block', () => {
+    const headingBlocks = mockBlocks.filter((block) => block.type.startsWith('heading'));
+    const tocBlock = mockBlocks.find((block) => block.type === 'table_of_contents');
+
+    if (!tocBlock || !headingBlocks) throw new Error('No blocks with this data type provided');
+
+    render(<NotionRenderer blocks={[...headingBlocks, tocBlock]} />);
+    
+    
+    // Check for table of contents block
+    const toc = screen.getByRole('list');
+    expect(toc).toBeInTheDocument();
+
+    const headings = screen.getAllByText(mockText);
+
+    // Twice the # of actual headings with same text
+    expect(headings).toHaveLength(6);
   });
 });

@@ -1,11 +1,13 @@
 import styles from '../styles/NotionRenderer.module.css';
 import utils from '../styles/utils.module.css';
 import returnPlainText from '../helpers/returnPlainText';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import richTextRenderer from '../helpers/richTextRenderer';
-import { NotionBlock, SupportedBlockType } from '../types';
+import { NotionBlock, NotionTextData, SupportedBlockType } from '../types';
+import Prism from 'prismjs';
+import Link from 'next/link';
 
 /**
  * Object containing block data passed down to each renderer.
@@ -108,7 +110,7 @@ const Renderers: {
               Renderers[child.type] ? Renderers[child.type]({
                 blocks: children,
                 index: i,
-              }) : undefined
+              }, callbacks) : undefined
             )
             : undefined
           }
@@ -172,7 +174,7 @@ const Renderers: {
               Renderers[child.type] ? Renderers[child.type]({
                 blocks: children,
                 index: i,
-              }) : undefined
+              }, callbacks) : undefined
             )
             : undefined
           }
@@ -196,7 +198,7 @@ const Renderers: {
               Renderers[child.type] ? Renderers[child.type]({ 
                 blocks: children,
                 index: i,
-               }) : undefined
+               }, callbacks) : undefined
             )
             : undefined
           }
@@ -204,6 +206,51 @@ const Renderers: {
       </blockquote>
     );
   },
+  code: ({ index, blocks }, callbacks) => {
+    const item = blocks[index];
+    const lang = item.code?.language;
+    const code = item.code?.rich_text ? returnPlainText(item.code?.rich_text) : undefined;
+
+    return (
+      <pre key={index} role="code">
+        <code className={`language-${lang}`}>{code}</code>
+      </pre>
+    );
+  },
+  table_of_contents: ({ index, blocks }, callbacks) => {
+    const headingBlocks = blocks.filter((block) => block.type.startsWith('heading'));
+
+    return (
+      <div className={styles.tocContainer} key={index} role="list">
+        {headingBlocks.map((headingBlock, index) => {
+          let numSpacers = 0;
+          if (headingBlock.type === 'heading_2') {
+            numSpacers = 1;
+          } else if (headingBlock.type === 'heading_3') {
+            numSpacers = 2;
+          }
+
+          return (
+            <div className={styles.tocLine} key={index} role="listitem">
+              <div
+                className={styles.tocSpacer}
+                style={{
+                  width: 24 * numSpacers,
+                }}
+              />
+              <Link href={`#${headingBlock.id}`}>
+                <a>
+                  <p>
+                    {(headingBlock[headingBlock.type] as NotionTextData).rich_text.map(richTextRenderer)}
+                  </p>
+                </a>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
   // column_list: ({ index, blocks }, callbacks) => {
   //   console.log(blocks[index]);
 
@@ -239,6 +286,10 @@ export default function NotionRenderer({ blocks }: Props) {
     setLightboxImageLink(undefined);
     setLightboxCaption(undefined);
   }
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   const callbacks: Callbacks = {
     onImageClick: handleImageClick,
