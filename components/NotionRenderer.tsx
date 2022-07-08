@@ -221,7 +221,7 @@ const Renderers: {
     const headingBlocks = blocks.filter((block) => block.type.startsWith('heading'));
 
     return (
-      <div className={styles.tocContainer} key={index}>
+      <div className={styles.tocContainer} key={index} role="list">
         {headingBlocks.map((headingBlock, index) => {
           let numSpacers = 0;
           if (headingBlock.type === 'heading_2') {
@@ -240,7 +240,7 @@ const Renderers: {
               />
               <Link href={`#${headingBlock.id}`}>
                 <a>
-                  <p>
+                  <p role="listitem">
                     {(headingBlock[headingBlock.type] as NotionTextData).rich_text.map(richTextRenderer)}
                   </p>
                 </a>
