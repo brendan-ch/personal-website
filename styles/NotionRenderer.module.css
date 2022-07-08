@@ -144,6 +144,11 @@
 .tocLine {
   display: flex;
   flex-direction: row;
+  width: 100%;
+}
+
+.tocLine a {
+  flex: 1;
 }
 
 .tocLine p {
