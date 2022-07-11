@@ -1,5 +1,5 @@
 import MobileNavBar from '../components/MobileNavBar';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
+import { BLOG_DATABASE_ID, PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { DatabaseItem } from '../types';
 import Database from '../components/Database';
@@ -39,11 +39,37 @@ export async function getStaticProps() {
   });
 
   items = await updatePreviewImages(items);
+
+  let blogItems = await getDatabaseBlocks(BLOG_DATABASE_ID, {
+    and: [
+      {
+        property: 'Published',
+        checkbox: {
+          equals: true,
+        },
+      },
+      {
+        property: 'Tags',
+        multi_select: {
+          contains: 'Featured',
+        },
+      },
+      {
+        property: 'Pretty Link',
+        rich_text: {
+          is_not_empty: true,
+        },
+      },
+    ],
+  });
+
+  blogItems = await updatePreviewImages(blogItems);
   
   return {
     props: {
       lastRegenerated: Date.now(),
       dbItems: items,
+      blogItems: blogItems,
     },
     revalidate: REVALIDATE,
   }
@@ -52,13 +78,14 @@ export async function getStaticProps() {
 interface Props {
   // lastRegenerated: number,
   dbItems: DatabaseItem[],
+  blogItems: DatabaseItem[],
 }
 
 /**
  * Home page.
  * @returns
  */
-const Home = ({ dbItems }: Props) => {
+const Home = ({ dbItems, blogItems }: Props) => {
   const selected = "Featured";
 
   /**
@@ -96,6 +123,15 @@ const Home = ({ dbItems }: Props) => {
             prefix="work"
           />
         </div>
+        {blogItems && blogItems.length > 0 ? (
+          <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+            <h2>Featured Articles</h2>
+            <Database
+              items={blogItems}
+              prefix="blog"
+            />
+          </div>
+        ) : undefined}
         <div className={utils.spacer} />
         <div className={utils.footerWrapper}>
           <Footer />
