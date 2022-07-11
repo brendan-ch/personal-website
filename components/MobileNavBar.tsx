@@ -161,7 +161,7 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
             href="/about"
             selected={selected === 'About Me'}
             text="About Me"
-            selectedColor={BLUE}
+            selectedColor={RED}
           />
         </div>
         {button}
