@@ -55,10 +55,10 @@ interface Props {
 }
 
 /**
- * Projects page.
+ * Home page.
  * @returns
  */
-const Projects = ({ dbItems }: Props) => {
+const Home = ({ dbItems }: Props) => {
   const selected = "Featured";
 
   /**
@@ -104,4 +104,4 @@ const Projects = ({ dbItems }: Props) => {
   );
 }
 
-export default Projects;
+export default Home;
