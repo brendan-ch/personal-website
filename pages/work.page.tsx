@@ -29,7 +29,12 @@ export async function getStaticProps() {
         },
       },
     ],
-  });
+  }, [
+    {
+      timestamp: 'created_time',
+      direction: 'descending',
+    },
+  ]);
 
   items = await updatePreviewImages(items);
 
