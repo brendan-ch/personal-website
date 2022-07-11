@@ -4,34 +4,34 @@ interface Props {
   title?: string,
   description?: string,
   previewImageLink?: string,
+  noRobots?: boolean,
 }
 
 /**
  * 
  */
-export default function DatabaseItemHead({ title, description, previewImageLink }: Props) {
+export default function DatabaseItemHead({ title, description, previewImageLink, noRobots }: Props) {
   return (
     <Head>
       <title>{title} | Brendan Chen</title>
 
       {previewImageLink ? (
-        <meta name="og:image" content={previewImageLink}></meta>
-      ) : undefined}
-
-      {previewImageLink ? (
-        <meta name="twitter:image" content={previewImageLink}></meta>
-      ) : undefined}
-
-      {description ? (
-        <meta name="description" content={description}></meta>
+        <>
+          <meta name="og:image" content={previewImageLink}></meta>
+          <meta name="twitter:image" content={previewImageLink}></meta>
+        </>
       ) : undefined}
 
       {description ? (
-        <meta name="og:description" content={description}></meta>
+        <>
+          <meta name="description" content={description}></meta>
+          <meta name="og:description" content={description}></meta>
+          <meta name="twitter:description" content={description}></meta>
+        </>
       ) : undefined}
 
-      {description ? (
-        <meta name="twitter:description" content={description}></meta>
+      {noRobots ? (
+        <meta name="robots" content="noindex"></meta>
       ) : undefined}
     </Head>
   );
