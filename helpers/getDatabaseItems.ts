@@ -7,10 +7,11 @@ import getDatabaseItemFromResponse from './getDatabaseItemFromResponse';
  * Unlike `getChildrenBlocks`, does not return children blocks from each page.
  * @param filter
  */
-async function getDatabaseItems(dbId: string, filter?: any) {
+async function getDatabaseItems(dbId: string, filter?: any, sorts?: any) {
   const response = await client.databases.query({
     database_id: dbId,
     filter,
+    sorts
   });
 
   const items: DatabaseItem[] = await Promise.all(response.results.map(async (value: any) => {
