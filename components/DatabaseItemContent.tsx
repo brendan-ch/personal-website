@@ -9,19 +9,26 @@ interface Props {
   blocks?: any[],
   coverImageLink?: string,
   error?: string,
+  header?: {
+    aboveText: string,
+    belowText: string,
+    backButtonHref: string,
+  }
 }
 
-export default function DatabaseItemContent({ title, blocks, coverImageLink, error }: Props) {
+export default function DatabaseItemContent({ title, blocks, coverImageLink, error, header }: Props) {
   return error ? (
     <main>
       <div className={utils.spacer} />
       <div className={utils.itemWrapper}>
-        <PageHeader
-          aboveText="Home"
-          belowText={title || ''}
-          includeBackButton
-          backButtonHref="/"
-        />
+        {header ? (
+          <PageHeader
+            aboveText={header.aboveText}
+            belowText={header.belowText}
+            includeBackButton
+            backButtonHref={header.backButtonHref}
+          />
+        ) : undefined}
       </div>
       <div className={utils.itemWrapper}>
         <p>
@@ -33,12 +40,14 @@ export default function DatabaseItemContent({ title, blocks, coverImageLink, err
     <main>
       <div className={utils.spacer} />
       <div className={utils.itemWrapper}>
-        <PageHeader
-          aboveText="Home"
-          belowText={title || ''}
-          includeBackButton
-          backButtonHref="/"
-        />
+        {header ? (
+          <PageHeader
+            aboveText={header.aboveText}
+            belowText={header.belowText}
+            includeBackButton
+            backButtonHref={header.backButtonHref}
+          />
+        ) : undefined}
       </div>
       {coverImageLink ? (
         <div className={utils.fullWidthImageWrapper}>
