@@ -77,8 +77,8 @@ export async function getStaticProps() {
 
 interface Props {
   // lastRegenerated: number,
-  dbItems: DatabaseItem[],
-  blogItems: DatabaseItem[],
+  dbItems?: DatabaseItem[],
+  blogItems?: DatabaseItem[],
 }
 
 /**
@@ -116,13 +116,15 @@ const Home = ({ dbItems, blogItems }: Props) => {
             belowText="I’m Brendan, a developer and designer living in Orange, CA."
           />
         </div>
-        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <h2>Featured Work</h2>
-          <Database
-            items={dbItems}
-            prefix="work"
-          />
-        </div>
+        {dbItems && dbItems.length > 0 ? (
+          <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+            <h2>Featured Work</h2>
+            <Database
+              items={dbItems}
+              prefix="work"
+            />
+          </div>
+        ) : undefined}
         {blogItems && blogItems.length > 0 ? (
           <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
             <h2>Featured Articles</h2>
