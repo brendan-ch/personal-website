@@ -122,6 +122,7 @@ interface Props {
       <DatabaseItemHead
         title={title}
         description={description}
+        noRobots
         previewImageLink={previewImageLink}
       />
       <MobileNavBar
@@ -136,6 +137,11 @@ interface Props {
         coverImageLink={coverImageLink}
         blocks={blocks}
         error={error}
+        header={{
+          aboveText: 'Home',
+          belowText: title || '',
+          backButtonHref: '/'
+        }}
       />
     </div>
   );
