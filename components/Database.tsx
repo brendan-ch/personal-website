@@ -4,11 +4,12 @@ import GalleryItem from './GalleryItem';
 
 interface Props {
   items: DatabaseItem[],
+  prefix: 'blog' | 'work' | 'doc',
 }
 
 export default function Database({
   items,
-  // dropdownFilter,
+  prefix,
 }: Props) {
   // const filteredItems = dropdownFilter.tagName !== undefined
   //   // @ts-ignore
@@ -30,7 +31,7 @@ export default function Database({
           key={item.id}
           title={item.title}
           imageLink={item.imageLink}
-          link={`/work/${item.prettyLink}`}
+          link={`/${prefix}/${item.prettyLink}`}
         />
       ))}
     </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import utils from '../styles/utils.module.css';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
+import { BLOG_DATABASE_ID, PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import getDatabaseItems from '../helpers/getDatabaseItems';
 import updatePreviewImages from '../helpers/updatePreviewImages';
 import { DatabaseItem } from '../types';
@@ -14,7 +14,7 @@ import Footer from '../components/Footer';
 
 
 export async function getStaticProps() {
-  let items = await getDatabaseItems(PROJECTS_DATABASE_ID, {
+  let items = await getDatabaseItems(BLOG_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -46,14 +46,14 @@ interface Props {
 }
 
 export default function Work({ dbItems }: Props) {
-  const selected = 'Work';
+  const selected = 'Blog';
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
       <Head>
-        <title>Work | Brendan Chen</title>
+        <title>Blog | Brendan Chen</title>
       </Head>
       <MobileNavBar
         selected={selected}
@@ -69,13 +69,13 @@ export default function Work({ dbItems }: Props) {
         <div className={utils.itemWrapper}>
           <PageHeader
             aboveText=""
-            belowText="Work"
+            belowText="Blog"
           />
         </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <Database
             items={dbItems}
-            prefix="work"
+            prefix="blog"
           />
         </div>
         <div className={utils.spacer} />

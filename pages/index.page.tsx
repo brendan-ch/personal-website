@@ -93,6 +93,7 @@ const Home = ({ dbItems }: Props) => {
           <h2>Featured Work</h2>
           <Database
             items={dbItems}
+            prefix="work"
           />
         </div>
         <div className={utils.spacer} />
