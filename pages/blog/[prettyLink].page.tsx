@@ -1,5 +1,5 @@
 import utils from '../../styles/utils.module.css';
-import { ADDITIONAL_DOCS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
+import { ADDITIONAL_DOCS_DATABASE_ID, BLOG_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
 import { DatabaseItem } from '../../types';
 import getChildrenBlocks from '../../helpers/getChildrenBlocks';
 import MobileNavBar from '../../components/MobileNavBar';
@@ -14,7 +14,7 @@ import DatabaseItemContent from '../../components/DatabaseItemContent';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  let items = await getDatabaseItems(ADDITIONAL_DOCS_DATABASE_ID, {
+  let items = await getDatabaseItems(BLOG_DATABASE_ID, {
     and: [
       {
         property: 'Published',
@@ -64,7 +64,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   // Get block data
   try {
-    dbItem = await getPageProperties(ADDITIONAL_DOCS_DATABASE_ID, params.prettyLink);
+    dbItem = await getPageProperties(BLOG_DATABASE_ID, params.prettyLink);
     if (dbItem) {
       blocks = await getChildrenBlocks(dbItem.id);
     } else {
@@ -107,7 +107,7 @@ interface Props {
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({
+ export default function BlogPage({
   blocks,
   previewImageLink,
   coverImageLink,
@@ -122,7 +122,6 @@ interface Props {
       <DatabaseItemHead
         title={title}
         description={description}
-        noRobots
         previewImageLink={previewImageLink}
       />
       <MobileNavBar
@@ -138,9 +137,9 @@ interface Props {
         blocks={blocks}
         error={error}
         header={{
-          aboveText: 'Home',
+          aboveText: 'Blog',
           belowText: title || '',
-          backButtonHref: '/'
+          backButtonHref: '/blog'
         }}
       />
     </div>

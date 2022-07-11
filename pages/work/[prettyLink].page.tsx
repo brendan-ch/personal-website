@@ -5,12 +5,8 @@ import getDatabaseBlocks from '../../helpers/getDatabaseItems';
 import getPageProperties from '../../helpers/getPageProperties';
 import { DatabaseItem } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
-import NotionRenderer from '../../components/NotionRenderer';
 import updateImageBlocks from '../../helpers/updateImageBlocks';
-import Footer from '../../components/Footer';
-import PageHeader from '../../components/PageHeader';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
-import ImageWithFadeIn from '../../components/ImageWithFadeIn';
 import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
 import DatabaseItemContent from '../../components/DatabaseItemContent';
@@ -132,6 +128,11 @@ export default function WorkPage({
         coverImageLink={coverImageLink}
         blocks={blocks}
         error={error}
+        header={{
+          aboveText: 'Work',
+          belowText: title || '',
+          backButtonHref: '/work'
+        }}
       />
     </div>
   );
