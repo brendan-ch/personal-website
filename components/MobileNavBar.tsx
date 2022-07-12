@@ -151,12 +151,12 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
             text="Work"
             selectedColor={RED}
           />
-          <MobileNavBarTab
+          {/* <MobileNavBarTab
             href="/blog"
             selected={selected === 'Blog'}
             text="Blog"
             selectedColor={RED}
-          />
+          /> */}
           <MobileNavBarTab
             href="/about"
             selected={selected === 'About Me'}

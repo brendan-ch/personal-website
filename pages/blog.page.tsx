@@ -50,7 +50,7 @@ interface Props {
   dbItems: DatabaseItem[],
 }
 
-export default function Work({ dbItems }: Props) {
+export default function Blog({ dbItems }: Props) {
   const selected = 'Blog';
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -59,6 +59,7 @@ export default function Work({ dbItems }: Props) {
       {/* <NavBar selected={selected} /> */}
       <Head>
         <title>Blog | Brendan Chen</title>
+        <meta name="robots" content="noindex"></meta>
       </Head>
       <MobileNavBar
         selected={selected}
