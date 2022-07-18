@@ -148,7 +148,10 @@ interface UpdatedBlockItem {
 }
 
 interface PageData {
-  contentHtml: string,
+  /**
+   * Contents of the markdown file.
+   */
+  content: string | null,
   /**
    * Title of the page, as provided by the "Title" field.
    */
@@ -156,10 +159,12 @@ interface PageData {
    * ID (file name) of the page. Also serves as the pretty link.
    */
   id: string,
-  title?: string,
-  previewImage?: string,
-  coverImage?: string,
-  tags?: string[],
+  title: string | null,
+  description: string | null,
+  previewImage: string | null,
+  coverImage: string | null,
+  tags: string[] | null,
+  prefix: string,
 }
 
 interface PageQuery {
@@ -171,6 +176,10 @@ interface PageQuery {
    * The file name of the page.
    */
   id: string,
+  /**
+   * Indicate whether to return the contents of the page
+   */
+  withContent?: boolean,
 }
 
 interface PageListQuery {
