@@ -1,6 +1,6 @@
 {
   "showFrontmatter": true,
-  "attachmentFolderPath": "./attachments",
+  "attachmentFolderPath": "../public/static",
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
   "alwaysUpdateLinks": true,
