@@ -1,38 +1,20 @@
-import { useState } from 'react';
 // import Prism from 'prismjs';
 import ReactMarkdown from 'react-markdown';
 
 import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
-// import ImageWithFadeIn from './ImageWithFadeIn';
-import Lightbox from './Lightbox';
 import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   content: string,
+  onImageClick?: (src: string, alt: string) => any,
 }
 
 /**
  * Container with styling for markdown content.
+ * @param props
  */
-export default function MarkdownRenderer({ content }: Props) {
-  const [lightboxImageLink, setLightboxImageLink] = useState<string>();
-  const [lightboxCaption, setLightboxCaption] = useState<string>();
-  
-  function handleImageClick(link: string, caption: string) {
-    setLightboxImageLink(link);
-    setLightboxCaption(caption);
-  }
-
-  function handleImageClose() {
-    setLightboxImageLink(undefined);
-    setLightboxCaption(undefined);
-  }
-
-  // useEffect(() => {
-  //   Prism.highlightAll();
-  // }, []);
-
+export default function MarkdownRenderer({ content, onImageClick }: Props) {
   const components = {
     p: 'span',
     a: ({ href, children }: any) => {
@@ -53,7 +35,7 @@ export default function MarkdownRenderer({ content }: Props) {
             layout="fill"
             objectFit="contain"
             objectPosition="50%"
-            onClick={() => handleImageClick(src!, alt!)}
+            onClick={onImageClick ? () => onImageClick(src!, alt!) : undefined}
             className={styles.image}
           />
         </div>
@@ -64,8 +46,6 @@ export default function MarkdownRenderer({ content }: Props) {
   return (
     <article className={styles.container}>
       <ReactMarkdown
-        // disallowedElements={['Paragraph']}
-        // unwrapDisallowed
         // @ts-ignore
         components={components}
         skipHtml
@@ -73,12 +53,6 @@ export default function MarkdownRenderer({ content }: Props) {
         {content}
       </ReactMarkdown>
       <div className={utils.spacer}></div>
-      <Lightbox
-        imageLink={lightboxImageLink}
-        visible={lightboxImageLink !== undefined}
-        caption={lightboxCaption}
-        onClose={handleImageClose}
-      />
     </article>
   ); 
 }

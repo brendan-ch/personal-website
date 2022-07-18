@@ -1,22 +1,11 @@
 import PageHeader from './PageHeader';
 import utils from '../styles/utils.module.css';
-import NotionRenderer from './NotionRenderer';
 import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
-
-// interface Props {
-//   title?: string,
-//   blocks?: any[],
-//   coverImageLink?: string,
-//   error?: string,
-//   header?: {
-//     aboveText: string,
-//     belowText: string,
-//     backButtonHref: string,
-//   }
-// }
+import { useState } from 'react';
+import Lightbox from './Lightbox';
 
 export default function DatabaseItemContent({
   title,
@@ -24,6 +13,19 @@ export default function DatabaseItemContent({
   prefix,
   coverImage,
 }: PageData) {
+  const [lightboxImageLink, setLightboxImageLink] = useState<string>();
+  const [lightboxCaption, setLightboxCaption] = useState<string>();
+
+  function handleImageClick(link: string, caption: string) {
+    setLightboxImageLink(link);
+    setLightboxCaption(caption);
+  }
+
+  function handleImageClose() {
+    setLightboxImageLink(undefined);
+    setLightboxCaption(undefined);
+  }
+
   return (
     <main>
       <div className={utils.spacer} />
@@ -49,11 +51,9 @@ export default function DatabaseItemContent({
       ) : undefined}
       {content ? (
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          {/* <NotionRenderer
-            blocks={blocks || []}
-          /> */}
           <MarkdownRenderer
             content={content}
+            onImageClick={handleImageClick}
           />
         </div>
       ) : undefined}
@@ -61,6 +61,12 @@ export default function DatabaseItemContent({
       <div className={utils.footerWrapper}>
         <Footer />
       </div>
+      <Lightbox
+        imageLink={lightboxImageLink}
+        visible={lightboxImageLink !== undefined}
+        caption={lightboxCaption}
+        onClose={handleImageClose}
+      />
     </main>
   );
 }
