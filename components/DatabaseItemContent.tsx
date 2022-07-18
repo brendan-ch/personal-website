@@ -24,59 +24,6 @@ export default function DatabaseItemContent({
   prefix,
   coverImage,
 }: PageData) {
-  // return error ? (
-  //   <main>
-  //     <div className={utils.spacer} />
-  //     <div className={utils.itemWrapper}>
-  //       {header ? (
-  //         <PageHeader
-  //           aboveText={header.aboveText}
-  //           belowText={header.belowText}
-  //           includeBackButton
-  //           backButtonHref={header.backButtonHref}
-  //         />
-  //       ) : undefined}
-  //     </div>
-  //     <div className={utils.itemWrapper}>
-  //       <p>
-  //         {error}
-  //       </p>
-  //     </div>
-  //   </main>
-  // ) : (
-  //   <main>
-  //     <div className={utils.spacer} />
-  //     <div className={utils.itemWrapper}>
-  //       {header ? (
-  //         <PageHeader
-  //           aboveText={header.aboveText}
-  //           belowText={header.belowText}
-  //           includeBackButton
-  //           backButtonHref={header.backButtonHref}
-  //         />
-  //       ) : undefined}
-  //     </div>
-  //     {coverImageLink ? (
-  //       <div className={utils.fullWidthImageWrapper}>
-  //         <ImageWithFadeIn
-  //           alt={`${title} preview image`}
-  //           src={coverImageLink}
-  //           layout="fill"
-  //           objectFit="cover"
-  //         />
-  //       </div>
-  //     ) : undefined}
-  //     <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-  //       <NotionRenderer
-  //         blocks={blocks || []}
-  //       />
-  //     </div>
-  //     <div className={utils.spacer} />
-  //     <div className={utils.footerWrapper}>
-  //       <Footer />
-  //     </div>
-  //   </main>
-  // );
   return (
     <main>
       <div className={utils.spacer} />
