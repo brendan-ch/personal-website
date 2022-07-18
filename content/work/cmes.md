@@ -11,7 +11,7 @@ tags:
 - App Development
 ---
 
-![](attachments/preview/cmes-preview.png)
+![](/static/work/preview/cmes-preview.png)
 
 A volunteer project I’m working on with [Techies Without Borders](http://techieswithoutborders.us).
 
