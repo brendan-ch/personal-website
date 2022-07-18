@@ -1,5 +1,4 @@
-import { getByRole, render, screen } from '@testing-library/react';
-import richTextRenderer from '../helpers/richTextRenderer';
+import { render, screen } from '@testing-library/react';
 import NotionRenderer from './NotionRenderer';
 import '@testing-library/jest-dom';
 import { NotionBlock } from '../types';
