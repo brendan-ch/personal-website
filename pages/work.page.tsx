@@ -1,42 +1,21 @@
 import { useState } from 'react';
 
 import utils from '../styles/utils.module.css';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
-import getDatabaseItems from '../helpers/getDatabaseItems';
-import updatePreviewImages from '../helpers/updatePreviewImages';
-import { DatabaseItem } from '../types';
+import { REVALIDATE } from '../helpers/Constants';
+import { PageData } from '../types';
 import Head from 'next/head';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
 import PageHeader from '../components/PageHeader';
 import Database from '../components/Database';
 import Footer from '../components/Footer';
+import getPages from '../helpers/getPages';
 
 
 export async function getStaticProps() {
-  let items = await getDatabaseItems(PROJECTS_DATABASE_ID, {
-    and: [
-      {
-        property: 'Published',
-        checkbox: {
-          equals: true,
-        },
-      },
-      {
-        property: 'Pretty Link',
-        rich_text: {
-          is_not_empty: true,
-        },
-      },
-    ],
-  }, [
-    {
-      timestamp: 'created_time',
-      direction: 'descending',
-    },
-  ]);
-
-  items = await updatePreviewImages(items);
+  const items = await getPages({
+    prefix: 'work',
+  });
 
   return {
     props: {
@@ -47,7 +26,7 @@ export async function getStaticProps() {
 }
 
 interface Props {
-  dbItems: DatabaseItem[],
+  dbItems: PageData[],
 }
 
 export default function Work({ dbItems }: Props) {
