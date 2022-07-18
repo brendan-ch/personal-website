@@ -1,7 +1,7 @@
 import MobileNavBar from '../components/MobileNavBar';
 import { BLOG_DATABASE_ID, PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseItem } from '../types';
+import { DatabaseItem, PageData } from '../types';
 import Database from '../components/Database';
 import getDatabaseBlocks from '../helpers/getDatabaseItems';
 import Head from 'next/head';
@@ -10,60 +10,19 @@ import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
+import getPages from '../helpers/getPages';
 
 /**
  * Generate Notion database content.
  */
 export async function getStaticProps() {
-  let items = await getDatabaseBlocks(PROJECTS_DATABASE_ID, {
-    and: [
-      {
-        property: 'Published',
-        checkbox: {
-          equals: true,
-        },
-      },
-      {
-        property: 'Tags',
-        multi_select: {
-          contains: 'Featured',
-        },
-      },
-      {
-        property: 'Pretty Link',
-        rich_text: {
-          is_not_empty: true,
-        },
-      },
-    ],
+  const items = await getPages({
+    prefix: 'work',
   });
 
-  items = await updatePreviewImages(items);
-
-  let blogItems = await getDatabaseBlocks(BLOG_DATABASE_ID, {
-    and: [
-      {
-        property: 'Published',
-        checkbox: {
-          equals: true,
-        },
-      },
-      {
-        property: 'Tags',
-        multi_select: {
-          contains: 'Featured',
-        },
-      },
-      {
-        property: 'Pretty Link',
-        rich_text: {
-          is_not_empty: true,
-        },
-      },
-    ],
+  const blogItems = await getPages({
+    prefix: 'blog',
   });
-
-  blogItems = await updatePreviewImages(blogItems);
   
   return {
     props: {
@@ -77,8 +36,8 @@ export async function getStaticProps() {
 
 interface Props {
   // lastRegenerated: number,
-  dbItems?: DatabaseItem[],
-  blogItems?: DatabaseItem[],
+  dbItems?: PageData[],
+  blogItems?: PageData[],
 }
 
 /**
