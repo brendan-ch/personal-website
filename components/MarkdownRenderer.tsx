@@ -40,6 +40,13 @@ export default function MarkdownRenderer({ content }: Props) {
         // unwrapDisallowed
         components={{
           p: 'span',
+          a: ({ href, children }) => {
+            return (
+              <u>
+                <a href={href}>{children}</a>
+              </u>
+            );
+          },
           img: ({ alt, src }) => {
             return (
               <div
