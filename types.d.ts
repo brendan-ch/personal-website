@@ -125,6 +125,11 @@ interface DatabaseDropdownFilter {
 type NavigationSelected = 'Projects' | 'About Me';
 
 /**
+ * Frontmatter properties that can be sorted.
+ */
+type SortProperty = 'title' | 'description' | 'previewImage' | 'coverImage';
+
+/**
  * Database item with updated preview image.
  */
 interface UpdatedDatabaseItem {
@@ -142,6 +147,73 @@ interface UpdatedBlockItem {
   blockId: string,
 }
 
+interface PageData {
+  contentHtml: string,
+  /**
+   * Title of the page, as provided by the "Title" field.
+   */
+  /**
+   * ID (file name) of the page. Also serves as the pretty link.
+   */
+  id: string,
+  title?: string,
+  previewImage?: string,
+  coverImage?: string,
+  tags?: string[],
+}
+
+interface PageQuery {
+  /**
+   * Prefix (folder name) of the page.
+   */
+  prefix: string,
+  /**
+   * The file name of the page.
+   */
+  id: string,
+}
+
+interface PageListQuery {
+  /**
+   * Prefix (folder name) of the page.
+   * If not provided, searches all folders.
+   */
+  prefix?: string,
+  /**
+   * Array of sort objects.
+   */
+  sort?: PageListSort[],
+  /**
+   * Filter object(s). If multiple provided, objects returned only need to
+   * meet one of the specified objects.
+   */
+  filter?: PageListFilter[],
+}
+
+enum SortOrder {
+  ASC,
+  DESC,
+}
+
+interface PageListSort {
+  property: string,
+  order: SortOrder,
+}
+
+interface PageListFilterString {
+  contains?: string,
+}
+
+interface PageListFilterTags {
+  contains?: string[],
+}
+
+interface PageListFilter {
+  title?: PageListFilterString,
+  description?: PageListFilterString,
+  tags?: PageListFilterTags,
+}
+
 export {
   NavigationSelected,
   DatabaseDropdownFilter,
@@ -153,4 +225,9 @@ export {
   NotionTextData,
   RichTextObject,
   SupportedBlockType,
+  PageQuery,
+  PageListQuery,
+  PageListSort,
+  PageListFilter,
+  PageData,
 };
