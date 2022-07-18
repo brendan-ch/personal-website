@@ -11,7 +11,7 @@ import getPage from '../../helpers/getPage';
 
 export const getStaticPaths = async () => {
   // Get pages
-  let items = await getPages({
+  const items = await getPages({
     prefix: 'doc',
     filter: [
       {
