@@ -6,7 +6,7 @@ import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
 // import ImageWithFadeIn from './ImageWithFadeIn';
 import Lightbox from './Lightbox';
-import Image from 'next/image';
+import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   content: string,
@@ -33,38 +33,41 @@ export default function MarkdownRenderer({ content }: Props) {
   //   Prism.highlightAll();
   // }, []);
 
+  const components = {
+    p: 'span',
+    a: ({ href, children }: any) => {
+      return (
+        <u>
+          <a href={href}>{children}</a>
+        </u>
+      );
+    },
+    img: ({ alt, src }: any) => {
+      return (
+        <div
+          className={styles.imageContainer}
+        >
+          <ImageWithFadeIn
+            alt={alt || ''}
+            src={src || ''}
+            layout="fill"
+            objectFit="contain"
+            objectPosition="50%"
+            onClick={() => handleImageClick(src!, alt!)}
+            className={styles.image}
+          />
+        </div>
+      );
+    }
+  }
+
   return (
     <article className={styles.container}>
       <ReactMarkdown
         // disallowedElements={['Paragraph']}
         // unwrapDisallowed
-        components={{
-          p: 'span',
-          a: ({ href, children }) => {
-            return (
-              <u>
-                <a href={href}>{children}</a>
-              </u>
-            );
-          },
-          img: ({ alt, src }) => {
-            return (
-              <div
-                className={styles.imageContainer}
-              >
-                <Image
-                  alt={alt || ''}
-                  src={src || ''}
-                  layout="fill"
-                  objectFit="contain"
-                  objectPosition="50%"
-                  onClick={() => handleImageClick(src!, alt!)}
-                  className={styles.image}
-                />
-              </div>
-            );
-          }
-        }}
+        // @ts-ignore
+        components={components}
       >
         {content}
       </ReactMarkdown>
