@@ -1,11 +1,7 @@
 import utils from '../../styles/utils.module.css';
-import { PROJECTS_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
-import getChildrenBlocks from '../../helpers/getChildrenBlocks';
-import getDatabaseBlocks from '../../helpers/getDatabaseItems';
-import getPageProperties from '../../helpers/getPageProperties';
-import { DatabaseItem, PageData } from '../../types';
+import { REVALIDATE } from '../../helpers/Constants';
+import { PageData } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
-import updateImageBlocks from '../../helpers/updateImageBlocks';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
@@ -92,6 +88,7 @@ export default function WorkPage({
         id={id}
         prefix={prefix}
         tags={tags}
+        backButtonText="Work"
       />
     </div>
   );

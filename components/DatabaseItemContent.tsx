@@ -7,12 +7,19 @@ import MarkdownRenderer from './MarkdownRenderer';
 import { useState } from 'react';
 import Lightbox from './Lightbox';
 
+interface Props extends PageData {
+  backButtonText?: string,
+  backButtonHref?: string,
+}
+
 export default function DatabaseItemContent({
   title,
   content,
   prefix,
   coverImage,
-}: PageData) {
+  backButtonText,
+  backButtonHref,
+}: Props) {
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
 
@@ -32,10 +39,10 @@ export default function DatabaseItemContent({
       <div className={utils.itemWrapper}>
         {title ? (
           <PageHeader
-            aboveText="Back"
+            aboveText={backButtonText || 'Back'}
             belowText={title}
             includeBackButton
-            backButtonHref={`/${prefix}`}
+            backButtonHref={backButtonHref || `/${prefix}`}
           />
         ) : undefined}
       </div>

@@ -88,6 +88,8 @@ export const getStaticProps = async ({ params }: { params: any }) => {
         id={id}
         prefix={prefix}
         tags={tags}
+        backButtonHref="/"
+        backButtonText="Home"
       />
     </div>
   );
