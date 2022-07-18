@@ -3,7 +3,7 @@ title: "coffeetype"
 description: "A minimalist typing test built using Java Swing."
 # The name of the file is used to generate the pretty link
 
-# Relative paths within "attachments" folder
+# Relative path inside "public" folder
 previewImage: ""
 coverImage: ""
 
