@@ -11,22 +11,30 @@ tags:
 - App Development
 ---
 
-![Screenshot of the app.](https://bchen-personal-website.s3.us-west-1.amazonaws.com/blocks/30ff8589-21ae-4f3a-a7eb-ba8b7ec4011a/image.png)
+![Screenshot of the app.](/static/work/clockwise/clockwise-0.png)
 
 A Pomodoro timer designed to help you focus.
 
 **Try it out**:
+
 [Web →](https://clockwise.sh)
+
 [App Store →](https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428)
+
 [Google Play →](https://play.google.com/store/apps/details?id=co.birb.session)
 
+---
+
 **Additional links**:
+
 [GitHub →](https://github.com/brendan-ch/clockwise)
+
 [What’s New →](http://bchen.dev/doc/clockwise-whats-new)
 
 ---
 
 **Designed using**: Figma
+
 **Coding stack**: TypeScript, React Native, Expo
 
 # Design Philosophy
