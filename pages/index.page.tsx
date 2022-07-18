@@ -20,15 +20,15 @@ export async function getStaticProps() {
     prefix: 'work',
   });
 
-  const blogItems = await getPages({
-    prefix: 'blog',
-  });
+  // const blogItems = await getPages({
+  //   prefix: 'blog',
+  // });
   
   return {
     props: {
       lastRegenerated: Date.now(),
       dbItems: items,
-      blogItems: blogItems,
+      blogItems: [],
     },
     revalidate: REVALIDATE,
   }
