@@ -1,12 +1,12 @@
-import Prism from 'prismjs';
-import { Fragment, useEffect, useState } from 'react';
+import { useState } from 'react';
+// import Prism from 'prismjs';
 import ReactMarkdown from 'react-markdown';
-import dynamic from 'next/dynamic';
 
 import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
-import ImageWithFadeIn from './ImageWithFadeIn';
+// import ImageWithFadeIn from './ImageWithFadeIn';
 import Lightbox from './Lightbox';
+import Image from 'next/image';
 
 interface Props {
   content: string,
@@ -45,7 +45,7 @@ export default function MarkdownRenderer({ content }: Props) {
               <div
                 className={styles.imageContainer}
               >
-                <ImageWithFadeIn
+                <Image
                   alt={alt || ''}
                   src={src || ''}
                   layout="fill"
