@@ -68,6 +68,7 @@ export default function MarkdownRenderer({ content }: Props) {
         // unwrapDisallowed
         // @ts-ignore
         components={components}
+        skipHtml
       >
         {content}
       </ReactMarkdown>
