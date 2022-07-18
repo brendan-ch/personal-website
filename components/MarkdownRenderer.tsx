@@ -1,4 +1,5 @@
-// import Prism from 'prismjs';
+import Prism from 'prismjs';
+import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import styles from '../styles/MarkdownRenderer.module.css';
@@ -42,6 +43,10 @@ export default function MarkdownRenderer({ content, onImageClick }: Props) {
       );
     }
   }
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   return (
     <article className={styles.container}>

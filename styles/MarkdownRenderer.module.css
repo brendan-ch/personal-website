@@ -14,7 +14,7 @@
 .imageContainer {
   width: 100%;
   min-height: 200px;
-  max-height: 600px;
+  max-height: 400px;
   height: calc(100vw / 2);
   position: relative;
   margin-top: 5px;
@@ -75,6 +75,10 @@
 
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.container > pre > code span {
+  font-size: 16px;
 }
 
 .container ul {
