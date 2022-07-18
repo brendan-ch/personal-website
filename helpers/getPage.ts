@@ -1,8 +1,6 @@
 import { readFile } from 'fs/promises';
 import matter from 'gray-matter';
 import path from 'path';
-import { remark } from 'remark';
-import html from 'remark-html';
 import { PageData, PageQuery } from '../types';
 import { CONTENT_DIRECTORY } from './Constants';
 
