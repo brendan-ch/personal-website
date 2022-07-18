@@ -3,7 +3,7 @@ title: "Pattern Designs"
 description: "A collection of pattern designs inspired by everyday objects."
 
 # Relative paths within "attachments" folder
-# previewImage: ""
+previewImage: "/static/work/preview/patterns-preview.png"
 # coverImage: ""
 
 tags:
@@ -22,34 +22,34 @@ All patterns were made in Figma. 02 - “Grid” also contains a brush layer mad
 
 <a id="1"></a>
 # 01 - “Timeline”
-![](attachments/patterns/pattern-1.png)
+![](/static/work/patterns/pattern-1.png)
 
 
 <a id="2"></a>
 # 02 - “Grid”
-![](attachments/patterns/pattern-2.png)
+![](/static/work/patterns/pattern-2.png)
 
 
 <a id="3"></a>
 # 03 - “Blueprint”
-![](attachments/patterns/pattern-3.png)
+![](/static/work/patterns/pattern-3.png)
 
 <a id="04"></a>
 # 04 - “Maze”
 
 Side note: you can [download a fully solvable version](https://bchen-personal-website.s3.us-west-1.amazonaws.com/maze-solvable.png) of this pattern.
-![](attachments/patterns/pattern-4.png)
+![](/static/work/patterns/pattern-4.png)
 
 
 <a id="05"></a>
 # 05 - “Sunset”
-![](attachments/patterns/pattern-5.png)
+![](/static/work/patterns/pattern-5.png)
 
 
 
 <a id="06"></a>
 # 06 - Waves
 
-![](attachments/patterns/pattern-6-light.png)
+![](/static/work/patterns/pattern-6-light.png)
 
-![](attachments/patterns/pattern-6-dark.png)
+![](/static/work/patterns/pattern-6-dark.png)
