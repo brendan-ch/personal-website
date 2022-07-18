@@ -1,33 +1,38 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import About from './about.page';
 import '@testing-library/jest-dom';
 
-const mockBlocks = [
-  {
-    "type": "paragraph",
-    //...other keys excluded
-    "paragraph": {
-      "rich_text": [{
-        "type": "text",
-        "text": {
-          "content": "Lacinato kale",
-          "link": null
-        },
-        "plain_text": "Lacinato kale",
-      }],
-      "color": "default",
-    }
-  },
-];
+/* eslint-disable-next-line */
+jest.mock('react-markdown', () => ({ children }: any) => (
+  <div>
+    {children}
+  </div>
+));
 
-describe('getStaticProps', () => {
-  
-});
+
+const mockContent = `
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+Paragraph
+`
 
 describe('About', () => {
 
   it('Renders the page', () => {
-    const { container } = render(<About blocks={mockBlocks} />);
+    const { container } = render(<About
+      content={mockContent}
+      id="about"
+      title="About Me"
+      description="About me"
+      previewImage={null}  
+      coverImage={null}
+      tags={null}
+      prefix=""
+    />);
     expect(container).toBeInTheDocument();
   });
 });

@@ -1,9 +1,9 @@
-import { DatabaseItem } from '../types';
+import { PageData } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 
 interface Props {
-  items: DatabaseItem[],
+  items: PageData[],
   prefix: 'blog' | 'work' | 'doc',
 }
 
@@ -20,18 +20,11 @@ export default function Database({
     <div className={styles.container}>
       {/* Content */}
       {items.map((item) => (
-        // <ListItem
-        //   key={item.id}
-        //   title={item.title}
-        //   description={item.description}
-        //   imageLink={item.imageLink}
-        //   link={`/project/${item.id}`}
-        // />
         <GalleryItem
           key={item.id}
-          title={item.title}
-          imageLink={item.imageLink}
-          link={`/${prefix}/${item.prettyLink}`}
+          title={item.title || ''}
+          imageLink={item.previewImage || ''}
+          link={`/${prefix}/${item.id}`}
         />
       ))}
     </div>

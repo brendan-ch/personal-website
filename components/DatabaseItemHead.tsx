@@ -1,9 +1,9 @@
 import Head from "next/head";
 
 interface Props {
-  title?: string,
-  description?: string,
-  previewImageLink?: string,
+  title: string | null,
+  description: string | null,
+  previewImageLink: string | null,
   noRobots?: boolean,
 }
 

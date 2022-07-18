@@ -1,3 +1,10 @@
+import path from 'path';
+
+/**
+ * Full path of the content directory.
+ */
+export const CONTENT_DIRECTORY = path.join(process.cwd(), 'content');
+
 /**
  * AWS region.
  */

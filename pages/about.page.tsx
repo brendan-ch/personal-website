@@ -6,38 +6,27 @@ import getChildrenBlocks from '../helpers/getChildrenBlocks';
 import Head from 'next/head';
 // import uploadImageBlocks from '../helpers/aws/uploadImageBlocks';
 // import writeImageBlocks from '../helpers/writeImageBlocks';
-import updateImageBlocks from '../helpers/updateImageBlocks';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
+import getPage from '../helpers/getPage';
+import MarkdownRenderer from '../components/MarkdownRenderer';
+import { PageData } from '../types';
 
 export async function getStaticProps() {
-  // This is server side code
-  let blocks = await getChildrenBlocks(ABOUT_PAGE_ID);
-  if (!blocks) {
-    return {
-      props: {
-        blocks: [],
-      },
-      revalidate: REVALIDATE,
-    }
-  }
-
-  // Upload images to AWS
-  blocks = await updateImageBlocks(blocks);
+  const pageData = await getPage({
+    id: 'about',
+    withContent: true,
+  });
 
   // Return block objects
   return {
     props: {
-      blocks,
+      ...pageData,
     },
     revalidate: REVALIDATE,
   }
-}
-
-interface Props {
-  blocks: any[],
 }
 
 /**
@@ -45,7 +34,7 @@ interface Props {
  * @param param0
  * @returns
  */
-export default function AboutPage({ blocks }: Props) {
+export default function AboutPage({ content }: PageData) {
   const selected = "About Me";
 
   const [menuVisible, setMenuVisible] = useState(false);
@@ -74,8 +63,8 @@ export default function AboutPage({ blocks }: Props) {
           />
         </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <NotionRenderer
-            blocks={blocks}
+          <MarkdownRenderer
+            content={content!}
           />
         </div>
         <div className={utils.spacer} />

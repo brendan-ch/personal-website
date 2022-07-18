@@ -1,73 +1,79 @@
 import PageHeader from './PageHeader';
 import utils from '../styles/utils.module.css';
-import NotionRenderer from './NotionRenderer';
 import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
+import { PageData } from '../types';
+import MarkdownRenderer from './MarkdownRenderer';
+import { useState } from 'react';
+import Lightbox from './Lightbox';
 
-interface Props {
-  title?: string,
-  blocks?: any[],
-  coverImageLink?: string,
-  error?: string,
-  header?: {
-    aboveText: string,
-    belowText: string,
-    backButtonHref: string,
-  }
+interface Props extends PageData {
+  backButtonText?: string,
+  backButtonHref?: string,
 }
 
-export default function DatabaseItemContent({ title, blocks, coverImageLink, error, header }: Props) {
-  return error ? (
+export default function DatabaseItemContent({
+  title,
+  content,
+  prefix,
+  coverImage,
+  backButtonText,
+  backButtonHref,
+}: Props) {
+  const [lightboxImageLink, setLightboxImageLink] = useState<string>();
+  const [lightboxCaption, setLightboxCaption] = useState<string>();
+
+  function handleImageClick(link: string, caption: string) {
+    setLightboxImageLink(link);
+    setLightboxCaption(caption);
+  }
+
+  function handleImageClose() {
+    setLightboxImageLink(undefined);
+    setLightboxCaption(undefined);
+  }
+
+  return (
     <main>
       <div className={utils.spacer} />
       <div className={utils.itemWrapper}>
-        {header ? (
+        {title ? (
           <PageHeader
-            aboveText={header.aboveText}
-            belowText={header.belowText}
+            aboveText={backButtonText || 'Back'}
+            belowText={title}
             includeBackButton
-            backButtonHref={header.backButtonHref}
+            backButtonHref={backButtonHref || `/${prefix}`}
           />
         ) : undefined}
       </div>
-      <div className={utils.itemWrapper}>
-        <p>
-          {error}
-        </p>
-      </div>
-    </main>
-  ) : (
-    <main>
-      <div className={utils.spacer} />
-      <div className={utils.itemWrapper}>
-        {header ? (
-          <PageHeader
-            aboveText={header.aboveText}
-            belowText={header.belowText}
-            includeBackButton
-            backButtonHref={header.backButtonHref}
-          />
-        ) : undefined}
-      </div>
-      {coverImageLink ? (
+      {coverImage ? (
         <div className={utils.fullWidthImageWrapper}>
           <ImageWithFadeIn
             alt={`${title} preview image`}
-            src={coverImageLink}
+            src={coverImage}
             layout="fill"
             objectFit="cover"
           />
         </div>
       ) : undefined}
-      <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-        <NotionRenderer
-          blocks={blocks || []}
-        />
-      </div>
+      {content ? (
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+          <MarkdownRenderer
+            content={content}
+            onImageClick={handleImageClick}
+          />
+        </div>
+      ) : undefined}
       <div className={utils.spacer} />
       <div className={utils.footerWrapper}>
         <Footer />
       </div>
+      <Lightbox
+        imageLink={lightboxImageLink}
+        visible={lightboxImageLink !== undefined}
+        caption={lightboxCaption}
+        onClose={handleImageClose}
+      />
     </main>
   );
 }

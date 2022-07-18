@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# obsidian vault data
+content/.obsidian/appearance.json
+content/.obsidian/workspace
+content/.obsidian/hotkeys.json
+content/.obsidian/themes
