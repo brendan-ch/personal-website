@@ -29,10 +29,6 @@ export async function getStaticProps() {
   }
 }
 
-interface Props {
-  blocks: any[],
-}
-
 /**
  * Page that renders info from the About page.
  * @param param0
