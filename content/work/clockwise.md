@@ -3,7 +3,7 @@ title: "Clockwise"
 description: "A Pomodoro timer designed to help you focus."
 
 # Relative paths within "attachments" folder
-previewImage: "preview/clockwise-preview.png"
+previewImage: "/static/work/preview/clockwise-preview.png"
 
 tags:
 - Featured

@@ -3,8 +3,8 @@ title: "Pattern Designs"
 description: "A collection of pattern designs inspired by everyday objects."
 
 # Relative paths within "attachments" folder
-previewImage: ""
-coverImage: ""
+# previewImage: ""
+# coverImage: ""
 
 tags:
 - Featured
