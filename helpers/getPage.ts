@@ -11,7 +11,7 @@ import { CONTENT_DIRECTORY } from './Constants';
  * @param query
  */
 export default async function getPage(query: PageQuery): Promise<PageData> {
-  const fileDirectory = path.join(CONTENT_DIRECTORY, query.prefix, `${query.id}.md`);
+  const fileDirectory = query.prefix ? path.join(CONTENT_DIRECTORY, query.prefix, `${query.id}.md`) : path.join(CONTENT_DIRECTORY, `${query.id}.md`);
   const fileContents = await readFile(fileDirectory);
 
   // Parse metadata
@@ -24,7 +24,7 @@ export default async function getPage(query: PageQuery): Promise<PageData> {
 
   return {
     id: query.id,
-    prefix: query.prefix,
+    prefix: query.prefix || null,
     content,
     ...matterResult.data,
   }
