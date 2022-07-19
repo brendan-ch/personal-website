@@ -31,19 +31,25 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: { params: any }) => {
-  const { prettyLink } = params;
-  const pageData = await getPage({
-    prefix: 'blog',
-    id: prettyLink,
-    withContent: true,
-  });
+  try {
+    const { prettyLink } = params;
+    const pageData = await getPage({
+      prefix: 'blog',
+      id: prettyLink,
+      withContent: true,
+    });
 
-  return {
-    props: {
-      ...pageData,
-    },
-    revalidate: REVALIDATE,
-  };
+    return {
+      props: {
+        ...pageData,
+      },
+      revalidate: REVALIDATE,
+    };
+  } catch(e) {
+    return {
+      notFound: true,
+    }
+  }
 };
 
 /**
