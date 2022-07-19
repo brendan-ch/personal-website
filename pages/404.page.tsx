@@ -8,6 +8,7 @@ import utils from '../styles/utils.module.css';
 
 import Image404 from '../public/static/404.jpg';
 import PageHeader from '../components/PageHeader';
+import Footer from '../components/Footer';
 
 /**
  * Custom 404 page.
@@ -38,10 +39,8 @@ export default function Custom404() {
             // backButtonHref="/"
           />
         </div>
-        <div className={utils.itemWrapper}>
+        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <p>We couldn’t find the page you were looking for.</p>
-        </div>
-        <div className={utils.itemWrapper}>
           <Link href="/">
             <a>
               <p>
@@ -51,11 +50,12 @@ export default function Custom404() {
               </p>
             </a>
           </Link>
-        </div>
-        <div className={utils.itemWrapper}>
           <ImageWithFadeIn
             src={Image404}
           />
+        </div>
+        <div className={utils.footerWrapper}>
+          <Footer />
         </div>
       </main>
     </div>
