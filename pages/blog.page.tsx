@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
 import utils from '../styles/utils.module.css';
-import { BLOG_DATABASE_ID, PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
-import getDatabaseItems from '../helpers/getDatabaseItems';
-import updatePreviewImages from '../helpers/updatePreviewImages';
-import { DatabaseItem, PageData } from '../types';
+import { PAGINATION_LIMIT, REVALIDATE } from '../helpers/Constants';
+import { PageData, PageListResponse } from '../types';
 import Head from 'next/head';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
@@ -15,23 +13,24 @@ import getPages from '../helpers/getPages';
 
 
 export async function getStaticProps() {
-  const items = await getPages({
+  const response = await getPages({
     prefix: 'blog',
+    pageSize: PAGINATION_LIMIT,
   });
 
   return {
     props: {
-      dbItems: items,
+      listResponse: response,
     },
     revalidate: REVALIDATE,
-  }
+  };
 }
 
 interface Props {
-  dbItems: PageData[],
+  listResponse: PageListResponse,
 }
 
-export default function Blog({ dbItems }: Props) {
+export default function Blog({ listResponse }: Props) {
   const selected = 'Blog';
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -61,7 +60,7 @@ export default function Blog({ dbItems }: Props) {
         </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <Database
-            items={dbItems}
+            pageResponse={listResponse}
             prefix="blog"
           />
         </div>
