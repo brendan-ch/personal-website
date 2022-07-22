@@ -3,7 +3,8 @@ import path from 'path';
 export const GROUP_PAGE_SIZE = 8;
 
 /**
- * Maximum number of items that can be returned from a `getPages` call.
+ * Maximum number of items that can be returned from a `getPages` call
+ * (using the public API)
  */
 export const PAGINATION_LIMIT = 8;
 
