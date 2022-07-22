@@ -198,9 +198,9 @@ interface PageListQuery {
    */
   filter?: PageListFilter[],
   /**
-   * Cursor returned from a previous response, used to request the next page of results.
+   * Index returned from a previous response, used to request the next set of results.
    */
-  startCursor?: string,
+  startIndex?: number,
   /**
    * The desired number of items to return. Maximum is `100`; in some cases, function may return
    * fewer than this number.
@@ -230,6 +230,11 @@ interface PageListFilter {
   title?: PageListFilterString,
   description?: PageListFilterString,
   tags?: PageListFilterTags,
+}
+
+interface PageListResponse {
+  pageData: PageData[],
+  nextIndex?: number,
 }
 
 interface Response {
