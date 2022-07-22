@@ -3,18 +3,23 @@ import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import PageButton from './PageButton';
 
 interface GroupProps {
   startIndex: number,
   prefix: string,
+  onLoadStart?: () => any,
+  onLoadComplete?: () => any,
 }
 
 const GROUP_PAGE_SIZE = 2;
 
-function Group({
+export function Group({
   startIndex,
   prefix,
+  onLoadComplete,
+  onLoadStart,
 }: GroupProps) {
   const fetcher = async (url: string, config: any) => {
     return await axios.post(url, config);
@@ -26,6 +31,16 @@ function Group({
     startIndex,
     pageSize: GROUP_PAGE_SIZE,
   }], fetcher);
+
+  useEffect(() => {
+    if (!data && !error && onLoadStart) {
+      onLoadStart();
+    }
+
+    if ((data || error) && onLoadComplete) {
+      onLoadComplete();
+    }
+  }, [data, error, onLoadStart, onLoadComplete]);
 
   const pageResponse: PageListResponse = data?.data.data;
 
@@ -68,6 +83,7 @@ export default function Database({
   pageResponse,
   prefix,
 }: Props) {
+  const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
 
   const groups = [];
@@ -77,6 +93,8 @@ export default function Database({
         key={i}
         startIndex={pageResponse.nextIndex + (GROUP_PAGE_SIZE * (count - 1))}
         prefix={prefix}
+        onLoadStart={() => setLoading(true)}
+        onLoadComplete={() => setLoading(false)}
       />);
     }
   }
@@ -103,11 +121,11 @@ export default function Database({
       ))}
       {groups}
       {/* Add load button here */}
-      <button onClick={handleSetCount}>
-        <p>
-          Load More
-        </p>
-      </button>
+      <PageButton
+        onClick={handleSetCount}
+        text={loading ? "Loading..." : "Load More"}
+        disabled={loading}
+      />
     </div>
   );
 }
