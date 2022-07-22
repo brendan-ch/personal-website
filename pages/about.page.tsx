@@ -1,11 +1,7 @@
 import MobileNavBar from '../components/MobileNavBar';
 import utils from '../styles/utils.module.css';
-import { ABOUT_PAGE_ID, REVALIDATE } from '../helpers/Constants';
-import NotionRenderer from '../components/NotionRenderer';
-import getChildrenBlocks from '../helpers/getChildrenBlocks';
+import { REVALIDATE } from '../helpers/Constants';
 import Head from 'next/head';
-// import uploadImageBlocks from '../helpers/aws/uploadImageBlocks';
-// import writeImageBlocks from '../helpers/writeImageBlocks';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
