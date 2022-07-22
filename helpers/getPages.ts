@@ -52,6 +52,6 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
 
   return {
     pageData: pages,
-    nextIndex,
+    nextIndex: nextIndex || null,
   };
 }
