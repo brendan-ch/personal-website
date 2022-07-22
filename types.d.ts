@@ -234,7 +234,7 @@ interface PageListFilter {
 
 interface PageListResponse {
   pageData: PageData[],
-  nextIndex?: number,
+  nextIndex: number | null,
 }
 
 interface Response {
