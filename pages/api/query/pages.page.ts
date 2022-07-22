@@ -16,7 +16,6 @@ export default async function handler(
     const query: PageListQuery = req.body;
     delete query.filter;
     delete query.sort;
-    console.log(query);
 
     // Validate
     if (
