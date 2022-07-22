@@ -1,5 +1,4 @@
-import { readdir, readFile } from 'fs/promises';
-import matter from 'gray-matter';
+import { readdir } from 'fs/promises';
 import path from 'path';
 import { PageData, PageListQuery, PageListResponse, SortOrder } from '../types';
 import { CONTENT_DIRECTORY, PAGINATION_LIMIT } from './Constants';
@@ -37,10 +36,6 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
   if (query.pageSize && start + query.pageSize < files.length) {
     // Set next index value
     nextIndex = start + query.pageSize;
-  // If no page size provided
-  } else if (start + PAGINATION_LIMIT < files.length) {
-    // Set to default
-    nextIndex = start + PAGINATION_LIMIT;
   }
 
   files = files.slice(start, nextIndex);
