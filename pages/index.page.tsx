@@ -1,11 +1,9 @@
 import MobileNavBar from '../components/MobileNavBar';
-import { BLOG_DATABASE_ID, PROJECTS_DATABASE_ID, REVALIDATE } from '../helpers/Constants';
+import { REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { DatabaseItem, PageData } from '../types';
+import { PageListResponse } from '../types';
 import Database from '../components/Database';
-import getDatabaseBlocks from '../helpers/getDatabaseItems';
 import Head from 'next/head';
-import updatePreviewImages from '../helpers/updatePreviewImages';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
@@ -13,22 +11,18 @@ import { useState } from 'react';
 import getPages from '../helpers/getPages';
 
 /**
- * Generate Notion database content.
+ * Generate file content.
  */
 export async function getStaticProps() {
-  const items = await getPages({
+  const response = await getPages({
     prefix: 'work',
   });
 
-  // const blogItems = await getPages({
-  //   prefix: 'blog',
-  // });
-  
   return {
     props: {
       lastRegenerated: Date.now(),
-      dbItems: items,
-      blogItems: [],
+      workPageListResponse: response,
+      blogPageListResponse: null,
     },
     revalidate: REVALIDATE,
   }
@@ -36,15 +30,15 @@ export async function getStaticProps() {
 
 interface Props {
   // lastRegenerated: number,
-  dbItems?: PageData[],
-  blogItems?: PageData[],
+  workPageListResponse?: PageListResponse,
+  blogPageListResponse?: PageListResponse,
 }
 
 /**
  * Home page.
  * @returns
  */
-const Home = ({ dbItems, blogItems }: Props) => {
+const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
   const selected = "Featured";
 
   /**
@@ -75,20 +69,20 @@ const Home = ({ dbItems, blogItems }: Props) => {
             belowText="I’m Brendan, a developer and designer living in Orange, CA."
           />
         </div>
-        {dbItems && dbItems.length > 0 ? (
+        {workPageListResponse && workPageListResponse.pageData.length > 0 ? (
           <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
             <h2>Featured Work</h2>
             <Database
-              items={dbItems}
+              pageResponse={workPageListResponse}
               prefix="work"
             />
           </div>
         ) : undefined}
-        {blogItems && blogItems.length > 0 ? (
+        {blogPageListResponse && blogPageListResponse.pageData.length > 0 ? (
           <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
             <h2>Featured Articles</h2>
             <Database
-              items={blogItems}
+              pageResponse={blogPageListResponse}
               prefix="blog"
             />
           </div>

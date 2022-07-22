@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import utils from '../styles/utils.module.css';
-import { REVALIDATE } from '../helpers/Constants';
-import { PageData } from '../types';
+import { PAGINATION_LIMIT, REVALIDATE } from '../helpers/Constants';
+import { PageListResponse } from '../types';
 import Head from 'next/head';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
@@ -13,23 +13,24 @@ import getPages from '../helpers/getPages';
 
 
 export async function getStaticProps() {
-  const items = await getPages({
+  const response = await getPages({
     prefix: 'work',
+    pageSize: PAGINATION_LIMIT,
   });
 
   return {
     props: {
-      dbItems: items,
+      listResponse: response,
     },
     revalidate: REVALIDATE,
-  }
+  };
 }
 
 interface Props {
-  dbItems: PageData[],
+  listResponse: PageListResponse,
 }
 
-export default function Work({ dbItems }: Props) {
+export default function Work({ listResponse }: Props) {
   const selected = 'Work';
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -58,7 +59,7 @@ export default function Work({ dbItems }: Props) {
         </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <Database
-            items={dbItems}
+            pageResponse={listResponse}
             prefix="work"
           />
         </div>

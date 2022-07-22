@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { PAGINATION_LIMIT } from '../../../helpers/Constants';
 import getPages from '../../../helpers/getPages';
 import { PageListQuery, Response } from '../../../types';
 
@@ -30,7 +31,11 @@ export default async function handler(
       return res.status(400).json(error400);
     }
     
-    const pages = await getPages(query);
+    // Restrict pagination size for API users
+    const pages = await getPages({
+      ...query,
+      pageSize: query.pageSize ? Math.min(PAGINATION_LIMIT, query.pageSize) : undefined,
+    });
 
     const response: Response = {
       successful: true,

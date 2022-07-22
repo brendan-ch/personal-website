@@ -1,8 +1,7 @@
-import { readdir, readFile } from 'fs/promises';
-import matter from 'gray-matter';
+import { readdir } from 'fs/promises';
 import path from 'path';
-import { PageData, PageListQuery, SortOrder } from '../types';
-import { CONTENT_DIRECTORY } from './Constants';
+import { PageData, PageListQuery, PageListResponse, SortOrder } from '../types';
+import { CONTENT_DIRECTORY, PAGINATION_LIMIT } from './Constants';
 import getPage from './getPage';
 
 
@@ -12,51 +11,44 @@ import getPage from './getPage';
  * 
  * @todo implement filters
  */
-export default async function getPages(query: PageListQuery) {
+export default async function getPages(query: PageListQuery): Promise<PageListResponse> {
   const directories = ['blog', 'doc', 'work'];
+  if (!directories.includes(query.prefix)) {
+    const err = new Error(`Supplied prefix does not exist. Supported prefixes are ${directories}.`);
+    throw err;
+  }
   
   let pages: PageData[] = [];
-  if (query.prefix) {
-    let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
-    files = files.filter((value) => value.endsWith('.md'));
-    
-    // To-do: limit number of pages returned here
+  let nextIndex;
+  let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
+  // First filter to markdown files only
+  files = files.filter((value) => value.endsWith('.md'));
+  const totalCount = files.length;
 
-    pages = await Promise.all(files.map(async (filename) => await getPage({
-      id: filename.substring(0, filename.indexOf('.md')),
-      prefix: query.prefix!,
-    })));
-
-    // if (query.sort) {
-    //   query.sort.forEach((sort) => {
-    //     pages.sort((a, b) => {
-    //       if (sort.order === SortOrder.ASC) {
-    //         // @ts-ignore
-    //         return (a[sort.property] as string).localeCompare(b[sort.property] as string);
-    //       } else {
-    //         // @ts-ignore
-    //         return (b[sort.property] as string).localeCompare(a[sort.property] as string);
-    //       }
-    //     })
-    //   });
-    // }
-
-  } else {
-    // Loop through directories
-    await Promise.all(directories.map(async (directory) => {
-      let files = await readdir(path.join(CONTENT_DIRECTORY, directory));
-      files = files.filter((value) => value.endsWith('.md'));
-
-      const tempPages = await Promise.all(files.map(async (id) => getPage({
-        id,
-        prefix: directory,
-      })));
-
-      tempPages.forEach((page) => {
-        pages.push(page);
-      });
-    }));
+  // Then limit files returned
+  let start = 0;
+  if (query.startIndex) {
+    start = query.startIndex;
   }
 
-  return pages;
+  // If query has both start index and page size
+  // and start index + page size is less than the file length
+  if (query.pageSize && start + query.pageSize < files.length) {
+    // Set next index value
+    nextIndex = start + query.pageSize;
+  }
+
+  files = files.slice(start, nextIndex);
+
+  // Get page data
+  pages = await Promise.all(files.map(async (filename) => await getPage({
+    id: filename.substring(0, filename.indexOf('.md')),
+    prefix: query.prefix!,
+  })));
+
+  return {
+    pageData: pages,
+    nextIndex: nextIndex || null,
+    totalCount,
+  };
 }

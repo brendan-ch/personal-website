@@ -187,7 +187,7 @@ interface PageListQuery {
    * Prefix (folder name) of the page.
    * If not provided, searches all folders.
    */
-  prefix?: string,
+  prefix: string,
   /**
    * Array of sort objects.
    */
@@ -198,12 +198,11 @@ interface PageListQuery {
    */
   filter?: PageListFilter[],
   /**
-   * Cursor returned from a previous response, used to request the next page of results.
+   * Index returned from a previous response, used to request the next set of results.
    */
-  startCursor?: string,
+  startIndex?: number,
   /**
-   * The desired number of items to return. Maximum is `100`; in some cases, function may return
-   * fewer than this number.
+   * The desired number of items to return. If not passed, will return all items.
    */
   pageSize?: number,
 }
@@ -232,6 +231,12 @@ interface PageListFilter {
   tags?: PageListFilterTags,
 }
 
+interface PageListResponse {
+  pageData: PageData[],
+  nextIndex: number | null,
+  totalCount: number,
+}
+
 interface Response {
   successful: boolean,
   error?: string,
@@ -240,19 +245,11 @@ interface Response {
 
 export {
   NavigationSelected,
-  DatabaseDropdownFilter,
-  DatabaseItem,
-  UpdatedDatabaseItem,
-  UpdatedBlockItem,
-  NotionBlock,
-  NotionBlockData,
-  NotionTextData,
-  RichTextObject,
-  SupportedBlockType,
   PageQuery,
   PageListQuery,
   PageListSort,
   PageListFilter,
+  PageListResponse,
   PageData,
   Response,
   SortOrder,
