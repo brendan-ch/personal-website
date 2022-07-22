@@ -85,6 +85,7 @@ export default function Database({
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
 
+  // Add groups
   const groups = [];
   if (pageResponse.nextIndex) {
     for (let i = 0; i < count; i++) {
@@ -98,6 +99,7 @@ export default function Database({
     }
   }
 
+  // Calculate whether maximum reached
   const maxReached = (
     pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
   ) || !pageResponse.nextIndex;
