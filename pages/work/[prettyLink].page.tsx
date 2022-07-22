@@ -11,7 +11,7 @@ import getPage from '../../helpers/getPage';
 
 export const getStaticPaths = async () => {
   // Get pages
-  let items = await getPages({
+  let pageResponse = await getPages({
     prefix: 'work',
     filter: [
       {
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
   });
 
   return {
-    paths: items.map((value) => ({
+    paths: pageResponse.pageData.map((value) => ({
       params: {
         prettyLink: value.id,
       }

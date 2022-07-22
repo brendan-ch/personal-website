@@ -1,27 +1,22 @@
 import utils from '../../styles/utils.module.css';
-import { ADDITIONAL_DOCS_DATABASE_ID, BLOG_DATABASE_ID, REVALIDATE } from '../../helpers/Constants';
-import { DatabaseItem, PageData } from '../../types';
-import getChildrenBlocks from '../../helpers/getChildrenBlocks';
+import { REVALIDATE } from '../../helpers/Constants';
+import { PageData } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
-import updateImageBlocks from '../../helpers/updateImageBlocks';
-import updatePreviewImages from '../../helpers/updatePreviewImages';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 import MobileNavMenu from '../../components/MobileNavMenu';
 import { useState } from 'react';
-import getDatabaseItems from '../../helpers/getDatabaseItems';
-import getPageProperties from '../../helpers/getPageProperties';
 import DatabaseItemContent from '../../components/DatabaseItemContent';
 import getPages from '../../helpers/getPages';
 import getPage from '../../helpers/getPage';
 
 export const getStaticPaths = async () => {
   // Get pages in database
-  const items = await getPages({
+  const pageResponse = await getPages({
     prefix: 'blog',
   });
 
   return {
-    paths: items.map((value: PageData) => ({
+    paths: pageResponse.pageData.map((value: PageData) => ({
       params: {
         prettyLink: value.id,
       }
