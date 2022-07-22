@@ -38,6 +38,7 @@ describe('getPages', () => {
   it('Gets list of pages with prefix passed', async () => {
     const pages = await getPages({
       prefix: 'work',
+      pageSize: PAGINATION_LIMIT,
     });
 
     expect(pages.pageData).toHaveLength(Math.min(PAGINATION_LIMIT, files.length - 1));
