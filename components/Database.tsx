@@ -13,7 +13,7 @@ interface GroupProps {
   onLoadComplete?: () => any,
 }
 
-const GROUP_PAGE_SIZE = 2;
+const GROUP_PAGE_SIZE = 1;
 
 export function Group({
   startIndex,
@@ -91,7 +91,7 @@ export default function Database({
     for (let i = 0; i < count; i++) {
       groups.push(<Group
         key={i}
-        startIndex={pageResponse.nextIndex + (GROUP_PAGE_SIZE * (count - 1))}
+        startIndex={pageResponse.nextIndex + (GROUP_PAGE_SIZE * (i))}
         prefix={prefix}
         onLoadStart={() => setLoading(true)}
         onLoadComplete={() => setLoading(false)}
@@ -99,11 +99,15 @@ export default function Database({
     }
   }
 
+  const maxReached = (
+    pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+  ) || !pageResponse.nextIndex;
+
   /**
    * Handle setting the count state.
    */
   function handleSetCount() {
-    if (pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) < pageResponse.totalCount) {
+    if (!maxReached) {
       setCount(count + 1);
     }
   }
@@ -121,11 +125,13 @@ export default function Database({
       ))}
       {groups}
       {/* Add load button here */}
-      <PageButton
-        onClick={handleSetCount}
-        text={loading ? "Loading..." : "Load More"}
-        disabled={loading}
-      />
+      {!maxReached ? (
+        <PageButton
+          onClick={handleSetCount}
+          text={loading ? "Loading..." : "Load More"}
+          disabled={loading}
+        />
+      ) : undefined} 
     </div>
   );
 }
