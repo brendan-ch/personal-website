@@ -17,3 +17,7 @@
 .highlighted p {
   color: var(--background);
 }
+
+.disabled p {
+  color: var(--gray2) !important;
+}

@@ -13,9 +13,17 @@ interface Props {
  * @returns
  */
 export default function PageButton({ text, onClick, highlighted, disabled }: Props) {
+  let className = `${styles.container}`;
+  if (highlighted) {
+    className += ` ${styles.highlighted}`;
+  }
+  if (disabled) {
+    className += ` ${styles.disabled}`;
+  }
+
   return (
     <button
-      className={highlighted ? `${styles.container} ${styles.highlighted}` : styles.container}
+      className={className}
       onClick={disabled ? undefined : onClick}
     >
       <p>
