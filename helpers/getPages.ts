@@ -24,6 +24,7 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
   let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
   // First filter to markdown files only
   files = files.filter((value) => value.endsWith('.md'));
+  const totalCount = files.length;
 
   // Then limit files returned
   let start = 0;
@@ -53,5 +54,6 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
   return {
     pageData: pages,
     nextIndex: nextIndex || null,
+    totalCount,
   };
 }

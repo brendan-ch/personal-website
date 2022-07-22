@@ -235,6 +235,7 @@ interface PageListFilter {
 interface PageListResponse {
   pageData: PageData[],
   nextIndex: number | null,
+  totalCount: number,
 }
 
 interface Response {
