@@ -197,6 +197,15 @@ interface PageListQuery {
    * meet one of the specified objects.
    */
   filter?: PageListFilter[],
+  /**
+   * Cursor returned from a previous response, used to request the next page of results.
+   */
+  startCursor?: string,
+  /**
+   * The desired number of items to return. Maximum is `100`; in some cases, function may return
+   * fewer than this number.
+   */
+  pageSize?: number,
 }
 
 enum SortOrder {
@@ -223,6 +232,12 @@ interface PageListFilter {
   tags?: PageListFilterTags,
 }
 
+interface Response {
+  successful: boolean,
+  error?: string,
+  data?: any,
+}
+
 export {
   NavigationSelected,
   DatabaseDropdownFilter,
@@ -239,4 +254,6 @@ export {
   PageListSort,
   PageListFilter,
   PageData,
+  Response,
+  SortOrder,
 };
