@@ -202,8 +202,7 @@ interface PageListQuery {
    */
   startIndex?: number,
   /**
-   * The desired number of items to return. Maximum is `100`; in some cases, function may return
-   * fewer than this number.
+   * The desired number of items to return. If not passed, will return all items.
    */
   pageSize?: number,
 }
