@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PageButton from './PageButton';
+import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 
 interface GroupProps {
   startIndex: number,
@@ -12,8 +13,6 @@ interface GroupProps {
   onLoadStart?: () => any,
   onLoadComplete?: () => any,
 }
-
-const GROUP_PAGE_SIZE = 1;
 
 export function Group({
   startIndex,
