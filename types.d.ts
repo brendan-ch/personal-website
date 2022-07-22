@@ -187,7 +187,7 @@ interface PageListQuery {
    * Prefix (folder name) of the page.
    * If not provided, searches all folders.
    */
-  prefix?: string,
+  prefix: string,
   /**
    * Array of sort objects.
    */
@@ -245,19 +245,11 @@ interface Response {
 
 export {
   NavigationSelected,
-  DatabaseDropdownFilter,
-  DatabaseItem,
-  UpdatedDatabaseItem,
-  UpdatedBlockItem,
-  NotionBlock,
-  NotionBlockData,
-  NotionTextData,
-  RichTextObject,
-  SupportedBlockType,
   PageQuery,
   PageListQuery,
   PageListSort,
   PageListFilter,
+  PageListResponse,
   PageData,
   Response,
   SortOrder,
