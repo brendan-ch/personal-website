@@ -1,6 +1,11 @@
 import path from 'path';
 
 /**
+ * Maximum number of items that can be returned from a `getPages` call.
+ */
+export const PAGINATION_LIMIT = 8;
+
+/**
  * Full path of the content directory.
  */
 export const CONTENT_DIRECTORY = path.join(process.cwd(), 'content');
