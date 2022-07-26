@@ -76,7 +76,6 @@ export default function WorkPage({
         title={title}
         description={description}
         previewImageLink={previewImage}
-        noRobots
       />
       <MobileNavBar
         onMobileButtonClick={() => setMenuVisible(true)}
@@ -94,7 +93,8 @@ export default function WorkPage({
         id={id}
         prefix={prefix}
         tags={tags}
-        backButtonText="Work"
+        backButtonText="Home"
+        backButtonHref="/"
       />
     </div>
   );

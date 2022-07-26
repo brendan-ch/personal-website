@@ -16,6 +16,13 @@ import getPages from '../helpers/getPages';
 export async function getStaticProps() {
   const response = await getPages({
     prefix: 'work',
+    filter: [
+      {
+        tags: {
+          contains: ['Featured'],
+        },
+      },
+    ],
   });
 
   return {
