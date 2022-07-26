@@ -13,6 +13,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/work',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/blog',
+        destination: '/',
+        permanent: false,
+      },
+      {
         source: '/project/:prettyLink',
         destination: '/work/:prettyLink',
         permanent: true,
