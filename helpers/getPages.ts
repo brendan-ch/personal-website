@@ -23,9 +23,34 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
   let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
   // First filter to markdown files only
   files = files.filter((value) => value.endsWith('.md'));
-  const totalCount = files.length;
 
-  // Then limit files returned
+  // Get page data
+  pages = await Promise.all(files.map(async (filename) => await getPage({
+    id: filename.substring(0, filename.indexOf('.md')),
+    prefix: query.prefix!,
+  })));
+
+  // Apply filter
+  query.filter?.forEach((obj) => {
+    if (obj.description) {
+      pages = pages.filter((page) => page.description?.includes(obj.description?.contains || ''));
+    }
+    
+    if (obj.title) {
+      pages = pages.filter((page) => page.title?.includes(obj.title?.contains || ''));
+    }
+
+    if (obj.tags) {
+      obj.tags.contains?.forEach((tag) => {
+        pages = pages.filter((page) => page.tags?.includes(tag));
+      });
+    }
+  });
+
+  // Total count matching filter
+  const totalCount = pages.length;
+
+  // Then limit pages returned that match filter
   let start = 0;
   if (query.startIndex) {
     start = query.startIndex;
@@ -38,13 +63,7 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
     nextIndex = start + query.pageSize;
   }
 
-  files = files.slice(start, nextIndex);
-
-  // Get page data
-  pages = await Promise.all(files.map(async (filename) => await getPage({
-    id: filename.substring(0, filename.indexOf('.md')),
-    prefix: query.prefix!,
-  })));
+  pages = pages.slice(start, nextIndex);
 
   return {
     pageData: pages,
