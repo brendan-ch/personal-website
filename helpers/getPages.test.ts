@@ -11,7 +11,7 @@ description: "Page Description"
 
 tags:
 - Featured
-- Graphic Design
+- UI/UX Design
 ---
 
 Page Content
@@ -74,15 +74,16 @@ describe('getPages', () => {
       filter: [
         {
           tags: {
-            contains: ['Featured'],
+            contains: ['Graphic Design'],
           },
         },
       ],
     });
 
-    pages.pageData.forEach((value) => {
-      expect(value.tags?.includes('Featured')).toBeTruthy();
-    });
+    expect(pages.pageData).toHaveLength(1);
+    // pages.pageData.forEach((value) => {
+    //   expect(value.tags?.includes('Featured')).toBeTruthy();
+    // });
   });
 
   it('Filters the correct pages with title', async () => {
