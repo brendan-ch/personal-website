@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn copy && next dev",
     "build": "yarn copy && next build",
     "copy": "copyfiles -u 1 \"./content/static/**/*\" \"./public\"",
     "start": "next start",
