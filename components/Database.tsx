@@ -7,6 +7,18 @@ import { useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 
+interface RowProps {
+  children: JSX.Element | JSX.Element[],
+}
+
+export function GalleryItemRow({ children }: RowProps) {
+  return (
+    <div className={styles.row}>
+      {children}
+    </div>
+  );
+}
+
 interface GroupProps {
   startIndex: number,
   prefix: string,
@@ -57,14 +69,30 @@ export function Group({
   // Return fragment with gallery items
   return (
     <>
-      {pageResponse.pageData.map((item: PageData) => (
-        <GalleryItem
-          key={item.id}
-          title={item.title || ''}
-          imageLink={item.previewImage || ''}
-          link={`/${prefix}/${item.id}`}
-        />
-      ))}
+      {pageResponse.pageData.map((item: PageData, index: number) => {
+        if (index % 2 == 0) {
+          return (
+            <GalleryItemRow>
+              {pageResponse.pageData[index] ? (
+                <GalleryItem
+                  title={pageResponse.pageData[index].title || ''}
+                  imageLink={pageResponse.pageData[index].previewImage || ''}
+                  link={`/${prefix}/${pageResponse.pageData[index].id}`}
+                />
+              ) : <></>}
+              {pageResponse.pageData[index + 1] ? (
+                <GalleryItem
+                  title={pageResponse.pageData[index + 1].title || ''}
+                  imageLink={pageResponse.pageData[index + 1].previewImage || ''}
+                  link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
+                />
+              ) : <></>}
+            </GalleryItemRow>
+          )
+        } else {
+          return <></>;
+        }
+      })}
     </>
   )
 }
@@ -116,14 +144,30 @@ export default function Database({
   return (
     <div className={styles.container}>
       {/* Content */}
-      {pageResponse.pageData.map((item) => (
-        <GalleryItem
-          key={item.id}
-          title={item.title || ''}
-          imageLink={item.previewImage || ''}
-          link={`/${prefix}/${item.id}`}
-        />
-      ))}
+      {pageResponse.pageData.map((item: PageData, index: number) => {
+        if (index % 2 == 0) {
+          return (
+            <GalleryItemRow>
+              {pageResponse.pageData[index] ? (
+                <GalleryItem
+                  title={pageResponse.pageData[index].title || ''}
+                  imageLink={pageResponse.pageData[index].previewImage || ''}
+                  link={`/${prefix}/${pageResponse.pageData[index].id}`}
+                />
+              ) : <></>}
+              {pageResponse.pageData[index + 1] ? (
+                <GalleryItem
+                  title={pageResponse.pageData[index + 1].title || ''}
+                  imageLink={pageResponse.pageData[index + 1].previewImage || ''}
+                  link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
+                />
+              ) : <></>}
+            </GalleryItemRow>
+          )
+        } else {
+          return <></>;
+        }
+      })}
       {groups}
       {/* Add load button here */}
       {!maxReached ? (
