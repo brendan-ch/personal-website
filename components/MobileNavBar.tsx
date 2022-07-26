@@ -145,12 +145,13 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
           </a>
         </Link>
         <div className={styles.buttonsContainer} role="tablist">
-          <MobileNavBarTab
+          {/* Re-enable with redesigned home and work pages */}
+          {/* <MobileNavBarTab
             href="/work"
             selected={selected === 'Work'}
             text="Work"
             selectedColor={RED}
-          />
+          /> */}
           {/* <MobileNavBarTab
             href="/blog"
             selected={selected === 'Blog'}
