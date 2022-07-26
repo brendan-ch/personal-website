@@ -161,7 +161,7 @@ export default function Database({
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
                 />
-              ) : <></>}
+              ) : <GalleryItem />}
             </GalleryItemRow>
           )
         } else {
