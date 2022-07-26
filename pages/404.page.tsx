@@ -6,7 +6,7 @@ import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
 import utils from '../styles/utils.module.css';
 
-import Image404 from '../public/static/404.jpg';
+import Image404 from '../public/404.jpg';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 

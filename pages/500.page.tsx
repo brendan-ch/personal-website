@@ -6,7 +6,7 @@ import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
 import utils from '../styles/utils.module.css';
 
-import Image500 from '../public/static/500.jpg';
+import Image500 from '../public/500.jpg';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 
