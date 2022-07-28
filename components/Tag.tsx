@@ -15,7 +15,7 @@ export default function Tag({ text, state, onClick }: Props) {
   }
 
   return (
-    <button className={containerStyle}>
+    <button className={containerStyle} onClick={onClick}>
       <p>{text}</p>
     </button>
   );
