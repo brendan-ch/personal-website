@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+
+  border: 1px solid var(--emphasis);
+}
+
+.selected {
+  background: var(--emphasis);
+}
+
+.selected > p {
+  color: var(--background);
+}
+
+.disabled {
+  background: var(--gray);
+}
+
+.disabled > p {
+  color: var(--gray3);
+}
