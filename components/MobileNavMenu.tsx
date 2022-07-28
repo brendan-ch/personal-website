@@ -79,11 +79,11 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
             text="Home"
             href="/"
           />
-          {/* <MobileNavMenuButton
+          <MobileNavMenuButton
             toggled={selected === 'Work'}
             text="Work"
             href="/work"
-          /> */}
+          />
           {/* <MobileNavMenuButton
             toggled={selected === 'Blog'}
             text="Blog"
