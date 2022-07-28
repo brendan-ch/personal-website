@@ -153,7 +153,7 @@ export default function Database({
                   title={pageResponse.pageData[index].title || ''}
                   imageLink={pageResponse.pageData[index].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index].id}`}
-                  description={pageResponse.pageData[index].tags ? pageResponse.pageData[index].tags?.join(', ') : undefined}
+                  description={pageResponse.pageData[index].tags ? pageResponse.pageData[index].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
                 />
               ) : <></>}
               {pageResponse.pageData[index + 1] ? (
@@ -161,7 +161,7 @@ export default function Database({
                   title={pageResponse.pageData[index + 1].title || ''}
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
-                  description={pageResponse.pageData[index].tags ? pageResponse.pageData[index].tags?.join(', ') : undefined}
+                  description={pageResponse.pageData[index + 1].tags ? pageResponse.pageData[index + 1].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
                 />
               ) : <GalleryItem />}
             </GalleryItemRow>
