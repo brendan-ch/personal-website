@@ -1,10 +1,8 @@
-import Prism from 'prismjs';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
 import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
-import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   content: string,
@@ -25,10 +23,10 @@ export default function MarkdownRenderer({ content, onImageClick }: Props) {
   // }, []);
 
   // useEffect(() => {
-  //   if (loaded) {
-  //     Prism.highlightAll();
-  //   }
-  // }, [loaded]);
+    // if (loaded) {
+    // Prism.highlightAll();
+    // }
+  // }, []);
 
   return (
     <article className={styles.container}>
@@ -48,7 +46,7 @@ export default function MarkdownRenderer({ content, onImageClick }: Props) {
               <div
                 className={styles.imageContainer}
               >
-                <ImageWithFadeIn
+                <Image
                   alt={alt || ''}
                   src={src || ''}
                   layout="fill"

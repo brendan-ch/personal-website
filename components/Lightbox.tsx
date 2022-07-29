@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import { useEffect } from 'react';
 import styles from '../styles/Lightbox.module.css';
 import Exit from './icons/Exit';
-import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
   imageLink?: string,
@@ -43,7 +43,7 @@ export default function Lightbox({ imageLink, caption, visible, onClose }: Props
       <div className={styles.imageFrame}>
         {imageLink ? (
           <div className={styles.imageWrapper}>
-            <ImageWithFadeIn
+            <Image
               src={imageLink}
               alt={caption}
               layout="fill"
