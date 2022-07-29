@@ -1,9 +1,24 @@
 import { readdir } from 'fs/promises';
 import path from 'path';
-import { PageData, PageListQuery, PageListResponse, SortOrder } from '../types';
-import { CONTENT_DIRECTORY, PAGINATION_LIMIT } from './Constants';
+import { PageData, PageListQuery, PageListResponse } from '../types';
+import { CONTENT_DIRECTORY } from './Constants';
 import getPage from './getPage';
 
+/**
+ * Compare two values.
+ * @param a
+ * @param b
+ * @returns
+ */
+function compare(a: any, b: any) {
+  if (typeof a === 'string' && typeof b === 'string') {
+    return a.localeCompare(b);
+  } else if (typeof a === 'number' && typeof b === 'number') {
+    return a - b;
+  }
+
+  return 0;
+}
 
 /**
  * Get a list of pages.
@@ -45,6 +60,12 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
         pages = pages.filter((page) => page.tags?.includes(tag));
       });
     }
+  });
+
+  // Apply sort
+  query.sort?.forEach((obj) => {
+    // @ts-ignore
+    pages = pages.sort((a, b) => obj.order === 'asc' ? compare(a[obj.property], b[obj.property]) : compare(b[obj.property], a[obj.property]))
   });
 
   // Total count matching filter
