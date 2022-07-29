@@ -13,13 +13,6 @@ export const getStaticPaths = async () => {
   // Get pages
   let pageResponse = await getPages({
     prefix: 'work',
-    filter: [
-      {
-        tags: {
-          contains: ['Featured'],
-        },
-      },
-    ],
   });
 
   return {
