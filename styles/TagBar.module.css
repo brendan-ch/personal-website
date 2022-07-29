@@ -5,7 +5,8 @@
 
   width: 100%;
   overflow-x: scroll;
-
+  overflow-y: hidden;
+  scrollbar-width: 0px;
 }
 
 .clearVisible {
