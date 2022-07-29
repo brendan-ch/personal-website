@@ -25,7 +25,7 @@ export default function TagBar({ tags, selected, onSelect, onClear }: Props) {
 
   return (
     <div className={styles.container}>
-      {selected.length > 0 ? (
+      {/* {selected.length > 0 ? (
         <button className={styles.clearVisible} onClick={onClear}>
           <div>
             <Exit
@@ -34,7 +34,7 @@ export default function TagBar({ tags, selected, onSelect, onClear }: Props) {
             />
           </div>
         </button>
-      ) : undefined}
+      ) : undefined} */}
       {tags.map((tag, index) => {
         let state = 'disabled';
         
