@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 8px;
 
   border: 1px solid var(--emphasis);
+
+  height: 24px;
+}
+
+.container > p {
+  white-space: nowrap;
 }
 
 .selected {
