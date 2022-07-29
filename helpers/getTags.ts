@@ -1,4 +1,5 @@
 import { PageData, TagObject } from '../types';
+import { EXCLUDED_TAGS } from './Constants';
 
 /**
  * Given an array of pages, compile all available tags and related tags.
@@ -19,7 +20,7 @@ export default function getTags(pages: PageData[]): TagObject[] {
   // Add all tags
   pages.forEach(({ tags }) => {
     if (tags) {
-      tags.forEach((tag) => {
+      tags.filter((tag) => !EXCLUDED_TAGS.includes(tag)).forEach((tag) => {
         if (tagIndex[tag] === undefined || tagIndex[tag] === -1) {
           // Doesn't exist yet
           tagIndex[tag] = tagData.length;
@@ -35,9 +36,9 @@ export default function getTags(pages: PageData[]): TagObject[] {
   // Perform linking
   pages.forEach(({ tags }) => {
     if (tags) {
-      tags.forEach((tag) => {
+      tags.filter((tag) => !EXCLUDED_TAGS.includes(tag)).forEach((tag) => {
         // Link to other tags
-        const others = tags.filter((otherTag) => otherTag !== tag);
+        const others = tags.filter((otherTag) => otherTag !== tag && !EXCLUDED_TAGS.includes(otherTag));
         const otherIndices = others.map((other) => tagIndex[other]);
         otherIndices.forEach((index) => {
           if (!tagData[tagIndex[tag]].relatedTo.includes(index)) {
