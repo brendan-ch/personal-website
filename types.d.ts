@@ -165,6 +165,7 @@ interface PageData {
   coverImage: string | null,
   tags: string[] | null,
   prefix: string,
+  order?: number,
 }
 
 interface PageQuery {
@@ -207,14 +208,9 @@ interface PageListQuery {
   pageSize?: number,
 }
 
-enum SortOrder {
-  ASC,
-  DESC,
-}
-
 interface PageListSort {
-  property: string,
-  order: SortOrder,
+  property: 'order',
+  order: 'asc' | 'desc',
 }
 
 interface PageListFilterString {
@@ -263,6 +259,5 @@ export {
   PageListResponse,
   PageData,
   Response,
-  SortOrder,
   TagObject,
 };
