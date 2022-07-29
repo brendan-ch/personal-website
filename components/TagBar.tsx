@@ -16,7 +16,7 @@ interface Props {
   onClear?: () => any,
 }
 
-export default function TagBar({ tags, selected, onSelect }: Props) {
+export default function TagBar({ tags, selected, onSelect, onClear }: Props) {
   let availableTags = tags.slice();
 
   selected.forEach((index) => {
@@ -26,7 +26,7 @@ export default function TagBar({ tags, selected, onSelect }: Props) {
   return (
     <div className={styles.container}>
       {selected.length > 0 ? (
-        <button className={styles.clearVisible}>
+        <button className={styles.clearVisible} onClick={onClear}>
           <div>
             <Exit
               width={40}
