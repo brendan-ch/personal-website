@@ -120,7 +120,7 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
             <Link href="/work">
               <a className={styles.databaseEndLink}>
                 <p>
-                  More Work
+                  View All Work
                 </p>
                 <Next
                   width={32}
