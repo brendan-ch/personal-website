@@ -189,6 +189,13 @@ export default function Database({
     }
   }
 
+  /**
+   * Clear all tags from selection.
+   */
+  function handleClearTags() {
+    setSelectedTags([]);
+  }
+
   return (
     <div className={styles.container}>
       {availableTags ? (
@@ -196,6 +203,7 @@ export default function Database({
           tags={availableTags}
           selected={selectedTags}
           onSelect={handleSelectTag}
+          onClear={handleClearTags}
         />
       ) : undefined}
       
