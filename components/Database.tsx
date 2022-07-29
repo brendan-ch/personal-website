@@ -1,4 +1,4 @@
-import { PageData, PageListResponse } from '../types';
+import { PageData, PageListResponse, TagObject } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
+import TagBar from './TagBar';
 
 interface RowProps {
   children: JSX.Element | JSX.Element[],
@@ -104,14 +105,17 @@ interface Props {
    */
   pageResponse: PageListResponse,
   prefix: 'blog' | 'work' | 'doc',
+  availableTags?: TagObject[],
 }
 
 export default function Database({
   pageResponse,
   prefix,
+  availableTags,
 }: Props) {
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
+  const [selectedTags, setSelectedTags] = useState<number[]>([]);
 
   // Add groups
   const groups = [];
@@ -141,8 +145,32 @@ export default function Database({
     }
   }
 
+  /**
+   * Handle selection of a tag.
+   * @param index
+   */
+  function handleSelectTag(index: number) {
+    if (selectedTags.includes(index)) {
+      // Remove
+      const newArr = selectedTags.filter((value) => value !== index);
+      setSelectedTags(newArr);
+
+    } else {
+      // Add
+      setSelectedTags([...selectedTags, index]);
+    }
+  }
+
   return (
     <div className={styles.container}>
+      {availableTags ? (
+        <TagBar
+          tags={availableTags}
+          selected={selectedTags}
+          onSelect={handleSelectTag}
+        />
+      ) : undefined}
+      
       {/* Content */}
       {pageResponse.pageData.map((item: PageData, index: number) => {
         if (index % 2 == 0) {
