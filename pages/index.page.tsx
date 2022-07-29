@@ -81,6 +81,7 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
             className={styles.backgroundImage}
             objectFit="cover"
             layout="fill"
+            priority
           />
           <div className={`${utils.itemWrapper} ${styles.textBoxWrapper}`}>
             <div className={styles.textBox}>
