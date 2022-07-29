@@ -13,6 +13,7 @@ import getPages from '../helpers/getPages';
 import BackgroundPattern from '../public/background-pattern.png';
 import Link from 'next/link';
 import Down from '../components/icons/Down';
+import Next from '../components/icons/Next';
 
 /**
  * Generate file content.
@@ -116,6 +117,17 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
               pageResponse={workPageListResponse}
               prefix="work"
             />
+            <Link href="/work">
+              <a className={styles.databaseEndLink}>
+                <p>
+                  See More
+                </p>
+                <Next
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </Link>
           </div>
         ) : undefined}
         {blogPageListResponse && blogPageListResponse.pageData.length > 0 ? (
