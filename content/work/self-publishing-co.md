@@ -99,6 +99,8 @@ I dedicated the first two sections to showcasing articles and the guide. This is
 
 I also made the decision to put a "Get Started" button instead of a newsletter sign-up form. Having this button will be more likely to provoke action from the user, and leads to a more natural user flow especially if they're still deciding on self publishing.
 
+![Animation showing navigation from landing to introduction page](/static/work/self-publishing-co/landing-to-introduction.gif)
+
 Clicking the "Get Started" button brings the user to the first page of the guide. This is a fairly traditional article layout. I decided to create an advertisement space within the article, following the philosophy described above.
 
 I also made the decision to include navigation buttons ("Previous/Up Next") at the bottom of the page, to lead to a more natural user flow when browsing guides sequentially.
