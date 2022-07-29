@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import ImageWithFadeIn from '../components/ImageWithFadeIn';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
 import utils from '../styles/utils.module.css';
@@ -9,6 +8,7 @@ import utils from '../styles/utils.module.css';
 import Image500 from '../public/500.jpg';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
+import Image from 'next/image';
 
 /**
  * Custom 500 page.
@@ -50,9 +50,29 @@ export default function Custom500() {
               </p>
             </a>
           </Link>
-          <ImageWithFadeIn
+          <Image
             src={Image500}
+            alt="Capybara swimming"
           />
+          <p>
+            (Image by{' '}
+            <Link href="https://unsplash.com/@sushioutlaw">
+              <a target="_blank">
+                <u>
+                  Brian McGowan
+                </u>
+              </a>
+            </Link>
+            {' on '}
+            <Link href="https://unsplash.com">
+              <a target="_blank">
+                <u>
+                  Unsplash
+                </u>
+              </a>
+            </Link>
+            )
+          </p>
         </div>
         <div className={utils.footerWrapper}>
           <Footer />

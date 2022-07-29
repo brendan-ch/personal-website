@@ -9,6 +9,7 @@ import utils from '../styles/utils.module.css';
 import Image404 from '../public/404.jpg';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
+import Image from 'next/image';
 
 /**
  * Custom 404 page.
@@ -50,9 +51,29 @@ export default function Custom404() {
               </p>
             </a>
           </Link>
-          <ImageWithFadeIn
+          <Image
             src={Image404}
+            alt="Capybara in bath"
           />
+          <p>
+            (Image by{' '}
+            <Link href="https://unsplash.com/@veverkolog">
+              <a target="_blank">
+                <u>
+                  Dušan veverkolog
+                </u>
+              </a>
+            </Link>
+            {' on '}
+            <Link href="https://unsplash.com">
+              <a target="_blank">
+                <u>
+                  Unsplash
+                </u>
+              </a>
+            </Link>
+            )
+          </p>
         </div>
         <div className={utils.footerWrapper}>
           <Footer />
