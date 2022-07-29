@@ -9,6 +9,8 @@ previewImage: "/static/work/preview/patterns-preview.png"
 tags:
 - Featured
 - Graphic Design
+
+order: 5
 ---
 <toc></toc>
 
@@ -16,10 +18,7 @@ A collection of pattern designs inspired by everyday objects. This is a project 
 
 All patterns were made in Figma. 02 - “Grid” also contains a brush layer made in Photoshop.
 
-<aside>
-💡 Tip: if you have JavaScript enabled, you can click on each image to expand it!
-</aside>
-
+Tip: if you have JavaScript enabled, you can click on each image to expand it!
 <a id="1"></a>
 # 01 - “Timeline”
 ![](/static/work/patterns/pattern-1.png)
