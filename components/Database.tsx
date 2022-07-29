@@ -1,4 +1,4 @@
-import { PageData, PageListResponse, TagObject } from '../types';
+import { PageData, PageListFilter, PageListResponse, TagObject } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
@@ -25,6 +25,7 @@ interface GroupProps {
   prefix: string,
   onLoadStart?: () => any,
   onLoadComplete?: () => any,
+  filter?: PageListFilter[],
 }
 
 export function Group({
@@ -32,6 +33,7 @@ export function Group({
   prefix,
   onLoadComplete,
   onLoadStart,
+  filter,
 }: GroupProps) {
   const fetcher = async (url: string, config: any) => {
     return await axios.post(url, config);
@@ -42,6 +44,7 @@ export function Group({
     prefix,
     startIndex,
     pageSize: GROUP_PAGE_SIZE,
+    filter,
   }], fetcher);
 
   useEffect(() => {
@@ -70,7 +73,7 @@ export function Group({
   // Return fragment with gallery items
   return (
     <>
-      {pageResponse.pageData.map((item: PageData, index: number) => {
+      {pageResponse.pageData.map((_: PageData, index: number) => {
         if (index % 2 == 0) {
           return (
             <GalleryItemRow>
@@ -79,6 +82,7 @@ export function Group({
                   title={pageResponse.pageData[index].title || ''}
                   imageLink={pageResponse.pageData[index].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index].id}`}
+                  description={pageResponse.pageData[index].tags ? pageResponse.pageData[index].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
                 />
               ) : <></>}
               {pageResponse.pageData[index + 1] ? (
@@ -86,8 +90,9 @@ export function Group({
                   title={pageResponse.pageData[index + 1].title || ''}
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
+                  description={pageResponse.pageData[index + 1].tags ? pageResponse.pageData[index + 1].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
                 />
-              ) : <></>}
+              ) : <GalleryItem />}
             </GalleryItemRow>
           )
         } else {
@@ -116,25 +121,41 @@ export default function Database({
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
+  const [dataChanged, setDataChanged] = useState(false);
 
   // Add groups
   const groups = [];
-  if (pageResponse.nextIndex) {
+  if (pageResponse.nextIndex || dataChanged) {
     for (let i = 0; i < count; i++) {
       groups.push(<Group
         key={i}
-        startIndex={pageResponse.nextIndex + (GROUP_PAGE_SIZE * (i))}
+        startIndex={(dataChanged || !pageResponse.nextIndex ? 0 : pageResponse.nextIndex) + (GROUP_PAGE_SIZE * (i))}
         prefix={prefix}
         onLoadStart={() => setLoading(true)}
         onLoadComplete={() => setLoading(false)}
+        filter={availableTags ? [
+          {
+            tags: {
+              contains: selectedTags.map((index) => availableTags[index].name),
+            },
+          },
+        ] : undefined}
       />);
     }
   }
 
   // Calculate whether maximum reached
-  const maxReached = (
-    pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
-  ) || !pageResponse.nextIndex;
+  let maxReached: boolean;
+
+  if (dataChanged) {
+    maxReached = (
+      (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+    );
+  } else {
+    maxReached = (
+      pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+    ) || !pageResponse.nextIndex;
+  }
 
   /**
    * Handle setting the count state.
@@ -150,11 +171,13 @@ export default function Database({
    * @param index
    */
   function handleSelectTag(index: number) {
+    setDataChanged(true);
+    setCount(count + 1);
+
     if (selectedTags.includes(index)) {
       // Remove
       const newArr = selectedTags.filter((value) => value !== index);
       setSelectedTags(newArr);
-
     } else {
       // Add
       setSelectedTags([...selectedTags, index]);
@@ -172,7 +195,7 @@ export default function Database({
       ) : undefined}
       
       {/* Content */}
-      {pageResponse.pageData.map((item: PageData, index: number) => {
+      {!dataChanged ? pageResponse.pageData.map((item: PageData, index: number) => {
         if (index % 2 == 0) {
           return (
             <GalleryItemRow>
@@ -197,7 +220,7 @@ export default function Database({
         } else {
           return <></>;
         }
-      })}
+      }) : undefined}
       {groups}
       {/* Add load button here */}
       {!maxReached ? (
