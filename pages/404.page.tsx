@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import ImageWithFadeIn from '../components/ImageWithFadeIn';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
 import utils from '../styles/utils.module.css';
@@ -54,6 +55,25 @@ export default function Custom404() {
             src={Image404}
             alt="Capybara in bath"
           />
+          <p>
+            (Image by{' '}
+            <Link href="https://unsplash.com/@veverkolog">
+              <a target="_blank">
+                <u>
+                  Dušan veverkolog
+                </u>
+              </a>
+            </Link>
+            {' on '}
+            <Link href="https://unsplash.com">
+              <a target="_blank">
+                <u>
+                  Unsplash
+                </u>
+              </a>
+            </Link>
+            )
+          </p>
         </div>
         <div className={utils.footerWrapper}>
           <Footer />
