@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/GalleryItem.module.css';
-import Next from './icons/Next';
 import ImageWithFadeIn from './ImageWithFadeIn';
 
 interface Props {
@@ -24,7 +24,7 @@ export default function GalleryItem({ imageLink, title, description, link, width
       <Link href={link || '/'}>
         <a className={styles.container}>
           {imageLink ? (
-            <ImageWithFadeIn
+            <Image
               className={styles.image}
               src={imageLink}
               width={width || 600}
