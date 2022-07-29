@@ -12,5 +12,8 @@ JavaScript/TypeScript, Python, PHP, Java, Swift
 ### Frameworks and Libraries
 React/React Native, Next.js, Angular, discord.js
 
-### Tools
-Figma, FigJam, Visual Studio Code, PhpStorm, MongoDB
+### Programming Tools
+Visual Studio Code, PhpStorm, MongoDB
+
+### Design Tools
+Figma, FigJam, Adobe Illustrator
