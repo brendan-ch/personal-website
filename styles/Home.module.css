@@ -1,0 +1,83 @@
+.backgroundImageContainer {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.backgroundImage {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.textBoxWrapper {
+  z-index: 1;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px;
+
+  background: var(--background);
+}
+
+.textBox h1 {
+  font-size: 48px;
+}
+
+.line1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 100%;
+}
+
+.line2 {
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 100%;
+}
+
+.line2 h1 {
+  text-align: center;
+
+  color: var(--red);
+}
+
+.line3 {
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 100%;
+}
+
+.line3 h1 {
+  text-align: end;
+}
+
+@media only screen and (max-width: 600px) {
+  .textBox {
+    padding: 32px 16px;
+  }
+
+  .textBox h1 {
+    text-align: start !important;
+    font-size: 32px;
+  }
+}
