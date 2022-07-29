@@ -17,6 +17,12 @@ export async function getStaticProps() {
   const response = await getPages({
     prefix: 'work',
     pageSize: PAGINATION_LIMIT,
+    sort: [
+      {
+        property: 'order',
+        order: 'asc',
+      },
+    ],
   });
 
   const allPages = await getPages({
