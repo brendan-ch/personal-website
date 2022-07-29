@@ -17,8 +17,8 @@
   max-height: 400px;
   height: calc(100vw / 2);
   position: relative;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .imageContainer:hover {
@@ -64,8 +64,8 @@
 }
 
 .container p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .container span {
@@ -73,8 +73,8 @@
   font-size: 20px;
   padding: 0px;
 
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .container > pre > code span {
@@ -88,8 +88,8 @@
 }
 
 .container li {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .container ::marker {
@@ -106,8 +106,8 @@
   flex-direction: row;
   align-items: center;
 
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .container blockquote {
@@ -119,8 +119,8 @@
 
   border-left: 4px solid var(--emphasis);
 
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .calloutIconContainer {
