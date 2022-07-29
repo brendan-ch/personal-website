@@ -1,14 +1,16 @@
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 import MobileNavBar from '../components/MobileNavBar';
 import { REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
 import { PageListResponse } from '../types';
 import Database from '../components/Database';
 import Head from 'next/head';
-import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
 import getPages from '../helpers/getPages';
+import BackgroundPattern from '../public/background-pattern.png';
 
 /**
  * Generate file content.
@@ -69,13 +71,34 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
         onClose={() => setMenuVisible(false)}
       />
       <main>
-        <div className={utils.spacer} />
-        <div className={utils.itemWrapper}>
+        <div className={styles.backgroundImageContainer}>
+          <Image
+            src={BackgroundPattern}
+            alt="Background pattern"
+            className={styles.backgroundImage}
+            objectFit="cover"
+            layout="fill"
+          />
+          <div className={`${utils.itemWrapper} ${styles.textBoxWrapper}`}>
+            <div className={styles.textBox}>
+              <div className={styles.line1}>
+                <h1>I&apos;m Brendan, a</h1>
+              </div>
+              <div className={styles.line2}>
+                <h1>designer and developer</h1>
+              </div>
+              <div className={styles.line3}>
+                <h1>in Orange, CA.</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className={utils.itemWrapper}>
           <PageHeader
             aboveText=""
             belowText="I’m Brendan, a developer and designer living in Orange, CA."
           />
-        </div>
+        </div> */}
         {workPageListResponse && workPageListResponse.pageData.length > 0 ? (
           <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
             <h2>Featured Work</h2>
