@@ -171,8 +171,11 @@ export default function Database({
    * @param index
    */
   function handleSelectTag(index: number) {
+    if (!dataChanged) {
+      setCount(count + 1);
+    }
+
     setDataChanged(true);
-    setCount(count + 1);
 
     if (selectedTags.includes(index)) {
       // Remove
