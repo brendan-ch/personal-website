@@ -1,12 +1,9 @@
 .container {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   gap: 8px;
 
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scrollbar-width: 0px;
 }
 
 .clearVisible {

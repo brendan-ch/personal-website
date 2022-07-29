@@ -1,5 +1,5 @@
 .container {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -8,6 +8,9 @@
   border: 1px solid var(--emphasis);
 
   height: 24px;
+
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 .container > p {
