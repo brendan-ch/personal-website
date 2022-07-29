@@ -4,7 +4,7 @@ description: ""
 # The name of the file is used to generate the pretty link
 
 # Relative path inside "public" folder
-previewImage: ""
+previewImage: "/static/work/preview/self-publishing-preview.png"
 coverImage: ""
 
 tags:
