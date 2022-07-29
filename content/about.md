@@ -1,6 +1,6 @@
 ![About Me](/static/about.jpeg)
 
-Hi there! I’m Brendan, a designer, developer, and college student living in Orange, California. I’m currently studying computer science at Chapman University, but am working on a full-time transition to UX design. Some of my hobbies include reading, photography, traveling, and brewing coffee.
+Hi there! I’m Brendan, a designer, developer, and college student living in Orange, California. I’m currently studying computer science at Chapman University, but am working on a full-time transition towards UX design. Some of my hobbies include reading, photography, traveling, and brewing coffee.
 
 ## Links
 [GitHub (@brendan-ch)](https://github.com/brendan-ch)

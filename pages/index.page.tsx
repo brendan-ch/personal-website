@@ -143,7 +143,7 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
           <h2>About Me</h2>
           <p>
             I’m Brendan, a designer, developer, and college student living in Orange, California.
-            I’m currently studying computer science at Chapman University, but am working on a full-time transition to UX design.
+            I’m currently studying computer science at Chapman University, but am working towards a full-time transition to UX design.
             Some of my hobbies include reading, photography, traveling, and brewing coffee.
           </p>
           <Link href="/about">
