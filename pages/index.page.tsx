@@ -11,6 +11,8 @@ import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
 import getPages from '../helpers/getPages';
 import BackgroundPattern from '../public/background-pattern.png';
+import Link from 'next/link';
+import Down from '../components/icons/Down';
 
 /**
  * Generate file content.
@@ -92,6 +94,14 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
               </div>
             </div>
           </div>
+          <Link href="#featured">
+            <a className={styles.arrowDown} id="featured">
+              <Down
+                width={56}
+                height={56}
+              />
+            </a>
+          </Link>
         </div>
         {/* <div className={utils.itemWrapper}>
           <PageHeader

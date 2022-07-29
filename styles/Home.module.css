@@ -16,6 +16,20 @@
   bottom: 0px;
 }
 
+.arrowDown {
+  position: absolute;
+  bottom: 32px;
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+
+  background: var(--background);
+}
+
 .textBoxWrapper {
   z-index: 1;
 }
@@ -28,7 +42,23 @@
   padding: 32px;
 
   background: var(--background);
+  overflow-x: hidden;
+
+  /* animation-name: expand;
+  animation-duration: 800ms; */
 }
+
+/* @keyframes expand {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+} */
 
 .textBox h1 {
   font-size: 48px;
