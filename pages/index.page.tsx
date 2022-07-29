@@ -139,6 +139,25 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
             />
           </div>
         ) : undefined}
+        <div className={`${utils.itemWrapper}`}>
+          <h2>About Me</h2>
+          <p>
+            I’m Brendan, a designer, developer, and college student living in Orange, California.
+            I’m currently studying computer science at Chapman University, but am working on a full-time transition to UX design.
+            Some of my hobbies include reading, photography, traveling, and brewing coffee.
+          </p>
+          <Link href="/about">
+            <a className={styles.databaseEndLink}>
+              <p>
+                See More
+              </p>
+              <Next
+                width={32}
+                height={32}
+              />
+            </a>
+          </Link>
+        </div>
         <div className={utils.spacer} />
         <div className={utils.footerWrapper}>
           <Footer />
