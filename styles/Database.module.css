@@ -39,6 +39,6 @@
 @media only screen and (max-width: 600px) {
   .row {
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
   }
 }
