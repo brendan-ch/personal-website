@@ -243,7 +243,7 @@ interface Response {
   data?: any,
 }
 
-interface Tag {
+interface TagObject {
   /**
    * The name of the tag.
    */
@@ -264,5 +264,5 @@ export {
   PageData,
   Response,
   SortOrder,
-  Tag,
+  TagObject,
 };

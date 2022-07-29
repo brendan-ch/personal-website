@@ -1,4 +1,4 @@
-import { PageData, Tag } from '../types';
+import { PageData, TagObject } from '../types';
 
 /**
  * Given an array of pages, compile all available tags and related tags.
@@ -6,7 +6,7 @@ import { PageData, Tag } from '../types';
  * Note that this function doesn't check whether provided page data match the same prefix.
  * @return
  */
-export default function getTags(pages: PageData[]): Tag[] {
+export default function getTags(pages: PageData[]): TagObject[] {
   /**
    * Contains tag indices by name.
    */
@@ -14,7 +14,7 @@ export default function getTags(pages: PageData[]): Tag[] {
     [key: string]: number,
   } = {};
   
-  const tagData: Tag[] = [];
+  const tagData: TagObject[] = [];
 
   // Add all tags
   pages.forEach(({ tags }) => {
@@ -47,7 +47,6 @@ export default function getTags(pages: PageData[]): Tag[] {
       });
     }
   });
-  console.log(tagData);
 
   return tagData;
 }
