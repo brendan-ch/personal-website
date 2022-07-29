@@ -29,7 +29,6 @@ export async function getStaticProps() {
       listResponse: response,
       availableTags: tags,
     },
-    revalidate: REVALIDATE,
   };
 }
 
