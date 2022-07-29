@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import utils from '../styles/utils.module.css';
 import { PAGINATION_LIMIT, REVALIDATE } from '../helpers/Constants';
-import { PageListResponse } from '../types';
+import { PageListResponse, TagObject } from '../types';
 import Head from 'next/head';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
@@ -10,6 +10,7 @@ import PageHeader from '../components/PageHeader';
 import Database from '../components/Database';
 import Footer from '../components/Footer';
 import getPages from '../helpers/getPages';
+import getTags from '../helpers/getTags';
 
 
 export async function getStaticProps() {
@@ -18,9 +19,15 @@ export async function getStaticProps() {
     pageSize: PAGINATION_LIMIT,
   });
 
+  const allPages = await getPages({
+    prefix: 'work',
+  });
+  const tags = getTags(allPages.pageData);
+
   return {
     props: {
       listResponse: response,
+      availableTags: tags,
     },
     revalidate: REVALIDATE,
   };
@@ -28,9 +35,10 @@ export async function getStaticProps() {
 
 interface Props {
   listResponse: PageListResponse,
+  availableTags: TagObject[],
 }
 
-export default function Work({ listResponse }: Props) {
+export default function Work({ listResponse, availableTags }: Props) {
   const selected = 'Work';
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -61,6 +69,7 @@ export default function Work({ listResponse }: Props) {
           <Database
             pageResponse={listResponse}
             prefix="work"
+            availableTags={availableTags}
           />
         </div>
         <div className={utils.spacer} />
