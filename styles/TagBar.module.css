@@ -7,3 +7,19 @@
   overflow-x: scroll;
 
 }
+
+.clearVisible {
+  height: 40px;
+  /* width: 40px; */
+
+  animation-name: moveIn;
+  animation-duration: 100ms;
+}
+
+@keyframes moveIn {
+  0% {
+    width: 0px;
+  } 100% {
+    width: 40px;
+  }
+}

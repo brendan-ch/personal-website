@@ -1,5 +1,6 @@
 import styles from '../styles/TagBar.module.css';
 import { TagObject } from "../types";
+import Exit from './icons/Exit';
 import Tag from "./Tag";
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
    */
   selected: number[],
   onSelect: (index: number) => any,
+  onClear?: () => any,
 }
 
 export default function TagBar({ tags, selected, onSelect }: Props) {
@@ -23,6 +25,16 @@ export default function TagBar({ tags, selected, onSelect }: Props) {
 
   return (
     <div className={styles.container}>
+      {selected.length > 0 ? (
+        <button className={styles.clearVisible}>
+          <div>
+            <Exit
+              width={40}
+              height={40}
+            />
+          </div>
+        </button>
+      ) : undefined}
       {tags.map((tag, index) => {
         let state = 'disabled';
         
