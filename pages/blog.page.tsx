@@ -22,7 +22,6 @@ export async function getStaticProps() {
     props: {
       listResponse: response,
     },
-    revalidate: REVALIDATE,
   };
 }
 

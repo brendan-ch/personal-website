@@ -243,6 +243,17 @@ interface Response {
   data?: any,
 }
 
+interface TagObject {
+  /**
+   * The name of the tag.
+   */
+  name: string,
+  /**
+   * In an array of tags, these are the indices that the tag is related to.
+   */
+  relatedTo: number[],
+}
+
 export {
   NavigationSelected,
   PageQuery,
@@ -253,4 +264,5 @@ export {
   PageData,
   Response,
   SortOrder,
+  TagObject,
 };

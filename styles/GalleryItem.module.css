@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 16px;
   width: 100%;
 }
 
@@ -11,10 +11,12 @@
   height: 187px;
 }
 
-.textContainer {
+.details {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.description {
+  color: var(--gray3);
 }

@@ -1,5 +1,10 @@
 import path from 'path';
 
+/**
+ * Tags to always exclude from `getTags` function.
+ */
+export const EXCLUDED_TAGS = ['Featured'];
+
 export const GROUP_PAGE_SIZE = 8;
 
 /**

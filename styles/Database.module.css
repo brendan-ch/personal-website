@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  gap: 24px;
+  gap: 48px;
 }
 
 .dropdownButtonContainer {
@@ -39,6 +39,6 @@
 @media only screen and (max-width: 600px) {
   .row {
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
   }
 }

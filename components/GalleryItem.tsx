@@ -6,6 +6,7 @@ import ImageWithFadeIn from './ImageWithFadeIn';
 interface Props {
   imageLink?: string,
   title?: string,
+  description?: string,
   link?: string,
   /**
    * Width of the image.
@@ -17,7 +18,7 @@ interface Props {
   height?: number | string,
 }
 
-export default function GalleryItem({ imageLink, title, link, width, height }: Props) {
+export default function GalleryItem({ imageLink, title, description, link, width, height }: Props) {
   if (link) {
     return (
       <Link href={link || '/'}>
@@ -26,19 +27,18 @@ export default function GalleryItem({ imageLink, title, link, width, height }: P
             <ImageWithFadeIn
               className={styles.image}
               src={imageLink}
-              width={width || 700}
-              height={height || 187}
+              width={width || 600}
+              height={height || 200}
               objectFit="cover"
               objectPosition="50%"
               alt={`Preview banner for ${title}.`}
             />
           ) : undefined}
-          <div className={styles.textContainer}>
+          <div className={styles.details}>
             <p>{title}</p>
-            {/* <Next
-              width={40}
-              height={40}
-            /> */}
+            {description ? (
+              <p className={styles.description}>{description}</p>
+            ) : undefined}
           </div>
         </a>
       </Link>
@@ -50,19 +50,18 @@ export default function GalleryItem({ imageLink, title, link, width, height }: P
           <ImageWithFadeIn
             className={styles.image}
             src={imageLink}
-            width={width || 700}
-            height={height || 187}
+            width={width || 600}
+            height={height || 200}
             objectFit="cover"
             objectPosition="50%"
             alt={`Preview banner for ${title}.`}
           />
         ) : undefined}
-        <div className={styles.textContainer}>
+        <div className={styles.details}>
           <p>{title}</p>
-          {/* <Next
-            width={40}
-            height={40}
-          /> */}
+          {description ? (
+            <p className={styles.description}>{description}</p>
+          ) : undefined}
         </div>
       </div>
     );

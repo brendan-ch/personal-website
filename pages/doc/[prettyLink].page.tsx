@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
         prettyLink: value.id,
       }
     })),
-    fallback: 'blocking',
+    fallback: false,
   }
 };
 

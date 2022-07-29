@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  border: 1px solid var(--emphasis);
+
+  height: 24px;
+}
+
+.container > p {
+  white-space: nowrap;
+}
+
+.selected {
+  background: var(--emphasis);
+}
+
+.selected > p {
+  color: var(--background);
+}
+
+.disabled {
+  background: var(--gray);
+  border: 1px solid rgba(0, 0, 0, 0);
+
+  cursor: default;
+}
+
+.disabled > p {
+  color: var(--gray3);
+}

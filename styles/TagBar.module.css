@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: 0px;
+}
+
+.clearVisible {
+  height: 40px;
+  /* width: 40px; */
+
+  animation-name: moveIn;
+  animation-duration: 100ms;
+}
+
+@keyframes moveIn {
+  0% {
+    width: 0px;
+  } 100% {
+    width: 40px;
+  }
+}

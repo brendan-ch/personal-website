@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
         prettyLink: value.id,
       }
     })),
-    fallback: 'blocking',
+    fallback: false,
   }
 };
 
@@ -93,8 +93,8 @@ export default function WorkPage({
         id={id}
         prefix={prefix}
         tags={tags}
-        backButtonText="Home"
-        backButtonHref="/"
+        backButtonText="Work"
+        backButtonHref="/work"
       />
     </div>
   );
