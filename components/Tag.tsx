@@ -15,7 +15,7 @@ export default function Tag({ text, state, onClick }: Props) {
   }
 
   return (
-    <button className={containerStyle} onClick={onClick}>
+    <button className={containerStyle} onClick={state !== 'disabled' ? onClick : undefined}>
       <p>{text}</p>
     </button>
   );
