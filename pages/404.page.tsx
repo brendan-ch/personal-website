@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import ImageWithFadeIn from '../components/ImageWithFadeIn';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
 import utils from '../styles/utils.module.css';
@@ -9,6 +8,7 @@ import utils from '../styles/utils.module.css';
 import Image404 from '../public/404.jpg';
 import PageHeader from '../components/PageHeader';
 import Footer from '../components/Footer';
+import Image from 'next/image';
 
 /**
  * Custom 404 page.
@@ -50,8 +50,9 @@ export default function Custom404() {
               </p>
             </a>
           </Link>
-          <ImageWithFadeIn
+          <Image
             src={Image404}
+            alt="Capybara in bath"
           />
         </div>
         <div className={utils.footerWrapper}>
