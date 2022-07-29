@@ -3,7 +3,7 @@ import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 import TagBar from './TagBar';
@@ -76,9 +76,10 @@ export function Group({
       {pageResponse.pageData.map((_: PageData, index: number) => {
         if (index % 2 == 0) {
           return (
-            <GalleryItemRow>
+            <GalleryItemRow key={index}>
               {pageResponse.pageData[index] ? (
                 <GalleryItem
+                  key={0}
                   title={pageResponse.pageData[index].title || ''}
                   imageLink={pageResponse.pageData[index].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index].id}`}
@@ -87,6 +88,7 @@ export function Group({
               ) : <></>}
               {pageResponse.pageData[index + 1] ? (
                 <GalleryItem
+                  key={1}
                   title={pageResponse.pageData[index + 1].title || ''}
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
@@ -96,7 +98,7 @@ export function Group({
             </GalleryItemRow>
           )
         } else {
-          return <></>;
+          return <React.Fragment key={index}></React.Fragment>;
         }
       })}
     </>
@@ -201,9 +203,10 @@ export default function Database({
       {!dataChanged ? pageResponse.pageData.map((item: PageData, index: number) => {
         if (index % 2 == 0) {
           return (
-            <GalleryItemRow>
+            <GalleryItemRow key={index}>
               {pageResponse.pageData[index] ? (
                 <GalleryItem
+                  key={0}
                   title={pageResponse.pageData[index].title || ''}
                   imageLink={pageResponse.pageData[index].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index].id}`}
@@ -212,6 +215,7 @@ export default function Database({
               ) : <></>}
               {pageResponse.pageData[index + 1] ? (
                 <GalleryItem
+                  key={1}
                   title={pageResponse.pageData[index + 1].title || ''}
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
@@ -221,7 +225,7 @@ export default function Database({
             </GalleryItemRow>
           )
         } else {
-          return <></>;
+          return <React.Fragment key={index}></React.Fragment>;
         }
       }) : undefined}
       {groups}
