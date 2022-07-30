@@ -20,7 +20,7 @@ order: 2
 
 **Length**: 5 hours
 
-[View the full prototype](https://www.figma.com/proto/hXBdp2rYttv89aCxt665sf/Exercise%3A-Design-a-product-for-self-publishing-a-book-on-Amazon.?page-id=0%3A1&node-id=2%3A2&viewport=297%2C435%2C0.16&scaling=contain&starting-point-node-id=2%3A2) (created using Figma)
+[View the full prototype on Figma](https://www.figma.com/proto/hXBdp2rYttv89aCxt665sf/Exercise%3A-Design-a-product-for-self-publishing-a-book-on-Amazon.?page-id=0%3A1&node-id=2%3A2&viewport=297%2C435%2C0.16&scaling=contain&starting-point-node-id=2%3A2)
 
 # Understanding the Goal
 
@@ -63,7 +63,7 @@ I decided not to go as far as to create a dashboard for managing self-publishing
 ---
 # The Final Wireframe
 
-[View the full prototype](https://www.figma.com/proto/hXBdp2rYttv89aCxt665sf/Exercise%3A-Design-a-product-for-self-publishing-a-book-on-Amazon.?page-id=0%3A1&node-id=2%3A2&viewport=297%2C435%2C0.16&scaling=contain&starting-point-node-id=2%3A2)
+[View the full prototype on Figma](https://www.figma.com/proto/hXBdp2rYttv89aCxt665sf/Exercise%3A-Design-a-product-for-self-publishing-a-book-on-Amazon.?page-id=0%3A1&node-id=2%3A2&viewport=297%2C435%2C0.16&scaling=contain&starting-point-node-id=2%3A2)
 
 ## Guides and Blog
 
