@@ -1,6 +1,6 @@
 ---
 title: "coffeetype"
-description: "A minimalist typing test built using Java Swing."
+description: "A minimalistic typing test built with Java."
 # Name of image in "attachments" folder
 previewImage: "/static/work/preview/coffeetype-preview.png"
 tags:
