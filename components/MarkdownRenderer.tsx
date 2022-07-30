@@ -37,7 +37,7 @@ export default function MarkdownRenderer({ content, onImageClick }: Props) {
           a: ({ href, children }: any) => {
             return (
               <u>
-                <a href={href}>{children}</a>
+                <a href={href} target="_blank" rel="noreferrer">{children}</a>
               </u>
             );
           },
