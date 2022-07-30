@@ -5,10 +5,53 @@
   width: 100%;
 }
 
+.hoverContentWrapper {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: var(--background-translucent);
+
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.hoverContentText {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
 .image {
   box-sizing: border-box;
   width: 355px;
   height: 187px;
+}
+
+.container:hover .hoverContentWrapper {
+  display: flex;
+
+  animation-name: fadein;
+  animation-duration: 100ms;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  } 100% {
+    opacity: 100%;
+  }
 }
 
 .details {
