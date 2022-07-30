@@ -1,6 +1,6 @@
 ---
 title: "CMES"
-description: "Enabling medical practitioners in resource-constrained areas to improve patient care, by providing access to cutting-edge medical literature."
+description: "Enabling medical practitioners in resource-constrained areas to improve patient care."
 
 # Relative paths within "attachments" folder
 previewImage: "/static/work/preview/cmes-preview.png"
