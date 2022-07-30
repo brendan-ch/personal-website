@@ -4,9 +4,10 @@ description: "A minimalist typing test built using Java Swing."
 # Name of image in "attachments" folder
 previewImage: "/static/work/preview/coffeetype-preview.png"
 tags:
-- Featured
 - UI/UX Design
 - App Development
+
+order: 6
 ---
 
 ![coffeetype banner](/static/work/preview/coffeetype-preview.png)

@@ -1,4 +1,4 @@
-import { PageData, PageListFilter, PageListResponse, TagObject } from '../types';
+import { PageData, PageListFilter, PageListResponse, PageListSort, TagObject } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
@@ -26,6 +26,7 @@ interface GroupProps {
   onLoadStart?: () => any,
   onLoadComplete?: () => any,
   filter?: PageListFilter[],
+  sort?: PageListSort[],
 }
 
 export function Group({
@@ -34,6 +35,7 @@ export function Group({
   onLoadComplete,
   onLoadStart,
   filter,
+  sort,
 }: GroupProps) {
   const fetcher = async (url: string, config: any) => {
     return await axios.post(url, config);
@@ -45,6 +47,7 @@ export function Group({
     startIndex,
     pageSize: GROUP_PAGE_SIZE,
     filter,
+    sort,
   }], fetcher);
 
   useEffect(() => {
@@ -142,6 +145,12 @@ export default function Database({
             },
           },
         ] : undefined}
+        sort={[
+          {
+            property: 'order',
+            order: 'asc',
+          },
+        ]}
       />);
     }
   }

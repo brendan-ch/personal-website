@@ -14,7 +14,6 @@ export default async function handler(
   try {
     // Share interface with code
     const query: PageListQuery = req.body;
-    delete query.sort;
 
     // Validate
     if (

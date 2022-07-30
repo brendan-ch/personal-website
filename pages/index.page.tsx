@@ -28,6 +28,12 @@ export async function getStaticProps() {
         },
       },
     ],
+    sort: [
+      {
+        property: 'order',
+        order: 'asc',
+      },
+    ],
   });
 
   return {
