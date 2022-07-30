@@ -1,6 +1,6 @@
 ---
 title: "Self Publishing Co."
-description: ""
+description: "The ultimate knowledge base for all things self publishing."
 # The name of the file is used to generate the pretty link
 
 # Relative path inside "public" folder
