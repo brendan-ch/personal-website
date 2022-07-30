@@ -87,6 +87,7 @@ export function Group({
                   imageLink={pageResponse.pageData[index].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index].id}`}
                   description={pageResponse.pageData[index].tags ? pageResponse.pageData[index].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
+                  hoverContent={pageResponse.pageData[index].description || undefined}
                 />
               ) : <></>}
               {pageResponse.pageData[index + 1] ? (
@@ -96,6 +97,7 @@ export function Group({
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
                   description={pageResponse.pageData[index + 1].tags ? pageResponse.pageData[index + 1].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
+                  hoverContent={pageResponse.pageData[index + 1].description || undefined}
                 />
               ) : <GalleryItem />}
             </GalleryItemRow>
@@ -228,6 +230,7 @@ export default function Database({
                   imageLink={pageResponse.pageData[index].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index].id}`}
                   description={pageResponse.pageData[index].tags ? pageResponse.pageData[index].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
+                  hoverContent={pageResponse.pageData[index].description || undefined}
                 />
               ) : <></>}
               {pageResponse.pageData[index + 1] ? (
@@ -237,6 +240,7 @@ export default function Database({
                   imageLink={pageResponse.pageData[index + 1].previewImage || ''}
                   link={`/${prefix}/${pageResponse.pageData[index + 1].id}`}
                   description={pageResponse.pageData[index + 1].tags ? pageResponse.pageData[index + 1].tags?.filter((item) => item !== 'Featured').join(', ') : undefined}
+                  hoverContent={pageResponse.pageData[index + 1].description || undefined}
                 />
               ) : <GalleryItem />}
             </GalleryItemRow>
