@@ -5,6 +5,10 @@ import path from 'path';
  */
 export const EXCLUDED_TAGS = ['Featured'];
 
+/**
+ * Maximum number of items that can appear at a time
+ * when using client-side rendering.
+ */
 export const GROUP_PAGE_SIZE = 8;
 
 /**

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 import TagBar from './TagBar';
+import GalleryItemPlaceholder from './GalleryItemPlaceholder';
 
 interface RowProps {
   children: JSX.Element | JSX.Element[],
@@ -24,7 +25,7 @@ interface GroupProps {
   startIndex: number,
   prefix: string,
   onLoadStart?: () => any,
-  onLoadComplete?: () => any,
+  onLoadComplete?: (max: number) => any,
   filter?: PageListFilter[],
   sort?: PageListSort[],
 }
@@ -49,28 +50,44 @@ export function Group({
     filter,
     sort,
   }], fetcher);
+  const pageResponse: PageListResponse = data?.data.data;
 
   useEffect(() => {
     if (!data && !error && onLoadStart) {
       onLoadStart();
     }
 
-    if ((data || error) && onLoadComplete) {
-      onLoadComplete();
+    if ((data || error) && onLoadComplete && pageResponse) {
+      onLoadComplete(pageResponse.totalCount);
     }
-  }, [data, error, onLoadStart, onLoadComplete]);
+  }, [data, error, onLoadStart, onLoadComplete, pageResponse]);
 
-  const pageResponse: PageListResponse = data?.data.data;
 
+  // Error while loading
   if (error) {
     return (
       <p>There was an issue loading this component. Please try again later.</p>
     );
   }
 
+  // Loading
   if (!pageResponse) {
+    const rows = [];
+    for (let i = 0; i < GROUP_PAGE_SIZE; i += 2) {
+      rows.push((
+        <GalleryItemRow key={i}>
+          <GalleryItemPlaceholder />
+          <GalleryItemPlaceholder />
+        </GalleryItemRow>
+      ));
+    }
+
     // Return nothing
-    return <></>;
+    return (
+      <>
+        {rows}
+      </>
+    );
   }
 
   // Return fragment with gallery items
@@ -126,9 +143,21 @@ export default function Database({
   availableTags,
 }: Props) {
   const [loading, setLoading] = useState(false);
+  
   const [count, setCount] = useState(0);
+  const [max, setMax] = useState(pageResponse.totalCount);
+
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
   const [dataChanged, setDataChanged] = useState(false);
+
+  function handleLoadStart() {
+    setLoading(true);
+  }
+
+  function handleLoadComplete(max: number) {
+    setLoading(false);
+    setMax(max);
+  }
 
   // Add groups
   const groups = [];
@@ -138,8 +167,8 @@ export default function Database({
         key={i}
         startIndex={(dataChanged || !pageResponse.nextIndex ? 0 : pageResponse.nextIndex) + (GROUP_PAGE_SIZE * (i))}
         prefix={prefix}
-        onLoadStart={() => setLoading(true)}
-        onLoadComplete={() => setLoading(false)}
+        onLoadStart={handleLoadStart}
+        onLoadComplete={handleLoadComplete}
         filter={availableTags ? [
           {
             tags: {
@@ -162,11 +191,11 @@ export default function Database({
 
   if (dataChanged) {
     maxReached = (
-      (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+      (GROUP_PAGE_SIZE * count) >= max
     );
   } else {
     maxReached = (
-      pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+      pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= max
     ) || !pageResponse.nextIndex;
   }
 
