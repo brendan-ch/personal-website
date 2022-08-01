@@ -133,6 +133,15 @@ export default function Database({
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
   const [dataChanged, setDataChanged] = useState(false);
 
+  function handleLoadStart() {
+    setLoading(true);
+  }
+
+  function handleLoadComplete(max: number) {
+    setLoading(false);
+    setMax(max);
+  }
+
   // Add groups
   const groups = [];
   if (pageResponse.nextIndex || dataChanged) {
@@ -141,12 +150,8 @@ export default function Database({
         key={i}
         startIndex={(dataChanged || !pageResponse.nextIndex ? 0 : pageResponse.nextIndex) + (GROUP_PAGE_SIZE * (i))}
         prefix={prefix}
-        onLoadStart={() => setLoading(true)}
-        onLoadComplete={(max) => {
-          setLoading(false);
-          setMax(max);
-          console.log(max);
-        }}
+        onLoadStart={handleLoadStart}
+        onLoadComplete={handleLoadComplete}
         filter={availableTags ? [
           {
             tags: {
