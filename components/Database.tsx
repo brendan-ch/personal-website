@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 import TagBar from './TagBar';
+import GalleryItemPlaceholder from './GalleryItemPlaceholder';
 
 interface RowProps {
   children: JSX.Element | JSX.Element[],
@@ -62,15 +63,31 @@ export function Group({
   }, [data, error, onLoadStart, onLoadComplete, pageResponse]);
 
 
+  // Error while loading
   if (error) {
     return (
       <p>There was an issue loading this component. Please try again later.</p>
     );
   }
 
+  // Loading
   if (!pageResponse) {
+    const rows = [];
+    for (let i = 0; i < GROUP_PAGE_SIZE; i += 2) {
+      rows.push((
+        <GalleryItemRow key={i}>
+          <GalleryItemPlaceholder />
+          <GalleryItemPlaceholder />
+        </GalleryItemRow>
+      ));
+    }
+
     // Return nothing
-    return <></>;
+    return (
+      <>
+        {rows}
+      </>
+    );
   }
 
   // Return fragment with gallery items
