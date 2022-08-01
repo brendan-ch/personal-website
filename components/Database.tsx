@@ -24,7 +24,7 @@ interface GroupProps {
   startIndex: number,
   prefix: string,
   onLoadStart?: () => any,
-  onLoadComplete?: () => any,
+  onLoadComplete?: (max: number) => any,
   filter?: PageListFilter[],
   sort?: PageListSort[],
 }
@@ -49,18 +49,18 @@ export function Group({
     filter,
     sort,
   }], fetcher);
+  const pageResponse: PageListResponse = data?.data.data;
 
   useEffect(() => {
     if (!data && !error && onLoadStart) {
       onLoadStart();
     }
 
-    if ((data || error) && onLoadComplete) {
-      onLoadComplete();
+    if ((data || error) && onLoadComplete && pageResponse) {
+      onLoadComplete(pageResponse.totalCount);
     }
-  }, [data, error, onLoadStart, onLoadComplete]);
+  }, [data, error, onLoadStart, onLoadComplete, pageResponse]);
 
-  const pageResponse: PageListResponse = data?.data.data;
 
   if (error) {
     return (
@@ -126,7 +126,10 @@ export default function Database({
   availableTags,
 }: Props) {
   const [loading, setLoading] = useState(false);
+  
   const [count, setCount] = useState(0);
+  const [max, setMax] = useState(pageResponse.totalCount);
+
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
   const [dataChanged, setDataChanged] = useState(false);
 
@@ -139,7 +142,11 @@ export default function Database({
         startIndex={(dataChanged || !pageResponse.nextIndex ? 0 : pageResponse.nextIndex) + (GROUP_PAGE_SIZE * (i))}
         prefix={prefix}
         onLoadStart={() => setLoading(true)}
-        onLoadComplete={() => setLoading(false)}
+        onLoadComplete={(max) => {
+          setLoading(false);
+          setMax(max);
+          console.log(max);
+        }}
         filter={availableTags ? [
           {
             tags: {
@@ -162,11 +169,11 @@ export default function Database({
 
   if (dataChanged) {
     maxReached = (
-      (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+      (GROUP_PAGE_SIZE * count) >= max
     );
   } else {
     maxReached = (
-      pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= pageResponse.totalCount
+      pageResponse.nextIndex && pageResponse.nextIndex + (GROUP_PAGE_SIZE * count) >= max
     ) || !pageResponse.nextIndex;
   }
 
