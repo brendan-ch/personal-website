@@ -26,9 +26,9 @@
 /* Apply to items on a page that need to
 stretch until a maximum width. */
 .itemWrapper {
-  padding: 0px 15px;
+  padding: 0px 16px;
   /* min-width: 20em; */
-  max-width: 60em;
+  max-width: 64em;
   width: 100%;
 
   display: flex;
