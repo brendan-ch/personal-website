@@ -52,7 +52,7 @@ export default function Footer({ style }: Props) {
               </b>
             </p>
             <Link href={GITHUB_LINK}>
-              <a>
+              <a target="_blank" rel="noreferrer">
                 <p>
                   <u>
                     GitHub
