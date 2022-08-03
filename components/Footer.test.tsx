@@ -12,7 +12,7 @@ describe('Footer', () => {
   });
 
   it('renders links to legal documents', () => {
-    const { debug, getByText } = render(<Footer />);
+    const { getByText } = render(<Footer />);
 
     interface Link {
       href: string,
@@ -27,7 +27,7 @@ describe('Footer', () => {
       },
       {
         href: '/doc/copyright',
-        name: 'Copyright and Licenses',
+        name: 'Licenses',
       },
     ];
 
