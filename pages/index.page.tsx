@@ -165,7 +165,9 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
             </a>
           </Link>
         </div>
-        <div className={utils.spacer} />
+        <div className={utils.spacer} style={{
+          height: 20,
+        }} />
         <div className={utils.footerWrapper}>
           <Footer />
         </div>
