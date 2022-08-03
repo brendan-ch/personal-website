@@ -8,10 +8,6 @@
   width: 100%;
 }
 
-.container p {
-  color: var(--gray3);
-}
-
 .content {
   display: flex;
   flex-direction: row;
