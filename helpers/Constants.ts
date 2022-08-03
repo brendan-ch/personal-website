@@ -1,5 +1,7 @@
 import path from 'path';
 
+export const GITHUB_LINK = 'https://github.com/brendan-ch';
+
 /**
  * Tags to always exclude from `getTags` function.
  */
@@ -38,14 +40,6 @@ export const CYAN = '#376E77';
  * Maximum depth that the `getChildrenBlocks` function can recurse to.
  */
 export const MAX_RECURSION_DEPTH = 5;
-
-/**
- * @todo move these values to environment variables
- */
-export const PROJECTS_DATABASE_ID = '8bfa473991634d7885873cf269746b41';
-export const ADDITIONAL_DOCS_DATABASE_ID = '475cc85e2ecf416eb4a816feba2a7f26';
-export const BLOG_DATABASE_ID = '9a8e9dc2116b45c9aab61b4542f4631a';
-export const ABOUT_PAGE_ID = 'd5f92ee0527143c7b596b28b49e03937';
 
 /**
  * Controls when to regenerate a static page.
