@@ -63,7 +63,6 @@ export default function AboutPage({ content }: PageData) {
             content={content!}
           />
         </div>
-        <div className={utils.spacer} />
         <div className={utils.footerWrapper}>
           <Footer />
         </div>

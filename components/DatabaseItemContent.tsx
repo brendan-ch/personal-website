@@ -66,7 +66,6 @@ export default function DatabaseItemContent({
           />
         </div>
       ) : undefined}
-      <div className={utils.spacer} />
       <div className={utils.footerWrapper}>
         <Footer />
       </div>

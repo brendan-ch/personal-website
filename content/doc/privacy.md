@@ -64,4 +64,4 @@ I may update this privacy notice from time to time. The updated version will be 
 
 # How can you contact me about this notice?
 
-If you have questions or comments about this notice, you may email me at [smallpigeon1@gmail.com](mailto:smallpigeon1@gmail.com).
+If you have questions or comments about this notice, you may email me at [me@bchen.dev](mailto:me@bchen.dev).

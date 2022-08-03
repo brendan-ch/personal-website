@@ -6,9 +6,10 @@ import LogoFull from './icons/LogoFull';
 
 interface Props {
   style?: CSSProperties,
+  mini?: boolean,
 }
 
-export default function Footer({ style }: Props) {
+export default function Footer({ style, mini }: Props) {
   return (
     <div className={styles.container} style={style}>
       <div className={styles.content}>
@@ -21,11 +22,13 @@ export default function Footer({ style }: Props) {
         </div>
         <div className={styles.linksWrapper}>
           <div className={styles.linksContainer}>
-            <p>
-              <b>
-                Legal
-              </b>
-            </p>
+            {mini ? undefined : (
+              <p>
+                <b>
+                  Legal
+                </b>
+              </p>
+            )}
             <Link href="/doc/privacy">
               <a>
                 <p>
@@ -45,22 +48,24 @@ export default function Footer({ style }: Props) {
               </a>
             </Link>
           </div>
-          <div className={styles.linksContainer}>
-            <p>
-              <b>
-                Follow Me
-              </b>
-            </p>
-            <Link href={GITHUB_LINK}>
-              <a target="_blank" rel="noreferrer">
-                <p>
-                  <u>
-                    GitHub
-                  </u>
-                </p>
-              </a>
-            </Link>
-          </div>
+          {mini ? undefined : (
+            <div className={styles.linksContainer}>
+              <p>
+                <b>
+                  Follow Me
+                </b>
+              </p>
+              <Link href={GITHUB_LINK}>
+                <a target="_blank" rel="noreferrer">
+                  <p>
+                    <u>
+                      GitHub
+                    </u>
+                  </p>
+                </a>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

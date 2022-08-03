@@ -84,11 +84,6 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
             text="Work"
             href="/work"
           />
-          {/* <MobileNavMenuButton
-            toggled={selected === 'Blog'}
-            text="Blog"
-            href="/blog"
-          /> */}
           <MobileNavMenuButton
             toggled={selected === 'About Me'}
             text="About Me"
@@ -99,6 +94,7 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
           style={{
             backgroundColor: 'transparent',
           }}
+          mini
         />
       </div>
     </div>
