@@ -25,7 +25,7 @@ tags:
 - Graphic Design
 ---
 
-Page Content`
+Page Content`;
 
 const files = [
   'file1.md',
