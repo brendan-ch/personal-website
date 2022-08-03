@@ -24,6 +24,7 @@ describe('About', () => {
 
   it('Renders the page', () => {
     const { container } = render(<About
+      imageAspectRatio={null}
       content={mockContent}
       id="about"
       title="About Me"

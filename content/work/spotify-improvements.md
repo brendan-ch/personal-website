@@ -10,6 +10,7 @@ tags:
 - UI/UX Design
 
 order: 5
+imageAspectRatio: "4 / 3"
 ---
 
 *In my free time, I work on exercises like this one to build my design thinking and UX skills, push myself out of my comfort zone, and explore new topics. These exercises all have a set prompt and a limited amount of time.*

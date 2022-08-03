@@ -7,13 +7,14 @@ import utils from '../styles/utils.module.css';
 interface Props {
   content: string,
   onImageClick?: (src: string, alt: string) => any,
+  imageAspectRatio?: string,
 }
 
 /**
  * Container with styling for markdown content.
  * @param props
  */
-export default function MarkdownRenderer({ content, onImageClick }: Props) {
+export default function MarkdownRenderer({ content, onImageClick, imageAspectRatio }: Props) {
   // const [loaded, setLoaded] = useState(false);
 
   // useEffect(() => {
@@ -45,6 +46,9 @@ export default function MarkdownRenderer({ content, onImageClick }: Props) {
             return (
               <div
                 className={styles.imageContainer}
+                style={{
+                  aspectRatio: imageAspectRatio,
+                }}
               >
                 <Image
                   alt={alt || ''}

@@ -60,6 +60,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   id,
   prefix,
   tags,
+  imageAspectRatio,
 }: PageData) {
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -89,6 +90,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
         tags={tags}
         backButtonHref="/"
         backButtonText="Home"
+        imageAspectRatio={imageAspectRatio}
       />
     </div>
   );

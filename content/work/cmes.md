@@ -11,6 +11,7 @@ tags:
 - App Development
 
 order: 1
+imageAspectRatio: "7 / 3"
 ---
 
 ![](/static/work/preview/cmes-preview.png)

@@ -13,4 +13,5 @@ tags:
 - App Development
 
 order: 0
+imageAspectRatio: "3 / 2"
 ---

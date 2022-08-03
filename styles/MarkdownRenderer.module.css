@@ -13,12 +13,10 @@
 
 .imageContainer {
   width: 100%;
-  min-height: 200px;
-  max-height: 400px;
-  height: calc(100vw / 2);
+  aspect-ratio: 3/2;
   position: relative;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .imageContainer:hover {

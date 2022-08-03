@@ -11,6 +11,7 @@ tags:
 - App Development
 
 order: 0
+imageAspectRatio: "2 / 1"
 ---
 
 ![Screenshot of the app.](/static/work/clockwise/clockwise-0.png)
