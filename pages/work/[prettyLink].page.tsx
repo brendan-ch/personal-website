@@ -60,6 +60,7 @@ export default function WorkPage({
   id,
   prefix,
   tags,
+  imageAspectRatio,
 }: PageData) {
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -88,6 +89,7 @@ export default function WorkPage({
         tags={tags}
         backButtonText="Work"
         backButtonHref="/work"
+        imageAspectRatio={imageAspectRatio}
       />
     </div>
   );

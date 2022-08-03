@@ -17,6 +17,7 @@ export default function DatabaseItemContent({
   content,
   prefix,
   coverImage,
+  imageAspectRatio,
   backButtonText,
   backButtonHref,
 }: Props) {
@@ -61,6 +62,7 @@ export default function DatabaseItemContent({
           <MarkdownRenderer
             content={content}
             onImageClick={handleImageClick}
+            imageAspectRatio={imageAspectRatio || undefined}
           />
         </div>
       ) : undefined}

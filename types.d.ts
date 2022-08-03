@@ -163,6 +163,7 @@ interface PageData {
   description: string | null,
   previewImage: string | null,
   coverImage: string | null,
+  imageAspectRatio: string | null,
   tags: string[] | null,
   prefix: string,
   order?: number,
