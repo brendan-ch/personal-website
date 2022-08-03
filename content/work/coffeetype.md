@@ -8,6 +8,7 @@ tags:
 - App Development
 
 order: 7
+imageAspectRatio: "7 / 3"
 ---
 
 ![coffeetype banner](/static/work/preview/coffeetype-preview.png)
