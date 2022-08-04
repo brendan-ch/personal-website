@@ -21,4 +21,4 @@ Make sure "Include task data" is checked, and click on "Export settings" to down
 
 Go to [clockwise.bchen.dev](https://clockwise.bchen.dev) and open the Settings menu on the top right. Navigate to the Data Management screen.
 
-Click on "Import settings" and select the file that you downloaded. Your data should be imported and saved to the new domain.
+Click on "Import settings" and select the file that you downloaded. Your data is now saved to the new domain.
