@@ -20,7 +20,7 @@ A Pomodoro timer designed to help you focus.
 
 **Try it out**:
 
-[Web →](https://clockwise.sh)
+[Web →](https://clockwise.bchen.dev)
 
 [App Store →](https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428)
 
