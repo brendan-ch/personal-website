@@ -70,7 +70,6 @@ export const getStaticProps = async ({ params }: { params: any }) => {
         title={title}
         description={description}
         previewImageLink={previewImage}
-        noRobots
       />
       <MobileNavBar
         onMobileButtonClick={() => setMenuVisible(true)}
