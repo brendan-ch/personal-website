@@ -61,7 +61,7 @@ export default function MarkdownRenderer({ content, onImageClick, imageAspectRat
                 />
               </div>
             );
-          }
+          },
         }}
         skipHtml
       >
