@@ -5,7 +5,7 @@ description: "Learn about what data is collected and how it's used."
 
 Last updated: February 14, 2022
 
-This policy applies to the website ([](https://clockwise.sh)[https://clockwise.sh](https://clockwise.sh), also referred to as the “Web App”) as well as the mobile app (referred to as “App”). Both are referred to collectively as the “Services”.
+This policy applies to the website ([clockwise.bchen.dev](https://clockwise.bchen.dev), also referred to as the “Web App”) as well as the mobile app (referred to as “App”). Both are referred to collectively as the “Services”.
 
 **In short**: All information that you directly input into the services (settings, task information) is stored locally and never sent to a server. Read below for more information on analytics data. If you have any questions or concerns, please contact me at [smallpigeon1@gmail.com](mailto:smallpigeon1@gmail.com).
 
