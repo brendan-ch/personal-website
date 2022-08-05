@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { useRouter } from 'next/router';
 
 import MarkdownRenderer from './MarkdownRenderer';
 
@@ -9,6 +10,11 @@ jest.mock('react-markdown', () => ({ children }: any) => (
     {children}
   </div>
 ));
+
+jest.mock('next/router');
+(useRouter as jest.Mock<any, any>).mockImplementation(() => ({
+  asPath: '',
+}));
 
 const content = `
 # Heading 1

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import About from './about.page';
 import '@testing-library/jest-dom';
+import { useRouter } from 'next/router';
 
 /* eslint-disable-next-line */
 jest.mock('react-markdown', () => ({ children }: any) => (
@@ -8,6 +9,11 @@ jest.mock('react-markdown', () => ({ children }: any) => (
     {children}
   </div>
 ));
+
+jest.mock('next/router');
+(useRouter as jest.Mock<any, any>).mockImplementation(() => ({
+  asPath: '',
+}));
 
 
 const mockContent = `
