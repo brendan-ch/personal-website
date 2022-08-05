@@ -11,8 +11,8 @@ tags:
 - Graphic Design
 
 order: 6
+imageAspectRatio: "5 / 3"
 ---
-<toc></toc>
 
 A collection of pattern designs inspired by everyday objects. This is a project I’ve been working on during the summer just for fun. Here are a few of the finished pieces.
 

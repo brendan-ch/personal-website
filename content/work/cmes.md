@@ -26,7 +26,7 @@ Learn more about the project on the [official website](https://cmesworld.org/).
 
 # My Roles
 
-## **CMES Mobile App**
+## CMES Mobile App
 
 I’m one of the developers for the CMES mobile app, which is an integral part of the CMES-Pi solution. The app is the preferred way to access continuing medical education (CME) content on a mobile device, providing medical practitioners with the ability to browse and download content for offline listening.
 
@@ -37,7 +37,7 @@ I’m one of the developers for the CMES mobile app, which is an integral part o
 
 The mobile app is built using Capacitor and Ionic Angular, while the CMES-Pi web app is built with PHP.
 
-## **CMES Admin Panel**
+## CMES Admin Panel
 As part of our solution, we have a web app that provides administrators with the ability to manage CME content. In addition to working on the web app, I also work on the backend side to ensure that CME content is uploaded and tagged correctly.
 
 The admin panel is built using PHP.
