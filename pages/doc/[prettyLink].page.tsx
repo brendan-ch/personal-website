@@ -4,10 +4,11 @@ import { PageData } from '../../types';
 import MobileNavBar from '../../components/MobileNavBar';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
 import MobileNavMenu from '../../components/MobileNavMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatabaseItemContent from '../../components/DatabaseItemContent';
 import getPages from '../../helpers/getPages';
 import getPage from '../../helpers/getPage';
+import { useRouter } from 'next/router';
 
 export const getStaticPaths = async () => {
   // Get pages
@@ -63,6 +64,12 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   imageAspectRatio,
 }: PageData) {
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    setMenuVisible(false);
+  }, [router.asPath]);
 
   return (
     <div className={utils.rootContainer}>

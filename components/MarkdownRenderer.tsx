@@ -1,8 +1,11 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Prism from 'prismjs';
 
 import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
+import { useRouter } from 'next/router';
 
 interface Props {
   content: string,
@@ -15,19 +18,13 @@ interface Props {
  * @param props
  */
 export default function MarkdownRenderer({ content, onImageClick, imageAspectRatio }: Props) {
-  // const [loaded, setLoaded] = useState(false);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoaded(true);
-  //   }, 1000);
-  // }, []);
-
-  // useEffect(() => {
-    // if (loaded) {
-    // Prism.highlightAll();
-    // }
-  // }, []);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      Prism.highlightAll();
+    }
+  }, [router.asPath]);
 
   return (
     <article className={styles.container}>
@@ -61,7 +58,7 @@ export default function MarkdownRenderer({ content, onImageClick, imageAspectRat
                 />
               </div>
             );
-          }
+          },
         }}
         skipHtml
       >

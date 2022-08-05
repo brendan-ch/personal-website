@@ -11,13 +11,6 @@ Brendan Chen reserves all copyright for site content.
 
 # Open Source Licenses
 
-## aws-sdk-js-v3
-Apache License 2.0
-
-Copyright 2018 [Amazon.com](http://Amazon.com), Inc. or its affiliates. All Rights Reserved.
-
-[Link to license](https://github.com/aws/aws-sdk-js-v3/blob/main/LICENSE)
-
 ## gray-matter
 MIT License
 
@@ -32,13 +25,6 @@ MIT License
 Copyright (c) 2022 Vercel, Inc.
 
 [Link to license](https://github.com/vercel/next.js/blob/canary/license.md)
-
-## notion-sdk-js
-MIT License
-
-Copyright 2021 Notion Labs, Inc.
-
-[Link to license](https://github.com/makenotion/notion-sdk-js/blob/main/LICENSE)
 
 ## prismjs
 MIT License
@@ -60,3 +46,10 @@ MIT License
 Copyright (c) 2015 Espen Hovlandsdal
 
 [Link to license](https://github.com/remarkjs/react-markdown/blob/main/license)
+
+## swr
+MIT License
+
+Copyright (c) 2019 ZEIT
+
+[Link to license](https://github.com/vercel/swr/blob/main/LICENSE)
