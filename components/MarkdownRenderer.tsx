@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Prism from 'prismjs';
 
 import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
@@ -15,19 +17,11 @@ interface Props {
  * @param props
  */
 export default function MarkdownRenderer({ content, onImageClick, imageAspectRatio }: Props) {
-  // const [loaded, setLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoaded(true);
-  //   }, 1000);
-  // }, []);
-
-  // useEffect(() => {
-    // if (loaded) {
-    // Prism.highlightAll();
-    // }
-  // }, []);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      Prism.highlightAll();
+    }
+  }, []);
 
   return (
     <article className={styles.container}>
