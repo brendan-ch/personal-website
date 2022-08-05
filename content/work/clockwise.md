@@ -45,14 +45,14 @@ The [Pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) is a 
 
 Some of my guidelines/feature requirements:
 
-## **Minimal distractions in the interface, especially when the timer is running**
+## Minimal distractions in the interface, especially when the timer is running
 
 To help users achieve a maximum sense of flow, there needs to be a minimal amount of distractions coming from the interface itself. This is why, for example, the page header and footer fade out while the timer is running.
 
-## **No assumptions about the user’s current workflow**
+## No assumptions about the user’s current workflow
 
 Clockwise is designed to fit into a person’s existing workflow, rather than acting as the centerpiece. This meant eliminating extra features such as a productivity report screen. While these features work great in other apps, it’s not part of the philosophy that I have with Clockwise.
 
-## **Full support for keyboard shortcuts on web**
+## Full support for keyboard shortcuts on web
 
 Admittedly, this feature targets a niche audience group, but keyboard shortcuts fit in with helping to establish the “maximum sense of flow” that Clockwise tries to help users accomplish.
