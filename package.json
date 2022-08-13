@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn copy && next dev",
-    "build": "yarn copy && next build",
+    "dev": "yarn copy && yarn generate && next dev",
+    "build": "yarn copy && yarn generate && next build",
     "copy": "copyfiles -u 1 \"./content/static/**/*\" \"./public\"",
+    "generate": "node scripts/generateData.js",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc",
-    "test": "jest --watch",
-    "test:ci": "jest --ci",
-    "test:coverage": "jest --ci --coverage"
+    "test": "yarn generate && jest --watch",
+    "test:ci": " yarn generate && jest --ci",
+    "test:coverage": "yarn generate && jest --ci --coverage"
   },
   "dependencies": {
     "axios": "^0.27.2",
