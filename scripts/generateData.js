@@ -10,7 +10,7 @@ const path = require('path');
  */
 async function getData() {
   const contentDirectory = path.join(process.cwd(), 'content');
-  const prefixes = ['work', 'doc', 'blog'];
+  const prefixes = ['work', 'doc', 'blog', 'about'];
 
   let allFiles = {};
   
@@ -29,6 +29,13 @@ async function getData() {
         id: file.substring(0, file.indexOf('.md')),
         prefix: prefix,
         content: matterResult.content,
+        // Default all fields to `null`
+        title: null,
+        description: null,
+        previewImage: null,
+        coverImage: null,
+        imageAspectRatio: null,
+        tags: null,
         ...matterResult.data,
       }
     }));
