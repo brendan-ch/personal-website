@@ -1,8 +1,6 @@
-import { readdir, readFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 import path from 'path';
 import { PageData, PageListQuery, PageListResponse } from '../types';
-import { CONTENT_DIRECTORY } from './Constants';
-import getPage from './getPage';
 
 /**
  * Compare two values.
