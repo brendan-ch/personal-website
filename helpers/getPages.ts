@@ -6,7 +6,7 @@ import { PageData, PageListQuery, PageListResponse } from '../types';
  * @param b
  * @returns
  */
-function compare(a: any, b: any) {
+export function compare(a: any, b: any) {
   if (typeof a === 'string' && typeof b === 'string') {
     return a.localeCompare(b);
   } else if (typeof a === 'number' && typeof b === 'number') {
@@ -77,6 +77,11 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
   }
 
   pages = pages.slice(start, nextIndex);
+
+  pages = pages.map((page) => ({
+    ...page,
+    content: null,
+  }));
 
   return {
     pageData: pages,
