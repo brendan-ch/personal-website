@@ -3,6 +3,40 @@ import { PAGINATION_LIMIT } from './Constants';
 import getPages from './getPages';
 
 jest.mock('fs/promises');
+jest.mock('../scripts/output/data.json', () => ({
+  work: [
+    {
+      title: 'Title #1',
+      description: 'Description #1',
+      tags: ['Graphic Design'],
+      prefix: 'work',
+      content: null,
+      previewImage: null,
+      coverImage: null,
+    },
+    {
+      title: 'Title #2',
+      description: 'Description #2',
+      tags: ['UI/UX Design'],
+      prefix: 'work',
+      content: null,
+      previewImage: null,
+      coverImage: null,
+    },
+    {
+      title: 'Title #3',
+      description: 'Description #3',
+      tags: ['App Dev'],
+      prefix: 'work',
+      content: null,
+      previewImage: null,
+      coverImage: null,
+    },
+  ],
+  about: [],
+  doc: [],
+  blog: [],
+}));
 
 // Mock the return value
 const testFrontMatter = `---
@@ -55,7 +89,7 @@ describe('getPages', () => {
       pageSize: PAGINATION_LIMIT,
     });
 
-    expect(pages.pageData).toHaveLength(Math.min(PAGINATION_LIMIT, files.length - 1));
+    expect(pages.pageData).toHaveLength(3);
   });
 
   it('Gets list of pages with startIndex passed', async () => {
@@ -92,7 +126,7 @@ describe('getPages', () => {
       filter: [
         {
           title: {
-            contains: 'Page Title #2',
+            contains: 'Title #1',
           },
         },
       ],
@@ -107,12 +141,27 @@ describe('getPages', () => {
       filter: [
         {
           description: {
-            contains: 'Page Description #2',
+            contains: 'Description #1',
           },
         },
       ],
     });
 
     expect(pages.pageData).toHaveLength(1);
+  });
+
+  it('Throws an error if the prefix doesn\'t exist', async () => {
+    expect(async () => {
+      await getPages({
+        prefix: 'dummy',
+        filter: [
+          {
+            description: {
+              contains: 'Description #1',
+            },
+          },
+        ],
+      });
+    }).rejects.toThrow();
   });
 });
