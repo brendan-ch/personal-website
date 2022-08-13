@@ -42,3 +42,6 @@ content/.obsidian/appearance.json
 content/.obsidian/workspace
 content/.obsidian/hotkeys.json
 content/.obsidian/themes
+
+# script data
+scripts/output

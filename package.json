@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn copy && next dev",
-    "build": "yarn copy && next build",
+    "dev": "yarn copy && yarn generate && next dev",
+    "build": "yarn copy && yarn generate && next build",
     "copy": "copyfiles -u 1 \"./content/static/**/*\" \"./public\"",
+    "generate": "node scripts/generateData.js",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc",
-    "test": "jest --watch",
-    "test:ci": "jest --ci",
-    "test:coverage": "jest --ci --coverage"
+    "test": "yarn generate && jest --watch",
+    "test:ci": " yarn generate && jest --ci",
+    "test:coverage": "yarn generate && jest --ci --coverage"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -32,6 +33,8 @@
     "@types/prismjs": "^1.26.0",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
+    "@vercel/nft": "^0.21.0",
+    "@vercel/node": "^2.5.8",
     "copyfiles": "^2.4.1",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",

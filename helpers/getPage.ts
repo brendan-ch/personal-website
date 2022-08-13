@@ -1,29 +1,23 @@
-import { readFile } from 'fs/promises';
-import matter from 'gray-matter';
-import path from 'path';
 import { PageData, PageQuery } from '../types';
-import { CONTENT_DIRECTORY } from './Constants';
 
 /**
  * Get information about a page.
  * @param query
  */
 export default async function getPage(query: PageQuery): Promise<PageData> {
-  const fileDirectory = query.prefix ? path.join(CONTENT_DIRECTORY, query.prefix, `${query.id}.md`) : path.join(CONTENT_DIRECTORY, `${query.id}.md`);
-  const fileContents = await readFile(fileDirectory);
+  // Filter generated data
+  // @ts-ignore
+  const parsed = require('../scripts/output/data.json');
 
-  // Parse metadata
-  const matterResult: any = matter(fileContents);
+  // @todo fix script for about page
+  // @ts-ignore
+  const prefixData: PageData[] = parsed[query.prefix];
 
-  let content = null;
-  if (query.withContent) {
-    content = matterResult.content;
+  // Filter parsed data
+  const correctPage = prefixData.find((page) => page.id === query.id);
+  if (correctPage && !query.withContent) {
+    correctPage.content = null;
   }
 
-  return {
-    id: query.id,
-    prefix: query.prefix || null,
-    content,
-    ...matterResult.data,
-  }
+  return correctPage!;
 }
