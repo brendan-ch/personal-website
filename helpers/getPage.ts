@@ -1,8 +1,6 @@
 import { readFile } from 'fs/promises';
-import matter from 'gray-matter';
 import path from 'path';
 import { PageData, PageQuery } from '../types';
-import { CONTENT_DIRECTORY } from './Constants';
 
 /**
  * Get information about a page.
@@ -10,8 +8,10 @@ import { CONTENT_DIRECTORY } from './Constants';
  */
 export default async function getPage(query: PageQuery): Promise<PageData> {
   // Filter generated data
-  const data = await readFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'));
-  const parsed: any = JSON.parse(data.toString());
+  // const data = await readFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'));
+  // const parsed: any = JSON.parse(data.toString());
+  // @ts-ignore
+  const parsed = require('../scripts/output/data.json');
 
   // @todo fix script for about page
   // @ts-ignore

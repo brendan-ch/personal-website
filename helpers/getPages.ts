@@ -31,8 +31,10 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
     throw err;
   }
 
-  const data = await readFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'));
-  const parsed: any = JSON.parse(data.toString());
+  // const data = await readFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'));
+  // const parsed: any = JSON.parse(data.toString());
+  // @ts-ignore
+  const parsed = require('../scripts/output/data.json');
   let pages: PageData[] = parsed[query.prefix];
   const length = pages.length;
   let nextIndex;
