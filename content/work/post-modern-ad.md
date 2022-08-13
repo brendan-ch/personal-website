@@ -16,7 +16,7 @@ imageAspectRatio: "33 / 51"
 
 ![Post-Modern Advertisement for a Sony Walkman.](/static/work/post-modern-ad/post-modern-ad.png)
 
-The poster was created using Adobe InDesign, and the drawing of the Walkman was created in Excalidraw.
+The poster was created using Adobe InDesign, and the Walkman drawing was created in Excalidraw. Fonts used are Neue Haas Grotesk Display, Franklin Gothic URW, and Flegrei.
 
 ## What is something you are proud of/find successful/you learned from this project?
 I think the layout is successful, as well as the choice of typography. I also like how the Walkman I drew as a conceptual draft ended up making it into the final advertisement. I learned to keep trying new ideas and experimenting with different designs.
