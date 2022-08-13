@@ -1,4 +1,4 @@
-import { readdir } from 'fs/promises';
+import { readdir, readFile } from 'fs/promises';
 import path from 'path';
 import { PageData, PageListQuery, PageListResponse } from '../types';
 import { CONTENT_DIRECTORY } from './Constants';
@@ -33,17 +33,23 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
     throw err;
   }
   
-  let pages: PageData[] = [];
-  let nextIndex;
-  let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
+  // let pages: PageData[] = [];
+  // let nextIndex;
+  // let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
   // First filter to markdown files only
-  files = files.filter((value) => value.endsWith('.md'));
+  // files = files.filter((value) => value.endsWith('.md'));
 
   // Get page data
-  pages = await Promise.all(files.map(async (filename) => await getPage({
-    id: filename.substring(0, filename.indexOf('.md')),
-    prefix: query.prefix!,
-  })));
+  // pages = await Promise.all(files.map(async (filename) => await getPage({
+  //   id: filename.substring(0, filename.indexOf('.md')),
+  //   prefix: query.prefix!,
+  // })));
+
+  const data = await readFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'));
+  const parsed: any = JSON.parse(data.toString());
+  let pages: PageData[] = parsed[query.prefix];
+  const length = pages.length;
+  let nextIndex;
 
   // Apply filter
   query.filter?.forEach((obj) => {
@@ -79,7 +85,7 @@ export default async function getPages(query: PageListQuery): Promise<PageListRe
 
   // If query has both start index and page size
   // and start index + page size is less than the file length
-  if (query.pageSize && start + query.pageSize < files.length) {
+  if (query.pageSize && start + query.pageSize < length) {
     // Set next index value
     nextIndex = start + query.pageSize;
   }
