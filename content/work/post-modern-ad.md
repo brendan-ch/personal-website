@@ -1,5 +1,6 @@
 ---
 title: "Post Modern Advertisement"
+description: "A post-modern advertisment for the Sony Walkman."
 # The name of the file is used to generate the pretty link
 
 # Relative path inside "public" folder
