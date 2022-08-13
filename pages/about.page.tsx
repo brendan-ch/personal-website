@@ -12,6 +12,7 @@ import { PageData } from '../types';
 
 export async function getStaticProps() {
   const pageData = await getPage({
+    prefix: 'about',
     id: 'about',
     withContent: true,
   });

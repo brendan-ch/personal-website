@@ -27,23 +27,11 @@ function compare(a: any, b: any) {
  * @todo implement filters
  */
 export default async function getPages(query: PageListQuery): Promise<PageListResponse> {
-  const directories = ['blog', 'doc', 'work'];
+  const directories = ['blog', 'doc', 'work', 'about'];
   if (!directories.includes(query.prefix)) {
     const err = new Error(`Supplied prefix does not exist. Supported prefixes are ${directories}.`);
     throw err;
   }
-  
-  // let pages: PageData[] = [];
-  // let nextIndex;
-  // let files = await readdir(path.join(CONTENT_DIRECTORY, query.prefix));
-  // First filter to markdown files only
-  // files = files.filter((value) => value.endsWith('.md'));
-
-  // Get page data
-  // pages = await Promise.all(files.map(async (filename) => await getPage({
-  //   id: filename.substring(0, filename.indexOf('.md')),
-  //   prefix: query.prefix!,
-  // })));
 
   const data = await readFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'));
   const parsed: any = JSON.parse(data.toString());
