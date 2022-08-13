@@ -1,6 +1,6 @@
 ---
 title: "Abstract Color Art"
-description: ""
+description: "Abstract vector art made using three different color palettes."
 # The name of the file is used to generate the pretty link
 
 # Relative path inside "public" folder
