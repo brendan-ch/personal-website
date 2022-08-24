@@ -56,8 +56,6 @@ Finally, one part of self-publishing a book is about connecting with readers, a 
 
 To solve these problems, I decided to design a website that offers educational content on self publishing, along with tools that help address pain points like budgeting and formatting. Similar products for self publishing include [Self Publishing School](https://selfpublishing.com), and similar products in other fields include [UX Tools](https://uxtools.co/) and [UX Collective](https://uxdesign.cc/).
 
-This website will primarily target the audience interested in self-publishing a book, and it will also have some use by existing self-publishers. It will also have a group of sponsors covering a comprehensive range of services related to self publishing, so the site can enjoy revenue without relying on large advertising networks.
-
 I decided not to go as far as to create a dashboard for managing self-publishing, as doing so would conflict with existing solutions (e.g. Kindle Direct Publishing) and have a higher implementation effort (e.g. interacting with an API).
 
 ---
@@ -69,13 +67,11 @@ I decided not to go as far as to create a dashboard for managing self-publishing
 
 I knew from the beginning that I wanted to split the site's content into two separate pages, a "Guides" page and a "Blog" page. Content on the "Guides" page stays the same with only occasional changes over time. Meanwhile, content on the "Blog" page is always evolving, as it's how users stay up to date on the world of self publishing.
 
-I had some pretty wacky ideas for how to create the "Guides" page. My first sketch involved an interactive graph where users would complete each lesson to earn points, similar to a video game.
-
 ![Initial sketch of graph view](/static/work/self-publishing-co/graph-sketch.jpeg)
 
-Eventually, I scrapped this idea and went with a more traditional layout, in order to better serve the target audience the site is for. I still think this can be combined with a "points" system along with a short quiz at the end of each guide, to keep the user engaged with the content. No account setup is required; simply track the user's points locally using browser cookies.
-
 ![Guides page](/static/work/self-publishing-co/guides.png)
+
+My first sketch involved an interactive graph where users would complete each lesson to earn points, similar to a video game. Eventually, I scrapped this idea and went with a more traditional layout, in order to better serve the target audience the site is for. I still think this can be combined with a "points" system along with a short quiz at the end of each guide, to keep the user engaged with the content. No account setup is required; simply track the user's points locally using browser cookies.
 
 Unlike the Guides page, the Blog page is for evolving content. It's intended to keep users up to date on the latest news in self publishing, and to serve as a space to share additional industry-grade knowledge (e.g. through interviews). 
 
