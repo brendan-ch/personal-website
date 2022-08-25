@@ -32,14 +32,14 @@ imageAspectRatio: "3 / 2"
 
 ![Screenshot of a high-fidelity prototype.](/static/work/clockwise/ui-design.png)
 
-The UI was designed using Figma.
+I started with some low-fidelity sketches of the timer, which turned into a high-fidelity prototype. The UI was designed using Figma, and the font used is Anonymous Pro.
+
+As part of adding a minimal amount of distraction to the user's workflow, the rest of the app fades out when the timer is running.
 
 ## Mobile App Development
 
 The mobile app was developed using React Native.
 
 ## Web App Development
-
-
 
 The web app was developed using React Native Web.
