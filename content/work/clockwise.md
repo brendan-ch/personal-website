@@ -14,6 +14,7 @@ order: 0
 imageAspectRatio: "3 / 1"
 ---
 
+<!-- To-do: add watermarks to all images -->
 ![Clockwise preview image.](/static/work/clockwise/app-screenshots.png)
 
 [Open the web app](https://clockwise.bchen.dev)
@@ -48,4 +49,8 @@ The mobile app was developed using React Native with Expo. Features of the app i
 
 ## Web App Development
 
-The web app was developed using React Native Web, using the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action.
+The web app was developed using React Native Web, starting from the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action.
+
+![Web app banner](/static/work/clockwise/web-app.png)
+
+![Keyboard shortcuts banner](/static/work/clockwise/keyboard-shortcuts.png)
