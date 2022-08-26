@@ -7,6 +7,7 @@ description: "Official 2022-2023 planner cover design for University High School
 previewImage: "/static/work/preview/planner-cover-preview.png"
 
 tags:
+- Featured
 - Graphic Design
 
 order: 13
