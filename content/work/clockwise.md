@@ -11,7 +11,7 @@ tags:
 - App Development
 
 order: 0
-imageAspectRatio: "3 / 2"
+imageAspectRatio: "3 / 1"
 ---
 
 ![Clockwise preview image.](/static/work/clockwise/app-screenshots.png)
@@ -30,16 +30,22 @@ imageAspectRatio: "3 / 2"
 
 ## UI Design
 
-![Screenshot of a high-fidelity prototype.](/static/work/clockwise/ui-design.png)
+![Frames of a high-fidelity prototype.](/static/work/clockwise/ui-design.png)
 
 I started with some low-fidelity sketches of the timer, which turned into a high-fidelity prototype. The UI was designed using Figma, and the font used is Anonymous Pro.
+
+<!-- ![Frames showing the UI fading when the timer is running.](/static/work/clockwise/fade.png) -->
 
 As part of adding a minimal amount of distraction to the user's workflow, the rest of the app fades out when the timer is running.
 
 ## Mobile App Development
 
-The mobile app was developed using React Native.
+The mobile app was developed using React Native with Expo. Features of the app include a minimal interface, timer customization, and automatic switching between focus and break modes.
+
+![Minimal Interface banner](/static/work/clockwise/minimal-interface.png)
+
+![Timer customization banner](/static/work/clockwise/timer-customization.png)
 
 ## Web App Development
 
-The web app was developed using React Native Web.
+The web app was developed using React Native Web, using the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action.
