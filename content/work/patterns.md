@@ -7,7 +7,6 @@ previewImage: "/static/work/preview/patterns-preview.png"
 # coverImage: ""
 
 tags:
-- Featured
 - Graphic Design
 
 order: 4

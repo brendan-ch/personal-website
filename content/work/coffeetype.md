@@ -4,6 +4,7 @@ description: "A minimalistic typing test built with Java."
 # Name of image in "attachments" folder
 previewImage: "/static/work/preview/coffeetype-preview.png"
 tags:
+- Featured
 - UI/UX Design
 - App Development
 
