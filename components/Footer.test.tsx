@@ -6,7 +6,7 @@ describe('Footer', () => {
   it('renders copyright text', () => {
     const { getByText } = render(<Footer />);
 
-    const copyrightText = '© 2022 Brendan Chen';
+    const copyrightText = '© 2022 Brendan Chen. All rights reserved.';
     const p = getByText(copyrightText);
     expect(p).toBeInTheDocument();
   });

@@ -18,7 +18,7 @@ export default function Footer({ style, mini }: Props) {
             width={200}
             height={50}
           />
-          <p>© 2022 Brendan Chen</p>
+          <p>© 2022 Brendan Chen. All rights reserved.</p>
         </div>
         <div className={styles.linksWrapper}>
           <div className={styles.linksContainer}>

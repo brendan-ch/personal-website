@@ -11,10 +11,10 @@ tags:
 - App Development
 
 order: 1
-imageAspectRatio: "7 / 3"
+imageAspectRatio: "3 / 1"
 ---
 
-![](/static/work/preview/cmes-preview.png)
+![CMES preview image.](/static/work/preview/cmes-preview.png)
 
 A volunteer project I’m working on with [Techies Without Borders](http://techieswithoutborders.us).
 
@@ -30,9 +30,9 @@ Learn more about the project on the [official website](https://cmesworld.org/).
 
 I’m one of the developers for the CMES mobile app, which is an integral part of the CMES-Pi solution. The app is the preferred way to access continuing medical education (CME) content on a mobile device, providing medical practitioners with the ability to browse and download content for offline listening.
 
-![Browse CME content: The most convenient way to view CME content on your mobile device.](https://bchen-personal-website.s3.us-west-1.amazonaws.com/blocks/96ea5cb2-2a8c-4401-97fa-0fba5f028f86/image.png)
+![Browse CME content: The most convenient way to view CME content on your mobile device.](/static/work/cmes/browse-cme-content.png)
 
-![Download files for later: Read and listen to CME content on the go.](https://bchen-personal-website.s3.us-west-1.amazonaws.com/blocks/f76590b3-7a5e-4212-a820-33c7b0d5aec9/image.png)
+![Download files for later: Read and listen to CME content on the go.](/static/work/cmes/download-for-later.png)
 
 
 The mobile app is built using Capacitor and Ionic Angular, while the CMES-Pi web app is built with PHP.

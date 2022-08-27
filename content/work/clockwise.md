@@ -11,48 +11,46 @@ tags:
 - App Development
 
 order: 0
-imageAspectRatio: "2 / 1"
+imageAspectRatio: "3 / 1"
 ---
 
-![Screenshot of the app.](/static/work/clockwise/clockwise-0.png)
+<!-- To-do: add watermarks to all images -->
+![Clockwise preview image.](/static/work/clockwise/app-screenshots.png)
 
-A Pomodoro timer designed to help you focus.
+Clockwise is a Pomodoro timer designed to help you focus.
 
-**Try it out**:
+[Open the web app](https://clockwise.bchen.dev)
 
-[Web →](https://clockwise.bchen.dev)
+[App Store link](https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428)
 
-[App Store →](https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428)
+[Google Play link](https://play.google.com/store/apps/details?id=co.birb.session)
 
-[Google Play →](https://play.google.com/store/apps/details?id=co.birb.session)
+[View the GitHub page](https://github.com/brendan-ch/clockwise)
 
----
+[View the changelog](http://bchen.dev/doc/clockwise-whats-new)
 
-**Additional links**:
+# My Roles
 
-[GitHub →](https://github.com/brendan-ch/clockwise)
+## UI Design
 
-[What’s New →](http://bchen.dev/doc/clockwise-whats-new)
+![Frames of a high-fidelity prototype.](/static/work/clockwise/ui-design.png)
 
----
+I started with some low-fidelity sketches of the timer, which turned into a high-fidelity prototype. The UI was designed using Figma, and the font used is Anonymous Pro.
 
-**Designed using**: Figma
+![Frames showing the UI fading when the timer is running.](/static/work/clockwise/fade.png)
 
-**Coding stack**: TypeScript, React Native, Expo
+As part of adding a minimal amount of distraction to the user's workflow, the rest of the app fades out when the timer is running.
 
-# Design Philosophy
-The [Pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) is a time-management technique with the goal of helping people extract the most out of their time, by reducing the number of interruptions and promoting a sense of flow. With Clockwise, my goal was to build a timer that helped maximize this sense of flow (hence the tagline “an app designed to help you focus”).
+## Mobile App Development
 
-Some of my guidelines/feature requirements:
+![Minimal Interface banner](/static/work/clockwise/minimal-interface.png)
 
-## Minimal distractions in the interface, especially when the timer is running
+![Timer customization banner](/static/work/clockwise/timer-customization.png)
 
-To help users achieve a maximum sense of flow, there needs to be a minimal amount of distractions coming from the interface itself. This is why, for example, the page header and footer fade out while the timer is running.
+The mobile app was developed using React Native with Expo. Features of the app include a minimal interface, timer customization, dark mode, and automatic switching between focus and break modes.
 
-## No assumptions about the user’s current workflow
+## Web App Development
 
-Clockwise is designed to fit into a person’s existing workflow, rather than acting as the centerpiece. This meant eliminating extra features such as a productivity report screen. While these features work great in other apps, it’s not part of the philosophy that I have with Clockwise.
+![Web app banner](/static/work/clockwise/web-app.png)
 
-## Full support for keyboard shortcuts on web
-
-Admittedly, this feature targets a niche audience group, but keyboard shortcuts fit in with helping to establish the “maximum sense of flow” that Clockwise tries to help users accomplish.
+The web app was developed using React Native Web, starting from the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action, and displays background images retrieved from Unsplash.
