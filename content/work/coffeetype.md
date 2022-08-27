@@ -21,17 +21,17 @@ coffeetype is a minimalistic typing test built with Java Swing, as my final proj
 
 ## Logo Design
 
-I created a moodboard for the logo, using different images of coffee and different logos.
-
 ![Moodboard and color palette.](/static/work/coffeetype/moodboard-and-colors.png)
 
-Based on the color palette, I knew I wanted a dark color palette for the app's background. 
+Based on the moodboard and color palette, I knew I wanted a dark color palette for the app's background. I also tweaked the orange color to better fit the overall aesthetic of the design.
 
 ![Different logo variants with different background colors.](/static/work/coffeetype/logos.png)
 
 ![Banner showcasing the logo.](/static/work/coffeetype/coffeetype-banner.png)
 
 *The font used in the logo is Lexend Deca.*
+
+I also designed my own set of icons for the user interface.
 
 ## UI Design
 
@@ -41,7 +41,12 @@ I started with a couple of concept sketches, and turned two of them into high-fi
 
 ![Second variant of the design.](/static/work/coffeetype/coffeetype-variant-2.png)
 
-Based on my knowledge of Java Swing, I decided to go with the second variant because it was easier to implement. I was also working within a limited timeframe for this project, which influenced my decision.
+I decided to go with the second variant because it was easier to implement, given the limited timeframe of this project.
 
 ## Development
 
+![Customize your test: display different stats during tests.](/static/work/coffeetype/customize.png)
+
+![View test history: view stats of previous tests.](/static/work/coffeetype/history.png)
+
+For me, the biggest constraint of this project was the requirement of using Java Swing. I made several compromises to the layout and functionality to keep the project moving forwards and on track. For example, I scrapped the leaderboard functionality and other typing modes, as well as the multiplayer functionality.
