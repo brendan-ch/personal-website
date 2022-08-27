@@ -11,10 +11,10 @@ tags:
 - App Development
 
 order: 1
-imageAspectRatio: "7 / 3"
+imageAspectRatio: "3 / 1"
 ---
 
-![](/static/work/preview/cmes-preview.png)
+![CMES preview image.](/static/work/preview/cmes-preview.png)
 
 A volunteer project I’m working on with [Techies Without Borders](http://techieswithoutborders.us).
 
