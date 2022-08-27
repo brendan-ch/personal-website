@@ -17,6 +17,8 @@ imageAspectRatio: "3 / 1"
 <!-- To-do: add watermarks to all images -->
 ![Clockwise preview image.](/static/work/clockwise/app-screenshots.png)
 
+Clockwise is a Pomodoro timer designed to help you focus.
+
 [Open the web app](https://clockwise.bchen.dev)
 
 [App Store link](https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428)
