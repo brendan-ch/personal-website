@@ -51,6 +51,4 @@ The mobile app was developed using React Native with Expo. Features of the app i
 
 ![Web app banner](/static/work/clockwise/web-app.png)
 
-![Keyboard shortcuts banner](/static/work/clockwise/keyboard-shortcuts.png)
-
 The web app was developed using React Native Web, starting from the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action, and displays background images retrieved from Unsplash.
