@@ -45,7 +45,7 @@ As part of adding a minimal amount of distraction to the user's workflow, the re
 
 ![Timer customization banner](/static/work/clockwise/timer-customization.png)
 
-The mobile app was developed using React Native with Expo. Features of the app include a minimal interface, timer customization, and automatic switching between focus and break modes.
+The mobile app was developed using React Native with Expo. Features of the app include a minimal interface, timer customization, dark mode, and automatic switching between focus and break modes.
 
 ## Web App Development
 
@@ -53,4 +53,4 @@ The mobile app was developed using React Native with Expo. Features of the app i
 
 ![Keyboard shortcuts banner](/static/work/clockwise/keyboard-shortcuts.png)
 
-The web app was developed using React Native Web, starting from the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action.
+The web app was developed using React Native Web, starting from the same codebase as the mobile app. Additionally, the web app supports keyboard shortcuts for every possible action, and displays background images retrieved from Unsplash.
