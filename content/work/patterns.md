@@ -10,7 +10,7 @@ tags:
 - Featured
 - Graphic Design
 
-order: 6
+order: 4
 imageAspectRatio: "5 / 3"
 ---
 
