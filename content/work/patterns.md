@@ -19,36 +19,27 @@ A collection of pattern designs inspired by everyday objects. This is a project 
 All patterns were made in Figma. 02 - “Grid” also contains a brush layer made in Photoshop.
 
 Tip: if you have JavaScript enabled, you can click on each image to expand it!
-<a id="1"></a>
+
 # 01 - “Timeline”
-![](/static/work/patterns/pattern-1.png)
+!["Timeline" pattern.](/static/work/patterns/pattern-1.png)
 
-
-<a id="2"></a>
 # 02 - “Grid”
-![](/static/work/patterns/pattern-2.png)
+!["Grid" pattern.](/static/work/patterns/pattern-2.png)
 
-
-<a id="3"></a>
 # 03 - “Blueprint”
-![](/static/work/patterns/pattern-3.png)
+!["Blueprint" pattern.](/static/work/patterns/pattern-3.png)
 
-<a id="04"></a>
 # 04 - “Maze”
 
 Side note: you can [download a fully solvable version](https://bchen-personal-website.s3.us-west-1.amazonaws.com/maze-solvable.png) of this pattern.
-![](/static/work/patterns/pattern-4.png)
+!["Maze" pattern.](/static/work/patterns/pattern-4.png)
 
-
-<a id="05"></a>
 # 05 - “Sunset”
-![](/static/work/patterns/pattern-5.png)
+!["Sunset" pattern.](/static/work/patterns/pattern-5.png)
 
 
-
-<a id="06"></a>
 # 06 - Waves
 
-![](/static/work/patterns/pattern-6-light.png)
+!["Waves" pattern - light version.](/static/work/patterns/pattern-6-light.png)
 
-![](/static/work/patterns/pattern-6-dark.png)
+!["Waves" pattern - dark version.](/static/work/patterns/pattern-6-dark.png)
