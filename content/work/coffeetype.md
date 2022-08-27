@@ -31,8 +31,6 @@ Based on the moodboard and color palette, I knew I wanted a dark color palette f
 
 *The font used in the logo is Lexend Deca.*
 
-I also designed my own set of icons for the user interface.
-
 ## UI Design
 
 I started with a couple of concept sketches, and turned two of them into high-fidelity prototypes.
