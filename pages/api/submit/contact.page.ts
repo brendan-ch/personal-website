@@ -3,9 +3,21 @@ import nodemailer from 'nodemailer';
 import { Response } from '../../../types';
 
 interface ContactFormBody {
+  /**
+   * The sender's name in the email.
+   */
   name: string,
+  /**
+   * Email address to reply to.
+   */
   email: string,
+  /**
+   * Subject line of the email.
+   */
   subject?: string,
+  /**
+   * Plaintext message inside the email.
+   */
   message: string,
 }
 
@@ -82,6 +94,7 @@ export default async function handler(
       to: CONTACT_EMAIL,
       subject,
       text: message,
+      replyTo: email,
     };
     await transporter.sendMail(mail);
 
