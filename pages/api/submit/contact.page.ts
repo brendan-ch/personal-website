@@ -78,11 +78,6 @@ export default async function handler(
   
     // Check if transporter was created
     await transporter.verify();
-    
-    // Indicate status to client
-    res.status(200).json({
-      successful: true,
-    });
 
     // Continue processing message after indicating status to client
     // Filter message
@@ -109,9 +104,10 @@ export default async function handler(
 
     // await transporter.sendMail(testMessage);
 
-    // 
-    
-
+    // Indicate status to client
+    return res.status(200).json({
+      successful: true,
+    });
   } catch(e) {
     res.status(500).json({
       successful: false,
