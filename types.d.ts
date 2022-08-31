@@ -96,6 +96,25 @@ interface Response {
   data?: any,
 }
 
+interface ContactFormBody {
+  /**
+   * The sender's name in the email.
+   */
+  name: string,
+  /**
+   * Email address to reply to.
+   */
+  email: string,
+  /**
+   * Subject line of the email.
+   */
+  subject?: string,
+  /**
+   * Plaintext message inside the email.
+   */
+  message: string,
+}
+
 interface TagObject {
   /**
    * The name of the tag.
@@ -109,6 +128,7 @@ interface TagObject {
 
 export {
   PageQuery,
+  ContactFormBody,
   PageListQuery,
   PageListSort,
   PageListFilter,

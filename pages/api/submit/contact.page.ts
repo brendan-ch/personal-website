@@ -1,25 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
-import { Response } from '../../../types';
-
-interface ContactFormBody {
-  /**
-   * The sender's name in the email.
-   */
-  name: string,
-  /**
-   * Email address to reply to.
-   */
-  email: string,
-  /**
-   * Subject line of the email.
-   */
-  subject?: string,
-  /**
-   * Plaintext message inside the email.
-   */
-  message: string,
-}
+import { Response, ContactFormBody } from '../../../types';
 
 // Define SMTP object
 const SMTP_OBJECT: {
@@ -50,8 +31,7 @@ export default async function handler(
     }
 
     // Connect to SMTP
-  
-    // Check for undefined
+    // Check for undefined keys inside SMTP configuration
     if ((Object.keys(SMTP_OBJECT) as (string | undefined)[]).includes(undefined)) {
       // Server error
       return res.status(500).json({
@@ -79,11 +59,14 @@ export default async function handler(
     // Check if transporter was created
     await transporter.verify();
 
-    // Continue processing message after indicating status to client
     // Filter message
+    // Check length
 
+
+    // Check words
+
+  
     // Send message
-
     const mail = {
       from: NOREPLY_EMAIL,
       to: CONTACT_EMAIL,
@@ -92,17 +75,6 @@ export default async function handler(
       replyTo: email,
     };
     await transporter.sendMail(mail);
-
-    // Uncomment to send test message
-    // const testMessage = {
-    //   from: 'noreply@bchen.dev',
-    //   to: 'me@bchen.dev',
-    //   subject: 'Test Message',
-    //   text: 'Hello World!',
-    //   html: '<p>Hello World!</p>',
-    // };
-
-    // await transporter.sendMail(testMessage);
 
     // Indicate status to client
     return res.status(200).json({
