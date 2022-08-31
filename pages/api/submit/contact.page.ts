@@ -1,26 +1,46 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import { Response } from '../../../types';
+
+interface ContactFormBody {
+  name: string,
+  email: string,
+  subject?: string,
+  message: string,
+}
+
+// Define SMTP object
+const SMTP_OBJECT: {
+  [key: string]: string | undefined,
+} = {
+  SMTP_HOST: process.env.SMTP_HOST,
+  SMTP_PORT: process.env.SMTP_PORT,
+  SMTP_USERNAME: process.env.SMTP_USERNAME,
+  SMTP_PASSWORD: process.env.SMTP_PASSWORD,
+};
+const NOREPLY_EMAIL = process.env.NOREPLY_EMAIL;
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   try {
-    // Check request body - return 400 error
+    // Check request body - return 400 error if malformed
+    const { name, email, message, subject }: ContactFormBody = req.body;
+    if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+      const error400: Response = {
+        successful: false,
+        error: 'Invalid request. Double check the request body and try again.',
+      };
+
+      return res.status(400).json(error400);
+    }
 
     // Connect to SMTP
-    // Define SMTP object
-    const smtpObject: {
-      [key: string]: string | undefined,
-    } = {
-      SMTP_HOST: process.env.SMTP_HOST,
-      SMTP_PORT: process.env.SMTP_PORT,
-      SMTP_USERNAME: process.env.SMTP_USERNAME,
-      SMTP_PASSWORD: process.env.SMTP_PASSWORD,
-    };
   
     // Check for undefined
-    if ((Object.keys(smtpObject) as (string | undefined)[]).includes(undefined)) {
+    if ((Object.keys(SMTP_OBJECT) as (string | undefined)[]).includes(undefined)) {
       // Server error
       return res.status(500).json({
         successful: false,
@@ -29,7 +49,7 @@ export default async function handler(
     }
   
     // Retrieve environment variables
-    const { SMTP_HOST, SMTP_PORT, SMTP_PASSWORD, SMTP_USERNAME } = smtpObject;
+    const { SMTP_HOST, SMTP_PORT, SMTP_PASSWORD, SMTP_USERNAME } = SMTP_OBJECT;
   
     // Connect using SMTP
     const transporter = nodemailer.createTransport({
@@ -56,6 +76,14 @@ export default async function handler(
     // Filter message
 
     // Send message
+
+    const mail = {
+      from: NOREPLY_EMAIL,
+      to: CONTACT_EMAIL,
+      subject,
+      text: message,
+    };
+    await transporter.sendMail(mail);
 
     // Uncomment to send test message
     // const testMessage = {
