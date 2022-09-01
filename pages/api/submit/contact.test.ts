@@ -42,7 +42,7 @@ describe('POST /api/submit/contact', () => {
         name: 'Test Name',
         email: 'example@example.com',
         subject: 'Test Subject',
-        message: 'Test Message',
+        message: 'Message used for testing.',
       },
     }, res);
 
