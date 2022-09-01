@@ -67,4 +67,19 @@ describe('POST /api/submit/contact', () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(resReturnObj.json).toHaveBeenCalledTimes(1);
   });
+
+  it('Sends error code if invalid email provided', async () => {
+    // @ts-ignore
+    await handler({
+      body: {
+        name: 'Test Name',
+        email: 'example@not-an-email-address',
+        subject: 'Test Subject',
+        message: 'Test Message',
+      },
+    }, res);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(resReturnObj.json).toHaveBeenCalledTimes(1);
+  });
 });
