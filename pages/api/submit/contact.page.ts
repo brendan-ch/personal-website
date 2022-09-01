@@ -14,6 +14,11 @@ const SMTP_OBJECT: {
 const NOREPLY_EMAIL = process.env.NOREPLY_EMAIL;
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 
+const ERROR_400: Response = {
+  successful: false,
+  error: 'Invalid request. Double check the request body and try again.',
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -22,12 +27,7 @@ export default async function handler(
     // Check request body - return 400 error if malformed
     const { name, email, message, subject }: ContactFormBody = req.body;
     if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
-      const error400: Response = {
-        successful: false,
-        error: 'Invalid request. Double check the request body and try again.',
-      };
-
-      return res.status(400).json(error400);
+      return res.status(400).json(ERROR_400);
     }
 
     // Connect to SMTP
@@ -65,7 +65,13 @@ export default async function handler(
 
     // Check words
 
-  
+
+    // Verify email address exists
+    // Validate using regex
+    if (!/.+@[A-Za-z0-9_]+\.[A-Za-z]+/.test(email)) {
+      return res.status(400).json(ERROR_400);
+    }
+    
     // Send message
     const mail = {
       from: NOREPLY_EMAIL,
