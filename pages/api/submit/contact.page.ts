@@ -14,6 +14,8 @@ const SMTP_OBJECT: {
 const NOREPLY_EMAIL = process.env.NOREPLY_EMAIL;
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 
+const MESSAGE_LENGTH_MINIMUM = 16;
+
 const ERROR_400: Response = {
   successful: false,
   error: 'Invalid request. Double check the request body and try again.',
@@ -61,7 +63,12 @@ export default async function handler(
 
     // Filter message
     // Check length
-
+    if (message.length < MESSAGE_LENGTH_MINIMUM) {
+      return res.status(400).json({
+        ...ERROR_400,
+        error: `Message must be longer than ${MESSAGE_LENGTH_MINIMUM} characters.`
+      });
+    }
 
     // Check words
 
