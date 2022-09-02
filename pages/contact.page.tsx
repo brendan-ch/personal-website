@@ -76,9 +76,11 @@ export default function ContactForm() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const fieldValues = Object.fromEntries(formData.entries());
+    const fieldValues = Object.fromEntries(formData.entries()) as {
+      [k: string]: string,
+    };
 
-    const tests: boolean[] = Object.keys(fieldValues).map((value, index) => {
+    const tests: boolean[] = Object.values(fieldValues).map((value, index) => {
       if (index >= Object.keys(formInputItems).length) return true;
       const inputItem = formInputItems[index];
 
@@ -122,6 +124,7 @@ export default function ContactForm() {
       setLoading(false);
     } catch(e) {
       setFormState(FormState.USER_ERROR);
+      setLoading(false);
     }
   }
   
@@ -134,6 +137,7 @@ export default function ContactForm() {
           Please complete the reCAPTCHA.
         </p>
       );
+      break;
     case FormState.SERVER_ERROR:
       statusRenderer = (
         <p>
@@ -161,6 +165,7 @@ export default function ContactForm() {
           </Link>
         </p>
       );
+      break;
     default:
       statusRenderer = (
         <p></p>
