@@ -194,9 +194,6 @@ export default function ContactForm() {
           />
         </div>
         <div className={utils.itemWrapper}>
-          <p>You can also find me on...</p>
-        </div>
-        <div className={utils.itemWrapper}>
           <form className={styles.form} onSubmit={handleSubmit}>
             {/* Construct form according to type definition */}
             {formInputItems.map((item, index) => (
