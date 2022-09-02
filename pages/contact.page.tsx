@@ -1,7 +1,7 @@
 import styles from '../styles/contact.module.css';
 import utils from '../styles/utils.module.css';
 import PageButton from '../components/PageButton';
-import TextInput from '../components/TextInput';
+import FormInput from '../components/FormInput';
 import Head from 'next/head';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
@@ -10,6 +10,11 @@ import PageHeader from '../components/PageHeader';
 
 export default function ContactForm() {
   const [menuVisible, setMenuVisible] = useState(false);
+
+  // To-do: lift data object up
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    // Retrieve form data
+  }
   
   return (
     <div className={utils.rootContainer}>
@@ -32,31 +37,35 @@ export default function ContactForm() {
           />
         </div>
         <div className={utils.itemWrapper}>
-          <form className={styles.form}>
-            <TextInput
-              placeholder="Name"
-              onBlur={(text) => console.log(text)}
-              error="Error"
-              showError
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <FormInput
+              label="Name"
+              placeholder="e.g. John Doe"
+              pattern={/[A-Za-z0-9]+/}
+              noMatchError="Name must contain letters and numbers only."
+              required
             />
-            <TextInput
-              placeholder="Email"
-              onBlur={(text) => console.log(text)}
-              error="Error"
-              showError
+            <FormInput
+              label="Email"
+              placeholder="e.g. email@example.com"
+              pattern={/.+@[A-Za-z0-9_]+\.[A-Za-z]+/}
+              noMatchError="Must be a valid email address."
             />
-            <TextInput
+            <FormInput
+              label="Subject"
               placeholder="Subject"
-              onBlur={(text) => console.log(text)}
-              error="Error"
-              showError
+              pattern={/.+/}
+              noMatchError="This field is required."
             />
-            <TextInput
-              placeholder="Message"
-              onBlur={(text) => console.log(text)}
-              error="Error"
-              showError
+            {/* To-do: make this multiline */}
+            <FormInput
+              multiline
+              label="Message"
+              pattern={/.+/}
+              noMatchError="This field is required."
+              placeholder="Your message"
             />
+            {/* To-do: add onSubmit prop here */}
             <PageButton
               highlighted
               text="Submit"
