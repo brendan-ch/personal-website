@@ -15,6 +15,7 @@ export default function TextInput({ error, onBlur, placeholder, showError }: Pro
     <div>
       {/* Input */}
       <input
+        onBlur={onBlur ? () => onBlur(text) : undefined}
         className={styles.input}
         type="text"
         placeholder={placeholder}
