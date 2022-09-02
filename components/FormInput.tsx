@@ -1,6 +1,12 @@
 import styles from '../styles/FormInput.module.css';
 import { useState } from "react";
 
+enum ErrorType {
+  NONE,
+  INPUT_REQUIRED,
+  VALIDATION_ERROR,
+}
+
 interface Props {
   placeholder?: string,
   pattern?: RegExp,
@@ -16,17 +22,24 @@ interface Props {
 
 export default function FormInput({ noMatchError, placeholder, pattern, label, multiline, required, name }: Props) {
   const [text, setText] = useState('');
-  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState(ErrorType.NONE);
 
   /**
    * Test the string against the given regex pattern.
    */
   function validateString() {
-    if (pattern && pattern.test(text)) {
-      setHasError(false);
+    if (required && !text) {
+      setError(ErrorType.INPUT_REQUIRED);
+    } else if (pattern && !pattern.test(text)) {
+      setError(ErrorType.VALIDATION_ERROR);
     } else {
-      setHasError(true);
+      setError(ErrorType.NONE);
     }
+  }
+
+  let errorMessage = noMatchError;
+  if (error === ErrorType.INPUT_REQUIRED) {
+    errorMessage = 'Please fill out this field.';
   }
 
   return (
@@ -66,7 +79,7 @@ export default function FormInput({ noMatchError, placeholder, pattern, label, m
       )}
       {/* Error message */}
       <div className={styles.errorContainer}>
-        <p className={styles.error}>{hasError ? noMatchError : ' '}</p>
+        <p className={styles.error}>{error !== ErrorType.NONE ? errorMessage : undefined}</p>
       </div>
     </div>
   );
