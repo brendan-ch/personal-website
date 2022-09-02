@@ -9,29 +9,103 @@ import { useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
+import Script from 'next/script';
+import Footer from '../components/Footer';
 
 enum FormState {
   INCOMPLETE,
   SUBMITTED,
   SERVER_ERROR,
   USER_ERROR,
+  NO_RECAPTCHA_PROVIDED,
 }
+
+interface FormInputItem {
+  name: string,
+  label: string,
+  pattern?: RegExp,
+  required: boolean,
+  placeholder: string,
+  noMatchError?: string,
+  multiline?: boolean,
+}
+
+const formInputItems: FormInputItem[] = [
+  {
+    name: 'name',
+    label: 'Name',
+    required: true,
+    placeholder: 'e.g. John Doe',
+  },
+  {
+    name: 'email',
+    label: 'Email',
+    required: true,
+    placeholder: 'e.g. email@example.com',
+    pattern: /.+@[A-Za-z0-9_]+\.[A-Za-z]+/,
+    noMatchError: 'Please enter a valid email address.',
+  },
+  {
+    name: 'subject',
+    label: 'Subject',
+    required: true,
+    placeholder: 'Enter a subject line...',
+  },
+  {
+    name: 'message',
+    label: 'Message',
+    required: true,
+    placeholder: 'Enter your message...',
+    pattern: /.{16,}/,
+    multiline: true,
+  },
+];
 
 export default function ContactForm() {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState(FormState.INCOMPLETE);
-  const [successful, setSuccessful] = useState(false);
 
-  // To-do: lift data object up
+  /**
+   * Handle data submission to the server.
+   * @param event
+   */
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     // Retrieve form data
     event.preventDefault();
-    setLoading(true);
 
     const formData = new FormData(event.currentTarget);
     const fieldValues = Object.fromEntries(formData.entries());
+
+    const tests: boolean[] = Object.keys(fieldValues).map((value, index) => {
+      if (index >= Object.keys(formInputItems).length) return true;
+      const inputItem = formInputItems[index];
+
+      if (inputItem.required && value) {
+        if ((inputItem.pattern && inputItem.pattern.test(value)) || !inputItem.pattern) {
+          return true;
+        } else {
+          return false;
+        }
+      } else if (!inputItem.required) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    // Invalid data - don't send
+    if (tests.filter((value) => !value).length > 0) {
+      return;
+    }
+
+    if (!fieldValues['g-recaptcha-response']) {
+      setFormState(FormState.NO_RECAPTCHA_PROVIDED);
+      return;
+    }
+
+    setLoading(true);
 
     try {
       // API request
@@ -54,6 +128,12 @@ export default function ContactForm() {
   let statusRenderer: JSX.Element = <></>;
 
   switch (formState) {
+    case FormState.NO_RECAPTCHA_PROVIDED:
+      statusRenderer = (
+        <p>
+          Please complete the reCAPTCHA.
+        </p>
+      );
     case FormState.SERVER_ERROR:
       statusRenderer = (
         <p>
@@ -81,10 +161,15 @@ export default function ContactForm() {
           </Link>
         </p>
       );
+    default:
+      statusRenderer = (
+        <p></p>
+      );
   }
 
   return (
     <div className={utils.rootContainer}>
+      <Script src="https://www.google.com/recaptcha/api.js"></Script>
       <Head>
         <title>Brendan Chen</title>
       </Head>
@@ -104,39 +189,19 @@ export default function ContactForm() {
           />
         </div>
         <div className={utils.itemWrapper}>
+          <p>You can also find me on...</p>
+        </div>
+        <div className={utils.itemWrapper}>
           <form className={styles.form} onSubmit={handleSubmit}>
             {/* Construct form according to type definition */}
-            <FormInput
-              name="name"
-              label="Name"
-              placeholder="e.g. John Doe"
-              pattern={/.+/}
-              noMatchError="Name must contain letters and numbers only."
-              required
-            />
-            <FormInput
-              name="email"
-              label="Email"
-              placeholder="e.g. email@example.com"
-              pattern={/.+@[A-Za-z0-9_]+\.[A-Za-z]+/}
-              noMatchError="Must be a valid email address."
-              required
-            />
-            <FormInput
-              name="subject"
-              label="Subject"
-              placeholder="Subject"
-              required
-            />
-            <FormInput
-              name="message"
-              multiline
-              label="Message"
-              pattern={/.{16,}/}
-              noMatchError="Message must be at least 16 characters."
-              placeholder="Your message"
-              required
-            />
+            {formInputItems.map((item, index) => (
+              <FormInput
+                key={index}
+                {...item}
+              />
+            ))}
+            <div className="g-recaptcha" data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
+
             <PageButton
               highlighted
               disabled={loading || formState === FormState.SUBMITTED}
@@ -144,7 +209,11 @@ export default function ContactForm() {
             />
             {/* Status */}
             {statusRenderer}
+
           </form>
+        </div>
+        <div className={utils.footerWrapper}>
+          <Footer />
         </div>
       </main>
     </div>
