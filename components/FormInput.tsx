@@ -9,9 +9,10 @@ interface Props {
    */
   noMatchError?: string,
   label?: string,
+  multiline?: boolean,
 }
 
-export default function FormInput({ noMatchError, placeholder, pattern, label }: Props) {
+export default function FormInput({ noMatchError, placeholder, pattern, label, multiline }: Props) {
   const [text, setText] = useState('');
   const [hasError, setHasError] = useState(false);
 
@@ -34,15 +35,27 @@ export default function FormInput({ noMatchError, placeholder, pattern, label }:
         </label>
       </div>
       {/* Input */}
-      <input
-        className={styles.input}
-        type="text"
-        placeholder={placeholder}
-        value={text}
-        onBlur={validateString}
-        onChange={(e) => setText(e.target.value)}
-      >
-      </input>
+      {multiline ? (
+        <textarea
+          className={`${styles.input} ${styles.multiline}`}
+          placeholder={placeholder}
+          value={text}
+          onBlur={validateString}
+          onChange={(e) => setText(e.target.value)}
+        >
+          
+        </textarea>
+      ) : (
+        <input
+          className={styles.input}
+          type="text"
+          placeholder={placeholder}
+          value={text}
+          onBlur={validateString}
+          onChange={(e) => setText(e.target.value)}
+        >
+        </input>
+      )}
       {/* Error message */}
       {hasError ? (
         <p className={styles.error}>{noMatchError}</p>
