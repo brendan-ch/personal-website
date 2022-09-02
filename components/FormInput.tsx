@@ -10,9 +10,10 @@ interface Props {
   noMatchError?: string,
   label?: string,
   multiline?: boolean,
+  required?: boolean,
 }
 
-export default function FormInput({ noMatchError, placeholder, pattern, label, multiline }: Props) {
+export default function FormInput({ noMatchError, placeholder, pattern, label, multiline, required }: Props) {
   const [text, setText] = useState('');
   const [hasError, setHasError] = useState(false);
 
@@ -29,10 +30,13 @@ export default function FormInput({ noMatchError, placeholder, pattern, label, m
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.labelContainer}>
         <label>
           {label}
         </label>
+        <p className={styles.red}>
+          {required ? '*' : undefined}
+        </p>
       </div>
       {/* Input */}
       {multiline ? (
@@ -53,13 +57,14 @@ export default function FormInput({ noMatchError, placeholder, pattern, label, m
           value={text}
           onBlur={validateString}
           onChange={(e) => setText(e.target.value)}
+          required={required}
         >
         </input>
       )}
       {/* Error message */}
-      {hasError ? (
-        <p className={styles.error}>{noMatchError}</p>
-      ) : undefined}
+      <div className={styles.errorContainer}>
+        <p className={styles.error}>{hasError ? noMatchError : ' '}</p>
+      </div>
     </div>
   );
 }
