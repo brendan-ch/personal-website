@@ -72,15 +72,6 @@ export default function ContactForm() {
 
   const [loadScripts, setLoadScripts] = useState(false);
 
-  function handlePageLoad(e: string) {
-    console.log(e);
-    if (e === '/contact') {
-      setLoadScripts(true);
-    } else {
-      setLoadScripts(false);
-    }
-  }
-
   useEffect(() => {
     // router.events.on('routeChangeComplete', handlePageLoad);
     setLoadScripts(true);
@@ -199,7 +190,11 @@ export default function ContactForm() {
     <div className={utils.rootContainer}>
       <Head>
         <title>Brendan Chen</title>
-        <script src="https://www.google.com/recaptcha/api.js" async></script>
+        {loadScripts ? (
+          <>
+            <script src="https://www.google.com/recaptcha/api.js" async></script>
+          </>
+        ) : undefined}
       </Head>
       <MobileNavBar
         onMobileButtonClick={() => setMenuVisible(true)}
