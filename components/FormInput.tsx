@@ -1,4 +1,4 @@
-import styles from '../styles/TextInput.module.css';
+import styles from '../styles/FormInput.module.css';
 import { useState } from "react";
 
 interface Props {
