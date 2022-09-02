@@ -11,9 +11,10 @@ interface Props {
   label?: string,
   multiline?: boolean,
   required?: boolean,
+  name: string,
 }
 
-export default function FormInput({ noMatchError, placeholder, pattern, label, multiline, required }: Props) {
+export default function FormInput({ noMatchError, placeholder, pattern, label, multiline, required, name }: Props) {
   const [text, setText] = useState('');
   const [hasError, setHasError] = useState(false);
 
@@ -41,6 +42,7 @@ export default function FormInput({ noMatchError, placeholder, pattern, label, m
       {/* Input */}
       {multiline ? (
         <textarea
+          name={name}
           className={`${styles.input} ${styles.multiline}`}
           placeholder={placeholder}
           value={text}
@@ -51,6 +53,7 @@ export default function FormInput({ noMatchError, placeholder, pattern, label, m
         </textarea>
       ) : (
         <input
+          name={name}
           className={styles.input}
           type="text"
           placeholder={placeholder}

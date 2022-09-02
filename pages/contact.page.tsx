@@ -14,6 +14,11 @@ export default function ContactForm() {
   // To-do: lift data object up
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     // Retrieve form data
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const fieldValues = Object.fromEntries(formData.entries());
+    console.log(fieldValues)
   }
   
   return (
@@ -38,7 +43,9 @@ export default function ContactForm() {
         </div>
         <div className={utils.itemWrapper}>
           <form className={styles.form} onSubmit={handleSubmit}>
+            {/* Construct form according to type definition */}
             <FormInput
+              name="name"
               label="Name"
               placeholder="e.g. John Doe"
               pattern={/[A-Za-z0-9]+/}
@@ -46,12 +53,14 @@ export default function ContactForm() {
               required
             />
             <FormInput
+              name="email"
               label="Email"
               placeholder="e.g. email@example.com"
               pattern={/.+@[A-Za-z0-9_]+\.[A-Za-z]+/}
               noMatchError="Must be a valid email address."
             />
             <FormInput
+              name="subject"
               label="Subject"
               placeholder="Subject"
               pattern={/.+/}
@@ -59,6 +68,7 @@ export default function ContactForm() {
             />
             {/* To-do: make this multiline */}
             <FormInput
+              name="message"
               multiline
               label="Message"
               pattern={/.+/}
