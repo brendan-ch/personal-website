@@ -133,6 +133,12 @@ ol {
   margin: 0px;
 }
 
+input {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  background: none;
+  font-size: 20px;
+}
+
 code {
   font-family: space-mono, monospace;
   font-weight: 400;
