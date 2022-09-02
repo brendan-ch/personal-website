@@ -133,7 +133,7 @@ ol {
   margin: 0px;
 }
 
-input {
+input, textarea {
   font-family: neue-haas-grotesk-display, sans-serif;
   background: none;
   font-size: 20px;
