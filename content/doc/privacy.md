@@ -7,13 +7,13 @@ Last updated June 30, 2022
 
 This policy applies to the website bchen.dev, which is referred to as the “website” or the “Service” in this notice.
 
-# **What information do I collect?**
+# What information do I collect?
 
 **Personal information you disclose to me**
 
 _**In Short:** I collect personal information that you provide to me._
 
-I collect personal information that you voluntarily provide to me on the website, or otherwise when you contact me.
+I collect personal information that you voluntarily provide to me on the website, or when you use other means to contact me.
 
 **Information automatically collected**
 
@@ -25,7 +25,7 @@ The information I collect includes:
 
 -   _Log and Usage Data._ Log and usage data includes service-related, diagnostic, usage, and performance information. Depending on how you interact with the Service, this log data may include your IP address, device information, browser type, and settings and information about your activity in the Service (such as the date/time stamps associated with your usage, pages and files vieId, searches, and other actions you take such as which features you use), device event information (such as system activity, error reports, and hardware settings).
 
-# **How do I process your information?**
+# How do I process your information?
 
 _**In Short:** I process your information to provide the Service, communicate with you, for security and fraud prevention, and to comply with law. I may also process your information for other purposes with your consent._
 
@@ -36,7 +36,7 @@ I **process your personal information for a variety of reasons, depending on how
 -   **To request feedback. I** may process your information when necessary to request feedback and to contact you about your use of the Service.
 -   **To identify usage trends.** I may process information about how you use the Service to better understand how they are being used so I can improve them.
 
-# **When and with whom do I share your information with?**
+# When and with whom do I share your information with?
 
 _**In Short:** I may share information in specific situations described in this section and/or with the following categories of third parties._
 
@@ -44,7 +44,7 @@ _**In Short:** I may share information in specific situations described in this
 
 -   Data Analytics Services
 
-# **How long do I keep your information?**
+# How long do I keep your information?
 
 _**In Short:** I keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law._
 
@@ -52,11 +52,11 @@ I will only keep your personal information for as long as it is necessary for th
 
 When I have no ongoing legitimate business need to process your personal information, I will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then I will securely store your personal information and isolate it from any further processing until deletion is possible.
 
-# **Controls for Do-Not-Track features**
+# Controls for Do-Not-Track features
 
 Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, I do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that I must follow in the future, I will inform you about that practice in a revised version of this privacy notice.
 
-# **Do I make updates to this notice?**
+# Do I make updates to this notice?
 
 _**In Short:** Yes, I will update this notice as necessary to stay compliant with relevant laws._
 
