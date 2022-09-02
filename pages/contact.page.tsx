@@ -57,6 +57,7 @@ const formInputItems: FormInputItem[] = [
     required: true,
     placeholder: 'Enter your message...',
     pattern: /.{16,}/,
+    noMatchError: 'Please enter 16 characters or more.',
     multiline: true,
   },
 ];
@@ -203,6 +204,16 @@ export default function ContactForm() {
               />
             ))}
             <div className="g-recaptcha" data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
+            <p>Data that you provide in this form will be handled according to the{' '}
+              <Link href="/doc/privacy">
+                <a target="_blank" rel="noreferrer">
+                  <u>
+                    Privacy Policy
+                  </u>
+                </a>
+              </Link>
+              .
+            </p>
 
             <PageButton
               highlighted
