@@ -14,6 +14,7 @@ import BackgroundPattern from '../public/background-pattern.png';
 import Link from 'next/link';
 import Down from '../components/icons/Down';
 import Next from '../components/icons/Next';
+import PageButton from '../components/PageButton';
 
 /**
  * Generate file content.
@@ -164,6 +165,12 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
               />
             </a>
           </Link>
+        </div>
+        <div className={`${utils.itemWrapper}`}>
+          <PageButton
+            text="Say Hello 👋"
+            href="/contact"
+          />
         </div>
         <div className={utils.spacer} style={{
           height: 20,

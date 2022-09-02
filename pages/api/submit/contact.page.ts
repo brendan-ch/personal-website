@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import { Response, ContactFormBody } from '../../../types';
@@ -11,8 +12,6 @@ const SMTP_OBJECT: {
   SMTP_USERNAME: process.env.SMTP_USERNAME,
   SMTP_PASSWORD: process.env.SMTP_PASSWORD,
 };
-const NOREPLY_EMAIL = process.env.NOREPLY_EMAIL;
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 
 const MESSAGE_LENGTH_MINIMUM = 16;
 
@@ -21,11 +20,29 @@ const ERROR_400: Response = {
   error: 'Invalid request. Double check the request body and try again.',
 };
 
+/**
+ * Verifies the captcha code provided by the client.
+ * @param response
+ */
+export async function verifyCaptcha(response: string, secret: string) {
+  const url = `https://www.google.com/recaptcha/api/siteverify?response=${response}&secret=${secret}`;
+
+  const result = await axios.post(url, {}, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+    },
+  });
+
+  return result.data.success;
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   try {
+    const { NOREPLY_EMAIL, CONTACT_EMAIL, CAPTCHA_SECRET } = process.env;
+
     // Check request body - return 400 error if malformed
     const { name, email, message, subject }: ContactFormBody = req.body;
     if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
@@ -40,7 +57,22 @@ export default async function handler(
         successful: false,
         error: 'Internal server error.',
       });
+    } else if (!CAPTCHA_SECRET || !NOREPLY_EMAIL || !CONTACT_EMAIL) {
+      console.log('environment variables not set');
+      return res.status(500).json({
+        successful: false,
+        error: 'Internal server error.',
+      });
     }
+
+    const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET);
+    if (!captchaVerification) {
+      return res.status(400).json({
+        successful: false,
+        error: 'Invalid reCAPTCHA code provided.',
+      });
+    }
+
   
     // Retrieve environment variables
     const { SMTP_HOST, SMTP_PORT, SMTP_PASSWORD, SMTP_USERNAME } = SMTP_OBJECT;

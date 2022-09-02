@@ -9,6 +9,7 @@ import { useState } from 'react';
 import getPage from '../helpers/getPage';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { PageData } from '../types';
+import PageButton from '../components/PageButton';
 
 export async function getStaticProps() {
   const pageData = await getPage({
@@ -62,6 +63,12 @@ export default function AboutPage({ content }: PageData) {
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <MarkdownRenderer
             content={content!}
+          />
+        </div>
+        <div className={`${utils.itemWrapper}`}>
+          <PageButton
+            text="Say Hello 👋"
+            href="/contact"
           />
         </div>
         <div className={utils.footerWrapper}>
