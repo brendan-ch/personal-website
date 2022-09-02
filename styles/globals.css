@@ -139,6 +139,10 @@ input {
   font-size: 20px;
 }
 
+label {
+  font-size: 16px;
+}
+
 code {
   font-family: space-mono, monospace;
   font-weight: 400;
