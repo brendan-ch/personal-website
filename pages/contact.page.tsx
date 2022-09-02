@@ -48,7 +48,7 @@ export default function ContactForm() {
               name="name"
               label="Name"
               placeholder="e.g. John Doe"
-              pattern={/[A-Za-z0-9]+/}
+              pattern={/.+/}
               noMatchError="Name must contain letters and numbers only."
               required
             />
@@ -58,6 +58,7 @@ export default function ContactForm() {
               placeholder="e.g. email@example.com"
               pattern={/.+@[A-Za-z0-9_]+\.[A-Za-z]+/}
               noMatchError="Must be a valid email address."
+              required
             />
             <FormInput
               name="subject"
@@ -65,6 +66,7 @@ export default function ContactForm() {
               placeholder="Subject"
               pattern={/.+/}
               noMatchError="This field is required."
+              required
             />
             {/* To-do: make this multiline */}
             <FormInput
@@ -74,6 +76,7 @@ export default function ContactForm() {
               pattern={/.+/}
               noMatchError="This field is required."
               placeholder="Your message"
+              required
             />
             {/* To-do: add onSubmit prop here */}
             <PageButton
