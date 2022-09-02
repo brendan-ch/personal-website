@@ -5,12 +5,13 @@ import FormInput from '../components/FormInput';
 import Head from 'next/head';
 import MobileNavBar from '../components/MobileNavBar';
 import MobileNavMenu from '../components/MobileNavMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '../components/Footer';
+import { useRouter } from 'next/router';
 
 enum FormState {
   INCOMPLETE,
@@ -63,10 +64,31 @@ const formInputItems: FormInputItem[] = [
 ];
 
 export default function ContactForm() {
+  const router = useRouter();
   const [menuVisible, setMenuVisible] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState(FormState.INCOMPLETE);
+
+  const [loadScripts, setLoadScripts] = useState(false);
+
+  function handlePageLoad(e: string) {
+    console.log(e);
+    if (e === '/contact') {
+      setLoadScripts(true);
+    } else {
+      setLoadScripts(false);
+    }
+  }
+
+  useEffect(() => {
+    // router.events.on('routeChangeComplete', handlePageLoad);
+    setLoadScripts(true);
+
+    return () => {
+      setLoadScripts(false);
+    };
+  }, [router.asPath]);
 
   /**
    * Handle data submission to the server.
@@ -175,9 +197,9 @@ export default function ContactForm() {
 
   return (
     <div className={utils.rootContainer}>
-      <Script src="https://www.google.com/recaptcha/api.js"></Script>
       <Head>
         <title>Brendan Chen</title>
+        <script src="https://www.google.com/recaptcha/api.js" async></script>
       </Head>
       <MobileNavBar
         onMobileButtonClick={() => setMenuVisible(true)}
