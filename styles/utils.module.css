@@ -59,6 +59,10 @@ to the bottom of the page. */
   width: 100%;
 }
 
+.recaptchaBox {
+  height: 80px;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0%;
