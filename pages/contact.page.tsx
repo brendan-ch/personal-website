@@ -148,7 +148,7 @@ export default function ContactForm() {
     case FormState.NO_RECAPTCHA_PROVIDED:
       statusRenderer = (
         <p>
-          Please complete the reCAPTCHA.
+          Please complete the reCAPTCHA before continuing.
         </p>
       );
       break;
@@ -169,7 +169,7 @@ export default function ContactForm() {
     case FormState.SUBMITTED:
       statusRenderer = (
         <p>
-          Your message has been submitted.{' '}
+          Your message has been sent.{' '}
           <Link href="/">
             <a>
               <u>
