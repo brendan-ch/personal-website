@@ -21,19 +21,17 @@ Standard Catalog is my redesign of the college registration experience.
 
 # Issue #1: Providing Context
 
-![The class information page gives context on what a class is about.](/static/work/standard-catalog/class-page.png)
-
-The class information page gives context on what a class is about.
-
 ![Screenshots of the system used by the college I go to. Left side is the registration page, right side contains the course catalog.](/static/work/standard-catalog/old-design.png)
 
-In the old design, class information is separated from the registration page, adding friction to the registration flow if users want to see information about a class.
+In the current system used by my university, class information is separated from the registration page. This adds friction to the registration flow if users want to see information about a class.
 
 Students also tend to go to outside sources, such as Rate My Professors, to get a better sense of their instructor. In some cases, this data can be misleading or inaccurate; however, no better data source exists for the student.
 
 ![class-page-sketches.png](/static/work/standard-catalog/class-page-sketches.png)
 
 Initial sketches indicated some of the page requirements, such as the ability to view credits, class description, and prerequisites. Also indicated is the ability to view registration information from the same page, such as time, location and instructor.
+
+![The class information page gives context on what a class is about.](/static/work/standard-catalog/class-page.png)
 
 ![class-page-prerequisites.png](/static/work/standard-catalog/class-page-prerequisites.png)
 
