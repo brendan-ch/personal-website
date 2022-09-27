@@ -35,7 +35,7 @@ Clockwise is a Pomodoro timer designed to help you focus.
 
 ![Frames of a high-fidelity prototype.](/static/work/clockwise/ui-design.png)
 
-I started with some low-fidelity sketches of the timer, which turned into a high-fidelity prototype. The UI was designed using Figma, and the font used is Anonymous Pro.
+I started with some low-fidelity sketches of the timer, which turned into a high-fidelity prototype. The UI was designed using Figma, and the typeface used is Anonymous Pro.
 
 ![Frames showing the UI fading when the timer is running.](/static/work/clockwise/fade.png)
 

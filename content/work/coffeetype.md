@@ -29,7 +29,7 @@ Based on the moodboard and color palette, I knew I wanted a dark color palette f
 
 ![Banner showcasing the logo.](/static/work/coffeetype/coffeetype-banner.png)
 
-*The font used in the logo is Lexend Deca.*
+*The typeface used in the logo is Lexend Deca.*
 
 ## UI Design
 

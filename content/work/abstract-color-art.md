@@ -15,4 +15,4 @@ imageAspectRatio: "3 / 2"
 
 ![Vector art, displayed in three different color sets.](/static/work/abstract-color-art/Chen_Brendan_Color_2.png)
 
-*This project was created using Adobe Illustrator. Font used is Neue Haas Grotesk Display.*
+*This project was created using Adobe Illustrator. Typeface used is Neue Haas Grotesk Display.*
