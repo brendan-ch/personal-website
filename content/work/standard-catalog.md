@@ -75,7 +75,7 @@ With my design, I improved the grouping of related information, and used visual 
 
 After class registration, there’s an opportunity for the app to become a hub of information students can refer to. The app can be used to check class times and locations, find their professor’s contact information, or look up graduation requirements.
 
-Keeping this in mind, I designed a schedule page, to accommodate the user’s need to see class times for all their classes.
+Keeping this in mind, I designed a schedule page, to accommodate the user’s need to see class times for all of their classes.
 
 ![schedule-page-flow.png](/static/work/standard-catalog/schedule-page-flow.png)
 
@@ -95,7 +95,7 @@ For this project, I created a custom icon set designed to match the final protot
 
 # Attributions
 
-*All digital sketches were created using Excalidraw. The final prototype was designed using Figma, and the typeface used is Greycliff CF.*
+*All digital sketches were created using Excalidraw. The final prototype was designed using Figma, and the typeface used is Greycliff CF. All icons were designed using Figma.*
 
 Image credits, in order presented:
 - [UX Indonesia on Unsplash](https://unsplash.com/photos/qC2n6RQU4Vw)
