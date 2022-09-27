@@ -4,11 +4,10 @@ description: "A minimalistic typing test built with Java."
 # Name of image in "attachments" folder
 previewImage: "/static/work/preview/coffeetype-preview.png"
 tags:
-- Featured
 - UI/UX Design
 - App Development
 
-order: 3
+order: 4
 imageAspectRatio: "3 / 1"
 ---
 
@@ -30,7 +29,7 @@ Based on the moodboard and color palette, I knew I wanted a dark color palette f
 
 ![Banner showcasing the logo.](/static/work/coffeetype/coffeetype-banner.png)
 
-*The font used in the logo is Lexend Deca.*
+*The typeface used in the logo is Lexend Deca.*
 
 ## UI Design
 

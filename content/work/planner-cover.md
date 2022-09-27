@@ -10,10 +10,10 @@ tags:
 - Featured
 - Graphic Design
 
-order: 2
+order: 3
 imageAspectRatio: "87 / 111"
 ---
 
 ![Planner cover.](/static/work/planner-cover/Planner_Trimmed.png)
 
-*This project was created in Adobe Illustrator. The font used is P22 Stanyan.*
+*This project was created in Adobe Illustrator. The typeface used is P22 Stanyan.*

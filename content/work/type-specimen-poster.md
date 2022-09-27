@@ -15,4 +15,4 @@ imageAspectRatio: "33 / 51"
 
 ![Neue Haas Grotesk type specimen poster.](/static/work/type-specimen/Chen_Brendan_TypeSpecimen.png)
 
-*This project was created using Adobe InDesign. Font used is Neue Haas Grotesk Display.*
+*This project was created using Adobe InDesign. The typeface used is Neue Haas Grotesk Display.*
