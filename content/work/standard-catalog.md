@@ -53,8 +53,6 @@ To generate overall professor consensus, a feedback form like this is presented 
 
 # Issue #2: Planning the Long Term
 
----
-
 ![Two screenshots stitched together, showing the Program Evaluation page for my school.](/static/work/standard-catalog/old-design-program-eval.png)
 
 The current system presents too much information at once, and doesn’t clearly distinguish between different types of information. The single point size of the text, and the added spacing between related elements, makes it difficult for a student to understand important information.
@@ -75,8 +73,6 @@ With my design, I improved the grouping of related information, and used visual 
 
 # Issue #3: Schedule Viewing
 
-
-
 After class registration, there’s an opportunity for the app to become a hub of information students can refer to. The app can be used to check class times and locations, find their professor’s contact information, or look up graduation requirements.
 
 Keeping this in mind, I designed a schedule page, to accommodate the user’s need to see class times for all their classes.
@@ -93,8 +89,16 @@ To better accommodate existing systems, I designed the sign-in flow around a sch
 
 # Custom Icons
 
-
-
 ![custom-icons.png](/static/work/standard-catalog/custom-icons.png)
 
 For this project, I created a custom icon set designed to match the final prototype.
+
+# Attributions
+
+*All digital sketches were created using Excalidraw. The final prototype was designed using Figma, and the typeface used is Greycliff CF.*
+
+Image credits, in order presented:
+- [UX Indonesia on Unsplash](https://unsplash.com/photos/qC2n6RQU4Vw)
+- [Florian Olivo on Unsplash](https://unsplash.com/photos/4hbJ-eymZ1o)
+- [Rey Seven on Unsplash](https://unsplash.com/photos/_nm_mZ4Cs2I)
+- [Kelly Sikkema on Unsplash](https://unsplash.com/photos/IkHwu5xLXxs)
