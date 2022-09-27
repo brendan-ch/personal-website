@@ -47,9 +47,7 @@ After registering for a class, section-specific information like location, time,
 
 Users can view more information about a professor, including a short biography, contact information links, and a consensus of other students’ feedback on the professor.
 
-![User Feedback Flows.png](/static/work/standard-catalog/User_Feedback_Flows.png)
-
-![User Feedback Sketches.png](/static/work/standard-catalog/User_Feedback_Sketches.png)
+![User Feedback Flows.png](/static/work/standard-catalog/user-feedback-flows.png)
 
 To generate overall professor consensus, a feedback form like this is presented to each user after each term. This ensures that only those who took a professor’s class can rate the professor, and reduces potential bias by limiting the amount of information collected and displayed.
 
