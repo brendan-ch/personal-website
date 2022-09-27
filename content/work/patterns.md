@@ -9,7 +9,7 @@ previewImage: "/static/work/preview/patterns-preview.png"
 tags:
 - Graphic Design
 
-order: 4
+order: 5
 imageAspectRatio: "5 / 3"
 ---
 
