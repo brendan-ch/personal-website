@@ -13,9 +13,9 @@ imageAspectRatio: "3 / 1"
 
 ![coffeetype banner](/static/work/preview/coffeetype-preview.png)
 
-coffeetype is a minimalistic typing test built with Java Swing, as my final project for AP Computer Science A.
+coffeetype is a minimalistic typing test built with Java Swing. It was my final project for AP Computer Science A.
 
-[View on GitHub →](https://github.com/brendan-ch/coffeetype)
+[View on GitHub](https://github.com/brendan-ch/coffeetype)
 
 # My Roles
 
@@ -39,7 +39,7 @@ I started with a couple of concept sketches, and turned two of them into high-fi
 
 ![Second variant of the design.](/static/work/coffeetype/coffeetype-variant-2.png)
 
-I decided to go with the second variant because it was easier to implement, given the limited timeframe of this project.
+I decided to go with the second variant because it had more originality and was easier to implement, given the limited timeframe of this project.
 
 ## Development
 
@@ -47,4 +47,4 @@ I decided to go with the second variant because it was easier to implement, give
 
 ![View test history: view stats of previous tests.](/static/work/coffeetype/history.png)
 
-For me, the biggest constraint of this project was the requirement of using Java Swing. I made several compromises to the layout and functionality to keep the project moving forwards and on track. For example, I scrapped the leaderboard functionality and other typing modes, as well as the multiplayer functionality.
+For me, the biggest constraint of this project was the requirement of using Java Swing. I made several compromises to the layout and functionality to keep the project moving forwards and on track. Some features I scrapped were the leaderboard functionality, different typing modes, and the multiplayer functionality.
