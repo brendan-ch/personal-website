@@ -1,5 +1,7 @@
 import path from 'path';
 
+export const RECAPTCHA_SITE_KEY_V3 = '6LcSwkQiAAAAAEhdHq7Gx5-ARtmZ3MQ_31rt_WAv';
+
 export const GITHUB_LINK = 'https://github.com/brendan-ch';
 
 /**
