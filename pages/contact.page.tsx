@@ -230,7 +230,7 @@ export default function ContactForm() {
                 {...item}
               />
             ))}
-            <div className={`g-recaptcha`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
+            {/* <div className={`g-recaptcha`} data-sitekey=""></div> */}
             <p>Data that you provide in this form will be handled according to the{' '}
               <Link href="/doc/privacy">
                 <a target="_blank" rel="noreferrer">
