@@ -13,5 +13,5 @@ export default async function verifyCaptcha(response: string, secret: string) {
     },
   });
 
-  return result.data.success;
+  return result.data.success && result.data.score > 0.5;
 }

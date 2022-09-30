@@ -24,6 +24,7 @@ const transporter = {
 (axios.post as jest.Mock<any, any>).mockReturnValue({
   data: {
     success: true,
+    score: 0.6,
   },
 });
 

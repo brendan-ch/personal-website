@@ -10,6 +10,7 @@ const OLD_ENV = process.env;
 (axios.post as jest.Mock<any, any>).mockReturnValue({
   data: {
     success: true,
+    score: 0.6,
   },
 });
 
