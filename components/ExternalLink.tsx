@@ -48,7 +48,7 @@ export default function ExternalLink({ name, url }: PageExternalLink) {
     <div className={styles.container}>
       {/* Icon */}
       {iconIndex > -1 ? SUPPORTED_ICONS[iconIndex].icon : (
-        <Figma
+        <ArrowUpAndRight
           width={ICON_WIDTH}
           height={ICON_HEIGHT}
         />
