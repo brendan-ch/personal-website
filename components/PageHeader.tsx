@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/PageHeader.module.css';
 import ChevronLeft from './icons-v2/ChevronLeft';
-import Back from './icons/Back';
 
 interface Props {
   includeBackButton?: boolean,
