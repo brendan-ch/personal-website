@@ -71,27 +71,29 @@ export default function DatabaseItemContent({
           backButtonHref={backButtonHref || `/${prefix}`}
         />
         {/* Callout */}
-        <div className={styles.callout}>
-          {/* Text information wrapper */}
-          <div className={styles.tagsDateWrapper}>
-            {/* Tags */}
-            {tags ? (
-              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
-            ) : undefined}
-            {/* Date */}
-            {date ? (
-              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+        {tags || date || links ? (
+          <div className={styles.callout}>
+            {/* Text information wrapper */}
+            <div className={styles.tagsDateWrapper}>
+              {/* Tags */}
+              {tags ? (
+                <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+              ) : undefined}
+              {/* Date */}
+              {date ? (
+                <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+              ) : undefined}
+            </div>
+            {/* Links */}
+            {links ? (
+              <div className={styles.linksWrapper}>
+                {links.map((link, index) => (
+                  <ExternalLink {...link} key={index} />
+                ))}
+              </div>
             ) : undefined}
           </div>
-          {/* Links */}
-          {links ? (
-            <div className={styles.linksWrapper}>
-              {links.map((link, index) => (
-                <ExternalLink {...link} key={index} />
-              ))}
-            </div>
-          ) : undefined}
-        </div>
+        ) : undefined}
       </div>
     </>
   );
