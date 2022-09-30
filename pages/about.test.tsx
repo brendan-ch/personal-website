@@ -38,6 +38,9 @@ describe('About', () => {
       previewImage={null}  
       coverImage={null}
       tags={null}
+      links={null}
+      date={null}
+      type={null}
       prefix=""
     />);
     expect(container).toBeInTheDocument();

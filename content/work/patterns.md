@@ -11,6 +11,8 @@ tags:
 
 order: 5
 imageAspectRatio: "5 / 3"
+
+date: "June 2022 - July 2022"
 ---
 
 A collection of pattern designs inspired by everyday objects. This is a project I’ve been working on during the summer just for fun.

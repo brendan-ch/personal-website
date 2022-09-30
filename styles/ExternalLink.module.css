@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  align-items: center;
+}
+
+.container p {
+  color: var(--cyan);
+}

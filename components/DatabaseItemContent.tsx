@@ -4,8 +4,31 @@ import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Lightbox from './Lightbox';
+import ExternalLink from './ExternalLink';
+import styles from '../styles/DatabaseItemContent.module.css';
+
+interface CalloutInformationProps {
+  title: string,
+  description: string,
+  className?: string,
+}
+
+export function CalloutInformation(props: CalloutInformationProps) {
+  return (
+    <div className={`${styles.calloutInformationWrapper} ${props.className ? props.className : ''}`}>
+      <p>
+        <b>
+          {props.title}
+        </b>
+      </p>
+      <p>
+        {props.description}
+      </p>
+    </div>
+  );
+}
 
 interface Props extends PageData {
   backButtonText?: string,
@@ -20,6 +43,10 @@ export default function DatabaseItemContent({
   imageAspectRatio,
   backButtonText,
   backButtonHref,
+  type,
+  links,
+  tags,
+  date,
 }: Props) {
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
@@ -34,21 +61,53 @@ export default function DatabaseItemContent({
     setLightboxCaption(undefined);
   }
 
+  const verticalPageInfo = (
+    <>
+      <div className={utils.itemWrapper}>
+        <PageHeader
+          aboveText={backButtonText || 'Back'}
+          belowText={title || ''}
+          includeBackButton
+          backButtonHref={backButtonHref || `/${prefix}`}
+        />
+        {/* Callout */}
+        <div className={styles.callout}>
+          {/* Text information wrapper */}
+          <div className={styles.tagsDateWrapper}>
+            {/* Tags */}
+            {tags ? (
+              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+            ) : undefined}
+            {/* Date */}
+            {date ? (
+              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+            ) : undefined}
+          </div>
+          {/* Links */}
+          {links ? (
+            <div className={styles.linksWrapper}>
+              {links.map((link, index) => (
+                <ExternalLink {...link} key={index} />
+              ))}
+            </div>
+          ) : undefined}
+        </div>
+      </div>
+    </>
+  );
+
+  let pageInfo: JSX.Element;
+  switch (type) {
+    default: // default is vertical
+      pageInfo = verticalPageInfo;
+  }
+
   return (
     <main>
       <div className={utils.spacer} />
-      <div className={utils.itemWrapper}>
-        {title ? (
-          <PageHeader
-            aboveText={backButtonText || 'Back'}
-            belowText={title}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
-          />
-        ) : undefined}
-      </div>
+      {pageInfo}
       {coverImage ? (
-        <div className={utils.fullWidthImageWrapper}>
+        <div className={utils.itemWrapper}>
           <ImageWithFadeIn
             alt={`${title} preview image`}
             src={coverImage}

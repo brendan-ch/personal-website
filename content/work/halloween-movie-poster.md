@@ -12,6 +12,8 @@ tags:
 
 order: 15
 imageAspectRatio: "33 / 51"
+
+date: "October 28, 2021"
 ---
 
 ![Movie poster for The Birds.](/static/work/halloween-movie-poster/Chen_Brendan_Halloween.png)

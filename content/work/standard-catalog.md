@@ -1,6 +1,6 @@
 ---
 title: "Standard Catalog"
-description: "A redesign of the college registration experience."
+description: "A complete redesign of the college registration experience."
 # The name of the file is used to generate the pretty link
 
 # Relative path inside "public" folder
@@ -13,6 +13,10 @@ tags:
 
 order: 0
 imageAspectRatio: "2 / 1"
+coverImageAspectRatio: "3 / 2"
+
+
+date: September 25, 2022
 ---
 
 Standard Catalog is my redesign of the college registration experience.

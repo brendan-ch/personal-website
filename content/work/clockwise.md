@@ -12,18 +12,23 @@ tags:
 
 order: 1
 imageAspectRatio: "3 / 1"
+coverImageAspectRatio: "3 / 2"
+
+links:
+- name: Web app
+  url: https://clockwise.bchen.dev
+- name: App Store
+  url: https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428
+- name: Google Play
+  url: https://play.google.com/store/apps/details?id=co.birb.session
+
+date: October 2021 - July 2022
 ---
 
 <!-- To-do: add watermarks to all images -->
 ![Clockwise preview image.](/static/work/clockwise/app-screenshots.png)
 
 Clockwise is a Pomodoro timer designed to help you focus.
-
-[Open the web app](https://clockwise.bchen.dev)
-
-[App Store link](https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428)
-
-[Google Play link](https://play.google.com/store/apps/details?id=co.birb.session)
 
 [View the GitHub page](https://github.com/brendan-ch/clockwise)
 

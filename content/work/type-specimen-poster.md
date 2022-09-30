@@ -11,6 +11,8 @@ tags:
 
 order: 14
 imageAspectRatio: "33 / 51"
+
+date: "October 19, 2021"
 ---
 
 ![Neue Haas Grotesk type specimen poster.](/static/work/type-specimen/Chen_Brendan_TypeSpecimen.png)

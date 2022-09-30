@@ -7,6 +7,9 @@ description: "A minimalist typing test built using Java Swing."
 previewImage: ""
 coverImage: ""
 
+# Supported options: wide, vertical, horizontal
+type: vertical
+
 tags:
 - Featured
 - UI/UX Design
@@ -14,4 +17,11 @@ tags:
 
 order: 0
 imageAspectRatio: "3 / 2"
+coverImageAspectRatio: "3 / 2"
+
+links:
+- name: Example Link
+  url: https://google.com
+
+date: September 20, 2022
 ---
