@@ -29,6 +29,7 @@ interface PageData {
   prefix: string,
   type: 'wide' | 'vertical' | 'horizontal' | null,
   links: PageExternalLink[] | null,
+  date: string | null,
 
   order?: number,
 }
