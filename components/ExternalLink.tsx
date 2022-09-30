@@ -39,16 +39,6 @@ const SUPPORTED_ICONS = [
       ),
       regex: /.+figma\.com.+/gm,
   },
-  // Leave last
-  {
-    icon: (
-      <ArrowUpAndRight
-        width={ICON_WIDTH}
-        height={ICON_HEIGHT}
-      />
-    ),
-    regex: /.+/gm,
-  },
 ];
 
 export default function ExternalLink({ name, url }: PageExternalLink) {
@@ -57,7 +47,12 @@ export default function ExternalLink({ name, url }: PageExternalLink) {
   return (
     <div className={styles.container}>
       {/* Icon */}
-      {SUPPORTED_ICONS[iconIndex].icon}
+      {iconIndex > -1 ? SUPPORTED_ICONS[iconIndex].icon : (
+        <Figma
+          width={ICON_WIDTH}
+          height={ICON_HEIGHT}
+        />
+      )}
       {/* Text */}
       <a href={url} target="_blank" rel="noreferrer">
         <p>
