@@ -106,6 +106,16 @@ export default function DatabaseItemContent({
     <main>
       <div className={utils.spacer} />
       {pageInfo}
+      {coverImage ? (
+        <div className={utils.itemWrapper}>
+          <ImageWithFadeIn
+            alt={`${title} preview image`}
+            src={coverImage}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      ) : undefined}
       {content ? (
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <MarkdownRenderer
