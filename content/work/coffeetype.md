@@ -11,13 +11,16 @@ order: 4
 imageAspectRatio: "3 / 1"
 
 date: "May 26, 2022"
+
+links:
+- name: GitHub
+  url: https://github.com/brendan-ch/coffeetype
 ---
 
 ![coffeetype banner](/static/work/preview/coffeetype-preview.png)
 
 coffeetype is a minimalistic typing test built with Java Swing. It was my final project for AP Computer Science A.
 
-[View on GitHub](https://github.com/brendan-ch/coffeetype)
 
 # My Roles
 
