@@ -37,7 +37,7 @@ describe('PageHeader', () => {
     );
 
     const headings = screen.getAllByRole('heading');
-    expect(headings).toHaveLength(2);
+    expect(headings).toHaveLength(1);
 
     const backButton = screen.getByRole('link');
     expect(backButton).toBeInTheDocument();
