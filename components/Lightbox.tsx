@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import styles from '../styles/Lightbox.module.css';
-import Exit from './icons/Exit';
+import Exit from './icons-v2/Exit';
 
 interface Props {
   imageLink?: string,
@@ -37,7 +37,7 @@ export default function Lightbox({ imageLink, caption, visible, onClose }: Props
     >
       <div className={styles.closeTabBar}>
         <div className={styles.closeButtonWrapper}>
-          <Exit width={38} height={38} />
+          <Exit width={24} height={24} />
         </div>
       </div>
       <div className={styles.imageFrame}>

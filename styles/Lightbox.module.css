@@ -53,6 +53,10 @@
   border-color: var(--emphasis);
   border-width: 1px;
   border-style: solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .closeButtonWrapper:hover {
