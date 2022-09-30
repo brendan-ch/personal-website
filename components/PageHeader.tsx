@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/PageHeader.module.css';
+import ChevronLeft from './icons-v2/ChevronLeft';
 import Back from './icons/Back';
 
 interface Props {
@@ -25,13 +26,13 @@ export default function PageHeader({ includeBackButton, aboveText, belowText, ba
         {includeBackButton ? (
           <Link href={backButtonHref || '/'}>
             <a>
-              <h3 className={styles.backButton}>
-                <Back
-                  width={30}
-                  height={30}
+              <p className={styles.backButton}>
+                <ChevronLeft
+                  width={16}
+                  height={16}
                 />
                 {aboveText}
-              </h3>
+              </p>
             </a>
           </Link>
         ) : (
