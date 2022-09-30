@@ -2,9 +2,9 @@ import ArrowUpAndRight from './icons-v2/ArrowUpAndRight';
 import styles from '../styles/ExternalLink.module.css';
 import AppStore from './logos/AppStore';
 import Figma from './logos/Figma';
+import GitHub from './logos/GitHub';
 import GooglePlay from './logos/GooglePlay';
 import { PageExternalLink } from '../types';
-import GitHub from './icons/GitHub';
 
 const ICON_WIDTH = 20;
 const ICON_HEIGHT = 20;
