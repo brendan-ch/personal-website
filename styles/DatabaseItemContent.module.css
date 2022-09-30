@@ -1,0 +1,10 @@
+.calloutInformationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.callout {
+  background-color: var(--gray-1);
+
+}

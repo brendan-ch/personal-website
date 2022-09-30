@@ -6,6 +6,28 @@ import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
 import { useState } from 'react';
 import Lightbox from './Lightbox';
+import ExternalLink from './ExternalLink';
+import styles from '../styles/DatabaseItemContent.module.css';
+
+interface CalloutInformationProps {
+  title: string,
+  description: string,
+}
+
+export function CalloutInformation(props: CalloutInformationProps) {
+  return (
+    <div className={styles.calloutInformationWrapper}>
+      <p>
+        <b>
+          {props.title}
+        </b>
+      </p>
+      <p>
+        {props.description}
+      </p>
+    </div>
+  );
+}
 
 interface Props extends PageData {
   backButtonText?: string,
@@ -20,6 +42,10 @@ export default function DatabaseItemContent({
   imageAspectRatio,
   backButtonText,
   backButtonHref,
+  type,
+  links,
+  tags,
+  date,
 }: Props) {
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
@@ -34,29 +60,49 @@ export default function DatabaseItemContent({
     setLightboxCaption(undefined);
   }
 
+  const verticalPageInfo = (
+    <>
+      <div className={utils.itemWrapper}>
+        <PageHeader
+          aboveText={backButtonText || 'Back'}
+          belowText={title || ''}
+          includeBackButton
+          backButtonHref={backButtonHref || `/${prefix}`}
+        />
+        {/* Callout */}
+        <div>
+          {/* Text information wrapper */}
+          <div>
+            {/* Tags */}
+            {tags ? (
+              <CalloutInformation title="Tags" description={tags.join(', ')} />
+            ) : undefined}
+            {/* Date */}
+            {date ? (
+              <CalloutInformation title="Date" description={date} />
+            ) : undefined}
+          </div>
+          {/* Links */}
+          <div>
+            {links?.map((link, index) => (
+              <ExternalLink {...link} key={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+
+  let pageInfo: JSX.Element;
+  switch (type) {
+    default: // default is vertical
+      pageInfo = verticalPageInfo;
+  }
+
   return (
     <main>
       <div className={utils.spacer} />
-      <div className={utils.itemWrapper}>
-        {title ? (
-          <PageHeader
-            aboveText={backButtonText || 'Back'}
-            belowText={title}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
-          />
-        ) : undefined}
-      </div>
-      {coverImage ? (
-        <div className={utils.fullWidthImageWrapper}>
-          <ImageWithFadeIn
-            alt={`${title} preview image`}
-            src={coverImage}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      ) : undefined}
+      {pageInfo}
       {content ? (
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <MarkdownRenderer
