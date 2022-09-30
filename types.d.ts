@@ -3,6 +3,11 @@
  */
 type SortProperty = 'title' | 'description' | 'previewImage' | 'coverImage';
 
+interface PageExternalLink {
+  name: string,
+  url: string,
+}
+
 interface PageData {
   /**
    * Contents of the markdown file.
@@ -22,6 +27,9 @@ interface PageData {
   imageAspectRatio: string | null,
   tags: string[] | null,
   prefix: string,
+  type: 'wide' | 'vertical' | 'horizontal' | null,
+  links: PageExternalLink[] | null,
+
   order?: number,
 }
 
@@ -134,6 +142,7 @@ export {
   PageListFilter,
   PageListResponse,
   PageData,
+  PageExternalLink,
   Response,
   TagObject,
 };
