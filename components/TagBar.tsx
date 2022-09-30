@@ -1,6 +1,5 @@
 import styles from '../styles/TagBar.module.css';
 import { TagObject } from "../types";
-import Exit from './icons/Exit';
 import Tag from "./Tag";
 
 interface Props {
