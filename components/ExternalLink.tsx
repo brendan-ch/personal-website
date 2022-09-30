@@ -3,6 +3,7 @@ import styles from '../styles/ExternalLink.module.css';
 import AppStore from './logos/AppStore';
 import Figma from './logos/Figma';
 import GooglePlay from './logos/GooglePlay';
+import { PageExternalLink } from '../types';
 
 const ICON_WIDTH = 20;
 const ICON_HEIGHT = 20;
@@ -50,12 +51,7 @@ const SUPPORTED_ICONS = [
   },
 ];
 
-interface Props {
-  name: string,
-  url: string,
-}
-
-export default function ExternalLink({ name, url }: Props) {
+export default function ExternalLink({ name, url }: PageExternalLink) {
   const iconIndex = SUPPORTED_ICONS.findIndex((obj) => obj.regex.test(url));
 
   return (
