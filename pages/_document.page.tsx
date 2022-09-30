@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { RECAPTCHA_SITE_KEY_V3 } from '../helpers/Constants'
 
 class MyDocument extends Document {
   render() {
@@ -25,6 +26,8 @@ class MyDocument extends Document {
           <meta name="twitter:image" content="/link-preview-image.png"></meta>
 
           <meta name="google-site-verification" content="4f6AZxwJwKFUlOFOJdcfAbCKMqxOiEcGQ4N7NefSsI4"></meta>
+
+          <script src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY_V3}`} async></script>
           {/* Fallback title */}
           {/* eslint-disable-next-line */}
           {/* <title>Brendan Chen</title> */}

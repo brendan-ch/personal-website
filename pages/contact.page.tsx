@@ -200,11 +200,11 @@ export default function ContactForm() {
     <div className={utils.rootContainer}>
       <Head>
         <title>Brendan Chen</title>
-        {loadScripts ? (
+        {/* {loadScripts ? (
           <>
             <script src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY_V3}`} async></script>
           </>
-        ) : undefined}
+        ) : undefined} */}
       </Head>
       <MobileNavBar
         onMobileButtonClick={() => setMenuVisible(true)}
