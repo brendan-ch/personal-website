@@ -106,8 +106,8 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
           <Link href="#featured">
             <a className={styles.arrowDown} id="featured">
               <Down
-                width={56}
-                height={56}
+                width={32}
+                height={32}
               />
             </a>
           </Link>
