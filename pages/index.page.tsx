@@ -12,8 +12,8 @@ import { useState } from 'react';
 import getPages from '../helpers/getPages';
 import BackgroundPattern from '../public/background-pattern.png';
 import Link from 'next/link';
-import Down from '../components/icons/Down';
-import Next from '../components/icons/Next';
+import Down from '../components/icons-v2/ArrowDown';
+import Next from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
 
 /**
@@ -131,8 +131,8 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
                   View All Work
                 </p>
                 <Next
-                  width={32}
-                  height={32}
+                  width={20}
+                  height={20}
                 />
               </a>
             </Link>
@@ -160,8 +160,8 @@ const Home = ({ workPageListResponse, blogPageListResponse }: Props) => {
                 More About Me
               </p>
               <Next
-                width={32}
-                height={32}
+                width={20}
+                height={20}
               />
             </a>
           </Link>

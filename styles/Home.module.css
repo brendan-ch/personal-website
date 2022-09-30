@@ -7,6 +7,8 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+
+  gap: 4px;
 }
 
 .databaseEndLink p {
@@ -15,6 +17,10 @@
 
 .databaseEndLink svg {
   stroke: var(--red);
+}
+
+.databaseEndLink path {
+  fill: var(--red);
 }
 
 .backgroundImageContainer {
