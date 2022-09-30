@@ -52,17 +52,13 @@ export const getStaticProps = async ({ params }: { params: any }) => {
  * Page that displays project information.
  * @returns
  */
- export default function DocumentPage({
-  content,
-  previewImage,
-  coverImage,
-  title,
-  description,
-  id,
-  prefix,
-  tags,
-  imageAspectRatio,
-}: PageData) {
+export default function DocumentPage(pageData: PageData) {
+  const {
+    previewImage,
+    title,
+    description,
+  } = pageData;
+  
   const [menuVisible, setMenuVisible] = useState(false);
 
   const router = useRouter();
@@ -86,17 +82,9 @@ export const getStaticProps = async ({ params }: { params: any }) => {
         onClose={() => setMenuVisible(false)}
       />
       <DatabaseItemContent
-        content={content}
-        coverImage={coverImage}
-        previewImage={previewImage}
-        title={title}
-        description={description}
-        id={id}
-        prefix={prefix}
-        tags={tags}
+        {...pageData}
         backButtonHref="/"
         backButtonText="Home"
-        imageAspectRatio={imageAspectRatio}
       />
     </div>
   );
