@@ -9,9 +9,9 @@ import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
-import Script from 'next/script';
 import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
+import { RECAPTCHA_SITE_KEY_V3 } from '../helpers/Constants';
 
 enum FormState {
   INCOMPLETE,
@@ -86,62 +86,72 @@ export default function ContactForm() {
    * @param event
    */
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    // Retrieve form data
     event.preventDefault();
+    const formDataTarget = event.currentTarget;
 
-    const formData = new FormData(event.currentTarget);
-    const fieldValues = Object.fromEntries(formData.entries()) as {
-      [k: string]: string,
-    };
+    // @ts-ignore
+    window.grecaptcha.ready(() => {
+      // @ts-ignore
+      window.grecaptcha.execute(RECAPTCHA_SITE_KEY_V3, { action: 'submit' }).then(async (token: string) => {
+        // Retrieve form data
+        const formData = new FormData(formDataTarget);
+        const fieldValues = Object.fromEntries(formData.entries()) as {
+          [k: string]: string,
+        };
 
-    const tests: boolean[] = Object.values(fieldValues).map((value, index) => {
-      if (index >= Object.keys(formInputItems).length) return true;
-      const inputItem = formInputItems[index];
+        const tests: boolean[] = Object.values(fieldValues).map((value, index) => {
+          if (index >= Object.keys(formInputItems).length) return true;
+          const inputItem = formInputItems[index];
 
-      if (inputItem.required && value) {
-        if ((inputItem.pattern && inputItem.pattern.test(value)) || !inputItem.pattern) {
-          return true;
-        } else {
-          return false;
+          if (inputItem.required && value) {
+            if ((inputItem.pattern && inputItem.pattern.test(value)) || !inputItem.pattern) {
+              return true;
+            } else {
+              return false;
+            }
+          } else if (!inputItem.required) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+
+        // Invalid data - don't send
+        if (tests.filter((value) => !value).length > 0) {
+          return;
         }
-      } else if (!inputItem.required) {
-        return true;
-      } else {
-        return false;
-      }
+
+        console.log(token);
+        if (!token) {
+          setFormState(FormState.NO_RECAPTCHA_PROVIDED);
+          return;
+        }
+
+        fieldValues['g-recaptcha-response'] = token;
+
+        setLoading(true);
+
+        try {
+          // API request
+          const result = await axios.post('/api/submit/contact', fieldValues);
+
+          if (result.status === 400) {
+            setFormState(FormState.USER_ERROR);
+          } else if (result.status === 500) {
+            setFormState(FormState.SERVER_ERROR);
+          } else {
+            setFormState(FormState.SUBMITTED);
+          }
+
+          setLoading(false);
+        } catch (e) {
+          setFormState(FormState.USER_ERROR);
+          setLoading(false);
+        }
+      });
     });
-
-    // Invalid data - don't send
-    if (tests.filter((value) => !value).length > 0) {
-      return;
-    }
-
-    if (!fieldValues['g-recaptcha-response']) {
-      setFormState(FormState.NO_RECAPTCHA_PROVIDED);
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      // API request
-      const result = await axios.post('/api/submit/contact', fieldValues);
-
-      if (result.status === 400) {
-        setFormState(FormState.USER_ERROR);
-      } else if (result.status === 500) {
-        setFormState(FormState.SERVER_ERROR);
-      } else {
-        setFormState(FormState.SUBMITTED);
-      }
-
-      setLoading(false);
-    } catch(e) {
-      setFormState(FormState.USER_ERROR);
-      setLoading(false);
-    }
   }
-  
+
   let statusRenderer: JSX.Element = <></>;
 
   switch (formState) {
@@ -192,7 +202,7 @@ export default function ContactForm() {
         <title>Brendan Chen</title>
         {loadScripts ? (
           <>
-            <script src="https://www.google.com/recaptcha/api.js" async></script>
+            <script src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY_V3}`} async></script>
           </>
         ) : undefined}
       </Head>
@@ -220,7 +230,7 @@ export default function ContactForm() {
                 {...item}
               />
             ))}
-            <div className={`g-recaptcha ${utils.recaptchaBox}`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
+            <div className={`g-recaptcha`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
             <p>Data that you provide in this form will be handled according to the{' '}
               <Link href="/doc/privacy">
                 <a target="_blank" rel="noreferrer">
