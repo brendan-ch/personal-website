@@ -11,6 +11,8 @@ tags:
 
 order: 15
 imageAspectRatio: "33 / 51"
+
+date: "September 14, 2021"
 ---
 
 ![Spirit week homecoming poster.](/static/work/spirit-week-poster/Chen_Brendan_SpiritWeek.png)

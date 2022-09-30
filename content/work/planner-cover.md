@@ -12,6 +12,8 @@ tags:
 
 order: 3
 imageAspectRatio: "87 / 111"
+
+date: "April 28, 2022"
 ---
 
 ![Planner cover.](/static/work/planner-cover/Planner_Trimmed.png)

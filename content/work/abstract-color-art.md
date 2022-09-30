@@ -11,6 +11,8 @@ tags:
 
 order: 16
 imageAspectRatio: "3 / 2"
+
+date: "January 6, 2022"
 ---
 
 ![Vector art, displayed in three different color sets.](/static/work/abstract-color-art/Chen_Brendan_Color_2.png)

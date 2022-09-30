@@ -9,6 +9,8 @@ tags:
 
 order: 4
 imageAspectRatio: "3 / 1"
+
+date: "May 26, 2022"
 ---
 
 ![coffeetype banner](/static/work/preview/coffeetype-preview.png)

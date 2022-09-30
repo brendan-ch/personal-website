@@ -11,6 +11,8 @@ tags:
 
 order: 12
 imageAspectRatio: "33 / 51"
+
+date: "November 16, 2021"
 ---
 
 ![Post-Modern Advertisement for a Sony Walkman.](/static/work/post-modern-ad/post-modern-ad.png)
