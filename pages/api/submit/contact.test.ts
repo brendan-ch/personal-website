@@ -107,10 +107,3 @@ describe('POST /api/submit/contact', () => {
     expect(resReturnObj.json).toHaveBeenCalledTimes(1);
   });
 });
-
-describe('verifyCaptcha', () => {
-  it('Makes a POST request', async () => {
-    const result = await verifyCaptcha('12345', '23456');
-    expect(result).toBe(true);
-  });
-});
