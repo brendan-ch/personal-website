@@ -1,4 +1,5 @@
-import ArrowUpAndRight from "./icons-v2/ArrowUpAndRight";
+import ArrowUpAndRight from './icons-v2/ArrowUpAndRight';
+import styles from '../styles/ExternalLink.module.css';
 
 interface Props {
   name: string,
@@ -7,7 +8,7 @@ interface Props {
 
 export default function ExternalLink({ name, url }: Props) {
   return (
-    <div>
+    <div className={styles.container}>
       {/* Icon */}
       <ArrowUpAndRight
         width={20}
