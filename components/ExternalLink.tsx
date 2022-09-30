@@ -1,6 +1,8 @@
 import ArrowUpAndRight from './icons-v2/ArrowUpAndRight';
 import styles from '../styles/ExternalLink.module.css';
 import AppStore from './logos/AppStore';
+import Figma from './logos/Figma';
+import GooglePlay from './logos/GooglePlay';
 
 const ICON_WIDTH = 20;
 const ICON_HEIGHT = 20;
@@ -17,6 +19,24 @@ const SUPPORTED_ICONS = [
       />
       ),
       regex: /.+apps\.apple\.com.+/gm,
+  },
+  {
+    icon: (
+      <GooglePlay
+        width={ICON_WIDTH}
+        height={ICON_HEIGHT}
+      />
+      ),
+      regex: /.+play\.google\.com.+/gm,
+  },
+  {
+    icon: (
+      <Figma
+        width={ICON_WIDTH}
+        height={ICON_HEIGHT}
+      />
+      ),
+      regex: /.+figma\.com.+/gm,
   },
   // Leave last
   {
@@ -43,7 +63,7 @@ export default function ExternalLink({ name, url }: Props) {
       {/* Icon */}
       {SUPPORTED_ICONS[iconIndex].icon}
       {/* Text */}
-      <a href={url}>
+      <a href={url} target="_blank" rel="noreferrer">
         <p>
           <u>
             {name}
