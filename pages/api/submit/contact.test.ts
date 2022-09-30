@@ -1,4 +1,5 @@
-import handler, { verifyCaptcha } from './contact.page';
+import handler from './contact.page';
+import verifyCaptcha from '../../../helpers/verifyCaptcha';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
