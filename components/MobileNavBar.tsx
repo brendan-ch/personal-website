@@ -3,8 +3,8 @@ import { CSSProperties, useEffect, useState } from 'react';
 import { BLUE, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import menuStyles from '../styles/MobileNavMenu.module.css';
-import Exit from './icons/Exit';
-import Hamburger from './icons/Hamburger';
+import Exit from './icons-v2/Exit';
+import Hamburger from './icons-v2/Hamburger';
 import LogoFull from './icons/LogoFull';
 import LogoStandalone from './icons/LogoStandalone';
 
@@ -91,8 +91,8 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
         tabIndex={0}
       >
         <Exit
-          width={45}
-          height={45}
+          width={24}
+          height={24}
         />
       </button>
     );
@@ -104,8 +104,8 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
         tabIndex={0}
       >
         <Hamburger
-          width={45}
-          height={45}
+          width={24}
+          height={24}
         />
       </button>
     );
