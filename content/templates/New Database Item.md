@@ -7,6 +7,9 @@ description: "A minimalist typing test built using Java Swing."
 previewImage: ""
 coverImage: ""
 
+# Supported options: wide, vertical, horizontal
+type: vertical
+
 tags:
 - Featured
 - UI/UX Design
