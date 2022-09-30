@@ -14,4 +14,9 @@ tags:
 
 order: 0
 imageAspectRatio: "3 / 2"
+coverImageAspectRatio: "3 / 2"
+
+links:
+- name: Example Link
+  url: https://google.com
 ---
