@@ -27,6 +27,9 @@ describe('DatabaseItemContent', () => {
       tags={null}
       prefix="work"
       coverImage="https://image.link"
+      links={null}
+      date={null}
+      type={null}
     />);
 
     expect(screen.getByRole('img')).toBeInTheDocument();
