@@ -4,7 +4,7 @@ import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Lightbox from './Lightbox';
 import ExternalLink from './ExternalLink';
 import styles from '../styles/DatabaseItemContent.module.css';
@@ -12,11 +12,12 @@ import styles from '../styles/DatabaseItemContent.module.css';
 interface CalloutInformationProps {
   title: string,
   description: string,
+  className?: string,
 }
 
 export function CalloutInformation(props: CalloutInformationProps) {
   return (
-    <div className={styles.calloutInformationWrapper}>
+    <div className={`${styles.calloutInformationWrapper} ${props.className ? props.className : ''}`}>
       <p>
         <b>
           {props.title}
@@ -70,24 +71,26 @@ export default function DatabaseItemContent({
           backButtonHref={backButtonHref || `/${prefix}`}
         />
         {/* Callout */}
-        <div>
+        <div className={styles.callout}>
           {/* Text information wrapper */}
-          <div>
+          <div className={styles.tagsDateWrapper}>
             {/* Tags */}
             {tags ? (
-              <CalloutInformation title="Tags" description={tags.join(', ')} />
+              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
             ) : undefined}
             {/* Date */}
             {date ? (
-              <CalloutInformation title="Date" description={date} />
+              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
             ) : undefined}
           </div>
           {/* Links */}
-          <div>
-            {links?.map((link, index) => (
-              <ExternalLink {...link} key={index} />
-            ))}
-          </div>
+          {links ? (
+            <div className={styles.linksWrapper}>
+              {links.map((link, index) => (
+                <ExternalLink {...link} key={index} />
+              ))}
+            </div>
+          ) : undefined}
         </div>
       </div>
     </>
