@@ -22,4 +22,6 @@ coverImageAspectRatio: "3 / 2"
 links:
 - name: Example Link
   url: https://google.com
+
+date: September 20, 2022
 ---
