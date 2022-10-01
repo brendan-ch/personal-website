@@ -20,10 +20,10 @@ export default function Footer({ style, mini }: Props) {
           />
           <p>© 2022 Brendan Chen. All rights reserved.</p>
           <div className={styles.recaptchaNotice}>
-            <p>This site is protected by reCAPTCHA and the Google{' '}
+            <p>This site is protected by reCAPTCHA and the{' '}
               <a href="https://policies.google.com/privacy">
                 <u>
-                  Privacy Policy
+                  Google Privacy Policy
                 </u>
               </a>
               {' and '}
