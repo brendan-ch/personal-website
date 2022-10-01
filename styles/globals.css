@@ -147,3 +147,7 @@ code {
   font-family: space-mono, monospace;
   font-weight: 400;
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
