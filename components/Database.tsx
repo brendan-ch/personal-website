@@ -1,11 +1,11 @@
 import { PageData, PageListFilter, PageListResponse, PageListSort, TagObject } from '../types';
 import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import PageButton from './PageButton';
-import { GROUP_PAGE_SIZE } from '../helpers/Constants';
+import { GROUP_PAGE_SIZE, RECAPTCHA_SITE_KEY_V3 } from '../helpers/Constants';
 import TagBar from './TagBar';
 import GalleryItemPlaceholder from './GalleryItemPlaceholder';
 
@@ -28,6 +28,7 @@ interface GroupProps {
   onLoadComplete?: (max: number) => any,
   filter?: PageListFilter[],
   sort?: PageListSort[],
+  recaptchaToken: string,
 }
 
 export function Group({
@@ -37,18 +38,20 @@ export function Group({
   onLoadStart,
   filter,
   sort,
+  recaptchaToken,
 }: GroupProps) {
   const fetcher = async (url: string, config: any) => {
     return await axios.post(url, config);
   };
 
   // Handle data fetching
-  const { data, error } = useSWR(['/api/query/pages', {
+  const { data, error } = useSWRImmutable(['/api/query/pages', {
     prefix,
     startIndex,
     pageSize: GROUP_PAGE_SIZE,
     filter,
     sort,
+    'g-recaptcha-response': recaptchaToken,
   }], fetcher);
   const pageResponse: PageListResponse = data?.data.data;
 
@@ -142,6 +145,7 @@ export default function Database({
   prefix,
   availableTags,
 }: Props) {
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
   const [loading, setLoading] = useState(false);
   
   const [count, setCount] = useState(0);
@@ -182,6 +186,7 @@ export default function Database({
             order: 'asc',
           },
         ]}
+        recaptchaToken={recaptchaToken}
       />);
     }
   }
@@ -206,6 +211,37 @@ export default function Database({
     if (!maxReached) {
       setCount(count + 1);
     }
+  }
+
+  /**
+   * Returns a fresh token to use for the captcha.
+   * @returns A promise that resolves to the fresh token.
+   */
+  function handleRefreshCaptcha() {
+    const promise: Promise<string> = new Promise((res, rej) => {
+      // @ts-ignore
+      window.grecaptcha.ready(() => {
+        // @ts-ignore
+        window.grecaptcha.execute(RECAPTCHA_SITE_KEY_V3, { action: 'loadMore' })
+          .then((token: string) => {
+            res(token);
+          })
+          .catch((err: any) => {
+            rej(err);
+          })
+      });
+    });
+
+    return promise;
+  }
+
+  /**
+   * Handle loading more data.
+   */
+  async function handleLoadMore() {
+    const token = await handleRefreshCaptcha();
+    setRecaptchaToken(token);
+    handleSetCount();
   }
 
   /**
@@ -282,11 +318,11 @@ export default function Database({
       {/* Add load button here */}
       {!maxReached ? (
         <PageButton
-          onClick={handleSetCount}
+          onClick={handleLoadMore}
           text={loading ? "Loading..." : "Load More"}
           disabled={loading}
         />
-      ) : undefined} 
+      ) : undefined}
     </div>
   );
 }
