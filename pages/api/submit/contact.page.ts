@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import verifyCaptcha from '../../../helpers/verifyCaptcha';
@@ -43,10 +42,9 @@ export default async function handler(
         error: 'Internal server error.',
       });
     } else if (!CAPTCHA_SECRET || !NOREPLY_EMAIL || !CONTACT_EMAIL) {
-      console.log('environment variables not set');
       return res.status(500).json({
         successful: false,
-        error: 'Internal server error.',
+        error: 'Incomplete environment variables provided. Please contact the site administrator.',
       });
     }
 
