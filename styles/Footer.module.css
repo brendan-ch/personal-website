@@ -55,3 +55,15 @@
     gap: 32px;
   }
 }
+
+.recaptchaNotice {
+  max-width: 600px;
+}
+
+.recaptchaNotice p {
+  color: var(--gray2)
+}
+
+.recaptchaNotice a {
+  color: var(--gray2)
+}

@@ -231,7 +231,20 @@ export default function ContactForm() {
               />
             ))}
             {/* <div className={`g-recaptcha`} data-sitekey=""></div> */}
-            <p>Data that you provide in this form will be handled according to the{' '}
+            <p>This site is protected by reCAPTCHA and the Google{' '}
+              <a href="https://policies.google.com/privacy">
+                <u>
+                  Privacy Policy
+                </u>
+              </a>
+              {' and '}
+              <a href="https://policies.google.com/terms">
+                <u>Terms of Service</u>
+              </a>
+              {' '}apply.
+            </p>
+
+            <p>Data that you provide in this form will be handled according to the site{'\''}s{' '}
               <Link href="/doc/privacy">
                 <a target="_blank" rel="noreferrer">
                   <u>

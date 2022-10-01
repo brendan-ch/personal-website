@@ -19,6 +19,20 @@ export default function Footer({ style, mini }: Props) {
             height={50}
           />
           <p>© 2022 Brendan Chen. All rights reserved.</p>
+          <div className={styles.recaptchaNotice}>
+            <p>This site is protected by reCAPTCHA and the Google{' '}
+              <a href="https://policies.google.com/privacy">
+                <u>
+                  Privacy Policy
+                </u>
+              </a>
+              {' and '}
+              <a href="https://policies.google.com/terms">
+                <u>Terms of Service</u>
+              </a>
+              {' '}apply.
+            </p>
+          </div>
         </div>
         <div className={styles.linksWrapper}>
           <div className={styles.linksContainer}>
