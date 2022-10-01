@@ -61,9 +61,9 @@
 }
 
 .recaptchaNotice p {
-  color: var(--gray2)
+  color: var(--gray3)
 }
 
 .recaptchaNotice a {
-  color: var(--gray2)
+  color: var(--gray3)
 }
