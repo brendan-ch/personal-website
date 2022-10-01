@@ -21,7 +21,7 @@ export default async function handler(
   }
 
   try {
-    const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET, 0.2);
+    const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET, 0);
     if (!captchaVerification) {
       return res.status(400).json({
         successful: false,

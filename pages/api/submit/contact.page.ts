@@ -48,7 +48,7 @@ export default async function handler(
       });
     }
 
-    const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET);
+    const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET, 0);
     if (!captchaVerification) {
       return res.status(400).json({
         successful: false,

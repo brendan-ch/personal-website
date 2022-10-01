@@ -28,7 +28,7 @@ export default async function handler(
       || !['string', 'undefined'].includes(typeof query.prefix)
       || !['boolean', 'undefined'].includes(typeof query.withContent))
     ) {
-      const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET, 0.2);
+      const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET, 0);
       if (!captchaVerification) {
         return res.status(400).json({
           successful: false,
