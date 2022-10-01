@@ -1,11 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import getPage from '../../../helpers/getPage';
+import verifyCaptcha from '../../../helpers/verifyCaptcha';
 import { PageQuery, Response } from '../../../types';
+
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Response>,
 ) {
+  const { CAPTCHA_SECRET } = process.env;
+  if (!CAPTCHA_SECRET) {
+    return res.status(500).json({
+      successful: false,
+      error: 'Incomplete environment variables provided. Please contact the site administrator.',
+    });
+  }
+
   try {
     // Share interface with code
     const query: PageQuery = req.body;
@@ -18,6 +28,14 @@ export default async function handler(
       || !['string', 'undefined'].includes(typeof query.prefix)
       || !['boolean', 'undefined'].includes(typeof query.withContent))
     ) {
+      const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET);
+      if (!captchaVerification) {
+        return res.status(400).json({
+          successful: false,
+          error: 'Invalid reCAPTCHA response provided.',
+        });
+      }
+
       // 400 error
       const error400: Response = {
         successful: false,

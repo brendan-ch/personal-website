@@ -1,7 +1,9 @@
 import handler from './pages.page';
 import fs from 'fs/promises';
+import axios from 'axios';
 
 jest.mock('fs/promises');
+jest.mock('axios');
 
 const testFrontMatter = `---
 title: "Page Title"
@@ -28,6 +30,17 @@ const files = [
   'unrelatedFolder',
 ];
 
+// axios mocks
+(axios.post as jest.Mock<any, any>).mockReturnValue({
+  data: {
+    success: true,
+    score: 0.6,
+  },
+});
+
+// environment variable mocks
+const OLD_ENV = process.env;
+
 (fs.readdir as jest.Mock<any, any>).mockReturnValue(files);
 (fs.readFile as jest.Mock<any, any>).mockReturnValue(Buffer.from(testFrontMatter));
 
@@ -46,6 +59,11 @@ beforeEach(() => {
   (fs.readFile as jest.Mock<any, any>).mockClear();
   res.status.mockClear();
   resReturnObj.json.mockClear();
+
+  process.env = {
+    ...OLD_ENV,
+    CAPTCHA_SECRET: '23456',
+  };
 });
 
 describe('POST /api/query/pages', () => {

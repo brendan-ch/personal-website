@@ -1,12 +1,17 @@
 import handler from './page.page';
 import fs from 'fs/promises';
+import axios from 'axios';
 
 // Add mocks
 jest.mock('fs/promises');
+jest.mock('axios');
 
 const resReturnObj = {
   json: jest.fn(),
 };
+
+// environment variable mocks
+const OLD_ENV = process.env;
 
 const res = {
   status: jest.fn((code: number) => {
@@ -24,11 +29,27 @@ Page Content
 `;
 (fs.readFile as jest.Mock<any, any>).mockReturnValue(Buffer.from(testFrontMatter));
 
+// axios mocks
+(axios.post as jest.Mock<any, any>).mockReturnValue({
+  data: {
+    success: true,
+    score: 0.6,
+  },
+});
+
 beforeEach(() => {
+  
+
   // Reset the mock
   (fs.readFile as jest.Mock<any, any>).mockClear();
   res.status.mockClear();
   resReturnObj.json.mockClear();
+
+  // Set environment variables
+  process.env = {
+    ...OLD_ENV,
+    CAPTCHA_SECRET: '23456',
+  };
 });
 
 describe('POST /api/query/page', () => {

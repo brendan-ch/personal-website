@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PAGINATION_LIMIT } from '../../../helpers/Constants';
 import getPages from '../../../helpers/getPages';
+import verifyCaptcha from '../../../helpers/verifyCaptcha';
 import { PageListQuery, Response } from '../../../types';
 
 type Data = {
@@ -11,7 +12,23 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
+  const { CAPTCHA_SECRET } = process.env;
+  if (!CAPTCHA_SECRET) {
+    return res.status(500).json({
+      successful: false,
+      error: 'Incomplete environment variables provided. Please contact the site administrator.',
+    });
+  }
+
   try {
+    const captchaVerification = await verifyCaptcha(req.body['g-recaptcha-response'], CAPTCHA_SECRET);
+    if (!captchaVerification) {
+      return res.status(400).json({
+        successful: false,
+        error: 'Invalid reCAPTCHA response provided.',
+      });
+    }
+
     // Share interface with code
     const query: PageListQuery = req.body;
 
