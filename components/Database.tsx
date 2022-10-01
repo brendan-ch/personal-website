@@ -171,7 +171,6 @@ export default function Database({
         key={i}
         startIndex={(dataChanged || !pageResponse.nextIndex ? 0 : pageResponse.nextIndex) + (GROUP_PAGE_SIZE * (i))}
         prefix={prefix}
-        onLoadStart={handleLoadStart}
         onLoadComplete={handleLoadComplete}
         filter={availableTags ? [
           {
@@ -239,6 +238,7 @@ export default function Database({
    * Handle loading more data.
    */
   async function handleLoadMore() {
+    handleLoadStart();
     const token = await handleRefreshCaptcha();
     setRecaptchaToken(token);
     handleSetCount();
