@@ -28,10 +28,6 @@ date: October 2021 - July 2022
 
 Clockwise is a Pomodoro timer designed to help you focus.
 
-[View the GitHub page](https://github.com/brendan-ch/clockwise)
-
-[View the changelog](http://bchen.dev/doc/clockwise-whats-new)
-
 # My Roles
 
 ## UI Design
