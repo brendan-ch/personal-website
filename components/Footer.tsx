@@ -11,7 +11,7 @@ interface Props {
 
 export default function Footer({ style, mini }: Props) {
   return (
-    <div className={styles.container} style={style}>
+    <footer className={styles.container} style={style}>
       <div className={styles.content}>
         <div className={styles.logo}>
           <LogoFull
@@ -68,6 +68,6 @@ export default function Footer({ style, mini }: Props) {
           )}
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
