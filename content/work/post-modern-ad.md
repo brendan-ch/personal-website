@@ -5,16 +5,17 @@ description: "A post-modern advertisment for the Sony Walkman."
 
 # Relative path inside "public" folder
 previewImage: "/static/work/preview/post-modern-ad-preview.png"
+coverImage: "/static/work/post-modern-ad/post-modern-ad.png"
 
 tags:
 - Graphic Design
 
 order: 12
 
+type: horizontal
+
 date: "November 16, 2021"
 ---
-
-![Post-Modern Advertisement for a Sony Walkman.](/static/work/post-modern-ad/post-modern-ad.png)
 
 *The poster was created using Adobe InDesign, and the Walkman drawing was created in Excalidraw. Fonts used are Neue Haas Grotesk Display, Franklin Gothic URW, and Flegrei.*
 
