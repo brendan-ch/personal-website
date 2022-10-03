@@ -1,8 +1,9 @@
 // This script generates a JSON file from the content/ directory, for use in serverless endpoints.
 
-const { readFile, readdir, writeFile, mkdir } = require('fs/promises');
+const { readFile, readdir, writeFile, mkdir, stat } = require('fs/promises');
 const matter = require('gray-matter');
 const path = require('path');
+const sizeOf = require('image-size');
 
 /**
  * Read data inside the content/ folder.
@@ -30,6 +31,16 @@ async function getData() {
       const imagePathRegex = /\/static\/work\/.+\.(png|jpg|jpeg|gif)/g;
       const images = [...matterResult.content.matchAll(imagePathRegex)].map((matchValue) => matchValue[0]);
 
+      const imageSizes = await Promise.all(images.map(async (imagePath) => {
+        const { width, height } = await sizeOf(path.join(contentDirectory, imagePath));
+
+        return {
+          imagePath,
+          width,
+          height,
+        };
+      }));
+
       return {
         id: file.substring(0, file.indexOf('.md')),
         prefix: prefix,
@@ -41,7 +52,7 @@ async function getData() {
         coverImage: null,
         imageAspectRatio: null,
         tags: null,
-        allImages: images,
+        allImages: imageSizes,
         ...matterResult.data,
       }
     }));
