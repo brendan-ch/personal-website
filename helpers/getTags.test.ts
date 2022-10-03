@@ -10,7 +10,7 @@ const mockData: PageData[] = [
     id: '1',
     previewImage: null,
     coverImage: null,
-    imageAspectRatio: null,
+    
     links: null,
     type: 'vertical',
     date: null,
@@ -25,7 +25,7 @@ const mockData: PageData[] = [
     id: '2',
     previewImage: null,
     coverImage: null,
-    imageAspectRatio: null,
+    
     links: null,
     type: 'vertical',
     date: null,
@@ -40,7 +40,7 @@ const mockData: PageData[] = [
     id: '3',
     previewImage: null,
     coverImage: null,
-    imageAspectRatio: null,
+    
     links: null,
     type: 'vertical',
     date: null,

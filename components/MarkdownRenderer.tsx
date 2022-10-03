@@ -11,7 +11,6 @@ import { ImageSize } from '../types';
 interface Props {
   content: string,
   onImageClick?: (src: string, alt: string) => any,
-  imageAspectRatio?: string,
   allImages: ImageSize[],
 }
 
@@ -19,7 +18,7 @@ interface Props {
  * Container with styling for markdown content.
  * @param props
  */
-export default function MarkdownRenderer({ content, onImageClick, imageAspectRatio, allImages }: Props) {
+export default function MarkdownRenderer({ content, onImageClick, allImages }: Props) {
   const router = useRouter();
 
   useEffect(() => {
@@ -48,7 +47,7 @@ export default function MarkdownRenderer({ content, onImageClick, imageAspectRat
               <div
                 className={styles.imageContainer}
                 style={{
-                  aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : imageAspectRatio,
+                  aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2',
                 }}
               >
                 <Image

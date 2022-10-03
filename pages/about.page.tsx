@@ -32,7 +32,7 @@ export async function getStaticProps() {
  * @param param0
  * @returns
  */
-export default function AboutPage({ content }: PageData) {
+export default function AboutPage({ content, allImages }: PageData) {
   const selected = "About Me";
 
   const [menuVisible, setMenuVisible] = useState(false);
@@ -63,6 +63,7 @@ export default function AboutPage({ content }: PageData) {
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
           <MarkdownRenderer
             content={content!}
+            allImages={allImages}
           />
         </div>
         <div className={`${utils.itemWrapper}`}>
