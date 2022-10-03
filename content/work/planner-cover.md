@@ -5,6 +5,7 @@ description: "Official 2022-2023 planner cover design for University High School
 
 # Relative path inside "public" folder
 previewImage: "/static/work/preview/planner-cover-preview.png"
+coverImage: "/static/work/planner-cover/Planner_Trimmed.png"
 
 tags:
 - Featured
@@ -12,9 +13,9 @@ tags:
 
 order: 3
 
+type: horizontal
+
 date: "April 28, 2022"
 ---
-
-![Planner cover.](/static/work/planner-cover/Planner_Trimmed.png)
 
 *This project was created in Adobe Illustrator. The typeface used is P22 Stanyan.*
