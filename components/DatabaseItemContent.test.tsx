@@ -18,7 +18,6 @@ describe('DatabaseItemContent', () => {
 
   it('Renders the cover image', () => {
     render(<DatabaseItemContent
-      imageAspectRatio={null}
       content={null}
       id="test"
       title="Testing"
