@@ -47,6 +47,7 @@ export default function DatabaseItemContent({
   links,
   tags,
   date,
+  allImages,
 }: Props) {
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
@@ -124,6 +125,7 @@ export default function DatabaseItemContent({
             content={content}
             onImageClick={handleImageClick}
             imageAspectRatio={imageAspectRatio || undefined}
+            allImages={allImages}
           />
         </div>
       ) : undefined}
