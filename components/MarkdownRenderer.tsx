@@ -40,6 +40,8 @@ export default function MarkdownRenderer({ content, onImageClick, imageAspectRat
             );
           },
           img: ({ alt, src }: any) => {
+            console.log(src);
+
             return (
               <div
                 className={styles.imageContainer}

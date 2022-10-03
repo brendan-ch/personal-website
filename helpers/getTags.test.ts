@@ -14,7 +14,8 @@ const mockData: PageData[] = [
     links: null,
     type: 'vertical',
     date: null,
-    prefix: 'work'
+    prefix: 'work',
+    allImages: [],
   },
   {
     title: 'Title',
@@ -28,7 +29,8 @@ const mockData: PageData[] = [
     links: null,
     type: 'vertical',
     date: null,
-    prefix: 'work'
+    prefix: 'work',
+    allImages: [],
   },
   {
     title: 'Title',
@@ -42,7 +44,8 @@ const mockData: PageData[] = [
     links: null,
     type: 'vertical',
     date: null,
-    prefix: 'work'
+    prefix: 'work',
+    allImages: [],
   },
 ];
 
