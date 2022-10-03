@@ -41,6 +41,8 @@ async function getData() {
         };
       }));
 
+      const coverImageDimensions = matterResult.data.coverImage ? sizeOf(path.join(contentDirectory, matterResult.data.coverImage)) : null;
+
       return {
         id: file.substring(0, file.indexOf('.md')),
         prefix: prefix,
@@ -49,7 +51,7 @@ async function getData() {
         title: null,
         description: null,
         previewImage: null,
-        coverImage: null,
+        coverImage: coverImageDimensions,
         imageAspectRatio: null,
         tags: null,
         allImages: imageSizes,

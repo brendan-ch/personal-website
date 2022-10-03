@@ -29,7 +29,8 @@ interface PageData {
   title: string | null,
   description: string | null,
   previewImage: string | null,
-  coverImage: string | null,
+  
+  coverImage: ImageSize | null,
   tags: string[] | null,
   prefix: string,
   type: 'wide' | 'vertical' | 'horizontal' | null,

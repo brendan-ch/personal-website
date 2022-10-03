@@ -25,7 +25,11 @@ describe('DatabaseItemContent', () => {
       previewImage={null}
       tags={null}
       prefix="work"
-      coverImage="https://image.link"
+      coverImage={{
+        width: 200,
+        height: 200,
+        imagePath: "https://image.link"
+      }}
       links={null}
       date={null}
       type={null}
