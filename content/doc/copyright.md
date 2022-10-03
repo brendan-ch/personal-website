@@ -19,6 +19,13 @@ Copyright (c) 2014-2018, Jon Schlinkert.
 
 [Link to license](https://github.com/jonschlinkert/gray-matter/blob/master/LICENSE)
 
+## image-size
+MIT License
+
+Copyright (c) 2017 Aditya Yadav
+
+[Link to license](https://github.com/image-size/image-size/blob/main/LICENSE)
+
 ## next.js
 MIT License
 

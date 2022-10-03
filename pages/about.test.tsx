@@ -30,7 +30,6 @@ describe('About', () => {
 
   it('Renders the page', () => {
     const { container } = render(<About
-      imageAspectRatio={null}
       content={mockContent}
       id="about"
       title="About Me"
@@ -42,6 +41,7 @@ describe('About', () => {
       date={null}
       type={null}
       prefix=""
+      allImages={[]}
     />);
     expect(container).toBeInTheDocument();
   });

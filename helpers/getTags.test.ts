@@ -10,11 +10,12 @@ const mockData: PageData[] = [
     id: '1',
     previewImage: null,
     coverImage: null,
-    imageAspectRatio: null,
+    
     links: null,
     type: 'vertical',
     date: null,
-    prefix: 'work'
+    prefix: 'work',
+    allImages: [],
   },
   {
     title: 'Title',
@@ -24,11 +25,12 @@ const mockData: PageData[] = [
     id: '2',
     previewImage: null,
     coverImage: null,
-    imageAspectRatio: null,
+    
     links: null,
     type: 'vertical',
     date: null,
-    prefix: 'work'
+    prefix: 'work',
+    allImages: [],
   },
   {
     title: 'Title',
@@ -38,11 +40,12 @@ const mockData: PageData[] = [
     id: '3',
     previewImage: null,
     coverImage: null,
-    imageAspectRatio: null,
+    
     links: null,
     type: 'vertical',
     date: null,
-    prefix: 'work'
+    prefix: 'work',
+    allImages: [],
   },
 ];
 

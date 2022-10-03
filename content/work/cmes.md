@@ -11,7 +11,6 @@ tags:
 - App Development
 
 order: 2
-imageAspectRatio: "3 / 1"
 
 date: "March 2021 - Ongoing"
 

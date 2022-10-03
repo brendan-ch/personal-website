@@ -10,7 +10,6 @@ tags:
 - Graphic Design
 
 order: 5
-imageAspectRatio: "5 / 3"
 
 date: "June 2022 - July 2022"
 ---

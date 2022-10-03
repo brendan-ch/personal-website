@@ -28,6 +28,6 @@ Paragraph
 
 describe('MarkdownRenderer', () => {
   it('Renders the component with Markdown', () => {
-    render(<MarkdownRenderer content={content} />);
+    render(<MarkdownRenderer content={content} allImages={[]} />);
   });
 });

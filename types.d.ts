@@ -8,6 +8,12 @@ interface PageExternalLink {
   url: string,
 }
 
+interface ImageSize {
+  width: number,
+  height: number,
+  imagePath: string,
+}
+
 interface PageData {
   /**
    * Contents of the markdown file.
@@ -24,12 +30,13 @@ interface PageData {
   description: string | null,
   previewImage: string | null,
   coverImage: string | null,
-  imageAspectRatio: string | null,
   tags: string[] | null,
   prefix: string,
   type: 'wide' | 'vertical' | 'horizontal' | null,
   links: PageExternalLink[] | null,
   date: string | null,
+
+  allImages: ImageSize[],
 
   order?: number,
 }
@@ -146,4 +153,5 @@ export {
   PageExternalLink,
   Response,
   TagObject,
+  ImageSize,
 };

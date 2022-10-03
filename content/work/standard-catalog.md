@@ -12,8 +12,6 @@ tags:
 - UI/UX Design
 
 order: 0
-imageAspectRatio: "2 / 1"
-coverImageAspectRatio: "3 / 2"
 
 
 date: September 25, 2022

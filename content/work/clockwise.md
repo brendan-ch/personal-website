@@ -11,8 +11,6 @@ tags:
 - App Development
 
 order: 1
-imageAspectRatio: "3 / 1"
-coverImageAspectRatio: "3 / 2"
 
 links:
 - name: Web app
