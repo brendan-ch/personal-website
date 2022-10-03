@@ -12,6 +12,8 @@ tags:
 
 order: 15
 
+type: horizontal
+
 date: "October 28, 2021"
 ---
 
