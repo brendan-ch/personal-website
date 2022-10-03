@@ -108,25 +108,51 @@ export default function DatabaseItemContent({
     <main>
       <div className={utils.spacer} />
       {pageInfo}
-      {coverImage ? (
-        <div className={utils.itemWrapper}>
-          <ImageWithFadeIn
-            alt={`${title} preview image`}
-            src={coverImage}
-            layout="fill"
-            objectFit="cover"
-          />
+      {type === 'horizontal' ? (
+        <div className={styles.horizontalContentWrapper}>
+          {coverImage ? (
+            <div className={utils.itemWrapper}>
+              <ImageWithFadeIn
+                alt={`${title} preview image`}
+                src={coverImage.imagePath}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : undefined}
+          {content ? (
+            <div className={`${utils.itemWrapper}`}>
+              <MarkdownRenderer
+                content={content}
+                onImageClick={handleImageClick}
+                allImages={allImages}
+              />
+            </div>
+          ) : undefined}
         </div>
-      ) : undefined}
-      {content ? (
-        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <MarkdownRenderer
-            content={content}
-            onImageClick={handleImageClick}
-            allImages={allImages}
-          />
-        </div>
-      ) : undefined}
+      ) : (
+        <>  
+          {coverImage ? (
+            <div className={utils.itemWrapper}>
+              <ImageWithFadeIn
+                alt={`${title} preview image`}
+                src={coverImage.imagePath}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : undefined}
+          {content ? (
+            <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+              <MarkdownRenderer
+                content={content}
+                onImageClick={handleImageClick}
+                allImages={allImages}
+              />
+            </div>
+          ) : undefined}
+        </>
+      )}
       <div className={utils.footerWrapper}>
         <Footer />
       </div>
