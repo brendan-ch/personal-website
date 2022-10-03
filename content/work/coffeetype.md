@@ -8,7 +8,6 @@ tags:
 - App Development
 
 order: 4
-imageAspectRatio: "3 / 1"
 
 date: "May 26, 2022"
 

@@ -10,7 +10,6 @@ tags:
 - Graphic Design
 
 order: 14
-imageAspectRatio: "33 / 51"
 
 date: "October 19, 2021"
 ---

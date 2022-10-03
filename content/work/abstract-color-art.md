@@ -10,7 +10,6 @@ tags:
 - Graphic Design
 
 order: 16
-imageAspectRatio: "3 / 2"
 
 date: "January 6, 2022"
 ---
