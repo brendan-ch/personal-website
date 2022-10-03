@@ -25,6 +25,11 @@ async function getData() {
       
       // Parse metadata
       const matterResult = matter(content);
+
+      // Compile array of images by reading content
+      const imagePathRegex = /\/static\/work\/.+\.(png|jpg|jpeg|gif)/g;
+      const images = [...matterResult.content.matchAll(imagePathRegex)].map((matchValue) => matchValue[0]);
+
       return {
         id: file.substring(0, file.indexOf('.md')),
         prefix: prefix,
@@ -36,6 +41,7 @@ async function getData() {
         coverImage: null,
         imageAspectRatio: null,
         tags: null,
+        allImages: images,
         ...matterResult.data,
       }
     }));
