@@ -99,41 +99,125 @@ export default function DatabaseItemContent({
   );
 
   let pageInfo: JSX.Element;
+  let pageHeader: JSX.Element;
+  let pageCallout: JSX.Element;
   switch (type) {
+    case 'horizontal':
+      pageCallout = tags || date || links ? (
+        <div className={styles.callout}>
+          {/* Text information wrapper */}
+          <div className={styles.tagsDateWrapper}>
+            {/* Tags */}
+            {tags ? (
+              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+            ) : undefined}
+            {/* Date */}
+            {date ? (
+              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+            ) : undefined}
+          </div>
+          {/* Links */}
+          {links ? (
+            <div className={styles.linksWrapper}>
+              {links.map((link, index) => (
+                <ExternalLink {...link} key={index} />
+              ))}
+            </div>
+          ) : undefined}
+        </div>
+      ) : <></>;
+
+      pageHeader = (
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText={backButtonText || 'Back'}
+            belowText={title || ''}
+            includeBackButton
+            backButtonHref={backButtonHref || `/${prefix}`}
+          />
+        </div>
+      );
+      break;
+    case 'vertical':
     default: // default is vertical
-      pageInfo = verticalPageInfo;
+      pageCallout = tags || date || links ? (
+        <div className={utils.itemWrapper}>
+          <div className={styles.callout}>
+            {/* Text information wrapper */}
+            <div className={styles.tagsDateWrapper}>
+              {/* Tags */}
+              {tags ? (
+                <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+              ) : undefined}
+              {/* Date */}
+              {date ? (
+                <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+              ) : undefined}
+            </div>
+            {/* Links */}
+            {links ? (
+              <div className={styles.linksWrapper}>
+                {links.map((link, index) => (
+                  <ExternalLink {...link} key={index} />
+                ))}
+              </div>
+            ) : undefined}
+          </div>
+        </div>
+      ) : <></>;
+
+      pageHeader = (
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText={backButtonText || 'Back'}
+            belowText={title || ''}
+            includeBackButton
+            backButtonHref={backButtonHref || `/${prefix}`}
+          />
+        </div>
+      );
   }
 
   return (
     <main>
       <div className={utils.spacer} />
-      {pageInfo}
       {type === 'horizontal' ? (
-        <div className={styles.horizontalContentWrapper}>
-          {coverImage ? (
-            <div className={utils.itemWrapper}>
-              <ImageWithFadeIn
-                alt={`${title} preview image`}
-                src={coverImage.imagePath}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          ) : undefined}
-          {content ? (
-            <div className={`${utils.itemWrapper}`}>
-              <MarkdownRenderer
-                content={content}
-                onImageClick={handleImageClick}
-                allImages={allImages}
-              />
-            </div>
-          ) : undefined}
-        </div>
+        <>
+          {pageHeader}
+          <div className={`${styles.horizontalContentWrapper} ${utils.itemWrapper}`}>
+            {coverImage ? (
+              <div
+                className={styles.slimImageContainer}
+                style={{
+                  aspectRatio: `${coverImage.width} / ${coverImage.height}`,
+                }}
+              >
+                <ImageWithFadeIn
+                  alt={`${title} preview image`}
+                  src={coverImage.imagePath}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            ) : undefined}
+            {content ? (
+              <div className={`${utils.itemWrapper}`}>
+                {pageCallout}
+                <MarkdownRenderer
+                  content={content}
+                  onImageClick={handleImageClick}
+                  allImages={allImages}
+                />
+              </div>
+            ) : undefined}
+          </div>
+        </>
       ) : (
-        <>  
+        <>
+          {pageHeader}
+          {pageCallout}
           {coverImage ? (
-            <div className={utils.itemWrapper}>
+            <div className={styles.slimImageContainer}>
               <ImageWithFadeIn
                 alt={`${title} preview image`}
                 src={coverImage.imagePath}
