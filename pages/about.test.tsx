@@ -42,6 +42,7 @@ describe('About', () => {
       date={null}
       type={null}
       prefix=""
+      allImages={[]}
     />);
     expect(container).toBeInTheDocument();
   });
