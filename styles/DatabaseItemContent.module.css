@@ -1,3 +1,11 @@
+.container {
+  min-height: 100vh;
+}
+
+.horizontalContentWrapper article span {
+  color: var(--gray3);
+}
+
 .calloutInformationWrapper {
   display: flex;
   flex-direction: column;
@@ -10,6 +18,8 @@
   flex-direction: column;
   padding: 24px 16px;
   gap: 32px;
+
+  width: 100%;
 }
 
 .tagsDateWrapper {
@@ -17,14 +27,6 @@
   flex-direction: row;
 
   gap: 16px;
-}
-
-@media only screen and (max-width: 600px) {
-  .tagsDateWrapper {
-    flex-direction: column;
-  
-    gap: 16px;
-  }
 }
 
 .fillSpace {
@@ -35,4 +37,59 @@
   gap: 16px;
   display: flex;
   flex-direction: column;
+}
+
+.horizontalWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 24px !important;
+}
+
+.horizontalContentWrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  flex: 1;
+}
+
+.slimImageContainer {
+  width: 100%;
+  aspect-ratio: 3/2;
+  position: relative;
+
+  flex: 1.6;
+}
+
+.horizontalCalloutWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.verticalCalloutWrapper {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .tagsDateWrapper {
+    flex-direction: column;
+  
+    gap: 16px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .verticalCalloutWrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .horizontalCalloutWrapper {
+    display: none;
+  }
+
+  .horizontalWrapper {
+    flex-direction: column;
+  }
 }

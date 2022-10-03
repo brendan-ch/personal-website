@@ -98,44 +98,172 @@ export default function DatabaseItemContent({
     </>
   );
 
-  let pageInfo: JSX.Element;
+  let pageHeader: JSX.Element;
+  let pageCallout: JSX.Element;
   switch (type) {
+    case 'horizontal':
+      pageCallout = tags || date || links ? (
+        <div className={`${styles.callout}`}>
+          {/* Text information wrapper */}
+          <div className={styles.tagsDateWrapper} style={{
+            flexDirection: 'column',
+          }}>
+            {/* Tags */}
+            {tags ? (
+              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+            ) : undefined}
+            {/* Date */}
+            {date ? (
+              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+            ) : undefined}
+          </div>
+          {/* Links */}
+          {links ? (
+            <div className={styles.linksWrapper}>
+              {links.map((link, index) => (
+                <ExternalLink {...link} key={index} />
+              ))}
+            </div>
+          ) : undefined}
+        </div>
+      ) : <></>;
+
+      pageHeader = (
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText={backButtonText || 'Back'}
+            belowText={title || ''}
+            includeBackButton
+            backButtonHref={backButtonHref || `/${prefix}`}
+          />
+        </div>
+      );
+      break;
+    case 'vertical':
     default: // default is vertical
-      pageInfo = verticalPageInfo;
+      pageCallout = tags || date || links ? (
+        <div className={utils.itemWrapper}>
+          <div className={styles.callout}>
+            {/* Text information wrapper */}
+            <div className={styles.tagsDateWrapper}>
+              {/* Tags */}
+              {tags ? (
+                <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+              ) : undefined}
+              {/* Date */}
+              {date ? (
+                <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+              ) : undefined}
+            </div>
+            {/* Links */}
+            {links ? (
+              <div className={styles.linksWrapper}>
+                {links.map((link, index) => (
+                  <ExternalLink {...link} key={index} />
+                ))}
+              </div>
+            ) : undefined}
+          </div>
+        </div>
+      ) : <></>;
+
+      pageHeader = (
+        <div className={utils.itemWrapper}>
+          <PageHeader
+            aboveText={backButtonText || 'Back'}
+            belowText={title || ''}
+            includeBackButton
+            backButtonHref={backButtonHref || `/${prefix}`}
+          />
+        </div>
+      );
   }
 
   return (
-    <main>
+    <>
+      <main className={styles.container}>
+        <div className={utils.spacer} />
+        {type === 'horizontal' ? (
+          <>
+            {pageHeader}
+            <div className={styles.verticalCalloutWrapper}>
+              <div className={utils.itemWrapper}>
+                {pageCallout}
+              </div>
+            </div>
+            <div className={`${styles.horizontalWrapper} ${utils.itemWrapper}`}>
+              {coverImage ? (
+                <div
+                  className={styles.slimImageContainer}
+                  style={{
+                    aspectRatio: `${coverImage.width} / ${coverImage.height}`,
+                  }}
+                >
+                  <ImageWithFadeIn
+                    alt={`${title} preview image`}
+                    src={coverImage.imagePath}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+              ) : undefined}
+              {content ? (
+                <div className={styles.horizontalContentWrapper}>
+                  <div className={styles.horizontalCalloutWrapper}>
+                    {pageCallout}
+                  </div>
+                  <MarkdownRenderer
+                    content={content}
+                    onImageClick={handleImageClick}
+                    allImages={allImages}
+                  />
+                </div>
+              ) : undefined}
+            </div>
+          </>
+        ) : (
+          <>
+            {pageHeader}
+            {pageCallout}
+            {coverImage ? (
+              <div className={utils.itemWrapper}>
+                <div
+                  className={`${styles.slimImageContainer}`}
+                  style={{
+                    aspectRatio: `${coverImage.width} / ${coverImage.height}`,
+                  }}
+                >
+                  <ImageWithFadeIn
+                    alt={`${title} preview image`}
+                    src={coverImage.imagePath}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+              </div>
+            ) : undefined}
+            {content ? (
+              <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+                <MarkdownRenderer
+                  content={content}
+                  onImageClick={handleImageClick}
+                  allImages={allImages}
+                />
+              </div>
+            ) : undefined}
+          </>
+        )}
+        <Lightbox
+          imageLink={lightboxImageLink}
+          visible={lightboxImageLink !== undefined}
+          caption={lightboxCaption}
+          onClose={handleImageClose}
+        />
+      </main>
       <div className={utils.spacer} />
-      {pageInfo}
-      {coverImage ? (
-        <div className={utils.itemWrapper}>
-          <ImageWithFadeIn
-            alt={`${title} preview image`}
-            src={coverImage}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      ) : undefined}
-      {content ? (
-        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <MarkdownRenderer
-            content={content}
-            onImageClick={handleImageClick}
-            allImages={allImages}
-          />
-        </div>
-      ) : undefined}
       <div className={utils.footerWrapper}>
         <Footer />
       </div>
-      <Lightbox
-        imageLink={lightboxImageLink}
-        visible={lightboxImageLink !== undefined}
-        caption={lightboxCaption}
-        onClose={handleImageClose}
-      />
-    </main>
+    </>
   );
 }

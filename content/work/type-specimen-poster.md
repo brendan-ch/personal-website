@@ -5,15 +5,16 @@ description: "Neue Haas Grotesk type specimen poster."
 
 # Relative path inside "public" folder
 previewImage: "/static/work/preview/type-specimen-preview.png"
+coverImage: "/static/work/type-specimen/Chen_Brendan_TypeSpecimen.png"
 
 tags:
 - Graphic Design
 
 order: 14
 
+type: horizontal
+
 date: "October 19, 2021"
 ---
-
-![Neue Haas Grotesk type specimen poster.](/static/work/type-specimen/Chen_Brendan_TypeSpecimen.png)
 
 *This project was created using Adobe InDesign. The typeface used is Neue Haas Grotesk Display.*

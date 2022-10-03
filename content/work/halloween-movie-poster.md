@@ -5,17 +5,17 @@ description: "Movie poster for Alfred Hitchcock's classic film."
 
 # Relative path inside "public" folder
 previewImage: "/static/work/preview/halloween-movie-poster-preview.png"
-coverImage: ""
+coverImage: "/static/work/halloween-movie-poster/Chen_Brendan_Halloween.png"
 
 tags:
 - Graphic Design
 
 order: 15
 
+type: horizontal
+
 date: "October 28, 2021"
 ---
-
-![Movie poster for The Birds.](/static/work/halloween-movie-poster/Chen_Brendan_Halloween.png)
 
 Created in just under 2 hours, this poster for Alfred Hitchcock's classic film instills an ominous feeling into the viewer.
 
