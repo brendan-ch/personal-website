@@ -1,3 +1,11 @@
+.container {
+  min-height: 100vh;
+}
+
+.horizontalContentWrapper article span {
+  color: var(--gray3);
+}
+
 .calloutInformationWrapper {
   display: flex;
   flex-direction: column;
@@ -34,6 +42,7 @@
 .horizontalWrapper {
   display: flex;
   flex-direction: row;
+  gap: 24px !important;
 }
 
 .horizontalContentWrapper {
