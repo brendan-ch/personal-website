@@ -121,6 +121,17 @@
 @media only screen and (max-width: 1000px) {
   .wideContainer {
     flex-direction: column;
+    max-height: initial;
+  }
+
+  .wideImageContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  .wideImageContainer {
+    aspect-ratio: initial !important;
   }
 }
 
