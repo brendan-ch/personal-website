@@ -120,6 +120,12 @@
   background-color: var(--gray);
 }
 
+@media only screen and (max-width: 600px) {
+  .wideContainer {
+    flex-direction: column;
+  }
+}
+
 .wideDescriptionContainer {
   height: 100vh - 62.5vh;
 
@@ -139,6 +145,7 @@
 
 .wideDescriptionContainer h3 {
   color: var(--background);
+  text-align: center;
 }
 
 .wideCallout {
