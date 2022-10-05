@@ -67,7 +67,7 @@ export default function Work({ listResponse, availableTags }: Props) {
         <div className={utils.itemWrapper}>
           <PageHeader
             aboveText=""
-            belowText="Work"
+            belowText="My Work"
           />
         </div>
         <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
