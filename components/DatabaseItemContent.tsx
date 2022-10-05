@@ -72,6 +72,7 @@ export default function DatabaseItemContent({
           {/* Text information wrapper */}
           <div className={styles.tagsDateWrapper} style={{
             flexDirection: 'column',
+            marginBottom: 24,
           }}>
             {/* Tags */}
             {tags ? (
