@@ -14,6 +14,7 @@ tags:
 order: 0
 
 type: wide
+logo: "/static/work/standard-catalog/Logo.png"
 
 date: September 25, 2022
 ---
