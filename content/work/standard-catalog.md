@@ -13,6 +13,8 @@ tags:
 
 order: 0
 
+type: wide
+
 date: September 25, 2022
 ---
 
