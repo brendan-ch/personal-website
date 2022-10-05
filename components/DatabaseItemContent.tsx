@@ -232,9 +232,6 @@ export default function DatabaseItemContent({
               {coverImage ? (
                 <div
                   className={`${styles.wideImageContainer}`}
-                  style={{
-                    aspectRatio: `${coverImage.width} / ${coverImage.height}`,
-                  }}
                 >
                   <ImageWithFadeIn
                     alt={`${title} preview image`}
