@@ -51,7 +51,7 @@ export default function Work({ listResponse, availableTags }: Props) {
     <div className={utils.rootContainer}>
       {/* <NavBar selected={selected} /> */}
       <Head>
-        <title>Work | Brendan Chen</title>
+        <title>My Work | Brendan Chen</title>
       </Head>
       <MobileNavBar
         selected={selected}
