@@ -120,10 +120,6 @@
   background-color: var(--gray);
 }
 
-.wideTextContainer {
-  padding: 16px;
-}
-
 .wideDescriptionContainer {
   height: 100vh - 62.5vh;
 
@@ -134,11 +130,15 @@
   align-items: center;
   justify-content: center;
   
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   margin-top: -36px;
 
   background-color: var(--emphasis);
+}
+
+.wideDescriptionContainer h3 {
+  color: var(--background);
 }
 
 .wideCallout {
