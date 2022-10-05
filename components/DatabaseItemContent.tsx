@@ -37,6 +37,7 @@ interface Props extends PageData {
 
 export default function DatabaseItemContent({
   title,
+  logo,
   description,
   content,
   prefix,
@@ -61,43 +62,6 @@ export default function DatabaseItemContent({
     setLightboxImageLink(undefined);
     setLightboxCaption(undefined);
   }
-
-  const verticalPageInfo = (
-    <>
-      <div className={utils.itemWrapper}>
-        <PageHeader
-          aboveText={backButtonText || 'Back'}
-          belowText={title || ''}
-          includeBackButton
-          backButtonHref={backButtonHref || `/${prefix}`}
-        />
-        {/* Callout */}
-        {tags || date || links ? (
-          <div className={styles.callout}>
-            {/* Text information wrapper */}
-            <div className={styles.tagsDateWrapper}>
-              {/* Tags */}
-              {tags ? (
-                <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
-              ) : undefined}
-              {/* Date */}
-              {date ? (
-                <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
-              ) : undefined}
-            </div>
-            {/* Links */}
-            {links ? (
-              <div className={styles.linksWrapper}>
-                {links.map((link, index) => (
-                  <ExternalLink {...link} key={index} />
-                ))}
-              </div>
-            ) : undefined}
-          </div>
-        ) : undefined}
-      </div>
-    </>
-  );
 
   let pageHeader: JSX.Element;
   let pageCallout: JSX.Element;
@@ -133,10 +97,27 @@ export default function DatabaseItemContent({
         <div className={`${utils.itemWrapper} ${styles.wideHeader}`}>
           <PageHeader
             aboveText={backButtonText || 'Back'}
-            belowText={title || ''}
+            belowText={''}
             includeBackButton
             backButtonHref={backButtonHref || `/${prefix}`}
           />
+          {logo ? (
+            <div style={{
+              width: 100,
+              height: 100,
+              position: 'relative',
+            }}>
+              <ImageWithFadeIn
+                alt={`${title} logo`}
+                src={logo}
+  
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : undefined}
+
+          <h1>{title}</h1>
         </div>
       );
 
