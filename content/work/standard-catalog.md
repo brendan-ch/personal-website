@@ -19,8 +19,6 @@ logo: "/static/work/standard-catalog/Logo.png"
 date: September 25, 2022
 ---
 
-Standard Catalog is my redesign of the college registration experience.
-
 # Issue #1: Providing Context
 
 ![Screenshots of the system used by the college I go to. Left side is the registration page, right side contains the course catalog.](/static/work/standard-catalog/old-design.png)
