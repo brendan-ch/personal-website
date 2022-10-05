@@ -30,6 +30,7 @@ describe('About', () => {
 
   it('Renders the page', () => {
     const { container } = render(<About
+      logo={null}
       content={mockContent}
       id="about"
       title="About Me"
