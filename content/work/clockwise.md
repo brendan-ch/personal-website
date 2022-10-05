@@ -4,7 +4,7 @@ description: "A Pomodoro timer designed to help you focus."
 
 # Relative paths within "attachments" folder
 previewImage: "/static/work/preview/clockwise-preview.png"
-coverImage: "/static/work/clockwise/app-screenshots.png";
+coverImage: "/static/work/clockwise/app-screenshots.png"
 
 tags:
 - Featured
