@@ -104,8 +104,8 @@ export default function DatabaseItemContent({
           />
           {logo ? (
             <div style={{
-              width: 100,
-              height: 100,
+              width: 96,
+              height: 96,
               position: 'relative',
             }}>
               <ImageWithFadeIn
