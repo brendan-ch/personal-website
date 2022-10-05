@@ -110,7 +110,7 @@
 
 .wideContainer {
   width: 100%;
-  /* min-height: 62.5vh; */
+  max-height: 600px;
   display: flex;
   flex-direction: row;
   gap: 16px;
