@@ -127,8 +127,6 @@
 }
 
 .wideDescriptionContainer {
-  height: 100vh - 62.5vh;
-
   width: 100%;
   display: flex;
   flex-direction: row;
