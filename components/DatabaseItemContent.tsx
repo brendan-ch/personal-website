@@ -222,7 +222,6 @@ export default function DatabaseItemContent({
   return (
     <>
       <main className={styles.container}>
-        <div className={utils.spacer} />
         {type === 'wide' ? (
           <>
             <div className={styles.wideContainer}>
@@ -262,6 +261,7 @@ export default function DatabaseItemContent({
         ) : undefined}
         {type === 'horizontal' ? (
           <>
+            <div className={utils.spacer} />
             {pageHeader}
             <div className={styles.verticalCalloutWrapper}>
               <div className={utils.itemWrapper}>
@@ -301,6 +301,7 @@ export default function DatabaseItemContent({
         ) : undefined}
         {type !== 'horizontal' && type !== 'wide' ? (
           <>
+            <div className={utils.spacer} />
             {pageHeader}
             {pageCallout}
             {coverImage ? (
