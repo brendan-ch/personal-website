@@ -14,6 +14,7 @@ tags:
 order: 1
 
 type: wide
+logo: "/static/work/clockwise/Logo.png"
 
 links:
 - name: Web app
@@ -25,8 +26,6 @@ links:
 
 date: October 2021 - July 2022
 ---
-
-Clockwise is a Pomodoro timer designed to help you focus.
 
 # My Roles
 
