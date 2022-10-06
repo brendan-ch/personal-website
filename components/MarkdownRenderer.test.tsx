@@ -2,6 +2,9 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useRouter } from 'next/router';
 
+jest.mock('remark-unwrap-images', () => {});
+jest.mock('unist-util-visit', () => {});
+
 import MarkdownRenderer from './MarkdownRenderer';
 
 /* eslint-disable-next-line */
