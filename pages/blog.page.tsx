@@ -53,7 +53,6 @@ export default function Blog({ listResponse }: Props) {
         <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText=""
             belowText="Blog"
           />
         </div>

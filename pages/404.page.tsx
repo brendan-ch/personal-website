@@ -34,7 +34,6 @@ export default function Custom404() {
         <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText=""
             belowText="404 Not Found"
             // includeBackButton
             // backButtonHref="/"
