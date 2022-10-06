@@ -26,6 +26,8 @@ links:
 date: October 2021 - July 2022
 ---
 
+Clockwise is a Pomodoro timer designed to hely you focus.
+
 # My Roles
 
 ## UI Design
