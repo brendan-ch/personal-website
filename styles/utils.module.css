@@ -36,19 +36,8 @@ stretch until a maximum width. */
   gap: 15px;
 }
 
-.textWrapper {
-  padding: 0px 32px;
-  max-width: 48em;
-
-  flex-grow: 1;
-}
-
 @media only screen and (max-width: 600px) {
   .itemWrapper {
-    padding: 0px 16px;
-  }
-
-  .textWrapper {
     padding: 0px 16px;
   }
 }
