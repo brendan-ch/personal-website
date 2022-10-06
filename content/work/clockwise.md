@@ -13,7 +13,6 @@ tags:
 
 order: 1
 
-type: wide
 logo: "/static/work/clockwise/Logo.png"
 
 links:
