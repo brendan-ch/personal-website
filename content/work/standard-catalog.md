@@ -28,11 +28,12 @@ Students also tend to go to outside sources, such as Rate My Professors, to get 
 
 ![class-page-sketches.png](/static/work/standard-catalog/class-page-sketches.png)
 
-Initial sketches indicated some of the page requirements, such as the ability to view credits, class description, and prerequisites. Also indicated is the ability to view registration information from the same page, such as time, location and instructor.
 
 ![The class information page gives context on what a class is about.](/static/work/standard-catalog/class-page.png)
 
 ![class-page-prerequisites.png](/static/work/standard-catalog/class-page-prerequisites.png)
+
+Initial sketches indicated some of the page requirements, such as the ability to view credits, class description, and prerequisites. Also indicated is the ability to view registration information from the same page, such as time, location and instructor.
 
 On this page, users can preview the class before they register, as well as view the completion status of prerequisites. This provides better context to the user and makes them do less work to find this information.
 
@@ -42,11 +43,11 @@ On this page, users can preview the class before they register, as well as view 
 
 ![class-information-web.png](/static/work/standard-catalog/class-information-web.png)
 
+![User Feedback Flows.png](/static/work/standard-catalog/user-feedback-flows.png)
+
 After registering for a class, section-specific information like location, time, and instructor are displayed on the same page as before.
 
 Users can view more information about a professor, including a short biography, contact information links, and a consensus of other students’ feedback on the professor.
-
-![User Feedback Flows.png](/static/work/standard-catalog/user-feedback-flows.png)
 
 To generate overall professor consensus, a feedback form like this is presented to each user after each term. This ensures that only those who took a professor’s class can rate the professor, and reduces potential bias by limiting the amount of information collected and displayed.
 
@@ -54,9 +55,9 @@ To generate overall professor consensus, a feedback form like this is presented 
 
 ![Two screenshots stitched together, showing the Program Evaluation page for my school.](/static/work/standard-catalog/old-design-program-eval.png)
 
-The current system presents too much information at once, and doesn’t clearly distinguish between different types of information. The single point size of the text, and the added spacing between related elements, makes it difficult for a student to understand important information.
-
 ![Condensed view of all the sections, with my annotations.](/static/work/standard-catalog/IMG_C7FDFAAEDC83-1.jpeg)
+
+The current system presents too much information at once, and doesn’t clearly distinguish between different types of information. The single point size of the text, and the added spacing between related elements, makes it difficult for a student to understand important information.
 
 There are an excessive number of sections, including similarly named ones that can cause confusion for the user. For example, the last two sections both contain requirements related to Computer Science, so how am I supposed to know which requirements are under which section?
 
@@ -64,9 +65,9 @@ In my design, I aimed to limit the information presented to the user, and improv
 
 ![Graduation requirement sketches.png](/static/work/standard-catalog/Graduation_requirement_sketches.png)
 
-In my initial sketches, graduation requirements were integrated with the class bookmarks page. I soon moved the content to its own page because of the amount of content displayed.
-
 ![graduation-tracker-page.png](/static/work/standard-catalog/graduation-tracker-page.png)
+
+In my initial sketches, graduation requirements were integrated with the class bookmarks page. I soon moved the content to its own page because of the amount of content displayed.
 
 With my design, I improved the grouping of related information, and used visual elements like the progress bar to better visualize information. I also removed the toggling of information, so no information is hidden from the user.
 
