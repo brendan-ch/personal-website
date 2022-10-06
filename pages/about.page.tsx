@@ -56,7 +56,6 @@ export default function AboutPage({ content, allImages }: PageData) {
         {/* Page content */}
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText=""
             belowText="About Me"
           />
         </div>

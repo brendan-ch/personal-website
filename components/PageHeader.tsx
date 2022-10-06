@@ -1,12 +1,14 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React from 'react';
 import styles from '../styles/PageHeader.module.css';
-import ChevronLeft from './icons-v2/ChevronLeft';
+
+interface Breadcrumb {
+  name: string,
+  href: string,
+}
 
 interface Props {
-  includeBackButton?: boolean,
-  backButtonHref?: string,
-  aboveText: string,
+  breadcrumb?: Breadcrumb[],
   belowText: string,
 }
 
@@ -16,29 +18,28 @@ interface Props {
  * @param props
  * @returns
  */
-export default function PageHeader({ includeBackButton, aboveText, belowText, backButtonHref }: Props) {
-  // const router = useRouter();
-
+export default function PageHeader({ belowText, breadcrumb }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        {includeBackButton ? (
-          <Link href={backButtonHref || '/'}>
-            <a>
-              <p className={styles.backButton}>
-                <ChevronLeft
-                  width={16}
-                  height={16}
-                />
-                {aboveText}
-              </p>
-            </a>
-          </Link>
-        ) : (
-          <h3>
-            {aboveText}
-          </h3>
-        )}
+        <div className={styles.breadcrumbDiv}>
+          {breadcrumb ? breadcrumb.map((item, index) => (
+            <React.Fragment key={index}>
+              <Link href={item.href}>
+                <a>
+                  <p>
+                    {item.name}
+                  </p>
+                </a>
+              </Link>
+              {index !== breadcrumb.length - 1 ? (
+                <p>
+                  /
+                </p>
+              ) : undefined}
+            </React.Fragment>
+          )) : undefined}
+        </div>
         <h1>{belowText}</h1>
       </div>
     </div>

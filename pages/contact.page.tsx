@@ -207,7 +207,6 @@ export default function ContactForm() {
         <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText=""
             belowText="Contact Me"
           />
         </div>

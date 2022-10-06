@@ -12,8 +12,6 @@ tags:
 
 order: 12
 
-type: horizontal
-
 date: "November 16, 2021"
 ---
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CSSProperties } from 'react';
-import { GITHUB_LINK } from '../helpers/Constants';
+import { GITHUB_LINK, LINKEDIN_LINK } from '../helpers/Constants';
 import styles from '../styles/Footer.module.css';
 import LogoFull from './icons/LogoFull';
 
@@ -60,6 +60,15 @@ export default function Footer({ style, mini }: Props) {
                   <p>
                     <u>
                       GitHub
+                    </u>
+                  </p>
+                </a>
+              </Link>
+              <Link href={LINKEDIN_LINK}>
+                <a target="_blank" rel="noreferrer">
+                  <p>
+                    <u>
+                      LinkedIn
                     </u>
                   </p>
                 </a>

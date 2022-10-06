@@ -63,8 +63,8 @@ export default function DatabaseItemContent({
     setLightboxCaption(undefined);
   }
 
-  let pageHeader: JSX.Element;
-  let pageCallout: JSX.Element;
+  let pageHeader: JSX.Element = <></>;
+  let pageCallout: JSX.Element = <></>;
   switch (type) {
     case 'wide':
       pageCallout = tags || date || links ? (
@@ -97,10 +97,17 @@ export default function DatabaseItemContent({
       pageHeader = (
         <div className={`${utils.itemWrapper} ${styles.wideHeader}`}>
           <PageHeader
-            aboveText={backButtonText || 'Back'}
             belowText={''}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
+            breadcrumb={[
+              {
+                name: 'Home',
+                href: '/',
+              },
+              {
+                name: backButtonText || '',
+                href: backButtonHref || '',
+              },
+            ]}
           />
           {logo ? (
             <div style={{
@@ -124,79 +131,47 @@ export default function DatabaseItemContent({
 
       break;
     case 'horizontal':
-      pageCallout = tags || date || links ? (
-        <div className={`${styles.callout}`}>
-          {/* Text information wrapper */}
-          <div className={styles.tagsDateWrapper} style={{
-            flexDirection: 'column',
-          }}>
-            {/* Tags */}
-            {tags ? (
-              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
-            ) : undefined}
-            {/* Date */}
-            {date ? (
-              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
-            ) : undefined}
-          </div>
-          {/* Links */}
-          {links ? (
-            <div className={styles.linksWrapper}>
-              {links.map((link, index) => (
-                <ExternalLink {...link} key={index} />
-              ))}
-            </div>
-          ) : undefined}
-        </div>
-      ) : <></>;
-
-      pageHeader = (
-        <div className={utils.itemWrapper}>
-          <PageHeader
-            aboveText={backButtonText || 'Back'}
-            belowText={title || ''}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
-          />
-        </div>
-      );
-      break;
     case 'vertical':
-    default: // default is vertical
-      pageCallout = tags || date || links ? (
-        <div className={utils.itemWrapper}>
-          <div className={styles.callout}>
-            {/* Text information wrapper */}
-            <div className={styles.tagsDateWrapper}>
-              {/* Tags */}
-              {tags ? (
-                <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
-              ) : undefined}
-              {/* Date */}
-              {date ? (
-                <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
-              ) : undefined}
+    default:
+      pageHeader = (
+        <div className={`${utils.itemWrapper} ${utils.headerContainer}`}>
+          <PageHeader
+            belowText={title || ''}
+            breadcrumb={[
+              {
+                name: 'Home',
+                href: '/',
+              },
+              {
+                name: backButtonText || '',
+                href: backButtonHref || '',
+              },
+            ]}
+          />
+          <div className={styles.miniInfo}>
+            <div className={styles.miniInfoWrapperDesktop}>
+              <p>
+                {tags?.filter((tag) => tag !== 'Featured').join(', ')}
+                {' / '}
+                {date}
+              </p>
             </div>
-            {/* Links */}
+            <div className={styles.miniInfoWrapperMobile}>
+              <p>
+                {tags?.filter((tag) => tag !== 'Featured').join(', ')}
+              </p>
+              <p>
+                {date}
+              </p>
+            </div>
             {links ? (
-              <div className={styles.linksWrapper}>
+              <div className={styles.miniLinksWrapper}>
                 {links.map((link, index) => (
                   <ExternalLink {...link} key={index} />
                 ))}
               </div>
             ) : undefined}
           </div>
-        </div>
-      ) : <></>;
-
-      pageHeader = (
-        <div className={utils.itemWrapper}>
-          <PageHeader
-            aboveText={backButtonText || 'Back'}
-            belowText={title || ''}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
-          />
         </div>
       );
   }

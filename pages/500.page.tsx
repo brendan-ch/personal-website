@@ -33,7 +33,6 @@ export default function Custom500() {
         <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText=""
             belowText="500 Internal Server Error"
             // includeBackButton
             // backButtonHref="/"

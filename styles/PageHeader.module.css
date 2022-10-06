@@ -2,21 +2,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
+  width: 100%;
+
+  padding-top: 32px;
 }
 
 .textContainer h1 {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: -0.01em;
+
+  text-align: center;
 }
 
 .textContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
+  width: 100%;
 }
 
 .backButton {
@@ -32,4 +38,15 @@
 
 .backButton:hover {
   cursor: pointer;
+}
+
+.breadcrumbDiv {
+  display: flex;
+  flex-direction: row;
+
+  gap: 4px;
+}
+
+.breadcrumbDiv p {
+  color: var(--gray3);
 }

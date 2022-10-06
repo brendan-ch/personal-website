@@ -83,7 +83,7 @@ export default function WorkPage(pageData: PageData) {
       />
       <DatabaseItemContent
         {...pageData}
-        backButtonText="Work"
+        backButtonText="My Work"
         backButtonHref="/work"
       />
     </div>

@@ -2,6 +2,9 @@ import { render, screen } from '@testing-library/react';
 import DatabaseItemContent from './DatabaseItemContent';
 import '@testing-library/jest-dom';
 
+jest.mock('remark-unwrap-images', () => {});
+jest.mock('unist-util-visit', () => {});
+
 /* eslint-disable-next-line */
 jest.mock('react-markdown', () => ({ children }: any) => (
   <div>

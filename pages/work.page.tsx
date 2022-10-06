@@ -66,7 +66,6 @@ export default function Work({ listResponse, availableTags }: Props) {
         <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText=""
             belowText="My Work"
           />
         </div>

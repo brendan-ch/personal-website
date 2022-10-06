@@ -13,8 +13,6 @@ tags:
 
 order: 3
 
-type: horizontal
-
 date: "April 28, 2022"
 ---
 
