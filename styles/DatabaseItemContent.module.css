@@ -213,4 +213,8 @@
     text-align: center;
     color: var(--gray3);
   }
+
+  .miniLinksWrapper {
+    flex-direction: column;
+  }
 }
