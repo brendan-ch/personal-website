@@ -3,6 +3,9 @@ import About from './about.page';
 import '@testing-library/jest-dom';
 import { useRouter } from 'next/router';
 
+jest.mock('remark-unwrap-images', () => {});
+jest.mock('unist-util-visit', () => {});
+
 /* eslint-disable-next-line */
 jest.mock('react-markdown', () => ({ children }: any) => (
   <div>
