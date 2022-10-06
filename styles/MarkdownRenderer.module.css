@@ -21,7 +21,7 @@
 
 .textWrapper {
   padding: 0px 0px;
-  max-width: 32em;
+  max-width: 40em;
 
   flex-grow: 1;
 }
@@ -43,8 +43,8 @@
   width: 100%;
   aspect-ratio: 3/2;
   position: relative;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .imageContainer:hover {
@@ -68,19 +68,24 @@
 .container h1 {
   margin-top: 1.0em;
   margin-bottom: 0.15em;
-  /* font-weight: 600; */
+
+  text-align: center;
 }
 
 .container h2 {
   margin-top: 0.8em;
   margin-bottom: 0.15em;
   /* font-weight: 600; */
+
+  text-align: center;
 }
 
 .container h3 {
   /* font-weight: 600; */
   margin-top: 0.5em;
   margin-bottom: 0.15em;
+
+  text-align: center;
 }
 
 .container pre {
