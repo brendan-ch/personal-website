@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkUnwrapImages from 'remark-unwrap-images';
 import Prism from 'prismjs';
 
 import styles from '../styles/MarkdownRenderer.module.css';
@@ -30,9 +31,22 @@ export default function MarkdownRenderer({ content, onImageClick, allImages }: P
   return (
     <article className={styles.container}>
       <ReactMarkdown
+        remarkPlugins={[remarkUnwrapImages]}
+        unwrapDisallowed
+        disallowedElements={['Image']}
         // @ts-ignore
         components={{
-          p: 'span',
+          p: ({ children }) => {
+            return (
+              <div className={styles.textWrapperContainer}>
+                <div className={`${styles.textWrapper}`}>
+                  <p>
+                    {children}
+                  </p>
+                </div>
+              </div>
+            )
+          },
           a: ({ href, children }: any) => {
             return (
               <u>
