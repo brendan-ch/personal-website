@@ -1,6 +1,7 @@
 import path from 'path';
 
 export const GITHUB_LINK = 'https://github.com/brendan-ch';
+export const LINKEDIN_LINK = 'https://linkedin.com/in/brendan-ch';
 
 /**
  * Tags to always exclude from `getTags` function.
