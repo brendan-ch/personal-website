@@ -97,10 +97,17 @@ export default function DatabaseItemContent({
       pageHeader = (
         <div className={`${utils.itemWrapper} ${styles.wideHeader}`}>
           <PageHeader
-            aboveText={backButtonText || 'Back'}
             belowText={''}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
+            breadcrumb={[
+              {
+                name: 'Home',
+                href: '/',
+              },
+              {
+                name: backButtonText || '',
+                href: backButtonHref || '',
+              },
+            ]}
           />
           {logo ? (
             <div style={{
@@ -153,10 +160,17 @@ export default function DatabaseItemContent({
       pageHeader = (
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText={backButtonText || 'Back'}
             belowText={title || ''}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
+            breadcrumb={[
+              {
+                name: 'Home',
+                href: '/',
+              },
+              {
+                name: backButtonText || '',
+                href: backButtonHref || '',
+              },
+            ]}
           />
         </div>
       );
@@ -192,10 +206,17 @@ export default function DatabaseItemContent({
       pageHeader = (
         <div className={utils.itemWrapper}>
           <PageHeader
-            aboveText={backButtonText || 'Back'}
             belowText={title || ''}
-            includeBackButton
-            backButtonHref={backButtonHref || `/${prefix}`}
+            breadcrumb={[
+              {
+                name: 'Home',
+                href: '/',
+              },
+              {
+                name: backButtonText || '',
+                href: backButtonHref || '',
+              },
+            ]}
           />
         </div>
       );
