@@ -28,9 +28,7 @@ date: October 2021 - July 2022
 
 Clockwise is a Pomodoro timer designed to help you focus.
 
-# My Roles
-
-## UI Design
+# UI Design
 
 ![Frames of a high-fidelity prototype.](/static/work/clockwise/ui-design.png)
 
@@ -42,7 +40,7 @@ I started with some low-fidelity sketches of the timer, and turned them into a h
 
 As part of adding a minimal amount of distraction to the user's workflow, the rest of the app fades out when the timer is running.
 
-## Mobile App Development
+# Mobile App Development
 
 ![Minimal Interface banner](/static/work/clockwise/minimal-interface.png)
 
@@ -50,7 +48,7 @@ As part of adding a minimal amount of distraction to the user's workflow, the re
 
 The mobile app was developed using [React Native with Expo](https://expo.dev). Features of the app include a minimal interface, timer customization, dark mode, and automatic switching between focus and break modes.
 
-## Web App Development
+# Web App Development
 
 ![Web app banner](/static/work/clockwise/web-app.png)
 
