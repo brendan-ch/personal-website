@@ -37,6 +37,8 @@ interface Props extends PageData {
 
 export default function DatabaseItemContent({
   title,
+  logo,
+  description,
   content,
   prefix,
   coverImage,
@@ -61,46 +63,66 @@ export default function DatabaseItemContent({
     setLightboxCaption(undefined);
   }
 
-  const verticalPageInfo = (
-    <>
-      <div className={utils.itemWrapper}>
-        <PageHeader
-          aboveText={backButtonText || 'Back'}
-          belowText={title || ''}
-          includeBackButton
-          backButtonHref={backButtonHref || `/${prefix}`}
-        />
-        {/* Callout */}
-        {tags || date || links ? (
-          <div className={styles.callout}>
-            {/* Text information wrapper */}
-            <div className={styles.tagsDateWrapper}>
-              {/* Tags */}
-              {tags ? (
-                <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
-              ) : undefined}
-              {/* Date */}
-              {date ? (
-                <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
-              ) : undefined}
-            </div>
-            {/* Links */}
-            {links ? (
-              <div className={styles.linksWrapper}>
-                {links.map((link, index) => (
-                  <ExternalLink {...link} key={index} />
-                ))}
-              </div>
-            ) : undefined}
-          </div>
-        ) : undefined}
-      </div>
-    </>
-  );
-
   let pageHeader: JSX.Element;
   let pageCallout: JSX.Element;
   switch (type) {
+    case 'wide':
+      pageCallout = tags || date || links ? (
+        <div className={`${styles.callout} ${styles.wideCallout}`}>
+          {/* Text information wrapper */}
+          <div className={styles.tagsDateWrapper} style={{
+            flexDirection: 'column',
+            marginBottom: 24,
+          }}>
+            {/* Tags */}
+            {tags ? (
+              <CalloutInformation title="Tags" description={tags.filter((tag) => tag !== 'Featured').join(', ')} className={styles.fillSpace} />
+            ) : undefined}
+            {/* Date */}
+            {date ? (
+              <CalloutInformation title="Date" description={date} className={styles.fillSpace} />
+            ) : undefined}
+          </div>
+          {/* Links */}
+          {links ? (
+            <div className={styles.linksWrapper}>
+              {links.map((link, index) => (
+                <ExternalLink {...link} key={index} />
+              ))}
+            </div>
+          ) : undefined}
+        </div>
+      ) : <></>;
+    
+      pageHeader = (
+        <div className={`${utils.itemWrapper} ${styles.wideHeader}`}>
+          <PageHeader
+            aboveText={backButtonText || 'Back'}
+            belowText={''}
+            includeBackButton
+            backButtonHref={backButtonHref || `/${prefix}`}
+          />
+          {logo ? (
+            <div style={{
+              width: 96,
+              height: 96,
+              position: 'relative',
+            }}>
+              <ImageWithFadeIn
+                alt={`${title} logo`}
+                src={logo}
+  
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : undefined}
+
+          <h1>{title}</h1>
+        </div>
+      );
+
+      break;
     case 'horizontal':
       pageCallout = tags || date || links ? (
         <div className={`${styles.callout}`}>
@@ -182,9 +204,47 @@ export default function DatabaseItemContent({
   return (
     <>
       <main className={styles.container}>
-        <div className={utils.spacer} />
+        {type === 'wide' ? (
+          <>
+            <div className={styles.wideContainer}>
+              <div className={styles.wideTextContainer}>
+                {pageHeader}
+                {pageCallout}
+              </div>
+              {coverImage ? (
+                <div
+                  className={`${styles.wideImageContainer}`}
+                  style={{
+                    aspectRatio: `${coverImage.width} / ${coverImage.height}`,
+                  }}
+                >
+                  <ImageWithFadeIn
+                    alt={`${title} preview image`}
+                    src={coverImage.imagePath}
+                    layout="fill"
+                    objectFit="cover"
+                    sizes="(max-width: 600px) 200vw, 100vw"
+                  />
+                </div>
+              ) : undefined}
+            </div>
+            <div className={styles.wideDescriptionContainer}>
+              <h3>{description}</h3>
+            </div>
+            {content ? (
+              <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+                <MarkdownRenderer
+                  content={content}
+                  onImageClick={handleImageClick}
+                  allImages={allImages}
+                />
+              </div>
+            ) : undefined}
+          </>
+        ) : undefined}
         {type === 'horizontal' ? (
           <>
+            <div className={utils.spacer} />
             {pageHeader}
             <div className={styles.verticalCalloutWrapper}>
               <div className={utils.itemWrapper}>
@@ -221,8 +281,10 @@ export default function DatabaseItemContent({
               ) : undefined}
             </div>
           </>
-        ) : (
+        ) : undefined}
+        {type !== 'horizontal' && type !== 'wide' ? (
           <>
+            <div className={utils.spacer} />
             {pageHeader}
             {pageCallout}
             {coverImage ? (
@@ -252,7 +314,7 @@ export default function DatabaseItemContent({
               </div>
             ) : undefined}
           </>
-        )}
+        ) : undefined}
         <Lightbox
           imageLink={lightboxImageLink}
           visible={lightboxImageLink !== undefined}

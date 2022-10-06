@@ -4,6 +4,7 @@ description: "A Pomodoro timer designed to help you focus."
 
 # Relative paths within "attachments" folder
 previewImage: "/static/work/preview/clockwise-preview.png"
+coverImage: "/static/work/clockwise/app-screenshots.png"
 
 tags:
 - Featured
@@ -11,6 +12,8 @@ tags:
 - App Development
 
 order: 1
+
+logo: "/static/work/clockwise/Logo.png"
 
 links:
 - name: Web app
@@ -23,10 +26,7 @@ links:
 date: October 2021 - July 2022
 ---
 
-<!-- To-do: add watermarks to all images -->
-![Clockwise preview image.](/static/work/clockwise/app-screenshots.png)
-
-Clockwise is a Pomodoro timer designed to help you focus.
+Clockwise is a Pomodoro timer designed to hely you focus.
 
 # My Roles
 
