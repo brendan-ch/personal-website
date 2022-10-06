@@ -36,6 +36,28 @@ export default function MarkdownRenderer({ content, onImageClick, allImages }: P
         disallowedElements={['Image']}
         // @ts-ignore
         components={{
+          ul: ({ children }) => {
+            return (
+              <div className={styles.textWrapperContainer}>
+                <div className={`${styles.textWrapper}`}>
+                  <ul>
+                    {children}
+                  </ul>
+                </div>
+              </div>
+            );
+          },
+          ol: ({ children }) => {
+            return (
+              <div className={styles.textWrapperContainer}>
+                <div className={`${styles.textWrapper}`}>
+                  <ol>
+                    {children}
+                  </ol>
+                </div>
+              </div>
+            );
+          },
           p: ({ children }) => {
             return (
               <div className={styles.textWrapperContainer}>
@@ -45,7 +67,7 @@ export default function MarkdownRenderer({ content, onImageClick, allImages }: P
                   </p>
                 </div>
               </div>
-            )
+            );
           },
           a: ({ href, children }: any) => {
             return (
