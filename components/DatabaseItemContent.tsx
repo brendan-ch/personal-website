@@ -202,7 +202,7 @@ export default function DatabaseItemContent({
                     src={coverImage.imagePath}
                     layout="fill"
                     objectFit="cover"
-                    sizes="(max-width: 600px) 200vw, 100vw"
+                    sizes="(max-width: 720px) 200vw, 100vw"
                   />
                 </div>
               ) : undefined}
