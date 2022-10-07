@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkUnwrapImages from 'remark-unwrap-images';
+// import remarkGfm from 'remark-gfm';
 import Prism from 'prismjs';
 
 import styles from '../styles/MarkdownRenderer.module.css';
@@ -36,6 +37,17 @@ export default function MarkdownRenderer({ content, onImageClick, allImages }: P
         disallowedElements={['Image']}
         // @ts-ignore
         components={{
+          // table: ({ children }) => {
+          //   return (
+          //     <div className={styles.textWrapperContainer}>
+          //       <div className={`${styles.tableWrapper}`}>
+          //         <table>
+          //           {children}
+          //         </table>
+          //       </div>
+          //     </div>
+          //   );
+          // },
           ul: ({ children }) => {
             return (
               <div className={styles.textWrapperContainer}>
