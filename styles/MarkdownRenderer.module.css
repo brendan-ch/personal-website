@@ -5,6 +5,12 @@
   padding: 0em 6em;
 }
 
+@media only screen and (max-width: 720px) {
+  .container {
+    padding: 0em 0em;
+  }
+}
+
 .textWrapperContainer {
   display: flex;
   flex-direction: row;
