@@ -1,6 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
+
+  padding: 0em 6em;
 }
 
 .textWrapperContainer {
@@ -18,7 +20,7 @@
 
 
 .textWrapper {
-  max-width: 40em;
+  /* max-width: 48em; */
 
   flex-grow: 1;
 }
@@ -39,8 +41,8 @@
   width: 100%;
   aspect-ratio: 3/2;
   position: relative;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .imageContainer:hover {
@@ -65,7 +67,7 @@
   margin-top: 1.0em;
   margin-bottom: 0.15em;
 
-  text-align: center;
+  /* text-align: center; */
 }
 
 .container h2 {
@@ -73,7 +75,7 @@
   margin-bottom: 0.15em;
   /* font-weight: 600; */
 
-  text-align: center;
+  /* text-align: center; */
 }
 
 .container h3 {
@@ -81,7 +83,7 @@
   margin-top: 0.5em;
   margin-bottom: 0.15em;
 
-  text-align: center;
+  /* text-align: center; */
 }
 
 .container pre {
