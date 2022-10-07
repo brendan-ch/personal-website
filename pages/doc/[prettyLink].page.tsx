@@ -83,8 +83,6 @@ export default function DocumentPage(pageData: PageData) {
       />
       <DatabaseItemContent
         {...pageData}
-        backButtonHref="/"
-        backButtonText="Home"
       />
     </div>
   );
