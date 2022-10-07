@@ -36,7 +36,7 @@ stretch until a maximum width. */
   gap: 15px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
   .itemWrapper {
     padding: 0px 16px;
   }
