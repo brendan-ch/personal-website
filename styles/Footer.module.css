@@ -41,7 +41,7 @@
     padding: 0px;
   }
 
-  .container svg {
+  .logo > svg {
     display: none;
   }
 
