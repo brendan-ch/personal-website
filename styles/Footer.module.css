@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 16px;
+  padding: 16px 32px;
   max-width: 64em;
   width: 100%;
   gap: 15px;
@@ -33,7 +33,7 @@
 .linksContainer {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 @media only screen and (max-width: 600px) {
