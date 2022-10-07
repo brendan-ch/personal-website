@@ -5,6 +5,7 @@ import Figma from './logos/Figma';
 import GitHub from './logos/GitHub';
 import GooglePlay from './logos/GooglePlay';
 import { PageExternalLink } from '../types';
+import LinkedIn from './logos/LinkedIn';
 
 const ICON_WIDTH = 20;
 const ICON_HEIGHT = 20;
@@ -50,6 +51,15 @@ export default function ExternalLink({ name, url }: PageExternalLink) {
         />
         ),
         regex: /.+figma\.com.+/gm,
+    },
+    {
+      icon: (
+        <LinkedIn
+          width={ICON_WIDTH}
+          height={ICON_HEIGHT}
+        />
+        ),
+        regex: /.+linkedin\.com.+/gm,
     },
   ];
   
