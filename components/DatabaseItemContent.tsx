@@ -137,16 +137,16 @@ export default function DatabaseItemContent({
         <div className={`${utils.itemWrapper} ${utils.headerContainer}`}>
           <PageHeader
             belowText={title || ''}
-            breadcrumb={[
+            breadcrumb={backButtonText && backButtonHref ? [
               {
                 name: 'Home',
                 href: '/',
               },
               {
-                name: backButtonText || '',
-                href: backButtonHref || '',
+                name: backButtonText,
+                href: backButtonHref,
               },
-            ]}
+            ] : undefined}
           />
           <div className={styles.miniInfo}>
             {tags || date ? (
