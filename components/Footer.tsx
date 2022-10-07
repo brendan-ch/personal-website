@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { CSSProperties } from 'react';
 import { GITHUB_LINK, LINKEDIN_LINK } from '../helpers/Constants';
 import styles from '../styles/Footer.module.css';
+import ExternalLink from './ExternalLink';
 import LogoFull from './icons/LogoFull';
 
 interface Props {
@@ -55,24 +56,14 @@ export default function Footer({ style, mini }: Props) {
                   Follow Me
                 </b>
               </p>
-              <Link href={GITHUB_LINK}>
-                <a target="_blank" rel="noreferrer">
-                  <p>
-                    <u>
-                      GitHub
-                    </u>
-                  </p>
-                </a>
-              </Link>
-              <Link href={LINKEDIN_LINK}>
-                <a target="_blank" rel="noreferrer">
-                  <p>
-                    <u>
-                      LinkedIn
-                    </u>
-                  </p>
-                </a>
-              </Link>
+              <ExternalLink
+                url={GITHUB_LINK}
+                name="GitHub"
+              />
+              <ExternalLink
+                url={LINKEDIN_LINK}
+                name="LinkedIn"
+              />
             </div>
           )}
         </div>

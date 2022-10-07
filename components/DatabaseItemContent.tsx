@@ -137,33 +137,37 @@ export default function DatabaseItemContent({
         <div className={`${utils.itemWrapper} ${utils.headerContainer}`}>
           <PageHeader
             belowText={title || ''}
-            breadcrumb={[
+            breadcrumb={backButtonText && backButtonHref ? [
               {
                 name: 'Home',
                 href: '/',
               },
               {
-                name: backButtonText || '',
-                href: backButtonHref || '',
+                name: backButtonText,
+                href: backButtonHref,
               },
-            ]}
+            ] : undefined}
           />
           <div className={styles.miniInfo}>
-            <div className={styles.miniInfoWrapperDesktop}>
-              <p>
-                {tags?.filter((tag) => tag !== 'Featured').join(', ')}
-                {' / '}
-                {date}
-              </p>
-            </div>
-            <div className={styles.miniInfoWrapperMobile}>
-              <p>
-                {tags?.filter((tag) => tag !== 'Featured').join(', ')}
-              </p>
-              <p>
-                {date}
-              </p>
-            </div>
+            {tags || date ? (
+              <>
+                <div className={styles.miniInfoWrapperDesktop}>
+                <p>
+                  {tags?.filter((tag) => tag !== 'Featured').join(', ')}
+                  {date ? ` / ${date}` : undefined}
+                </p>
+              </div>
+              <div className={styles.miniInfoWrapperMobile}>
+                <p>
+                  {tags?.filter((tag) => tag !== 'Featured').join(', ')}
+                </p>
+                <p>
+                  {date}
+                </p>
+              </div>
+              </>
+            ) : undefined}
+            
             {links ? (
               <div className={styles.miniLinksWrapper}>
                 {links.map((link, index) => (
@@ -198,7 +202,7 @@ export default function DatabaseItemContent({
                     src={coverImage.imagePath}
                     layout="fill"
                     objectFit="cover"
-                    sizes="(max-width: 600px) 200vw, 100vw"
+                    sizes="(max-width: 720px) 200vw, 100vw"
                   />
                 </div>
               ) : undefined}

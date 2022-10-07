@@ -11,11 +11,16 @@ Brendan Chen reserves all copyright for site content.
 
 # Open Source Licenses
 
+<!-- | License Name | License Type | Copyright | Link to License |
+|--------------|--------------|-----------|-----------------|
+| gray-matter  | MIT License  | Copyright (c) 2014-2018, Jon Schlinkert. | https://github.com/jonschlinkert/gray-matter/blob/master/LICENSE           |
+| image-size   | MIT License  | Copyright (c) 2017 Aditya Yadav          | [Link to license](https://github.com/image-size/image-size/blob/main/LICENSE)                |
+|              |              |           |                 | -->
+
 ## gray-matter
 MIT License
 
 Copyright (c) 2014-2018, Jon Schlinkert.
-
 
 [Link to license](https://github.com/jonschlinkert/gray-matter/blob/master/LICENSE)
 

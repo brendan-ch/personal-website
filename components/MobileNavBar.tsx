@@ -77,8 +77,8 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
       tabIndex={0}
     >
       <Hamburger
-        width={45}
-        height={45}
+        width={24}
+        height={24}
       />
     </a>
   );
