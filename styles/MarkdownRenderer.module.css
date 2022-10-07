@@ -23,6 +23,10 @@
   flex-grow: 1;
 }
 
+.tableWrapper {
+  overflow-x: scroll;
+}
+
 .divider {
   width: 100%;
   height: 1px;
