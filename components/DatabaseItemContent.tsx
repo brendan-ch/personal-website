@@ -149,21 +149,25 @@ export default function DatabaseItemContent({
             ]}
           />
           <div className={styles.miniInfo}>
-            <div className={styles.miniInfoWrapperDesktop}>
-              <p>
-                {tags?.filter((tag) => tag !== 'Featured').join(', ')}
-                {' / '}
-                {date}
-              </p>
-            </div>
-            <div className={styles.miniInfoWrapperMobile}>
-              <p>
-                {tags?.filter((tag) => tag !== 'Featured').join(', ')}
-              </p>
-              <p>
-                {date}
-              </p>
-            </div>
+            {tags || date ? (
+              <>
+                <div className={styles.miniInfoWrapperDesktop}>
+                <p>
+                  {tags?.filter((tag) => tag !== 'Featured').join(', ')}
+                  {date ? ` / ${date}` : undefined}
+                </p>
+              </div>
+              <div className={styles.miniInfoWrapperMobile}>
+                <p>
+                  {tags?.filter((tag) => tag !== 'Featured').join(', ')}
+                </p>
+                <p>
+                  {date}
+                </p>
+              </div>
+              </>
+            ) : undefined}
+            
             {links ? (
               <div className={styles.miniLinksWrapper}>
                 {links.map((link, index) => (
