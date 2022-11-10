@@ -85,8 +85,8 @@ button {
   --gray2: #999999;
   --gray3: #666666;
 
-  --outer-guide: 64em;
-  --inner-guide: 70em;
+  --outer-guide-width: 64em;
+  --inner-guide-width: 70em;
   --inner-guide-padding: 6em;
 }
 
