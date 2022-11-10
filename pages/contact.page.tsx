@@ -204,7 +204,6 @@ export default function ContactForm() {
         onClose={() => setMenuVisible(false)}
       />
       <main>
-        <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
             belowText="Contact Me"
