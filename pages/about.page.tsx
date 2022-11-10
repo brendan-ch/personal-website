@@ -52,7 +52,6 @@ export default function AboutPage({ content, allImages }: PageData) {
         onClose={() => setMenuVisible(false)}
       />
       <main>
-        <div className={utils.spacer} />
         {/* Page content */}
         <div className={utils.itemWrapper}>
           <PageHeader
