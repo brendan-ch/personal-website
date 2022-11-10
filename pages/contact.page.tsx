@@ -200,11 +200,11 @@ export default function ContactForm() {
         onMobileButtonClick={() => setMenuVisible(true)}
       />
       <MobileNavMenu
+        selected="Contact Me"
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
       />
       <main>
-        <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
             belowText="Contact Me"
