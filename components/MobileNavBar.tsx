@@ -25,12 +25,6 @@ function MobileNavBarTab({
     <div className={styles.tab}>
       <Link href={href}>
         <a role="tab">
-          <div
-            className={selected ? `${styles.tabLineMobile} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineMobile} ${styles.tabLine}`}
-            style={{
-              backgroundColor: selected && selectedColor ? selectedColor : undefined,
-            }}
-          />
           <p
             style={{
               color: selected && selectedColor ? selectedColor : undefined,
@@ -38,12 +32,6 @@ function MobileNavBarTab({
           >
             {text}
           </p>
-          <div
-            className={selected ? `${styles.tabLineDesktop} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineDesktop} ${styles.tabLine}`}
-            style={{
-              backgroundColor: selected && selectedColor ? selectedColor : undefined,
-            }}
-          />
         </a>
       </Link>
     </div>
@@ -145,19 +133,12 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
           </a>
         </Link>
         <div className={styles.buttonsContainer} role="tablist">
-          {/* Re-enable with redesigned home and work pages */}
           <MobileNavBarTab
             href="/work"
             selected={selected === 'Work'}
             text="My Work"
             selectedColor={RED}
           />
-          {/* <MobileNavBarTab
-            href="/blog"
-            selected={selected === 'Blog'}
-            text="Blog"
-            selectedColor={RED}
-          /> */}
           <MobileNavBarTab
             href="/about"
             selected={selected === 'About Me'}
@@ -167,7 +148,6 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
         </div>
         {button}
       </div>
-      <div className={`${styles.line} ${styles.lineDesktop}`} />
     </nav>
   );
 }
