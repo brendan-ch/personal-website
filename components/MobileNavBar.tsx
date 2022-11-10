@@ -8,18 +8,22 @@ import LogoFull from './icons/LogoFull';
 import LogoStandalone from './icons/LogoStandalone';
 
 interface TabProps {
-  selected: boolean,
   text: string,
   href: string,
-  selectedColor?: string,
+  /**
+   * Whether the tab button is highlighted.
+   * Useful for CTAs or other cases where button needs emphasis.
+   */
+  highlighted?: boolean,
 }
 
 function MobileNavBarTab({
   text,
   href,
+  highlighted,
 }: TabProps) {
   return (
-    <div className={styles.tab}>
+    <div className={highlighted ? `${styles.tabHighlighted} ${styles.tab}` : styles.tab}>
       <Link href={href}>
         <a role="tab">
           <p>
@@ -32,6 +36,9 @@ function MobileNavBarTab({
 }
 
 interface Props {
+  /**
+   * @deprecated No longer used since 2022-11-11.
+   */
   selected?: string,
   style?: CSSProperties,
   mobileButtonType?: 'hamburger' | 'close',
@@ -128,13 +135,16 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
         <div className={styles.buttonsContainer} role="tablist">
           <MobileNavBarTab
             href="/work"
-            selected={selected === 'Work'}
             text="My Work"
           />
           <MobileNavBarTab
             href="/about"
-            selected={selected === 'About Me'}
             text="About Me"
+          />
+          <MobileNavBarTab
+            href="/contact"
+            text="Contact Me"
+            highlighted
           />
         </div>
         {button}
