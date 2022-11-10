@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
-import { BLUE, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import menuStyles from '../styles/MobileNavMenu.module.css';
 import Exit from './icons-v2/Exit';
@@ -16,20 +15,14 @@ interface TabProps {
 }
 
 function MobileNavBarTab({
-  selected,
   text,
   href,
-  selectedColor,
 }: TabProps) {
   return (
     <div className={styles.tab}>
       <Link href={href}>
         <a role="tab">
-          <p
-            style={{
-              color: selected && selectedColor ? selectedColor : undefined,
-            }}
-          >
+          <p>
             {text}
           </p>
         </a>
@@ -137,13 +130,11 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
             href="/work"
             selected={selected === 'Work'}
             text="My Work"
-            selectedColor={RED}
           />
           <MobileNavBarTab
             href="/about"
             selected={selected === 'About Me'}
             text="About Me"
-            selectedColor={RED}
           />
         </div>
         {button}
