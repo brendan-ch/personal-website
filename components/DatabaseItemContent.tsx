@@ -282,7 +282,7 @@ export default function DatabaseItemContent({
               </div>
             ) : undefined}
             {content ? (
-              <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+              <div className={`${utils.innerItemWrapper}`}>
                 <MarkdownRenderer
                   content={content}
                   onImageClick={handleImageClick}
