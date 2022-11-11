@@ -86,7 +86,7 @@ const Home = () => {
             </p>
             <ul>
               <li>Designed and developed <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
-              <li>Designed Standard Catalog, a redesign of the college registration experience</li>
+              <li>Created <Link href="/work/standard-catalog"><a><u>Standard Catalog</u></a></Link>, a redesign of the college registration experience</li>
             </ul>
             <Link href="/work">
               <a className={styles.databaseEndLink}>
