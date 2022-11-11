@@ -13,6 +13,7 @@ import getPages from '../helpers/getPages';
 import Link from 'next/link';
 import Next from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
+import LogoStandalone from '../components/icons/LogoStandalone';
 
 /**
  * Generate file content.
@@ -79,10 +80,21 @@ const Home = ({ workPageListResponse }: Props) => {
       <main>
         <div className={styles.titleLogoDivider}>
           <div className={styles.titleDivider}>
-
+            <h1>
+              I{'\''}m Brendan, a
+            </h1>
+            <h1>
+              designer and developer
+            </h1>
+            <h1>
+              in Orange, CA.
+            </h1>
           </div>
           <div className={styles.logoDivider}>
-            
+            <LogoStandalone
+              width={168}
+              height={168}
+            />
           </div>
         </div>
         <div className={styles.content}>
