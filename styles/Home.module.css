@@ -5,6 +5,16 @@
   width: 100%;
   max-width: var(--outer-guide-width);
   padding: 0px 32px;
+  margin-top: 16px;
+}
+
+.titleDivider {
+  width: 100%;
+}
+
+.titleDivider h1 {
+  font-size: 48px;
+  font-weight: 600;
 }
 
 .content {
@@ -37,6 +47,7 @@
 @media only screen and (max-width: 720px) {
   .titleLogoDivider, .content {
     padding: 0px 16px;
+    margin-top: 64px;
   }
 
   .logoDivider {
