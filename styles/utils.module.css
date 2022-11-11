@@ -34,17 +34,30 @@
 stretch until a maximum width. */
 .itemWrapper {
   padding: 0px 32px;
-  /* min-width: 20em; */
-  max-width: 64em;
+  max-width: var(--outer-guide-width);
   width: 100%;
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
+}
+
+.innerItemWrapper {
+  padding: 0px 32px;
+  max-width: var(--inner-guide-width);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 @media only screen and (max-width: 720px) {
   .itemWrapper {
+    padding: 0px 16px;
+  }
+
+  .innerItemWrapper {
     padding: 0px 16px;
   }
 }

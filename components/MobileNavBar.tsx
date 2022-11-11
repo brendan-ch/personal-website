@@ -134,12 +134,12 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
         </Link>
         <div className={styles.buttonsContainer} role="tablist">
           <MobileNavBarTab
-            href="/work"
-            text="My Work"
+            href="/"
+            text="Home"
           />
           <MobileNavBarTab
-            href="/about"
-            text="About Me"
+            href="/work"
+            text="My Work"
           />
           <MobileNavBarTab
             href="/contact"
