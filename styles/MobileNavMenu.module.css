@@ -36,7 +36,7 @@
   z-index: 2;
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 721px) {
   .container {
     display: none !important;
   }
