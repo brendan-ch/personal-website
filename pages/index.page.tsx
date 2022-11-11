@@ -12,6 +12,7 @@ import { useState } from 'react';
 import getPages from '../helpers/getPages';
 import Link from 'next/link';
 import Next from '../components/icons-v2/ChevronRight';
+import PageButton from '../components/PageButton';
 
 /**
  * Generate file content.
@@ -78,6 +79,30 @@ const Home = ({ workPageListResponse }: Props) => {
       <main>
         <div className={styles.titleLogoDivider}>
           
+        </div>
+        <div className={styles.content}>
+          <div className={styles.pictureTextDivider}>
+
+          </div>
+          <div className={styles.sectionDivider}>
+
+          </div>
+          <div className={styles.sectionDivider}>
+          
+          </div>
+          <div className={styles.sectionDivider}>
+          
+          </div>
+          <div className={styles.contactButtonDivider}>
+            <div className={styles.sectionDivider}>
+            
+            </div>
+            <PageButton
+              text="Contact Me"
+              href="/contact"
+              highlighted
+            />
+          </div>
         </div>
         <div className={utils.spacer} />
         <div className={utils.footerWrapper}>
