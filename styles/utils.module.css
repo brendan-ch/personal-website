@@ -35,7 +35,7 @@ stretch until a maximum width. */
 .itemWrapper {
   padding: 0px 32px;
   /* min-width: 20em; */
-  max-width: 64em;
+  max-width: var(--outer-guide-width);
   width: 100%;
 
   display: flex;
