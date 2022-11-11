@@ -45,9 +45,13 @@
 }
 
 @media only screen and (max-width: 720px) {
-  .titleLogoDivider, .content {
+  .titleLogoDivider {
     padding: 0px 16px;
     margin-top: 64px;
+  }
+
+  .content {
+    padding: 0px 16px;
   }
 
   .logoDivider {
