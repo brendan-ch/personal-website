@@ -1,3 +1,26 @@
-.titleLogoDivider {
-  
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--inner-guide-width);
+
+  padding: 0px 16px;
+  gap: 48px;
+}
+
+.content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 30px;
+}
+
+.sectionDivider {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
 }

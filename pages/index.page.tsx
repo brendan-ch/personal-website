@@ -85,18 +85,50 @@ const Home = ({ workPageListResponse }: Props) => {
 
           </div>
           <div className={styles.sectionDivider}>
-
+            <p>
+              <b>
+                Things I{'\''}m currently doing
+              </b>
+            </p>
+            <ul>
+              <li>Pursuing a bachelor’s degree in software engineering at Chapman University</li>
+              <li>UX design, software engineering and project management at Techies Without Borders, a non-profit organization dedicated to helping underserved countries</li>
+            </ul>
           </div>
           <div className={styles.sectionDivider}>
-          
+            <p>
+              <b>
+                Things I{'\''}ve done in the past
+              </b>
+            </p>
+            <ul>
+              <li>Designed and developed <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
+              <li>Designed Standard Catalog, a redesign of the college registration experience</li>
+            </ul>
           </div>
           <div className={styles.sectionDivider}>
-          
+            <p>
+              <b>
+                Things I{'\''}m capable of
+              </b>
+            </p>
+            <ul>
+              <li>Web development using React.js, Next.js, Angular, and TypeScript</li>
+              <li>Application development using React Native and Capacitor</li>
+              <li>Project management and documentation using Notion</li>
+              <li>High-fidelity prototyping and wireframing using Figma</li>
+              <li>Understanding and working with team and user needs</li>
+            </ul>
           </div>
-          <div className={styles.contactButtonDivider}>
-            <div className={styles.sectionDivider}>
-            
-            </div>
+          <div className={styles.sectionDivider}>
+            <p>
+              <b>
+                Interested in working together?
+              </b>
+            </p>
+            <p>
+              I’m fairly busy with college, but would love to hear from you! Shoot me a message and I’ll get back to you when I can.
+            </p>
             <PageButton
               text="Contact Me"
               href="/contact"
