@@ -75,11 +75,11 @@ export default function Work({ listResponse, availableTags }: Props) {
             availableTags={availableTags}
           />
         </div>
-        <div className={utils.spacer} />
-        <div className={utils.footerWrapper}>
-          <Footer />
-        </div>
       </main>
+      <div className={utils.spacer} />
+      <div className={utils.footerWrapper}>
+        <Footer />
+      </div>
     </div>
   );
 }
