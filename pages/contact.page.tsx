@@ -212,7 +212,7 @@ export default function ContactForm() {
               belowText="Contact Me"
             />
           </div>
-          <div className={utils.itemWrapper}>
+          <div className={utils.innerItemWrapper}>
             <form className={styles.form} onSubmit={handleSubmit}>
               {/* Construct form according to type definition */}
               {formInputItems.map((item, index) => (
