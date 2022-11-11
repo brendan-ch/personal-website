@@ -1,19 +1,12 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import MobileNavBar from '../components/MobileNavBar';
-import { REVALIDATE } from '../helpers/Constants';
 import utils from '../styles/utils.module.css';
-import { PageListResponse } from '../types';
-import Database from '../components/Database';
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
-import getPages from '../helpers/getPages';
-import Link from 'next/link';
-import Next from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
-import LogoStandalone from '../components/icons/LogoStandalone';
 
 import Image404 from '../public/404.jpg';
 import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
