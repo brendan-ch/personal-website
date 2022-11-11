@@ -6,10 +6,11 @@ import Head from 'next/head';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
-import PageButton from '../components/PageButton';
 
 import AboutImage from '../public/about.jpeg';
 import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
+import Link from 'next/link';
+import ChevronRight from '../components/icons-v2/ChevronRight';
 
 /**
  * Home page.
@@ -87,6 +88,17 @@ const Home = () => {
               <li>Designed and developed <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
               <li>Designed Standard Catalog, a redesign of the college registration experience</li>
             </ul>
+            <Link href="/work">
+              <a className={styles.databaseEndLink}>
+                <p>
+                  And much, much more
+                </p>
+                <ChevronRight
+                  width={20}
+                  height={20}
+                />
+              </a>
+            </Link>
           </div>
           <div className={styles.sectionDivider}>
             <p>
@@ -102,7 +114,7 @@ const Home = () => {
               <li>Understanding and working with team and user needs</li>
             </ul>
           </div>
-          <div className={styles.sectionDivider}>
+          <div className={`${styles.sectionDivider}`}>
             <p>
               <b>
                 Interested in working together?
@@ -111,11 +123,17 @@ const Home = () => {
             <p>
               I’m fairly busy with college, but would love to hear from you! Shoot me a message and I’ll get back to you when I can.
             </p>
-            <PageButton
-              text="Contact Me"
-              href="/contact"
-              highlighted
-            />
+            <Link href="/contact">
+              <a className={styles.databaseEndLink}>
+                <p>
+                  Contact Me
+                </p>
+                <ChevronRight
+                  width={20}
+                  height={20}
+                />
+              </a>
+            </Link>
           </div>
         </div>
         <div className={utils.spacer} />
