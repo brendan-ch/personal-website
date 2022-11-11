@@ -84,11 +84,6 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
             text="My Work"
             href="/work"
           />
-          <MobileNavMenuButton
-            toggled={selected === 'About Me'}
-            text="About Me"
-            href="/about"
-          />
           {/* to-do: emphasize this button */}
           <MobileNavMenuButton
             toggled={selected === 'Contact Me'}
