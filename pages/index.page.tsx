@@ -78,11 +78,15 @@ const Home = ({ workPageListResponse }: Props) => {
       />
       <main>
         <div className={styles.titleLogoDivider}>
-          
+          <div className={styles.titleDivider}>
+
+          </div>
+          <div className={styles.logoDivider}>
+            
+          </div>
         </div>
         <div className={styles.content}>
           <div className={styles.pictureTextDivider}>
-
           </div>
           <div className={styles.sectionDivider}>
             <p>
