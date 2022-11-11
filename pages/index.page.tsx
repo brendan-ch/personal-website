@@ -16,45 +16,10 @@ import PageButton from '../components/PageButton';
 import LogoStandalone from '../components/icons/LogoStandalone';
 
 /**
- * Generate file content.
- */
-export async function getStaticProps() {
-  const response = await getPages({
-    prefix: 'work',
-    filter: [
-      {
-        tags: {
-          contains: ['Featured'],
-        },
-      },
-    ],
-    sort: [
-      {
-        property: 'order',
-        order: 'asc',
-      },
-    ],
-  });
-
-  return {
-    props: {
-      lastRegenerated: Date.now(),
-      workPageListResponse: response,
-    },
-    revalidate: REVALIDATE,
-  }
-}
-
-interface Props {
-  // lastRegenerated: number,
-  workPageListResponse?: PageListResponse,
-}
-
-/**
  * Home page.
  * @returns
  */
-const Home = ({ workPageListResponse }: Props) => {
+const Home = () => {
   const selected = "Featured";
 
   /**
