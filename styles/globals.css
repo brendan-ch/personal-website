@@ -40,6 +40,8 @@ main {
   width: 100%;
   overflow-wrap: break-word;
 
+  padding-bottom: 32px;
+
   animation-name: fadein;
   animation-duration: 500ms;
 }
