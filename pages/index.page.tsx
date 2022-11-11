@@ -15,6 +15,9 @@ import Next from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
 import LogoStandalone from '../components/icons/LogoStandalone';
 
+import Image404 from '../public/404.jpg';
+import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
+
 /**
  * Home page.
  * @returns
@@ -56,14 +59,19 @@ const Home = () => {
             </h1>
           </div>
           <div className={styles.logoDivider}>
-            <LogoStandalone
-              width={168}
+            <LogoStandaloneWithoutBorder
+              width={145.84931482}
               height={168}
             />
           </div>
         </div>
         <div className={styles.content}>
-          <div className={styles.pictureTextDivider}>
+          <div className={styles.sectionDivider}>
+            <Image
+              src={Image404}
+              alt="Capybara in bath"
+            />
+            <p>Hi there! I’m Brendan, a designer, developer, and college student living in Orange, California. I’m currently studying computer science at Chapman University, and am working towards a career in software development or UX design. Some of my hobbies are reading, photography, traveling, and brewing coffee.</p>
           </div>
           <div className={styles.sectionDivider}>
             <p>
