@@ -75,7 +75,7 @@ const Home = () => {
             </p>
             <ul>
               <li>Pursuing a bachelor’s degree in software engineering at Chapman University</li>
-              <li>UX design, software engineering and project management at Techies Without Borders, a non-profit organization dedicated to helping underserved countries</li>
+              <li>UX design, software engineering and project management at <a href="https://techieswithoutborders.us"><u>Techies Without Borders</u></a>, a non-profit organization dedicated to helping underserved countries</li>
             </ul>
           </div>
           <div className={styles.sectionDivider}>
