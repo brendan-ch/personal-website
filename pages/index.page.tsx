@@ -8,7 +8,7 @@ import MobileNavMenu from '../components/MobileNavMenu';
 import { useState } from 'react';
 import PageButton from '../components/PageButton';
 
-import Image404 from '../public/404.jpg';
+import AboutImage from '../public/about.jpeg';
 import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
 
 /**
@@ -61,7 +61,7 @@ const Home = () => {
         <div className={styles.content}>
           <div className={styles.sectionDivider}>
             <Image
-              src={Image404}
+              src={AboutImage}
               alt="Capybara in bath"
             />
             <p>Hi there! I’m Brendan, a designer, developer, and college student living in Orange, California. I’m currently studying computer science at Chapman University, and am working towards a career in software development or UX design. Some of my hobbies are reading, photography, traveling, and brewing coffee.</p>
