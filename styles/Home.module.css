@@ -1,10 +1,19 @@
+.titleLogoDivider {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  max-width: var(--outer-guide-width);
+  padding: 0px 32px;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: var(--inner-guide-width);
 
-  padding: 0px 16px;
+  padding: 0px 32px;
   gap: 48px;
 }
 
@@ -23,4 +32,14 @@
   flex-direction: column;
   flex: 1;
   gap: 8px;
+}
+
+@media only screen and (max-width: 720px) {
+  .titleLogoDivider, .content {
+    padding: 0px 16px;
+  }
+
+  .logoDivider {
+    display: none;
+  }
 }
