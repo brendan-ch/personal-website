@@ -63,7 +63,6 @@ export default function Work({ listResponse, availableTags }: Props) {
         onClose={() => setMenuVisible(false)}
       />
       <main>
-        <div className={utils.spacer} />
         <div className={utils.itemWrapper}>
           <PageHeader
             belowText="My Work"
@@ -76,11 +75,11 @@ export default function Work({ listResponse, availableTags }: Props) {
             availableTags={availableTags}
           />
         </div>
-        <div className={utils.spacer} />
-        <div className={utils.footerWrapper}>
-          <Footer />
-        </div>
       </main>
+      <div className={utils.spacer} />
+      <div className={utils.footerWrapper}>
+        <Footer />
+      </div>
     </div>
   );
 }

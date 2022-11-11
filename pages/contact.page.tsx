@@ -196,55 +196,59 @@ export default function ContactForm() {
           </>
         ) : undefined}
       </Head>
-      <MobileNavBar
-        onMobileButtonClick={() => setMenuVisible(true)}
-      />
-      <MobileNavMenu
-        visible={menuVisible}
-        onClose={() => setMenuVisible(false)}
-      />
-      <main>
-        <div className={utils.spacer} />
-        <div className={utils.itemWrapper}>
-          <PageHeader
-            belowText="Contact Me"
-          />
-        </div>
-        <div className={utils.itemWrapper}>
-          <form className={styles.form} onSubmit={handleSubmit}>
-            {/* Construct form according to type definition */}
-            {formInputItems.map((item, index) => (
-              <FormInput
-                key={index}
-                {...item}
-              />
-            ))}
-            <div className={`g-recaptcha ${utils.recaptchaBox}`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
-            <p>Data that you provide in this form will be handled according to the{' '}
-              <Link href="/doc/privacy">
-                <a target="_blank" rel="noreferrer">
-                  <u>
-                    Privacy Policy
-                  </u>
-                </a>
-              </Link>
-              .
-            </p>
+      <div className={utils.minHeightWrapper}>
 
-            <PageButton
-              highlighted
-              disabled={loading || formState === FormState.SUBMITTED}
-              text={loading ? 'Sending message...' : 'Send Message'}
+        <MobileNavBar
+          onMobileButtonClick={() => setMenuVisible(true)}
+        />
+        <MobileNavMenu
+          selected="Contact Me"
+          visible={menuVisible}
+          onClose={() => setMenuVisible(false)}
+        />
+        <main>
+          <div className={utils.itemWrapper}>
+            <PageHeader
+              belowText="Contact Me"
             />
-            {/* Status */}
-            {statusRenderer}
+          </div>
+          <div className={utils.innerItemWrapper}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              {/* Construct form according to type definition */}
+              {formInputItems.map((item, index) => (
+                <FormInput
+                  key={index}
+                  {...item}
+                />
+              ))}
+              <div className={`g-recaptcha ${utils.recaptchaBox}`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
+              <p>Data that you provide in this form will be handled according to the{' '}
+                <Link href="/doc/privacy">
+                  <a target="_blank" rel="noreferrer">
+                    <u>
+                      Privacy Policy
+                    </u>
+                  </a>
+                </Link>
+                .
+              </p>
 
-          </form>
-        </div>
-        <div className={utils.footerWrapper}>
-          <Footer />
-        </div>
-      </main>
+              <PageButton
+                highlighted
+                disabled={loading || formState === FormState.SUBMITTED}
+                text={loading ? 'Sending message...' : 'Send Message'}
+              />
+              {/* Status */}
+              {statusRenderer}
+
+            </form>
+          </div>
+        </main>
+        <div className={utils.spacer} />
+      </div>
+      <div className={utils.footerWrapper}>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -40,6 +40,8 @@ main {
   width: 100%;
   overflow-wrap: break-word;
 
+  padding-bottom: 32px;
+
   animation-name: fadein;
   animation-duration: 500ms;
 }
@@ -84,6 +86,9 @@ button {
   --gray: #DCDCDC;
   --gray2: #999999;
   --gray3: #666666;
+
+  --outer-guide-width: 72em;
+  --inner-guide-width: 48em;
 }
 
 h1 {

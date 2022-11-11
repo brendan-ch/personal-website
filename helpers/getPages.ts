@@ -23,7 +23,7 @@ export function compare(a: any, b: any) {
  * @todo implement filters
  */
 export default async function getPages(query: PageListQuery): Promise<PageListResponse> {
-  const directories = ['blog', 'doc', 'work', 'about'];
+  const directories = ['blog', 'doc', 'work'];
   if (!directories.includes(query.prefix)) {
     const err = new Error(`Supplied prefix does not exist. Supported prefixes are ${directories}.`);
     throw err;

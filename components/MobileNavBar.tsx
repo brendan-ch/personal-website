@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
-import { BLUE, RED } from '../helpers/Constants';
 import styles from '../styles/MobileNavBar.module.css';
 import menuStyles from '../styles/MobileNavMenu.module.css';
 import Exit from './icons-v2/Exit';
@@ -9,41 +8,27 @@ import LogoFull from './icons/LogoFull';
 import LogoStandalone from './icons/LogoStandalone';
 
 interface TabProps {
-  selected: boolean,
   text: string,
   href: string,
-  selectedColor?: string,
+  /**
+   * Whether the tab button is highlighted.
+   * Useful for CTAs or other cases where button needs emphasis.
+   */
+  highlighted?: boolean,
 }
 
 function MobileNavBarTab({
-  selected,
   text,
   href,
-  selectedColor,
+  highlighted,
 }: TabProps) {
   return (
-    <div className={styles.tab}>
+    <div className={highlighted ? `${styles.tabHighlighted} ${styles.tab}` : styles.tab}>
       <Link href={href}>
         <a role="tab">
-          <div
-            className={selected ? `${styles.tabLineMobile} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineMobile} ${styles.tabLine}`}
-            style={{
-              backgroundColor: selected && selectedColor ? selectedColor : undefined,
-            }}
-          />
-          <p
-            style={{
-              color: selected && selectedColor ? selectedColor : undefined,
-            }}
-          >
+          <p>
             {text}
           </p>
-          <div
-            className={selected ? `${styles.tabLineDesktop} ${styles.tabLine} ${styles.tabLineSelected}` : `${styles.tabLineDesktop} ${styles.tabLine}`}
-            style={{
-              backgroundColor: selected && selectedColor ? selectedColor : undefined,
-            }}
-          />
         </a>
       </Link>
     </div>
@@ -51,6 +36,9 @@ function MobileNavBarTab({
 }
 
 interface Props {
+  /**
+   * @deprecated No longer used since 2022-11-11.
+   */
   selected?: string,
   style?: CSSProperties,
   mobileButtonType?: 'hamburger' | 'close',
@@ -145,29 +133,22 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
           </a>
         </Link>
         <div className={styles.buttonsContainer} role="tablist">
-          {/* Re-enable with redesigned home and work pages */}
+          <MobileNavBarTab
+            href="/"
+            text="Home"
+          />
           <MobileNavBarTab
             href="/work"
-            selected={selected === 'Work'}
             text="My Work"
-            selectedColor={RED}
           />
-          {/* <MobileNavBarTab
-            href="/blog"
-            selected={selected === 'Blog'}
-            text="Blog"
-            selectedColor={RED}
-          /> */}
           <MobileNavBarTab
-            href="/about"
-            selected={selected === 'About Me'}
-            text="About Me"
-            selectedColor={RED}
+            href="/contact"
+            text="Contact Me"
+            highlighted
           />
         </div>
         {button}
       </div>
-      <div className={`${styles.line} ${styles.lineDesktop}`} />
     </nav>
   );
 }
