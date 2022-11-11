@@ -23,7 +23,8 @@
   width: 100%;
   max-width: var(--inner-guide-width);
 
-  padding: 48px 32px;
+  padding: 0px 32px;
+  padding-top: 48px;
   gap: 48px;
 }
 
