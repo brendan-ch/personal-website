@@ -29,9 +29,7 @@ export default function CustomLayout({ children }: Props) {
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
       />
-      <main>
-        {children}
-      </main>
+      {children}
       <div className={utils.spacer} />
       <div className={utils.footerWrapper}>
         <Footer />
