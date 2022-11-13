@@ -136,12 +136,12 @@ export default function ContactForm() {
       }
 
       setLoading(false);
-    } catch(e) {
+    } catch (e) {
       setFormState(FormState.USER_ERROR);
       setLoading(false);
     }
   }
-  
+
   let statusRenderer: JSX.Element = <></>;
 
   switch (formState) {
@@ -187,7 +187,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className={utils.rootContainer}>
+    <>
       <Head>
         <title>Brendan Chen</title>
         {loadScripts ? (
@@ -196,59 +196,42 @@ export default function ContactForm() {
           </>
         ) : undefined}
       </Head>
-      <div className={utils.minHeightWrapper}>
-
-        <MobileNavBar
-          onMobileButtonClick={() => setMenuVisible(true)}
+      <div className={utils.itemWrapper}>
+        <PageHeader
+          belowText="Contact Me"
         />
-        <MobileNavMenu
-          selected="Contact Me"
-          visible={menuVisible}
-          onClose={() => setMenuVisible(false)}
-        />
-        <main>
-          <div className={utils.itemWrapper}>
-            <PageHeader
-              belowText="Contact Me"
+      </div>
+      <div className={utils.innerItemWrapper}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          {/* Construct form according to type definition */}
+          {formInputItems.map((item, index) => (
+            <FormInput
+              key={index}
+              {...item}
             />
-          </div>
-          <div className={utils.innerItemWrapper}>
-            <form className={styles.form} onSubmit={handleSubmit}>
-              {/* Construct form according to type definition */}
-              {formInputItems.map((item, index) => (
-                <FormInput
-                  key={index}
-                  {...item}
-                />
-              ))}
-              <div className={`g-recaptcha ${utils.recaptchaBox}`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
-              <p>Data that you provide in this form will be handled according to the{' '}
-                <Link href="/doc/privacy">
-                  <a target="_blank" rel="noreferrer">
-                    <u>
-                      Privacy Policy
-                    </u>
-                  </a>
-                </Link>
-                .
-              </p>
+          ))}
+          <div className={`g-recaptcha ${utils.recaptchaBox}`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
+          <p>Data that you provide in this form will be handled according to the{' '}
+            <Link href="/doc/privacy">
+              <a target="_blank" rel="noreferrer">
+                <u>
+                  Privacy Policy
+                </u>
+              </a>
+            </Link>
+            .
+          </p>
 
-              <PageButton
-                highlighted
-                disabled={loading || formState === FormState.SUBMITTED}
-                text={loading ? 'Sending message...' : 'Send Message'}
-              />
-              {/* Status */}
-              {statusRenderer}
+          <PageButton
+            highlighted
+            disabled={loading || formState === FormState.SUBMITTED}
+            text={loading ? 'Sending message...' : 'Send Message'}
+          />
+          {/* Status */}
+          {statusRenderer}
 
-            </form>
-          </div>
-        </main>
-        <div className={utils.spacer} />
+        </form>
       </div>
-      <div className={utils.footerWrapper}>
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 }
