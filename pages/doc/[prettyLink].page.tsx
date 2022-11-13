@@ -60,7 +60,7 @@ export default function DocumentPage(pageData: PageData) {
   } = pageData;
 
   return (
-    <>
+    <main>
       <DatabaseItemHead
         title={title}
         description={description}
@@ -69,6 +69,6 @@ export default function DocumentPage(pageData: PageData) {
       <DatabaseItemContent
         {...pageData}
       />
-    </>
+    </main>
   );
 }

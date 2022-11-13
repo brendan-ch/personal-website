@@ -45,7 +45,7 @@ interface Props {
 
 export default function Work({ listResponse, availableTags }: Props) {
   return (
-    <>
+    <main>
       <Head>
         <title>My Work | Brendan Chen</title>
       </Head>
@@ -61,6 +61,6 @@ export default function Work({ listResponse, availableTags }: Props) {
           availableTags={availableTags}
         />
       </div>
-    </>
+    </main>
   );
 }

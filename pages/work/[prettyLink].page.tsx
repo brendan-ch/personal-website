@@ -60,7 +60,7 @@ export default function WorkPage(pageData: PageData) {
   } = pageData;
   
   return (
-    <>
+    <main>
       <DatabaseItemHead
         title={title}
         description={description}
@@ -71,6 +71,6 @@ export default function WorkPage(pageData: PageData) {
         backButtonText="My Work"
         backButtonHref="/work"
       />
-    </>
+    </main>
   );
 }

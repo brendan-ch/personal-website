@@ -18,7 +18,7 @@ import ChevronRight from '../components/icons-v2/ChevronRight';
  */
 const Home = () => {
   return (
-    <>
+    <main>
       <Head>
         <title>Brendan Chen</title>
       </Head>
@@ -118,7 +118,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 

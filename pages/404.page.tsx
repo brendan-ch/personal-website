@@ -12,7 +12,7 @@ import Image from 'next/image';
  */
 export default function Custom404() {
   return (
-    <>
+    <main>
       <Head>
         <title>Page Not Found | Brendan Chen</title>
       </Head>
@@ -58,6 +58,6 @@ export default function Custom404() {
           )
         </p>
       </div>
-    </>
+    </main>
   );
 }
