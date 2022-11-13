@@ -12,7 +12,7 @@ import Image from 'next/image';
  */
 export default function Custom500() {
   return (
-    <>
+    <main>
       <Head>
         <title>Internal Server Error | Brendan Chen</title>
       </Head>
@@ -58,6 +58,6 @@ export default function Custom500() {
           )
         </p>
       </div>
-    </>
+    </main>
   );
 }

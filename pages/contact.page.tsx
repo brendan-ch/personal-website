@@ -187,7 +187,7 @@ export default function ContactForm() {
   }
 
   return (
-    <>
+    <main>
       <Head>
         <title>Brendan Chen</title>
         {loadScripts ? (
@@ -232,6 +232,6 @@ export default function ContactForm() {
 
         </form>
       </div>
-    </>
+    </main>
   );
 }
