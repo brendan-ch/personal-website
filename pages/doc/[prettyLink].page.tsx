@@ -58,32 +58,17 @@ export default function DocumentPage(pageData: PageData) {
     title,
     description,
   } = pageData;
-  
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    setMenuVisible(false);
-  }, [router.asPath]);
 
   return (
-    <div className={utils.rootContainer}>
+    <>
       <DatabaseItemHead
         title={title}
         description={description}
         previewImageLink={previewImage}
       />
-      <MobileNavBar
-        onMobileButtonClick={() => setMenuVisible(true)}
-      />
-      <MobileNavMenu
-        visible={menuVisible}
-        onClose={() => setMenuVisible(false)}
-      />
       <DatabaseItemContent
         {...pageData}
       />
-    </div>
+    </>
   );
 }
