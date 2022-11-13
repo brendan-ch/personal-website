@@ -59,33 +59,18 @@ export default function WorkPage(pageData: PageData) {
     description,
   } = pageData;
   
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    setMenuVisible(false);
-  }, [router.asPath]);
-
   return (
-    <div className={utils.rootContainer}>
+    <main>
       <DatabaseItemHead
         title={title}
         description={description}
         previewImageLink={previewImage}
-      />
-      <MobileNavBar
-        onMobileButtonClick={() => setMenuVisible(true)}
-      />
-      <MobileNavMenu
-        visible={menuVisible}
-        onClose={() => setMenuVisible(false)}
       />
       <DatabaseItemContent
         {...pageData}
         backButtonText="My Work"
         backButtonHref="/work"
       />
-    </div>
+    </main>
   );
 }
