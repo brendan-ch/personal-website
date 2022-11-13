@@ -1,13 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
-import MobileNavBar from '../components/MobileNavBar';
-import MobileNavMenu from '../components/MobileNavMenu';
 import utils from '../styles/utils.module.css';
 
 import Image500 from '../public/500.jpg';
 import PageHeader from '../components/PageHeader';
-import Footer from '../components/Footer';
 import Image from 'next/image';
 
 /**
