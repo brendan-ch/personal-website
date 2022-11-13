@@ -181,7 +181,7 @@ export default function DatabaseItemContent({
   }
 
   return (
-    <>
+    <main>
       {type === 'wide' ? (
         <>
           <div className={styles.wideContainer}>
@@ -297,6 +297,6 @@ export default function DatabaseItemContent({
         caption={lightboxCaption}
         onClose={handleImageClose}
       />
-    </>
+    </main>
   );
 }
