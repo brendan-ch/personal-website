@@ -44,42 +44,23 @@ interface Props {
 }
 
 export default function Work({ listResponse, availableTags }: Props) {
-  const selected = 'Work';
-  const [menuVisible, setMenuVisible] = useState(false);
-
   return (
-    <div className={utils.rootContainer}>
-      {/* <NavBar selected={selected} /> */}
+    <>
       <Head>
         <title>My Work | Brendan Chen</title>
       </Head>
-      <MobileNavBar
-        selected={selected}
-        onMobileButtonClick={() => setMenuVisible(true)}
-      />
-      <MobileNavMenu
-        selected={selected}
-        visible={menuVisible}
-        onClose={() => setMenuVisible(false)}
-      />
-      <main>
-        <div className={utils.itemWrapper}>
-          <PageHeader
-            belowText="My Work"
-          />
-        </div>
-        <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
-          <Database
-            pageResponse={listResponse}
-            prefix="work"
-            availableTags={availableTags}
-          />
-        </div>
-      </main>
-      <div className={utils.spacer} />
-      <div className={utils.footerWrapper}>
-        <Footer />
+      <div className={utils.itemWrapper}>
+        <PageHeader
+          belowText="My Work"
+        />
       </div>
-    </div>
+      <div className={`${utils.itemWrapper} ${utils.stretchToEnd}`}>
+        <Database
+          pageResponse={listResponse}
+          prefix="work"
+          availableTags={availableTags}
+        />
+      </div>
+    </>
   );
 }
