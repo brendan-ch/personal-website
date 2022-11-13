@@ -2,7 +2,8 @@ import MobileNavBar from '../components/MobileNavBar';
 import utils from '../styles/utils.module.css';
 import Footer from '../components/Footer';
 import MobileNavMenu from '../components/MobileNavMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 interface Props {
   children: JSX.Element | JSX.Element[],
@@ -10,6 +11,12 @@ interface Props {
 
 export default function CustomLayout({ children }: Props) {
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    setMenuVisible(false);
+  }, [router.asPath]);
 
   return (
     <div className={utils.rootContainer}>
