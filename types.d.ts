@@ -47,7 +47,7 @@ interface PageQuery {
   /**
    * Prefix (folder name) of the page.
    */
-  prefix?: 'about' | 'blog' | 'work' | 'doc',
+  prefix?: 'blog' | 'work' | 'doc',
   /**
    * The file name of the page.
    */
