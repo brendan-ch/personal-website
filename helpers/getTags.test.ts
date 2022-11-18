@@ -12,7 +12,6 @@ const mockData: PageData[] = [
     coverImage: null,
     
     links: null,
-    type: 'vertical',
     date: null,
     prefix: 'work',
     allImages: [],
@@ -28,7 +27,6 @@ const mockData: PageData[] = [
     coverImage: null,
     
     links: null,
-    type: 'vertical',
     date: null,
     prefix: 'work',
     allImages: [],
@@ -45,7 +43,6 @@ const mockData: PageData[] = [
     coverImage: null,
     
     links: null,
-    type: 'vertical',
     date: null,
     prefix: 'work',
     allImages: [],
