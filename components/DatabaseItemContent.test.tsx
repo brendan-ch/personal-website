@@ -36,7 +36,6 @@ describe('DatabaseItemContent', () => {
       }}
       links={null}
       date={null}
-      type={null}
       allImages={[]}
     />);
 
