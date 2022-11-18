@@ -3,14 +3,10 @@ import utils from '../styles/utils.module.css';
 import PageButton from '../components/PageButton';
 import FormInput from '../components/FormInput';
 import Head from 'next/head';
-import MobileNavBar from '../components/MobileNavBar';
-import MobileNavMenu from '../components/MobileNavMenu';
 import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
-import Script from 'next/script';
-import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
 
 enum FormState {
@@ -65,7 +61,6 @@ const formInputItems: FormInputItem[] = [
 
 export default function ContactForm() {
   const router = useRouter();
-  const [menuVisible, setMenuVisible] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState(FormState.INCOMPLETE);
