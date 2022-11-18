@@ -33,7 +33,6 @@ interface PageData {
   coverImage: ImageSize | null,
   tags: string[] | null,
   prefix: string,
-  type: 'wide' | 'vertical' | 'horizontal' | null,
   links: PageExternalLink[] | null,
   date: string | null,
 
