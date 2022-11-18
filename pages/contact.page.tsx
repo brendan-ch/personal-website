@@ -8,6 +8,7 @@ import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { FormInputItem } from '../types';
 
 enum FormState {
   INCOMPLETE,
@@ -15,16 +16,6 @@ enum FormState {
   SERVER_ERROR,
   USER_ERROR,
   NO_RECAPTCHA_PROVIDED,
-}
-
-interface FormInputItem {
-  name: string,
-  label: string,
-  pattern?: RegExp,
-  required: boolean,
-  placeholder: string,
-  noMatchError?: string,
-  multiline?: boolean,
 }
 
 const formInputItems: FormInputItem[] = [

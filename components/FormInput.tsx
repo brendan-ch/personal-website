@@ -1,5 +1,6 @@
 import styles from '../styles/FormInput.module.css';
 import { useState } from "react";
+import { FormInputItem } from '../types';
 
 enum ErrorType {
   NONE,
@@ -7,20 +8,7 @@ enum ErrorType {
   VALIDATION_ERROR,
 }
 
-interface Props {
-  placeholder?: string,
-  pattern?: RegExp,
-  /**
-   * Error to display if regex is not matched.
-   */
-  noMatchError?: string,
-  label?: string,
-  multiline?: boolean,
-  required?: boolean,
-  name: string,
-}
-
-export default function FormInput({ noMatchError, placeholder, pattern, label, multiline, required, name }: Props) {
+export default function FormInput({ noMatchError, placeholder, pattern, label, multiline, required, name }: FormInputItem) {
   const [text, setText] = useState('');
   const [error, setError] = useState(ErrorType.NONE);
 

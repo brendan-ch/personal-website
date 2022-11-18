@@ -47,7 +47,7 @@ interface PageQuery {
   /**
    * Prefix (folder name) of the page.
    */
-  prefix?: 'about' | 'blog' | 'work' | 'doc',
+  prefix?: 'blog' | 'work' | 'doc',
   /**
    * The file name of the page.
    */
@@ -144,6 +144,16 @@ interface TagObject {
   relatedTo: number[],
 }
 
+interface FormInputItem {
+  name: string,
+  label: string,
+  pattern?: RegExp,
+  required?: boolean,
+  placeholder: string,
+  noMatchError?: string,
+  multiline?: boolean,
+}
+
 export {
   PageQuery,
   ContactFormBody,
@@ -156,4 +166,5 @@ export {
   Response,
   TagObject,
   ImageSize,
+  FormInputItem,
 };
