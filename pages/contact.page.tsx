@@ -184,7 +184,7 @@ export default function ContactForm() {
   return (
     <main>
       <Head>
-        <title>Brendan Chen</title>
+        <title>Contact Me | Brendan Chen</title>
         {loadScripts ? (
           <>
             <script src="https://www.google.com/recaptcha/api.js" async></script>
