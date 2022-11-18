@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+My personal portfolio website, built using [Next.js](https://nextjs.org/).
 
-## Getting Started
+[Visit the live site](https://bchen.dev)
 
-First, run the development server:
+# Developing Locally
 
+To start the project locally:
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This command compiles Markdown content into an output file, and copies images to the `public/` folder before starting the dev server. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+This project uses automated testing with Jest. To run tests:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+yarn test  # to run tests in watch mode
+yarn test:ci  # for running all tests once
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Other useful commands:
+```bash
+yarn lint # check code formatting
+yarn typecheck # run tsc
+```
 
-## Learn More
+# Editing Site Content
 
-To learn more about Next.js, take a look at the following resources:
+All site content is generated from the `content` folder, which is an [Obsidian](https://obsidian.md) vault containing collections of Markdown files. To edit site content, simply open up a Markdown file and edit what's inside.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The folder structure is as follows:
+- `doc`: miscellaneous documents such as privacy policies, changelogs, and copyright information
+- `static`: all images go inside this folder
+- `templates`: contains Obsidian templates for creating new database items
+- `work`: contains projects that are displayed under the "My Work" page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Keep in mind that content changes will not be reflected when fast reload is running; you must restart the server for changes to take effect.
 
-## Deploy on Vercel
+# Building for Production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To create and run a production build:
+```bash
+yarn build  # create a new production build
+yarn start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[See more information on Next.js deployment.](https://nextjs.org/docs/deployment)

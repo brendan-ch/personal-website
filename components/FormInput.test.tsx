@@ -7,6 +7,7 @@ describe('FormInput', () => {
     render(<FormInput
       placeholder="Test Placeholder"
       name="Test"
+      label="Test"
     />);
 
     const input = screen.getByRole('textbox');
