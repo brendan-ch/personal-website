@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkUnwrapImages from 'remark-unwrap-images';
 
@@ -16,7 +17,7 @@ interface Props {
  * Container with styling for markdown content.
  * @param props
  */
-export default function MarkdownRenderer({ content, onImageClick, allImages }: Props) {
+const MarkdownRenderer = React.memo(function MarkdownRenderer({ content, onImageClick, allImages }: Props) {
   return (
     <article className={styles.container}>
       <ReactMarkdown
@@ -94,4 +95,6 @@ export default function MarkdownRenderer({ content, onImageClick, allImages }: P
       <div className={utils.spacer}></div>
     </article>
   ); 
-}
+});
+
+export default MarkdownRenderer;
