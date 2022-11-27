@@ -19,8 +19,6 @@ export function compare(a: any, b: any) {
 /**
  * Get a list of pages.
  * @param query
- * 
- * @todo implement filters
  */
 export default async function getPages(query: PageListQuery): Promise<PageListResponse> {
   const directories = ['blog', 'doc', 'work'];

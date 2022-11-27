@@ -12,13 +12,13 @@ export const EXCLUDED_TAGS = ['Featured'];
  * Maximum number of items that can appear at a time
  * when using client-side rendering.
  */
-export const GROUP_PAGE_SIZE = 8;
+export const GROUP_PAGE_SIZE = 16;
 
 /**
  * Maximum number of items that can be returned from a `getPages` call
  * (using the public API)
  */
-export const PAGINATION_LIMIT = 8;
+export const PAGINATION_LIMIT = 16;
 
 /**
  * Full path of the content directory.
