@@ -247,7 +247,7 @@ export default function Database({
         />
       ) : undefined}
       
-      {/* Content */}
+      {/* Server-side rendered */}
       {!dataChanged ? pageResponse.pageData.map((item: PageData, index: number) => {
         if (index % 2 == 0) {
           return (
