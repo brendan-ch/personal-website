@@ -56,10 +56,10 @@ export default function DatabaseItemContent({
     setLightboxCaption(caption);
   }, []);
 
-  function handleImageClose() {
+  const handleImageClose = useCallback(function handleImageClose() {
     setLightboxImageLink(undefined);
     setLightboxCaption(undefined);
-  }
+  }, []);
 
   const pageHeader: JSX.Element = (
     <div className={`${utils.itemWrapper} ${utils.headerContainer}`}>
