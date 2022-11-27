@@ -4,7 +4,7 @@ import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Lightbox from './Lightbox';
 import ExternalLink from './ExternalLink';
 import styles from '../styles/DatabaseItemContent.module.css';
@@ -51,10 +51,10 @@ export default function DatabaseItemContent({
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
 
-  function handleImageClick(link: string, caption: string) {
+  const handleImageClick = useCallback(function handleImageClick(link: string, caption: string) {
     setLightboxImageLink(link);
     setLightboxCaption(caption);
-  }
+  }, []);
 
   function handleImageClose() {
     setLightboxImageLink(undefined);
@@ -108,8 +108,14 @@ export default function DatabaseItemContent({
   );
 
   return (
-    <main>
-      <>
+    <>
+      <Lightbox
+        imageLink={lightboxImageLink}
+        visible={lightboxImageLink !== undefined}
+        caption={lightboxCaption}
+        onClose={handleImageClose}
+      />
+      <main>
         {pageHeader}
         {coverImage ? (
           <div className={utils.itemWrapper}>
@@ -137,13 +143,7 @@ export default function DatabaseItemContent({
             />
           </div>
         ) : undefined}
-      </>
-      <Lightbox
-        imageLink={lightboxImageLink}
-        visible={lightboxImageLink !== undefined}
-        caption={lightboxCaption}
-        onClose={handleImageClose}
-      />
-    </main>
+      </main>
+    </>
   );
 }
