@@ -1,13 +1,9 @@
 import Image from 'next/image';
-import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkUnwrapImages from 'remark-unwrap-images';
-// import remarkGfm from 'remark-gfm';
-import Prism from 'prismjs';
 
 import styles from '../styles/MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
-import { useRouter } from 'next/router';
 import { ImageSize } from '../types';
 
 interface Props {
@@ -21,33 +17,13 @@ interface Props {
  * @param props
  */
 export default function MarkdownRenderer({ content, onImageClick, allImages }: Props) {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      Prism.highlightAll();
-    }
-  }, [router.asPath]);
-
   return (
     <article className={styles.container}>
       <ReactMarkdown
         remarkPlugins={[remarkUnwrapImages]}
         unwrapDisallowed
         disallowedElements={['Image']}
-        // @ts-ignore
         components={{
-          // table: ({ children }) => {
-          //   return (
-          //     <div className={styles.textWrapperContainer}>
-          //       <div className={`${styles.tableWrapper}`}>
-          //         <table>
-          //           {children}
-          //         </table>
-          //       </div>
-          //     </div>
-          //   );
-          // },
           ul: ({ children }) => {
             return (
               <div className={styles.textWrapperContainer}>
