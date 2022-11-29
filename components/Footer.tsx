@@ -5,25 +5,27 @@ import ChevronUp from './icons-v2/ChevronUp';
 
 interface Props {
   style?: CSSProperties,
-  mini?: boolean,
+  hideScroll?: boolean,
 }
 
-export default function Footer({ style, mini }: Props) {
+export default function Footer({ style, hideScroll }: Props) {
   return (
     <footer className={styles.container} style={style}>
-      <div className={styles.horizontalWrapper}>
-        <Link href="#top">
-          <a>
-            <p>
-              Back to top
-            </p>
-          </a>
-        </Link>
-        <ChevronUp
-          width={24}
-          height={24}
-        />
-      </div>
+      {!hideScroll ? (
+        <div className={styles.horizontalWrapper}>
+          <Link href="#top">
+            <a>
+              <p>
+                Back to top
+              </p>
+            </a>
+          </Link>
+          <ChevronUp
+            width={24}
+            height={24}
+          />
+        </div>
+      ) : undefined}
       <div className={styles.horizontalWrapper}>
         <Link href="/doc/privacy">
           <a>

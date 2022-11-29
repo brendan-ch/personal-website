@@ -92,10 +92,10 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
           />
         </div>
         <Footer
+          hideScroll
           style={{
             backgroundColor: 'transparent',
           }}
-          mini
         />
       </div>
     </div>
