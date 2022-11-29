@@ -38,7 +38,11 @@ export default function GalleryItem({ imageLink, title, description, hoverConten
         </div>
       ) : undefined}
       <div className={styles.details}>
-        <p>{title}</p>
+        <p>
+          <b>
+            {title}
+          </b>
+        </p>
         {description ? (
           <p className={styles.description}>{description}</p>
         ) : undefined}
