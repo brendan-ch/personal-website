@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from '../styles/TagBar.module.css';
 import { TagObject } from "../types";
 import Tag from "./Tag";
@@ -15,7 +16,7 @@ interface Props {
   onClear?: () => any,
 }
 
-export default function TagBar({ tags, selected, onSelect, onClear }: Props) {
+const TagBar = React.memo(function TagBar({ tags, selected, onSelect, onClear }: Props) {
   let availableTags = tags.slice();
 
   selected.forEach((index) => {
@@ -57,4 +58,7 @@ export default function TagBar({ tags, selected, onSelect, onClear }: Props) {
       })}
     </div>
   );
-}
+});
+
+
+export default TagBar;
