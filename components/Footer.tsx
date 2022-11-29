@@ -10,8 +10,7 @@ interface Props {
 export default function Footer({ style, mini }: Props) {
   return (
     <footer className={styles.container} style={style}>
-      
-      <div className={styles.linksWrapper}>
+      <div className={styles.horizontalWrapper}>
         <Link href="/doc/privacy">
           <a>
             <p>
