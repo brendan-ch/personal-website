@@ -1,19 +1,32 @@
 import Link from 'next/link';
 import { CSSProperties } from 'react';
-import { GITHUB_LINK, LINKEDIN_LINK } from '../helpers/Constants';
 import styles from '../styles/Footer.module.css';
-import ExternalLink from './ExternalLink';
-import LogoFull from './icons/LogoFull';
+import ChevronUp from './icons-v2/ChevronUp';
 
 interface Props {
   style?: CSSProperties,
-  mini?: boolean,
+  hideScroll?: boolean,
 }
 
-export default function Footer({ style, mini }: Props) {
+export default function Footer({ style, hideScroll }: Props) {
   return (
     <footer className={styles.container} style={style}>
-      <div className={styles.linksWrapper}>
+      {!hideScroll ? (
+        <div className={styles.horizontalWrapper}>
+          <Link href="#top">
+            <a>
+              <p>
+                Back to top
+              </p>
+            </a>
+          </Link>
+          <ChevronUp
+            width={24}
+            height={24}
+          />
+        </div>
+      ) : undefined}
+      <div className={styles.horizontalWrapper}>
         <Link href="/doc/privacy">
           <a>
             <p>

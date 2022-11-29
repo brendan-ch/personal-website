@@ -20,6 +20,7 @@ export default function CustomLayout({ children }: Props) {
 
   return (
     <div className={utils.rootContainer}>
+      <span id="top"></span>
       <MobileNavBar
         // selected={selected}
         onMobileButtonClick={() => setMenuVisible(true)}
