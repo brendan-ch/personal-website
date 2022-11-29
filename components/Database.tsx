@@ -203,11 +203,11 @@ export default function Database({
   /**
    * Handle setting the count state.
    */
-  function handleSetCount() {
+  const handleSetCount = useCallback(() => {
     if (!maxReached) {
       setCount(count + 1);
     }
-  }
+  }, [count, maxReached]);
 
   /**
    * Handle selection of a tag.
