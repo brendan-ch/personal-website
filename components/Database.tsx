@@ -144,10 +144,11 @@ export default function Database({
 }: Props) {
   const [loading, setLoading] = useState(false);
   
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [max, setMax] = useState(pageResponse.totalCount);
 
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
+  // Change whether to show data fetched client-side, or data pre-rendered from server
   const [dataChanged, setDataChanged] = useState(false);
 
   function handleLoadStart() {
@@ -213,18 +214,22 @@ export default function Database({
    * @param index
    */
   function handleSelectTag(index: number) {
-    if (!dataChanged) {
-      setCount(count + 1);
-    }
+    // if (!dataChanged) {
+    //   setCount(count + 1);
+    // }
 
-    setDataChanged(true);
-
+    
     if (selectedTags.includes(index)) {
       // Remove
       const newArr = selectedTags.filter((value) => value !== index);
       setSelectedTags(newArr);
+
+      if (newArr.length === 0) {
+        setDataChanged(false);
+      }
     } else {
       // Add
+      setDataChanged(true);
       setSelectedTags([...selectedTags, index]);
     }
   }
@@ -278,7 +283,9 @@ export default function Database({
           return <React.Fragment key={index}></React.Fragment>;
         }
       }) : undefined}
-      {groups}
+      {dataChanged ? (
+        groups
+      ) : undefined}
       {/* Add load button here */}
       {!maxReached ? (
         <PageButton
