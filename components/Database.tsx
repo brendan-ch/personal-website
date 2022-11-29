@@ -3,7 +3,7 @@ import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 import TagBar from './TagBar';
@@ -213,12 +213,7 @@ export default function Database({
    * Handle selection of a tag.
    * @param index
    */
-  function handleSelectTag(index: number) {
-    // if (!dataChanged) {
-    //   setCount(count + 1);
-    // }
-
-    
+  const handleSelectTag = useCallback((index: number) => {
     if (selectedTags.includes(index)) {
       // Remove
       const newArr = selectedTags.filter((value) => value !== index);
@@ -232,14 +227,14 @@ export default function Database({
       setDataChanged(true);
       setSelectedTags([...selectedTags, index]);
     }
-  }
+  }, [selectedTags]);
 
   /**
    * Clear all tags from selection.
    */
-  function handleClearTags() {
+  const handleClearTags = useCallback(() => {
     setSelectedTags([]);
-  }
+  }, []);
 
   return (
     <div className={styles.container}>
