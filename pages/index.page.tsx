@@ -11,6 +11,7 @@ import AboutImage from '../public/about.jpeg';
 import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
 import Link from 'next/link';
 import ChevronRight from '../components/icons-v2/ChevronRight';
+import PageButton from '../components/PageButton';
 
 /**
  * Home page.
@@ -96,26 +97,22 @@ const Home = () => {
             <li>Understanding and working with team and user needs</li>
           </ul>
         </div>
-        <div className={`${styles.sectionDivider}`}>
-          <p>
-            <b>
-              Interested in working together?
-            </b>
-          </p>
-          <p>
-            I’m fairly busy with college, but would love to hear from you! Shoot me a message and I’ll get back to you when I can.
-          </p>
-          <Link href="/contact">
-            <a className={styles.databaseEndLink}>
-              <p>
-                Contact Me
-              </p>
-              <ChevronRight
-                width={20}
-                height={20}
-              />
-            </a>
-          </Link>
+        <div className={`${styles.contactCtaDivider}`}>
+          <div className={styles.sectionDivider}>
+            <p>
+              <b>
+                Interested in working together?
+              </b>
+            </p>
+            <p>
+              I’m fairly busy with college, but would love to hear from you! Shoot me a message and I’ll get back to you when I can.
+            </p>
+          </div>
+          <PageButton
+            text="Send me a message"
+            highlighted
+            href="/contact"
+          />
         </div>
       </div>
     </main>
