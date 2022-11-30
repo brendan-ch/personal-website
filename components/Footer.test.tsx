@@ -3,10 +3,10 @@ import Footer from './Footer';
 import '@testing-library/jest-dom';
 
 describe('Footer', () => {
-  it('renders copyright text', () => {
+  it('renders required text', () => {
     const { getByText } = render(<Footer />);
 
-    const copyrightText = '© 2022 Brendan Chen. All rights reserved.';
+    const copyrightText = 'Made by Brendan Chen with ❤️ and ☕️';
     const p = getByText(copyrightText);
     expect(p).toBeInTheDocument();
   });
