@@ -43,7 +43,7 @@ export default function Footer({ style, hideScroll }: Props) {
           </a>
         </Link>
       </div>
-      <p>© 2022 Brendan Chen. All rights reserved.</p>
+      <p>Made by Brendan Chen with ❤️ and ☕️</p>
     </footer>
   );
 }
