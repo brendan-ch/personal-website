@@ -1,14 +1,8 @@
-import { useState } from 'react';
-
 import utils from '../styles/utils.module.css';
-import { PAGINATION_LIMIT, REVALIDATE } from '../helpers/Constants';
 import { PageListResponse, TagObject } from '../types';
 import Head from 'next/head';
-import MobileNavBar from '../components/MobileNavBar';
-import MobileNavMenu from '../components/MobileNavMenu';
 import PageHeader from '../components/PageHeader';
 import Database from '../components/Database';
-import Footer from '../components/Footer';
 import getPages from '../helpers/getPages';
 import getTags from '../helpers/getTags';
 
@@ -16,7 +10,6 @@ import getTags from '../helpers/getTags';
 export async function getStaticProps() {
   const response = await getPages({
     prefix: 'work',
-    pageSize: PAGINATION_LIMIT,
     sort: [
       {
         property: 'order',

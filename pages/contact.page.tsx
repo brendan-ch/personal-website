@@ -189,6 +189,17 @@ export default function ContactForm() {
       </div>
       <div className={utils.innerItemWrapper}>
         <form className={styles.form} onSubmit={handleSubmit}>
+          <noscript>
+            {/* Alternative call-to-action */}
+            <p>
+              Have JavaScript turned off? Shoot me an email instead at{' '}
+              <a href="mailto:me@bchen.dev">
+                <u>
+                  me@bchen.dev
+                </u>
+              </a>.
+            </p>
+          </noscript>
           {/* Construct form according to type definition */}
           {formInputItems.map((item, index) => (
             <FormInput

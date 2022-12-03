@@ -17,7 +17,11 @@
   color: var(--gray3)
 }
 
-.linksWrapper {
+.container path {
+  fill: var(--gray3);
+}
+
+.horizontalWrapper {
   display: flex;
   flex-direction: row;
   gap: 8px;

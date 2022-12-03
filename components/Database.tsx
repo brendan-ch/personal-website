@@ -3,7 +3,7 @@ import styles from '../styles/Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PageButton from './PageButton';
 import { GROUP_PAGE_SIZE } from '../helpers/Constants';
 import TagBar from './TagBar';
@@ -144,10 +144,11 @@ export default function Database({
 }: Props) {
   const [loading, setLoading] = useState(false);
   
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [max, setMax] = useState(pageResponse.totalCount);
 
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
+  // Change whether to show data fetched client-side, or data pre-rendered from server
   const [dataChanged, setDataChanged] = useState(false);
 
   function handleLoadStart() {
@@ -202,39 +203,38 @@ export default function Database({
   /**
    * Handle setting the count state.
    */
-  function handleSetCount() {
+  const handleSetCount = useCallback(() => {
     if (!maxReached) {
       setCount(count + 1);
     }
-  }
+  }, [count, maxReached]);
 
   /**
    * Handle selection of a tag.
    * @param index
    */
-  function handleSelectTag(index: number) {
-    if (!dataChanged) {
-      setCount(count + 1);
-    }
-
-    setDataChanged(true);
-
+  const handleSelectTag = useCallback((index: number) => {
     if (selectedTags.includes(index)) {
       // Remove
       const newArr = selectedTags.filter((value) => value !== index);
       setSelectedTags(newArr);
+
+      if (newArr.length === 0) {
+        setDataChanged(false);
+      }
     } else {
       // Add
+      setDataChanged(true);
       setSelectedTags([...selectedTags, index]);
     }
-  }
+  }, [selectedTags]);
 
   /**
    * Clear all tags from selection.
    */
-  function handleClearTags() {
+  const handleClearTags = useCallback(() => {
     setSelectedTags([]);
-  }
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -247,7 +247,7 @@ export default function Database({
         />
       ) : undefined}
       
-      {/* Content */}
+      {/* Server-side rendered */}
       {!dataChanged ? pageResponse.pageData.map((item: PageData, index: number) => {
         if (index % 2 == 0) {
           return (
@@ -278,7 +278,9 @@ export default function Database({
           return <React.Fragment key={index}></React.Fragment>;
         }
       }) : undefined}
-      {groups}
+      {dataChanged ? (
+        groups
+      ) : undefined}
       {/* Add load button here */}
       {!maxReached ? (
         <PageButton

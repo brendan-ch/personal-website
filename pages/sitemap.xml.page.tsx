@@ -19,7 +19,6 @@ export async function getServerSideProps({ req, res }: { req: NextApiRequest, re
   // List high-level pages here
   const highPriority = [
     '',
-    '/about',
     '/work',
   ];
 

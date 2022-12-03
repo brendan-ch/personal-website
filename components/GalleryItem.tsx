@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import styles from '../styles/GalleryItem.module.css';
 
 interface Props {
@@ -18,7 +19,7 @@ interface Props {
   height?: number | string,
 }
 
-export default function GalleryItem({ imageLink, title, description, hoverContent, link, width, height }: Props) {
+const GalleryItem = React.memo(function GalleryItem({ imageLink, title, description, hoverContent, link, width, height }: Props) {
   const children = (
     <>
       {imageLink ? (
@@ -38,7 +39,11 @@ export default function GalleryItem({ imageLink, title, description, hoverConten
         </div>
       ) : undefined}
       <div className={styles.details}>
-        <p>{title}</p>
+        <p>
+          <b>
+            {title}
+          </b>
+        </p>
         {description ? (
           <p className={styles.description}>{description}</p>
         ) : undefined}
@@ -61,4 +66,6 @@ export default function GalleryItem({ imageLink, title, description, hoverConten
       </div>
     );
   }
-}
+});
+
+export default GalleryItem;

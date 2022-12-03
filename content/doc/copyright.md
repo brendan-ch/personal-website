@@ -38,13 +38,6 @@ Copyright (c) 2022 Vercel, Inc.
 
 [Link to license](https://github.com/vercel/next.js/blob/canary/license.md)
 
-## prismjs
-MIT License
-
-Copyright (c) 2012 Lea Verou
-
-[Link to license](https://github.com/PrismJS/prism/blob/master/LICENSE)
-
 ## react
 MIT License
 
@@ -58,6 +51,25 @@ MIT License
 Copyright (c) 2015 Espen Hovlandsdal
 
 [Link to license](https://github.com/remarkjs/react-markdown/blob/main/license)
+
+## remark-gfm
+MIT License
+
+Copyright (c) 2020 Titus Wormer <tituswormer@gmail.com>
+
+[Link to license](https://github.com/remarkjs/remark-gfm/blob/main/license)
+
+## remark-unwrap-images
+MIT License
+
+Copyright (c) 2017 Compositor and Vercel, Inc.
+
+[Link to license](https://github.com/remarkjs/remark-unwrap-images/blob/main/license)
+
+## sharp
+Apache License 2.0
+
+[Link to license](https://github.com/lovell/sharp/blob/main/LICENSE)
 
 ## swr
 MIT License
