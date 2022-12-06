@@ -152,3 +152,9 @@ code {
   font-family: space-mono, monospace;
   font-weight: 400;
 }
+
+@media only screen and (max-width: 720px) {
+  .collapseOnMobile {
+    flex-direction: column !important;
+  }
+}
