@@ -17,4 +17,10 @@ wideImages: true
 
 ![Vector art, displayed in three different color sets.](/static/work/abstract-color-art/Chen_Brendan_Color_2.png)
 
-*This project was created using Adobe Illustrator. Typeface used is Neue Haas Grotesk Display.*
+<div style="width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px">
+  <img src="/static/work/abstract-color-art/Chen_Brendan_Color_Showcase_1.png">
+  <img src="/static/work/abstract-color-art/Chen_Brendan_Color_Showcase_2.png">
+  <img src="/static/work/abstract-color-art/Chen_Brendan_Color_Showcase_3.png">
+</div>
+
+*This project was created using Adobe Illustrator. The typeface used is Neue Haas Grotesk Display.*
