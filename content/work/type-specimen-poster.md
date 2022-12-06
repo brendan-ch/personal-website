@@ -17,11 +17,11 @@ wideImages: true
 
 ![Type specimen poster.](/static/work/type-specimen/Chen_Brendan_TypeSpecimen.png)
 
-<div style="width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px">
+<div class="collapseOnMobile" style="width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px">
   <img src="/static/work/type-specimen/showcase-1.png">
   <img src="/static/work/type-specimen/showcase-2.png">
 </div>
-<div style="width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px">
+<div class="collapseOnMobile" style="width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px">
   <img src="/static/work/type-specimen/showcase-4.png">
   <img src="/static/work/type-specimen/showcase-3.png">
 </div>
