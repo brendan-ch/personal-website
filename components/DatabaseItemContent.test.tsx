@@ -37,6 +37,7 @@ describe('DatabaseItemContent', () => {
       links={null}
       date={null}
       allImages={[]}
+      wideImages={false}
     />);
 
     expect(screen.getByRole('img')).toBeInTheDocument();

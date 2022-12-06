@@ -16,6 +16,7 @@ const mockData: PageData[] = [
     prefix: 'work',
     allImages: [],
     logo: null,
+    wideImages: false,
   },
   {
     title: 'Title',
@@ -31,6 +32,7 @@ const mockData: PageData[] = [
     prefix: 'work',
     allImages: [],
     logo: null,
+    wideImages: false,
   },
   {
     logo: null,
@@ -46,6 +48,7 @@ const mockData: PageData[] = [
     date: null,
     prefix: 'work',
     allImages: [],
+    wideImages: false,
   },
 ];
 

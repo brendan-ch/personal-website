@@ -57,6 +57,7 @@ async function getData() {
         imageAspectRatio: null,
         tags: null,
         allImages: imageSizes,
+        wideImages: false, // false by default
         ...matterResult.data,
         coverImage: coverImageDimensions,
       }

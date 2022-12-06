@@ -12,6 +12,7 @@ tags:
 order: 16
 
 date: "January 6, 2022"
+wideImages: true
 ---
 
 ![Vector art, displayed in three different color sets.](/static/work/abstract-color-art/Chen_Brendan_Color_2.png)

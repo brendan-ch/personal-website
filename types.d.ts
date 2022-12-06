@@ -30,6 +30,9 @@ interface PageData {
   description: string | null,
   previewImage: string | null,
   
+  /**
+   * @deprecated Will eventually be removed, use `wideImages` property instead.
+   */
   coverImage: ImageSize | null,
   tags: string[] | null,
   prefix: string,
@@ -41,6 +44,7 @@ interface PageData {
   allImages: ImageSize[],
 
   order?: number,
+  wideImages: boolean,
 }
 
 interface PageQuery {
