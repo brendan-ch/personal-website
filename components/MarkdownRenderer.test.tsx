@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 
 jest.mock('remark-unwrap-images', () => {});
 jest.mock('unist-util-visit', () => {});
+jest.mock('hast-util-raw', () => {});
+jest.mock('rehype-raw', () => {});
 
 import MarkdownRenderer from './MarkdownRenderer';
 
