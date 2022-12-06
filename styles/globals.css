@@ -156,5 +156,7 @@ code {
 @media only screen and (max-width: 720px) {
   .collapseOnMobile {
     flex-direction: column !important;
+    /* Reset the gap */
+    gap: 0px !important;
   }
 }
