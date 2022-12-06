@@ -41,6 +41,7 @@ interface PageData {
   allImages: ImageSize[],
 
   order?: number,
+  wideImages: boolean,
 }
 
 interface PageQuery {
