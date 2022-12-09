@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import FormInput from './FormInput';
 import '@testing-library/jest-dom';
 
@@ -55,5 +55,39 @@ describe('FormInput', () => {
     expect(inputs[2].tagName === inputs[3].tagName).toBe(false);
     expect(inputs[1].tagName === inputs[2].tagName).toBe(false);
     expect(inputs[0].tagName === inputs[3].tagName).toBe(false);
+  });
+
+  it('Renders text input correctly', () => {
+    render(<div>
+      <FormInput
+        placeholder="Input #1"
+        name="Input #1"
+        label="Input #1"
+      />
+      <FormInput
+        placeholder="Input #2"
+        name="Input #2"
+        label="Input #2"
+        multiline
+      />
+    </div>);
+
+    const inputs = screen.getAllByRole('textbox');
+    fireEvent.change(inputs[0], {
+      target: {
+        value: 'some input'
+      },
+    });
+    fireEvent.change(inputs[1], {
+      target: {
+        value: 'some other input\n\nsome more input'
+      },
+    });
+
+    expect(inputs[0].getAttribute('value')).toStrictEqual('some input');
+
+    // Ideally FormInput would use textarea for multiline inputs
+    // if this changes, rewrite this portion
+    expect(inputs[1].innerHTML).toStrictEqual('some other input\n\nsome more input');
   });
 });
