@@ -13,8 +13,8 @@ describe('FormInput', () => {
     const input = screen.getByRole('textbox');
     expect(input).toBeInTheDocument();
   });
-
-  it('Test the required prop', () => {
+  
+  it('Test the required and multiline props', () => {
     render(<div>
       <FormInput
         placeholder="Input #1"
@@ -48,5 +48,12 @@ describe('FormInput', () => {
     expect(inputs[1].getAttribute('required') === null).toBe(false);
     expect(inputs[2].getAttribute('required') === null).toBe(true);
     expect(inputs[3].getAttribute('required') === null).toBe(true);
+
+    expect(inputs[0].tagName === inputs[2].tagName).toBe(true);
+    expect(inputs[1].tagName === inputs[3].tagName).toBe(true);
+    expect(inputs[0].tagName === inputs[1].tagName).toBe(false);
+    expect(inputs[2].tagName === inputs[3].tagName).toBe(false);
+    expect(inputs[1].tagName === inputs[2].tagName).toBe(false);
+    expect(inputs[0].tagName === inputs[3].tagName).toBe(false);
   });
 });
