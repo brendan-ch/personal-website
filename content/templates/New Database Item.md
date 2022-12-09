@@ -19,5 +19,5 @@ links:
 
 date: September 20, 2022
 
-wideContent: false
+wideImages: false
 ---
