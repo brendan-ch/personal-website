@@ -1,6 +1,5 @@
 import PageHeader from './PageHeader';
 import utils from '../styles/utils.module.css';
-import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
@@ -37,8 +36,6 @@ interface Props extends PageData {
 
 export default function DatabaseItemContent({
   title,
-  logo,
-  description,
   content,
   coverImage,
   backButtonText,
@@ -47,6 +44,7 @@ export default function DatabaseItemContent({
   tags,
   date,
   allImages,
+  wideImages,
 }: Props) {
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
@@ -135,7 +133,7 @@ export default function DatabaseItemContent({
           </div>
         ) : undefined}
         {content ? (
-          <div className={`${utils.innerItemWrapper}`}>
+          <div className={wideImages ? utils.itemWrapper : utils.innerItemWrapper}>
             <MarkdownRenderer
               content={content}
               onImageClick={handleImageClick}

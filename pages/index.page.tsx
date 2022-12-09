@@ -1,11 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import MobileNavBar from '../components/MobileNavBar';
-import utils from '../styles/utils.module.css';
 import Head from 'next/head';
-import Footer from '../components/Footer';
-import MobileNavMenu from '../components/MobileNavMenu';
-import { useState } from 'react';
 
 import AboutImage from '../public/about.jpeg';
 import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
@@ -70,6 +65,7 @@ const Home = () => {
           <ul>
             <li>Designed and developed <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
             <li>Created <Link href="/work/standard-catalog"><a><u>Standard Catalog</u></a></Link>, a redesign of the college registration experience</li>
+            <li>Designed the official <Link href="/work/planner-cover"><a><u>planner cover</u></a></Link> for my high school</li>
           </ul>
           <Link href="/work">
             <a className={styles.databaseEndLink}>

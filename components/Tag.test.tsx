@@ -26,4 +26,31 @@ describe('Tag', () => {
 
     expect(fn).toHaveBeenCalledTimes(1);
   });
+
+  it('Renders different styles based on passed state', () => {
+    render(
+      <div>
+        <Tag
+          text="Text"
+          state="selected"
+          onClick={() => {}}
+        />
+        <Tag
+          text="Text"
+          state="deselected"
+          onClick={() => {}}
+        />
+        <Tag
+          text="Text"
+          state="disabled"
+          onClick={() => {}}
+        />
+      </div>
+    );
+
+    const allTags = screen.getAllByRole('button');
+    expect(allTags[0].className !== allTags[1].className).toBe(true);
+    expect(allTags[1].className !== allTags[2].className).toBe(true);
+    expect(allTags[0].className !== allTags[2].className).toBe(true);
+  });
 });

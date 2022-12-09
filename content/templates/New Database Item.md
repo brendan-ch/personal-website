@@ -5,10 +5,6 @@ description: "A minimalist typing test built using Java Swing."
 
 # Relative path inside "public" folder
 previewImage: ""
-coverImage: ""
-
-# Supported options: wide, vertical, horizontal
-type: vertical
 
 tags:
 - Featured
@@ -16,12 +12,12 @@ tags:
 - App Development
 
 order: 0
-imageAspectRatio: "3 / 2"
-coverImageAspectRatio: "3 / 2"
 
 links:
 - name: Example Link
   url: https://google.com
 
 date: September 20, 2022
+
+wideImages: false
 ---

@@ -12,9 +12,10 @@ tags:
 order: 5
 
 date: "June 2022 - July 2022"
+wideImages: true
 ---
 
-A collection of pattern designs inspired by everyday objects. This is a project I’ve been working on during the summer just for fun.
+A collection of pattern designs inspired by everyday objects. This is a project I worked on during the summer just for fun.
 
 *All patterns were made in Figma. The second pattern also contains a brush layer made in Photoshop.*
 
