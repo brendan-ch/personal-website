@@ -49,6 +49,7 @@ export default function FormInput({ noMatchError, placeholder, pattern, label, m
           value={text}
           onBlur={validateString}
           onChange={(e) => setText(e.target.value)}
+          required={required}
         >
           
         </textarea>
