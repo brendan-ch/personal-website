@@ -1,11 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import MobileNavBar from '../components/MobileNavBar';
-import utils from '../styles/utils.module.css';
 import Head from 'next/head';
-import Footer from '../components/Footer';
-import MobileNavMenu from '../components/MobileNavMenu';
-import { useState } from 'react';
 
 import AboutImage from '../public/about.jpeg';
 import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';

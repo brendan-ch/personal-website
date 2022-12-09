@@ -1,6 +1,5 @@
 import PageHeader from './PageHeader';
 import utils from '../styles/utils.module.css';
-import Footer from './Footer';
 import ImageWithFadeIn from './ImageWithFadeIn';
 import { PageData } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
