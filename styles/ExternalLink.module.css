@@ -6,6 +6,6 @@
   align-items: center;
 }
 
-.container p {
+.container button > p, .container a > p {
   color: var(--cyan);
 }
