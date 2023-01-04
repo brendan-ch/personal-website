@@ -4,8 +4,9 @@ import AppStore from './logos/AppStore';
 import Figma from './logos/Figma';
 import GitHub from './logos/GitHub';
 import GooglePlay from './logos/GooglePlay';
-import { PageExternalLink } from '../types';
 import LinkedIn from './logos/LinkedIn';
+import Twitter from './logos/Twitter';
+import { PageExternalLink } from '../types';
 
 const ICON_WIDTH = 20;
 const ICON_HEIGHT = 20;
@@ -60,6 +61,15 @@ export default function ExternalLink({ name, url }: PageExternalLink) {
         />
         ),
         regex: /.+linkedin\.com.+/gm,
+    },
+    {
+      icon: (
+        <Twitter
+          width={ICON_WIDTH}
+          height={ICON_HEIGHT}
+        />
+        ),
+        regex: /.+twitter\.com.+/gm,
     },
   ];
   
