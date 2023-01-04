@@ -12,6 +12,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 const ICON_WIDTH = 20;
 const ICON_HEIGHT = 20;
+const COPY_TIMEOUT = 1000;
 
 interface Props extends PageExternalLink {
   action?: 'open' | 'copy',
@@ -111,7 +112,7 @@ export default function ExternalLink({ name, url, action }: Props) {
     }
     
     if (copied) {
-      const id = setTimeout(handleSetCopyToFalse, 1000);
+      const id = setTimeout(handleSetCopyToFalse, COPY_TIMEOUT);
       return () => clearTimeout(id);
     }
 
@@ -133,7 +134,7 @@ export default function ExternalLink({ name, url, action }: Props) {
   if (copied) {
     childContent = (
       <p>
-        Copied to clipboard!
+        Link copied to clipboard!
       </p>
     );
   } else if (action === 'copy') {
