@@ -65,6 +65,7 @@ export default function WorkPage(pageData: PageData) {
         {...pageData}
         backButtonText="My Work"
         backButtonHref="/work"
+        shareCTA
       />
     </main>
   );

@@ -94,7 +94,6 @@ const MarkdownRenderer = React.memo(function MarkdownRenderer({ content, onImage
       >
         {content}
       </ReactMarkdown>
-      <div className={utils.spacer}></div>
     </article>
   ); 
 });

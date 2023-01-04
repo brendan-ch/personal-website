@@ -1,12 +1,13 @@
 import PageHeader from './PageHeader';
 import utils from '../styles/utils.module.css';
 import ImageWithFadeIn from './ImageWithFadeIn';
-import { PageData } from '../types';
+import { PageData, PageExternalLink } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
 import React, { useCallback, useState } from 'react';
 import Lightbox from './Lightbox';
 import ExternalLink from './ExternalLink';
 import styles from '../styles/DatabaseItemContent.module.css';
+import ShareCTA from './ShareCTA';
 
 interface CalloutInformationProps {
   title: string,
@@ -32,6 +33,7 @@ export function CalloutInformation(props: CalloutInformationProps) {
 interface Props extends PageData {
   backButtonText?: string,
   backButtonHref?: string,
+  shareCTA?: boolean,
 }
 
 export default function DatabaseItemContent({
@@ -45,9 +47,26 @@ export default function DatabaseItemContent({
   date,
   allImages,
   wideImages,
+  shareCTA,
+  prefix,
+  id,
 }: Props) {
   const [lightboxImageLink, setLightboxImageLink] = useState<string>();
   const [lightboxCaption, setLightboxCaption] = useState<string>();
+
+  // Store CTA links here
+  // Get current page URL
+  const currentPath = ['https://bchen.dev', prefix, id].join('/');
+  const sharingLinks: PageExternalLink[] = [
+    {
+      name: 'LinkedIn',
+      url: `https://linkedin.com/share/share-offsite?url=${encodeURIComponent(currentPath)}&title=${encodeURIComponent(title || '')}`
+    },
+    {
+      name: 'Twitter',
+      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPath)}`
+    },
+  ];
 
   const handleImageClick = useCallback(function handleImageClick(link: string, caption: string) {
     setLightboxImageLink(link);
@@ -138,6 +157,14 @@ export default function DatabaseItemContent({
               content={content}
               onImageClick={handleImageClick}
               allImages={allImages}
+            />
+          </div>
+        ) : undefined}
+        {shareCTA ? (
+          <div className={wideImages ? utils.itemWrapper : utils.innerItemWrapper}>
+            <ShareCTA
+              links={sharingLinks}
+              copyLink={currentPath}
             />
           </div>
         ) : undefined}
