@@ -164,6 +164,7 @@ export default function DatabaseItemContent({
           <div className={wideImages ? utils.itemWrapper : utils.innerItemWrapper}>
             <ShareCTA
               links={sharingLinks}
+              copyLink={currentPath}
             />
           </div>
         ) : undefined}
