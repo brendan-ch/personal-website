@@ -8,12 +8,16 @@ interface Props {
 }
 
 /**
- * 
+ * Database item metadata + OpenGraph shenanigans
  */
 export default function DatabaseItemHead({ title, description, previewImageLink, noRobots }: Props) {
   return (
     <Head>
       <title>{title} | Brendan Chen</title>
+
+      {title ? (
+        <meta name="og:title" content={title}></meta>
+      ) : undefined}
 
       {previewImageLink ? (
         <>
