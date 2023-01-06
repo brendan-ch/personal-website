@@ -43,7 +43,7 @@ const Home = () => {
             src={AboutImage}
             alt="Capybara in bath"
           />
-          <p>Hi there! I’m Brendan, a designer, developer, and college student living in Orange, California. I’m currently studying computer science at Chapman University, and am working towards a career in software development or UX design. Some of my hobbies are reading, photography, traveling, and brewing coffee.</p>
+          <p>I{'\''}m Brendan, a designer, developer, and college student living in Orange, California. I{'\''}m currently studying computer science at Chapman University, and am working towards a career in software engineering. In my free time, I enjoy reading, photography, traveling, and brewing coffee.</p>
         </div>
         <div className={styles.sectionDivider}>
           <p>
@@ -53,7 +53,7 @@ const Home = () => {
           </p>
           <ul>
             <li>Pursuing a bachelor’s degree in software engineering at Chapman University</li>
-            <li>UX design, software engineering and project management at <a href="https://techieswithoutborders.us" target="_blank" rel="noreferrer"><u>Techies Without Borders</u></a>, a non-profit organization dedicated to helping underserved countries</li>
+            <li>UI design, software engineering and project management at <a href="https://techieswithoutborders.us" target="_blank" rel="noreferrer"><u>Techies Without Borders</u></a>, a non-profit organization dedicated to helping underserved countries</li>
           </ul>
         </div>
         <div className={styles.sectionDivider}>
@@ -70,7 +70,7 @@ const Home = () => {
           <Link href="/work">
             <a className={styles.databaseEndLink}>
               <p>
-                And much, much more
+                See more
               </p>
               <ChevronRight
                 width={20}
@@ -90,7 +90,6 @@ const Home = () => {
             <li>Application development using React Native and Capacitor</li>
             <li>Project management and documentation using Notion</li>
             <li>High-fidelity prototyping and wireframing using Figma</li>
-            <li>Understanding and working with team and user needs</li>
           </ul>
         </div>
         <div className={`${styles.contactCtaDivider}`}>
