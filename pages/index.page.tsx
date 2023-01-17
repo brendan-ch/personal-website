@@ -52,7 +52,7 @@ const Home = () => {
             </b>
           </p>
           <ul>
-            <li>Pursuing a bachelor’s degree in software engineering at Chapman University</li>
+            <li>Pursuing a bachelor’s degree in computer science at Chapman University</li>
             <li>UI design, software engineering and project management at <a href="https://techieswithoutborders.us" target="_blank" rel="noreferrer"><u>Techies Without Borders</u></a>, a non-profit organization dedicated to helping underserved countries</li>
           </ul>
         </div>
