@@ -15,6 +15,7 @@
     "test:coverage": "yarn generate && jest --ci --coverage"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.8",
     "axios": "^0.27.2",
     "gray-matter": "^4.0.3",
     "image-size": "^1.0.2",
