@@ -1,14 +1,11 @@
 ---
-title: "Copyright"
+title: "Open Source Licenses"
 description: "Information for copyright and open source licenses."
 
 # Relative paths within "attachments" folder
 # previewImage: ""
 # coverImage: ""
 ---
-
-Brendan Chen reserves all copyright for site content. Open source licenses are listed below.
-
 
 # [gray-matter](https://github.com/jonschlinkert/gray-matter/)
 ```
