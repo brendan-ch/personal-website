@@ -18,12 +18,12 @@ export default function Footer({ style, hideScroll }: Props) {
               <p>
                 Back to top
               </p>
+              <ChevronUp
+                width={24}
+                height={24}
+              />
             </a>
           </Link>
-          <ChevronUp
-            width={24}
-            height={24}
-          />
         </div>
       ) : undefined}
       <div className={styles.horizontalWrapper}>
@@ -34,11 +34,19 @@ export default function Footer({ style, hideScroll }: Props) {
             </p>
           </a>
         </Link>
-        <p>|</p>
-        <Link href="/doc/copyright">
+        {/* <p>|</p> */}
+        <Link href="/doc/open-source-licenses">
           <a>
             <p>
-              <u>Licenses</u>
+              <u>Open Source Licenses</u>
+            </p>
+          </a>
+        </Link>
+        {/* <p>|</p> */}
+        <Link href="/doc/fair-use-statement">
+          <a>
+            <p>
+              <u>Fair Use Statement</u>
             </p>
           </a>
         </Link>

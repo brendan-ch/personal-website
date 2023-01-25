@@ -26,8 +26,12 @@ describe('Footer', () => {
         name: 'Privacy Policy',
       },
       {
-        href: '/doc/copyright',
-        name: 'Licenses',
+        href: '/doc/open-source-licenses',
+        name: 'Open Source Licenses',
+      },
+      {
+        href: '/doc/fair-use-statement',
+        name: 'Fair Use Statement',
       },
     ];
 
