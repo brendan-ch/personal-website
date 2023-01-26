@@ -28,6 +28,11 @@ const nextConfig = {
         destination: '/',
         permanent: false,
       },
+      {
+        source: '/doc/copyright',
+        destination: '/doc/open-source-licenses',
+        permanent: true,
+      },
     ];
   },
 }

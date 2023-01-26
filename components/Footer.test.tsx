@@ -3,10 +3,11 @@ import Footer from './Footer';
 import '@testing-library/jest-dom';
 
 describe('Footer', () => {
-  it('renders copyright text', () => {
+  it('Renders copyright text with the correct year.', () => {
     const { getByText } = render(<Footer />);
 
-    const copyrightText = '© 2022 Brendan Chen. All rights reserved.';
+    const currentYear = (new Date()).getUTCFullYear();
+    const copyrightText = `© ${currentYear} Brendan Chen. All rights reserved.`;
     const p = getByText(copyrightText);
     expect(p).toBeInTheDocument();
   });
@@ -26,8 +27,12 @@ describe('Footer', () => {
         name: 'Privacy Policy',
       },
       {
-        href: '/doc/copyright',
-        name: 'Licenses',
+        href: '/doc/open-source-licenses',
+        name: 'Open Source Licenses',
+      },
+      {
+        href: '/doc/fair-use-statement',
+        name: 'Fair Use Statement',
       },
     ];
 

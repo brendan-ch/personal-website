@@ -93,6 +93,7 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
         </div>
         <Footer
           hideScroll
+          hideCopyright
           style={{
             backgroundColor: 'transparent',
           }}

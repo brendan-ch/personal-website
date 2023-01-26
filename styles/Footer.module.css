@@ -17,6 +17,13 @@
   color: var(--gray3)
 }
 
+.container a {
+  display: flex;
+  flex-direction: row;
+
+  gap: 8px;
+}
+
 .container path {
   fill: var(--gray3);
 }
@@ -24,12 +31,17 @@
 .horizontalWrapper {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 24px;
 }
 
 @media only screen and (max-width: 720px) {
   .container {
     padding: 16px;
     align-items: flex-start;
+  }
+
+  .horizontalWrapper {
+    flex-direction: column;
+    gap: 8px;
   }
 }
