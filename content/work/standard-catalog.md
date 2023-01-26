@@ -5,7 +5,6 @@ description: "A complete redesign of the college registration experience."
 
 # Relative path inside "public" folder
 previewImage: "/static/work/preview/standard-catalog-preview.png"
-coverImage: "/static/work/standard-catalog/title.png"
 
 tags:
 - Featured
@@ -15,6 +14,8 @@ order: 0
 
 date: September 25, 2022
 ---
+
+![Cover image.](/static/work/standard-catalog/title.png)
 
 Standard Catalog is a redesign of the college registration experience.
 
