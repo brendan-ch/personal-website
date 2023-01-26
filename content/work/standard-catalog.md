@@ -26,10 +26,22 @@ In the current system used by my university, class information is separated from
 
 Students also tend to go to outside sources, such as Rate My Professors, to get a better sense of their instructor. In some cases, this data can be misleading or inaccurate; however, no better data source exists for the student.
 
-![class-page-sketches.png](/static/work/standard-catalog/class-page-sketches.png)
+![Sketch of the class page, including registration info, description, and buttons.](/static/work/standard-catalog/class-page-sketches-1.png)
+![Sketch #2 of the class page, including the number of credits and the prerequisites.](/static/work/standard-catalog/class-page-sketches-2.png)
 
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+  <img alt="CS 361: Student study the foundations of humancomputer interaction and user experience design. This class covers topics such as designing for usability, multi-model interfaces, and the UX design process. Theory will be put into practice with several projects throughout the semester, which involve the design and development of user interfaces on mobile devices." src="/static/work/standard-catalog/class-page-1.png">
+  <img alt="CS 102: Section Number - 01, Location - Engineering Center, Time - M. 10:00 AM to 11:15 AM, W. 1:00 PM to 2:15 PM, Instructor - Alan Adler" src="/static/work/standard-catalog/class-page-2.png">
+</div>
 
-![The class information page gives context on what a class is about.](/static/work/standard-catalog/class-page.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+  <img alt="PHIL 101: An introduction to approaches and issues in fundamental areas of philosophy such as ethics, political philosophy, philosophy of religion, and metaphysics. As part of the course, students explore how philosophy can help to shape and to justify personal values." src="/static/work/standard-catalog/class-page-3.png">
+  <img alt="GD 313: Introduces the major epochs in the history of graphic design. Explores how visual communication was designed to fit the needs of pre-modern societies and how it responded to shifting contexts and new technological inventions at three critical moments: the invention of the printing press, the industrial revolution, and the digital revolution." src="/static/work/standard-catalog/class-page-4.png">
+</div>
 
 ![class-page-prerequisites.png](/static/work/standard-catalog/class-page-prerequisites.png)
 
@@ -43,7 +55,8 @@ On this page, users can preview the class before they register, as well as view 
 
 ![class-information-web.png](/static/work/standard-catalog/class-information-web.png)
 
-![User Feedback Flows.png](/static/work/standard-catalog/user-feedback-flows.png)
+![Wireframe of the user feedback flow.](/static/work/standard-catalog/user-feedback-flow-1.png)
+![Flowchart of the user feedback flow.](/static/work/standard-catalog/user-feedback-flow-2.png)
 
 After registering for a class, section-specific information like location, time, and instructor are displayed on the same page as before.
 
@@ -68,15 +81,15 @@ In my design, I aimed to limit the information presented to the user, and improv
 <div class="collapseOnMobile" style="
   width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
 ">
-  <img src="/static/work/standard-catalog/graduation-1.png">
-  <img src="/static/work/standard-catalog/graduation-2.png">
+  <img alt="Frame #1 showing the graduation page." src="/static/work/standard-catalog/graduation-1.png">
+  <img alt="Frame #2 showing the graduation page." src="/static/work/standard-catalog/graduation-2.png">
 </div>
 
 <div class="collapseOnMobile" style="
   width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
 ">
-  <img src="/static/work/standard-catalog/graduation-3.png">
-  <img src="/static/work/standard-catalog/graduation-4.png">
+  <img alt="Frame #3 showing the graduation page." src="/static/work/standard-catalog/graduation-3.png">
+  <img alt="Frame #4 showing the graduation page." src="/static/work/standard-catalog/graduation-4.png">
 </div>
 
 In my initial sketches, graduation requirements were integrated with the class bookmarks page. I soon moved the content to its own page because of the amount of content displayed.
