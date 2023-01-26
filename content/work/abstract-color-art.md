@@ -9,7 +9,7 @@ previewImage: "/static/work/preview/abstract-color-art-preview.png"
 tags:
 - Graphic Design
 
-order: 16
+order: 8
 
 date: "January 6, 2022"
 wideImages: true

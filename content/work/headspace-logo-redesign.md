@@ -9,7 +9,7 @@ previewImage: "/static/work/headspace-logo-redesign/headspace-logo-redesign-prev
 tags:
 - Graphic Design
 
-order: 4
+order: 2
 
 date: May 30, 2022
 
