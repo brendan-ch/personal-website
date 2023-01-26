@@ -22,4 +22,19 @@ describe('PageButton', () => {
 
     expect(callback).toHaveBeenCalledTimes(1);
   });
+
+  it('Renders differently if highlighted', () => {
+    render(<>
+      <PageButton
+        text="Click Me"
+        highlighted
+      />
+      <PageButton
+        text="Click Me"
+      />
+    </>);
+
+    const buttons = screen.getAllByRole('button');
+    expect(buttons[0].classList).not.toStrictEqual(buttons[1].classList);
+  });
 });
