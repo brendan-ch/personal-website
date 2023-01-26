@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import FormInput from './FormInput';
 import '@testing-library/jest-dom';
 
@@ -89,5 +90,36 @@ describe('FormInput', () => {
     // Ideally FormInput would use textarea for multiline inputs
     // if this changes, rewrite this portion
     expect(inputs[1].innerHTML).toStrictEqual('some other input\n\nsome more input');
+  });
+  
+  it('Sets the passed error message', async () => {
+    const user = userEvent.setup();
+
+    render(<div>
+      <FormInput
+        placeholder="Input #1"
+        name="Email #1"
+        label="Email #1"
+        pattern={/.+@[A-Za-z0-9_]+\.[A-Za-z]+/}
+        noMatchError="Not a valid email address"
+      />
+    </div>);
+
+    const input = screen.getByRole('textbox');
+    
+    await user.type(input, 'some value');
+
+    await waitFor(() => {
+      expect(input).toHaveValue('some value');
+    });
+
+    // Blur the input
+    user.click(screen.getByText('Email #1'));
+
+    await waitFor(() => {
+      expect(screen.getByText('Not a valid email address')).toBeInTheDocument();
+    });
+
+
   });
 });
