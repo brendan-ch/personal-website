@@ -112,19 +112,44 @@ After class registration, there’s an opportunity for the app to become a hub o
 
 Keeping this in mind, I designed a schedule page, to accommodate the user’s need to see class times for all of their classes.
 
-![schedule-page-flow.png](/static/work/standard-catalog/schedule-page-flow.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+	<img alt="Screen showing a person's class schedule." src="/static/work/standard-catalog/schedule-page-flow-1.png">
+	<img alt="Screen showing different semester options in the schedule." src="/static/work/standard-catalog/schedule-page-flow-2.png">
+</div>
+
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+	<img alt="Screen showing the editing mode for the class schedule." src="/static/work/standard-catalog/schedule-page-flow-3.png">
+	<img alt="Screen showing a person's saved classes." src="/static/work/standard-catalog/schedule-page-flow-4.png">
+</div>
 
 # Issue #4: Existing Technology Stack
 
 To better accommodate existing systems, I designed the sign-in flow around a school’s single-sign-on (SSO) platform. This eliminates the need to design traditional account management flows, such as a sign-up form.
 
-![login-flow-mobile.png](/static/work/standard-catalog/login-flow-mobile.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+	<img alt="Screen showing the sign-in page, with a button to search for schools." src="/static/work/standard-catalog/login-flow-mobile-1.png">
+	<img alt="Screen showing the selected school on the sign-in page." src="/static/work/standard-catalog/login-flow-mobile-3.png">
+</div>
 
-![authentication-web.png](/static/work/standard-catalog/authentication-web.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+	<img alt="Overlay showing different school options and a search bar." src="/static/work/standard-catalog/login-flow-mobile-2.png">
+	<img alt="Placeholder overlay for a webview." src="/static/work/standard-catalog/login-flow-mobile-4.png">
+</div>
+
+![Sign-in screen on the web.](/static/work/standard-catalog/authentication-web-1.png)
+!["Redirecting" message and loading state for the sign-in screen.](/static/work/standard-catalog/authentication-web-2.png)
 
 # Custom Icons
 
-![custom-icons.png](/static/work/standard-catalog/custom-icons.png)
+![Custom icons used for the project.](/static/work/standard-catalog/custom-icons.png)
 
 For this project, I created a custom icon set designed to match the final prototype.
 
