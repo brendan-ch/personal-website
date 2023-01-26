@@ -65,7 +65,19 @@ In my design, I aimed to limit the information presented to the user, and improv
 
 ![Graduation requirement sketches.png](/static/work/standard-catalog/Graduation_requirement_sketches.png)
 
-![graduation-tracker-page.png](/static/work/standard-catalog/graduation-tracker-page.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+  <img src="/static/work/standard-catalog/graduation-1.png">
+  <img src="/static/work/standard-catalog/graduation-2.png">
+</div>
+
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+  <img src="/static/work/standard-catalog/graduation-3.png">
+  <img src="/static/work/standard-catalog/graduation-4.png">
+</div>
 
 In my initial sketches, graduation requirements were integrated with the class bookmarks page. I soon moved the content to its own page because of the amount of content displayed.
 
@@ -79,7 +91,7 @@ Keeping this in mind, I designed a schedule page, to accommodate the user’s ne
 
 ![schedule-page-flow.png](/static/work/standard-catalog/schedule-page-flow.png)
 
-# Issue #4: Integration with Existing Technology Stack
+# Issue #4: Existing Technology Stack
 
 To better accommodate existing systems, I designed the sign-in flow around a school’s single-sign-on (SSO) platform. This eliminates the need to design traditional account management flows, such as a sign-up form.
 
