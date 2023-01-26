@@ -47,11 +47,23 @@ Initial sketches indicated some of the page requirements, such as the ability to
 
 On this page, users can preview the class before they register, as well as view the completion status of prerequisites. This provides better context to the user and makes them do less work to find this information.
 
-![class-page-registration-flow.png](/static/work/standard-catalog/class-page-registration-flow.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+  <img alt="Screen showing registration options for a class." src="/static/work/standard-catalog/class-page-registration-flow-1.png">
+  <img alt="Screen showing the app in a loading state when registering for a class." src="/static/work/standard-catalog/class-page-registration-flow-2.png">
+  <img alt="Screen showing a notification for a class registration." src="/static/work/standard-catalog/class-page-registration-flow-3.png">
+</div>
 
-![class-page-professor.png](/static/work/standard-catalog/class-page-professor.png)
+<div class="collapseOnMobile" style="
+  width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
+">
+  <img alt="Screen showing registration information for a class." src="/static/work/standard-catalog/class-page-professor-1.png">
+  <img alt="Overlay showing information about a professor." src="/static/work/standard-catalog/class-page-professor-2.png">
+</div>
 
-![class-information-web.png](/static/work/standard-catalog/class-information-web.png)
+![Web page showing class information.](/static/work/standard-catalog/class-information-web-2.png)
+![Web page showing registration times.](/static/work/standard-catalog/class-information-web-1.png)
 
 ![Wireframe of the user feedback flow.](/static/work/standard-catalog/user-feedback-flow-1.png)
 ![Flowchart of the user feedback flow.](/static/work/standard-catalog/user-feedback-flow-2.png)
