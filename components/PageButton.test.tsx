@@ -37,4 +37,48 @@ describe('PageButton', () => {
     const buttons = screen.getAllByRole('button');
     expect(buttons[0].classList).not.toStrictEqual(buttons[1].classList);
   });
+  
+  it('Disables the button correctly', async () => {
+    const user = userEvent.setup();
+    const fn = jest.fn();
+
+    render(<>
+      <PageButton
+        text="Don't click me"
+        disabled
+        onClick={fn}
+      />
+      <PageButton
+        text="Click Me"
+      />
+    </>);
+
+    const buttons = screen.getAllByRole('button');
+    expect(buttons[0].classList).not.toStrictEqual(buttons[1].classList);
+
+    await user.click(buttons[0]);
+    expect(fn).not.toHaveBeenCalled();
+  });
+  
+  it('Returns a link instead of a button, if href passed', async () => {
+    const user = userEvent.setup();
+    const fn = jest.fn();
+
+    render(<>
+      <PageButton
+        text="Don't click me"
+        onClick={fn}
+        href="https://google.com"
+      />
+      <PageButton
+        text="Click Me"
+      />
+    </>);
+
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(1);
+
+    const link = screen.getByRole('link');
+    expect(link).toHaveAttribute('href', 'https://google.com');
+  });
 });
