@@ -33,7 +33,7 @@ Students also tend to go to outside sources, such as Rate My Professors, to get 
   width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
 ">
   <img alt="CS 361: Student study the foundations of humancomputer interaction and user experience design. This class covers topics such as designing for usability, multi-model interfaces, and the UX design process. Theory will be put into practice with several projects throughout the semester, which involve the design and development of user interfaces on mobile devices." src="/static/work/standard-catalog/class-page-1.png">
-  <img alt="CS 102: Section Number - 01, Location - Engineering Center, Time - M. 10:00 AM to 11:15 AM, W. 1:00 PM to 2:15 PM, Instructor - Alan Adler" src="/static/work/standard-catalog/class-page-2.png">
+  <img alt="CS 361: Credits - 3, Prerequisites - CS 102 (completed)" src="/static/work/standard-catalog/class-page-prerequisites.png">
 </div>
 
 <div class="collapseOnMobile" style="
@@ -42,8 +42,6 @@ Students also tend to go to outside sources, such as Rate My Professors, to get 
   <img alt="PHIL 101: An introduction to approaches and issues in fundamental areas of philosophy such as ethics, political philosophy, philosophy of religion, and metaphysics. As part of the course, students explore how philosophy can help to shape and to justify personal values." src="/static/work/standard-catalog/class-page-3.png">
   <img alt="GD 313: Introduces the major epochs in the history of graphic design. Explores how visual communication was designed to fit the needs of pre-modern societies and how it responded to shifting contexts and new technological inventions at three critical moments: the invention of the printing press, the industrial revolution, and the digital revolution." src="/static/work/standard-catalog/class-page-4.png">
 </div>
-
-![class-page-prerequisites.png](/static/work/standard-catalog/class-page-prerequisites.png)
 
 Initial sketches indicated some of the page requirements, such as the ability to view credits, class description, and prerequisites. Also indicated is the ability to view registration information from the same page, such as time, location and instructor.
 
