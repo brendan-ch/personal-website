@@ -6,9 +6,10 @@ import ChevronUp from './icons-v2/ChevronUp';
 interface Props {
   style?: CSSProperties,
   hideScroll?: boolean,
+  hideCopyright?: boolean,
 }
 
-export default function Footer({ style, hideScroll }: Props) {
+export default function Footer({ style, hideScroll, hideCopyright }: Props) {
   return (
     <footer className={styles.container} style={style}>
       {!hideScroll ? (
@@ -51,7 +52,9 @@ export default function Footer({ style, hideScroll }: Props) {
           </a>
         </Link>
       </div>
-      <p>© 2022 Brendan Chen. All rights reserved.</p>
+      {!hideCopyright ? (
+        <p>© {new Date().getUTCFullYear()} Brendan Chen. All rights reserved.</p>
+      ) : undefined}
     </footer>
   );
 }
