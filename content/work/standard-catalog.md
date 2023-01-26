@@ -63,7 +63,7 @@ There are an excessive number of sections, including similarly named ones that c
 
 In my design, I aimed to limit the information presented to the user, and improved the spacing so related elements are closer to each other. I also cut down on the number of sections, so the user is guaranteed to find the information they need.
 
-![Graduation requirement sketches.png](/static/work/standard-catalog/Graduation_requirement_sketches.png)
+![Graduation requirement sketches.png](/static/work/standard-catalog/graduation-requirement-sketches.png)
 
 <div class="collapseOnMobile" style="
   width: 100%; display: flex; flex-direction: row; align-items: flex-start; gap: 16px
