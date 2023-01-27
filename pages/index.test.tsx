@@ -1,23 +1,10 @@
 import { render } from '@testing-library/react';
-import Projects from './index.page';
+import Home from './index.page';
 import '@testing-library/jest-dom';
 
-describe('Projects', () => {
-  // const dbItems: PageData[] = [
-  //   {
-  //     title: 'Example Database Item',
-  //     tags: ['testing'],
-  //     id: '1',
-  //     content: null,
-  //     previewImage: null,
-  //     coverImage: null,
-  //     description: null,
-  //     prefix: 'work',
-  //   }
-  // ];
-  
+describe('Home', () => {
   it('Renders the page', () => {
-    const { container } = render(<Projects />);
+    const { container } = render(<Home />);
     expect(container).toBeInTheDocument();
   });
 });

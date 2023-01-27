@@ -6,9 +6,10 @@ import ChevronUp from './icons-v2/ChevronUp';
 interface Props {
   style?: CSSProperties,
   hideScroll?: boolean,
+  hideCopyright?: boolean,
 }
 
-export default function Footer({ style, hideScroll }: Props) {
+export default function Footer({ style, hideScroll, hideCopyright }: Props) {
   return (
     <footer className={styles.container} style={style}>
       {!hideScroll ? (
@@ -18,12 +19,12 @@ export default function Footer({ style, hideScroll }: Props) {
               <p>
                 Back to top
               </p>
+              <ChevronUp
+                width={24}
+                height={24}
+              />
             </a>
           </Link>
-          <ChevronUp
-            width={24}
-            height={24}
-          />
         </div>
       ) : undefined}
       <div className={styles.horizontalWrapper}>
@@ -34,16 +35,26 @@ export default function Footer({ style, hideScroll }: Props) {
             </p>
           </a>
         </Link>
-        <p>|</p>
-        <Link href="/doc/copyright">
+        {/* <p>|</p> */}
+        <Link href="/doc/open-source-licenses">
           <a>
             <p>
-              <u>Licenses</u>
+              <u>Open Source Licenses</u>
+            </p>
+          </a>
+        </Link>
+        {/* <p>|</p> */}
+        <Link href="/doc/fair-use-statement">
+          <a>
+            <p>
+              <u>Fair Use Statement</u>
             </p>
           </a>
         </Link>
       </div>
-      <p>© 2022 Brendan Chen. All rights reserved.</p>
+      {!hideCopyright ? (
+        <p>© {new Date().getUTCFullYear()} Brendan Chen. All rights reserved.</p>
+      ) : undefined}
     </footer>
   );
 }

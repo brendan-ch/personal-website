@@ -21,9 +21,7 @@ links:
 coffeetype is a minimalistic typing test built with Java Swing. It was my final project for AP Computer Science A.
 
 
-# My Roles
-
-## Logo Design
+# Logo Design
 
 ![Moodboard and color palette.](/static/work/coffeetype/moodboard-and-colors.png)
 
@@ -35,7 +33,7 @@ Based on the moodboard and color palette, I knew I wanted a dark color palette f
 
 *The typeface used in the logo is Lexend Deca.*
 
-## UI Design
+# UI Design
 
 I started with a couple of concept sketches, and turned two of them into high-fidelity prototypes.
 
@@ -45,7 +43,7 @@ I started with a couple of concept sketches, and turned two of them into high-fi
 
 I decided to go with the second variant because it had more originality and was easier to implement, given the limited timeframe of this project.
 
-## Development
+# Development
 
 ![Customize your test: display different stats during tests.](/static/work/coffeetype/customize.png)
 

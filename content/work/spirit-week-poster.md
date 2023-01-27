@@ -9,7 +9,7 @@ previewImage: "/static/work/preview/spirit-week-preview.png"
 tags:
 - Graphic Design
 
-order: 15
+order: 9
 
 date: "September 14, 2021"
 wideImages: true
