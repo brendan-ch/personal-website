@@ -1,5 +1,5 @@
 ---
-title: "Clockwise: Migrating Data"
+title: "Clockwise - Migrating Data"
 description: "Learn more about migrating your data."
 # The name of the file is used to generate the pretty link
 
