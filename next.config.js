@@ -24,6 +24,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/docs/:prettyLink',
+        destination: '/doc/:prettyLink',
+        permanent: true,
+      },
+      {
         source: '/blog',
         destination: '/',
         permanent: false,
