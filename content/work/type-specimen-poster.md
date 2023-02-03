@@ -9,7 +9,7 @@ previewImage: "/static/work/preview/type-specimen-preview.png"
 tags:
 - Graphic Design
 
-order: 7
+order: 9
 
 date: "October 19, 2021"
 wideImages: true

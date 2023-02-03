@@ -9,7 +9,7 @@ previewImage: "/static/work/preview/patterns-preview.png"
 tags:
 - Graphic Design
 
-order: 5
+order: 6
 
 date: "June 2022 - July 2022"
 wideImages: true

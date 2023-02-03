@@ -6,23 +6,24 @@ description: "A Pomodoro timer designed to help you focus."
 previewImage: "/static/work/preview/clockwise-preview.png"
 
 tags:
-- Featured
 - UI/UX Design
 - App Development
 
-order: 1
+order: 4
 
 logo: "/static/work/clockwise/Logo.png"
 
 links:
 - name: Web app
   url: https://clockwise.bchen.dev
-- name: App Store
-  url: https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428
-- name: Google Play
-  url: https://play.google.com/store/apps/details?id=co.birb.session
+- name: GitHub
+  url: https://github.com/brendan-ch/clockwise
+# - name: App Store
+#   url: https://apps.apple.com/us/app/clockwise-pomodoro-timer/id1610821428
+# - name: Google Play
+#   url: https://play.google.com/store/apps/details?id=co.birb.session
 
-date: October 2021 - Ongoing
+date: October 2021 - January 2023
 ---
 
 Clockwise is a Pomodoro timer designed to help you focus.
@@ -60,8 +61,9 @@ As part of adding a minimal amount of distraction to the user's workflow, the re
 
 The mobile app was developed using [React Native with Expo](https://expo.dev). Features of the app include a minimal interface, timer customization, dark mode, and automatic switching between focus and break modes.
 
-# Web App Development
+Unfortunately, in late January 2023 I made the difficult decision to stop supporting the mobile app, and it is currently not available for download from app stores. Due to college, I didn't have the time needed to work on the app and ensure that it was the best experience for users. I thank everyone who has downloaded the app for supporting the project, and the project will remain up on [GitHub](https://github.com/brendan-ch/clockwise) for others to fork.
 
+# Web App Development
 
 ![Screenshot showcasing the web app.](/static/work/clockwise/web-app-1.png)
 ![Screenshot showcasing the web app.](/static/work/clockwise/web-app-2.png)
