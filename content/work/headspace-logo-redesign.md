@@ -7,9 +7,10 @@ description: "An early logo and brand redesign project."
 previewImage: "/static/work/headspace-logo-redesign/headspace-logo-redesign-preview.png"
 
 tags:
+- Featured
 - Graphic Design
 
-order: 2
+order: 3
 
 date: May 30, 2022
 

@@ -6,11 +6,10 @@ description: "A Pomodoro timer designed to help you focus."
 previewImage: "/static/work/preview/clockwise-preview.png"
 
 tags:
-- Featured
 - UI/UX Design
 - App Development
 
-order: 1
+order: 4
 
 logo: "/static/work/clockwise/Logo.png"
 

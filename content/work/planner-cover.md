@@ -10,7 +10,7 @@ tags:
 - Featured
 - Graphic Design
 
-order: 3
+order: 2
 
 date: "April 28, 2022"
 wideImages: true
