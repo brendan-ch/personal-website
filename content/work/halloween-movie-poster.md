@@ -9,7 +9,7 @@ previewImage: "/static/work/preview/halloween-movie-poster-preview.png"
 tags:
 - Graphic Design
 
-order: 6
+order: 7
 
 date: "October 28, 2021"
 wideImages: true
