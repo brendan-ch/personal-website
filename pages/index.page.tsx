@@ -43,7 +43,7 @@ const Home = () => {
             src={AboutImage}
             alt="Me standing at the Getty Museum."
           />
-          <p>I{'\''}m Brendan, a designer, developer, and student living in Orange, California. Currently, I{'\''}m a software engineering major and graphic design minor at Chapman University. In my free time, I enjoy reading, playing video games, and brewing coffee.</p>
+          <p>I{'\''}m Brendan, a designer, developer, and college student living in Orange, California. Currently, I{'\''}m a software engineering major and graphic design minor at Chapman University. In my free time, I enjoy reading, playing video games, and brewing coffee.</p>
         </div>
         <div className={styles.sectionDivider}>
           <p>
