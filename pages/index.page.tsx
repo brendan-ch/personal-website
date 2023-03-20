@@ -41,9 +41,9 @@ const Home = () => {
         <div className={styles.sectionDivider}>
           <Image
             src={AboutImage}
-            alt="Capybara in bath"
+            alt="Me standing at the Getty Museum."
           />
-          <p>I{'\''}m Brendan, a designer, developer, and college student living in Orange, California. I{'\''}m currently studying computer science at Chapman University, and am working towards a career in software engineering. In my free time, I enjoy reading, photography, traveling, and brewing coffee.</p>
+          <p>I{'\''}m Brendan, a designer, developer, and college student living in Orange, California. Currently, I{'\''}m a software engineering major and graphic design minor at Chapman University. In my free time, I enjoy reading, playing video games, and brewing coffee.</p>
         </div>
         <div className={styles.sectionDivider}>
           <p>
@@ -52,7 +52,7 @@ const Home = () => {
             </b>
           </p>
           <ul>
-            <li>Pursuing a bachelor’s degree in computer science at Chapman University</li>
+            <li>Pursuing a bachelor’s degree in software engineering and a minor in graphic design at Chapman University</li>
             <li>UI design, software engineering and project management at <a href="https://techieswithoutborders.us" target="_blank" rel="noreferrer"><u>Techies Without Borders</u></a>, a non-profit organization dedicated to helping underserved countries</li>
           </ul>
         </div>
@@ -63,7 +63,7 @@ const Home = () => {
             </b>
           </p>
           <ul>
-            <li>Designed and developed <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
+            <li>Designed and created <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
             <li>Created <Link href="/work/standard-catalog"><a><u>Standard Catalog</u></a></Link>, a redesign of the college registration experience</li>
             <li>Designed the official <Link href="/work/planner-cover"><a><u>planner cover</u></a></Link> for my high school</li>
           </ul>
