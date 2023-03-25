@@ -10,9 +10,6 @@ tags:
 - App Development
 
 order: 4
-
-logo: "/static/work/clockwise/Logo.png"
-
 links:
 - name: Web app
   url: https://clockwise.bchen.dev

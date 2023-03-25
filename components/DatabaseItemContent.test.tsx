@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import DatabaseItemContent from './DatabaseItemContent';
+import DatabaseItemContent, { CalloutInformation } from './DatabaseItemContent';
 import '@testing-library/jest-dom';
 
 jest.mock('remark-unwrap-images', () => {});
@@ -21,27 +21,49 @@ describe('DatabaseItemContent', () => {
   //   expect(screen.getByText("We couldn't find the page you were looking for.")).toBeInTheDocument();
   // });
 
-  it('Renders the cover image', () => {
+  it('Renders title and tags', () => {
     render(<DatabaseItemContent
-      logo={null}
       content={null}
       id="test"
       title="Testing"
       description={null}
       previewImage={null}
-      tags={null}
+      tags={['Tag 1', 'Tag 2']}
       prefix="work"
-      coverImage={{
-        width: 200,
-        height: 200,
-        imagePath: "https://image.link"
-      }}
-      links={null}
+      links={[
+        {
+          name: 'Google',
+          url: 'https://google.com',
+        },
+      ]}
       date={null}
       allImages={[]}
       wideImages={false}
     />);
 
-    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByText('Testing')).toBeInTheDocument();
+
+    // Renders at least one text element with tags
+    const tags = screen.getAllByText(/.*Tag 1.*/);
+    expect(tags.length).toBeGreaterThanOrEqual(1);
+
+    const links = screen.getAllByRole('link', {
+      
+    });
+    expect(links.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('CalloutInformation', () => {
+  it('Renders props correctly', () => {
+    render(
+      <CalloutInformation
+        title="Hello World"
+        description="Test Description"
+      />
+    );
+
+    expect(screen.getByText('Hello World')).toBeInTheDocument();
+    expect(screen.getByText('Test Description')).toBeInTheDocument();
   });
 });
