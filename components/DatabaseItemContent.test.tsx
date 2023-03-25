@@ -31,11 +31,6 @@ describe('DatabaseItemContent', () => {
       previewImage={null}
       tags={null}
       prefix="work"
-      coverImage={{
-        width: 200,
-        height: 200,
-        imagePath: "https://image.link"
-      }}
       links={null}
       date={null}
       allImages={[]}

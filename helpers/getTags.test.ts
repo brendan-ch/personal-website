@@ -9,8 +9,6 @@ const mockData: PageData[] = [
     content: null,
     id: '1',
     previewImage: null,
-    coverImage: null,
-    
     links: null,
     date: null,
     prefix: 'work',
@@ -25,8 +23,6 @@ const mockData: PageData[] = [
     content: null,
     id: '2',
     previewImage: null,
-    coverImage: null,
-    
     links: null,
     date: null,
     prefix: 'work',
@@ -42,8 +38,6 @@ const mockData: PageData[] = [
     content: null,
     id: '3',
     previewImage: null,
-    coverImage: null,
-    
     links: null,
     date: null,
     prefix: 'work',

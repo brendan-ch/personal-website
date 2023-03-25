@@ -39,7 +39,6 @@ interface Props extends PageData {
 export default function DatabaseItemContent({
   title,
   content,
-  coverImage,
   backButtonText,
   backButtonHref,
   links,
@@ -134,23 +133,6 @@ export default function DatabaseItemContent({
       />
       <main>
         {pageHeader}
-        {coverImage ? (
-          <div className={utils.itemWrapper}>
-            <div
-              className={`${styles.slimImageContainer}`}
-              style={{
-                aspectRatio: `${coverImage.width} / ${coverImage.height}`,
-              }}
-            >
-              <ImageWithFadeIn
-                alt={`${title} preview image`}
-                src={coverImage.imagePath}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          </div>
-        ) : undefined}
         {content ? (
           <div className={wideImages ? utils.itemWrapper : utils.innerItemWrapper}>
             <MarkdownRenderer
