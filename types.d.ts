@@ -35,8 +35,6 @@ interface PageData {
   links: PageExternalLink[] | null,
   date: string | null,
 
-  logo: string | null,
-
   allImages: ImageSize[],
 
   order?: number,
