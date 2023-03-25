@@ -13,7 +13,6 @@ const mockData: PageData[] = [
     date: null,
     prefix: 'work',
     allImages: [],
-    logo: null,
     wideImages: false,
   },
   {
@@ -27,11 +26,9 @@ const mockData: PageData[] = [
     date: null,
     prefix: 'work',
     allImages: [],
-    logo: null,
     wideImages: false,
   },
   {
-    logo: null,
     title: 'Title',
     description: 'Desc',
     tags: ['Tag #3', 'Tag #2'],

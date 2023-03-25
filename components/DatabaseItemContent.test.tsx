@@ -23,7 +23,6 @@ describe('DatabaseItemContent', () => {
 
   it('Renders the cover image', () => {
     render(<DatabaseItemContent
-      logo={null}
       content={null}
       id="test"
       title="Testing"
