@@ -64,19 +64,19 @@ const Home = () => {
           </p>
           <ul>
             <li>Designed and created <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
-            <li>Created <Link href="/work/standard-catalog"><a><u>Standard Catalog</u></a></Link>, a redesign of the college registration experience</li>
-            <li>Designed the official <Link href="/work/planner-cover"><a><u>planner cover</u></a></Link> for my high school</li>
+            <li>Created <Link href="/work/standard-catalog"><u>Standard Catalog</u></Link>, a redesign of the college registration experience</li>
+            <li>Designed the official <Link href="/work/planner-cover"><u>planner cover</u></Link> for my high school</li>
           </ul>
-          <Link href="/work">
-            <a className={styles.databaseEndLink}>
-              <p>
-                See more
-              </p>
-              <ChevronRight
-                width={20}
-                height={20}
-              />
-            </a>
+          <Link href="/work" className={styles.databaseEndLink}>
+
+            <p>
+              See more
+            </p>
+            <ChevronRight
+              width={20}
+              height={20}
+            />
+
           </Link>
         </div>
         <div className={styles.sectionDivider}>
