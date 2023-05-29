@@ -12,11 +12,11 @@ interface Props {
   /**
    * Width of the image.
    */
-  width?: number | string,
+  width?: number,
   /**
    * Height of the image.
    */
-  height?: number | string,
+  height?: number,
 }
 
 const GalleryItem = React.memo(function GalleryItem({ imageLink, title, description, hoverContent, link, width, height }: Props) {
@@ -53,11 +53,9 @@ const GalleryItem = React.memo(function GalleryItem({ imageLink, title, descript
   
   if (link) {
     return (
-      (<Link href={link || '/'} className={styles.container}>
-
+      <Link href={link || '/'} className={styles.container}>
         {children}
-
-      </Link>)
+      </Link>
     );
   } else {
     return (
