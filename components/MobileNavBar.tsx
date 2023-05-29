@@ -24,15 +24,15 @@ function MobileNavBarTab({
 }: TabProps) {
   return (
     <div className={highlighted ? `${styles.tabHighlighted} ${styles.tab}` : styles.tab}>
-      <Link href={href}>
-        <a role="tab">
-          <p>
-            {text}
-          </p>
-        </a>
+      <Link href={href} role="tab">
+
+        <p>
+          {text}
+        </p>
+
       </Link>
     </div>
-  )
+  );
 }
 
 interface Props {
@@ -116,21 +116,21 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
     <nav className={styles.container} style={style}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
       <div className={styles.contentContainer}>
-        <Link href="/" aria-label="Website Logo">
-          <a className={styles.logoFull}>
-            <LogoFull
-              width={200}
-              height={1}
-            />
-          </a>
+        <Link href="/" aria-label="Website Logo" className={styles.logoFull}>
+
+          <LogoFull
+            width={200}
+            height={1}
+          />
+
         </Link>
-        <Link href="/" aria-label="Website Logo">
-          <a className={styles.logoStandalone}>
-            <LogoStandalone
-              width={30.5}
-              height={30.5}
-            />
-          </a>
+        <Link href="/" aria-label="Website Logo" className={styles.logoStandalone}>
+
+          <LogoStandalone
+            width={30.5}
+            height={30.5}
+          />
+
         </Link>
         <div className={styles.buttonsContainer} role="tablist">
           <MobileNavBarTab

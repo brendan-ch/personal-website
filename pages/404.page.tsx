@@ -26,34 +26,37 @@ export default function Custom404() {
       <div className={`${utils.itemWrapper}`}>
         <p>We couldn’t find the page you were looking for.</p>
         <Link href="/">
-          <a>
-            <p>
-              <u>
-                Back to Home
-              </u>
-            </p>
-          </a>
+
+          <p>
+            <u>
+              Back to Home
+            </u>
+          </p>
+
         </Link>
-        <Image
-          src={Image404}
-          alt="Capybara in bath"
-        />
+        <div className={utils.pageImageContainer}>
+          <Image
+            src={Image404}
+            alt="Capybara in bath"
+            fill
+          />
+        </div>
         <p>
           (Image by{' '}
-          <Link href="https://unsplash.com/@veverkolog">
-            <a target="_blank">
-              <u>
-                Dušan veverkolog
-              </u>
-            </a>
+          <Link href="https://unsplash.com/@veverkolog" target="_blank">
+
+            <u>
+              Dušan veverkolog
+            </u>
+
           </Link>
           {' on '}
-          <Link href="https://unsplash.com">
-            <a target="_blank">
-              <u>
-                Unsplash
-              </u>
-            </a>
+          <Link href="https://unsplash.com" target="_blank">
+
+            <u>
+              Unsplash
+            </u>
+
           </Link>
           )
         </p>

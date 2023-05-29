@@ -26,11 +26,11 @@ export default function PageHeader({ belowText, breadcrumb }: Props) {
           {breadcrumb ? breadcrumb.map((item, index) => (
             <React.Fragment key={index}>
               <Link href={item.href}>
-                <a>
-                  <p>
-                    {item.name}
-                  </p>
-                </a>
+
+                <p>
+                  {item.name}
+                </p>
+
               </Link>
               {index !== breadcrumb.length - 1 ? (
                 <p>

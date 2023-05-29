@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/GalleryItem.module.css';
@@ -12,11 +12,11 @@ interface Props {
   /**
    * Width of the image.
    */
-  width?: number | string,
+  width?: number,
   /**
    * Height of the image.
    */
-  height?: number | string,
+  height?: number,
 }
 
 const GalleryItem = React.memo(function GalleryItem({ imageLink, title, description, hoverContent, link, width, height }: Props) {
@@ -53,10 +53,8 @@ const GalleryItem = React.memo(function GalleryItem({ imageLink, title, descript
   
   if (link) {
     return (
-      <Link href={link || '/'}>
-        <a className={styles.container}>
-          {children}
-        </a>
+      <Link href={link || '/'} className={styles.container}>
+        {children}
       </Link>
     );
   } else {

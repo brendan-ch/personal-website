@@ -81,6 +81,15 @@ to the bottom of the page. */
   position: relative;
 }
 
+/* Use to style an image within a page using `itemWrapper` and `innerItemWrapper`. Aspect ratio should be overwritten if image height/width is known. */
+.pageImageContainer {
+  width: 100%;
+  aspect-ratio: 3/2;
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .spacer {
   height: 40px;
 }

@@ -45,9 +45,11 @@ export default function Lightbox({ imageLink, caption, visible, onClose }: Props
           <div className={styles.imageWrapper}>
             <Image
               src={imageLink}
-              alt={caption}
-              layout="fill"
-              objectFit="contain"
+              alt={caption || ''}
+              fill
+              style={{
+                objectFit: 'contain',
+              }}
             />
           </div>
         ) : undefined}
