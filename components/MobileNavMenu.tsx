@@ -17,13 +17,13 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 
       <div className={styles.line} />
       <div className={styles.buttonTextContainer}>
-        <h3 className={toggled ? styles.red : undefined}>
+        <h2 className={toggled ? styles.red : undefined}>
           {toggled ? (
             <b>
               {text}
             </b>
           ) : text}
-        </h3>
+        </h2>
       </div>
 
     </Link>)
