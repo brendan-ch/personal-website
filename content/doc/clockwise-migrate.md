@@ -8,7 +8,7 @@ imageAspectRatio: "4 / 3"
 
 The default domain for Clockwise is now [clockwise.bchen.dev](https://clockwise.bchen.dev). The app will continue to be accessible from [clockwise.sh](https://clockwise.sh) until February 1st, 2023. To migrate your data from one domain to the other, follow the instructions below.
 
-## On clockwise.sh
+# On clockwise.sh
 On the home screen, navigate to the Settings menu on the top right.
 
 Navigate to the Data Management screen.
@@ -17,7 +17,7 @@ Navigate to the Data Management screen.
 
 Make sure "Include task data" is checked, and click on "Export settings" to download a file containing your data. Note the location of the file before moving on to the next step.
 
-## On clockwise.bchen.dev
+# On clockwise.bchen.dev
 
 Go to [clockwise.bchen.dev](https://clockwise.bchen.dev) and open the Settings menu on the top right. Navigate to the Data Management screen.
 
