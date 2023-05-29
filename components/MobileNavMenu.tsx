@@ -13,20 +13,20 @@ interface ButtonProps {
 
 export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
   return (
-    <Link href={href}>
-      <a className={styles.buttonWrapper}>
-        <div className={styles.line} />
-        <div className={styles.buttonTextContainer}>
-          <h3 className={toggled ? styles.red : undefined}>
-            {toggled ? (
-              <b>
-                {text}
-              </b>
-            ) : text}
-          </h3>
-        </div>
-      </a>
-    </Link>
+    (<Link href={href} className={styles.buttonWrapper}>
+
+      <div className={styles.line} />
+      <div className={styles.buttonTextContainer}>
+        <h3 className={toggled ? styles.red : undefined}>
+          {toggled ? (
+            <b>
+              {text}
+            </b>
+          ) : text}
+        </h3>
+      </div>
+
+    </Link>)
   );
 }
 

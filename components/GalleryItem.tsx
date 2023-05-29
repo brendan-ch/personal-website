@@ -53,11 +53,11 @@ const GalleryItem = React.memo(function GalleryItem({ imageLink, title, descript
   
   if (link) {
     return (
-      <Link href={link || '/'}>
-        <a className={styles.container}>
-          {children}
-        </a>
-      </Link>
+      (<Link href={link || '/'} className={styles.container}>
+
+        {children}
+
+      </Link>)
     );
   } else {
     return (

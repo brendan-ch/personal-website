@@ -25,15 +25,13 @@ export default function PageButton({ text, onClick, href, highlighted, disabled 
 
   if (href) {
     return (
-      <Link
-        href={href}
-      >
-        <a className={className}>
-          <p>
-            {text}
-          </p>
-        </a>
-      </Link>
+      (<Link href={href} className={className}>
+
+        <p>
+          {text}
+        </p>
+
+      </Link>)
     );
   }
 
