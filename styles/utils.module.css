@@ -74,13 +74,6 @@ to the bottom of the page. */
   flex: 1;
 }
 
-/* Use to wrap a full-width image on a page */
-.fullWidthImageWrapper {
-  width: 100vw;
-  min-height: calc(100vw / 4);
-  position: relative;
-}
-
 /* Use to style an image within a page using `itemWrapper` and `innerItemWrapper`. Aspect ratio should be overwritten if image height/width is known. */
 .pageImageContainer {
   width: 100%;
