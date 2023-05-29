@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
 import AboutImage from '../public/about.jpeg';
@@ -39,7 +40,7 @@ const Home = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.sectionDivider}>
-          <div className={styles.imageContainer}>
+          <div className={utils.pageImageContainer}>
             <Image
               src={AboutImage}
               alt="Me standing at the Getty Museum."

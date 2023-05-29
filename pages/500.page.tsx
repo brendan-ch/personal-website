@@ -34,10 +34,13 @@ export default function Custom500() {
           </p>
 
         </Link>
-        <Image
-          src={Image500}
-          alt="Capybara swimming"
-        />
+        <div className={utils.pageImageContainer}>
+          <Image
+            src={Image500}
+            alt="Capybara in bath"
+            fill
+          />
+        </div>
         <p>
           (Image by{' '}
           <Link href="https://unsplash.com/@sushioutlaw" target="_blank">

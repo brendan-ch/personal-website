@@ -72,7 +72,7 @@ const MarkdownRenderer = React.memo(function MarkdownRenderer({ content, onImage
 
             return (
               <div
-                className={styles.imageContainer}
+                className={utils.pageImageContainer}
                 style={{
                   aspectRatio: dimensions ? `${dimensions.width} / ${dimensions.height}` : '3 / 2',
                 }}

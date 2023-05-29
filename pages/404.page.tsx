@@ -34,10 +34,13 @@ export default function Custom404() {
           </p>
 
         </Link>
-        <Image
-          src={Image404}
-          alt="Capybara in bath"
-        />
+        <div className={utils.pageImageContainer}>
+          <Image
+            src={Image404}
+            alt="Capybara in bath"
+            fill
+          />
+        </div>
         <p>
           (Image by{' '}
           <Link href="https://unsplash.com/@veverkolog" target="_blank">
