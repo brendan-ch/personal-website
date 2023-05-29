@@ -57,10 +57,10 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
       <div className={styles.grayBackground} />
       <ImageWithFadeIn
         src={require('../public/background-pattern.png')}
-        layout="fill"
-        objectFit="cover"
+        fill
         style={{
           zIndex: 3,
+          objectFit: 'cover',
         }}
         alt="Background image"
       />

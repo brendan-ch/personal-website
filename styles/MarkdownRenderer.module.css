@@ -49,6 +49,8 @@
 
 .image {
   background-repeat: no-repeat;
+  object-fit: contain;
+  object-position: 50%;
 }
 
 .bulletedListContainer {

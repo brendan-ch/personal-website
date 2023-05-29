@@ -80,9 +80,7 @@ const MarkdownRenderer = React.memo(function MarkdownRenderer({ content, onImage
                 <Image
                   alt={alt || ''}
                   src={src || ''}
-                  layout="fill"
-                  objectFit="contain"
-                  objectPosition="50%"
+                  fill
                   onClick={onImageClick ? () => onImageClick(src!, alt!) : undefined}
                   className={styles.image}
                 />
