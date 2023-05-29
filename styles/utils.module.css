@@ -97,6 +97,14 @@ to the bottom of the page. */
   height: 80px;
 }
 
+.smallText {
+  font-size: 16px;
+}
+
+.monoText {
+  font-family: space-mono, monospace;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0%;
