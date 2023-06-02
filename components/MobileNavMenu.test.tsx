@@ -32,7 +32,7 @@ describe('MobileNavMenu', () => {
   });
 
   it('Renders with passing selected', () => {
-    render(<MobileNavMenu selected="About Me" />);
+    render(<MobileNavMenu selected="My Work" />);
     
     expect(screen.getByRole('menu')).toBeInTheDocument();
   });
