@@ -1,13 +1,12 @@
-import PageHeader from './PageHeader';
-import utils from '../styles/utils.module.css';
-import ImageWithFadeIn from './ImageWithFadeIn';
-import { PageData, PageExternalLink } from '../types';
-import MarkdownRenderer from './MarkdownRenderer';
+import PageHeader from '../PageHeader';
+import utils from '../../styles/utils.module.css';
+import { PageData, PageExternalLink } from '../../types';
+import MarkdownRenderer from '../MarkdownRenderer';
 import React, { useCallback, useState } from 'react';
-import Lightbox from './Lightbox';
-import ExternalLink from './ExternalLink';
-import styles from '../styles/DatabaseItemContent.module.css';
-import ShareCTA from './ShareCTA';
+import Lightbox from '../Lightbox';
+import ExternalLink from '../ExternalLink';
+import styles from '../../styles/DatabaseItemContent.module.css';
+import ShareCTA from '../ShareCTA';
 
 interface CalloutInformationProps {
   title: string,

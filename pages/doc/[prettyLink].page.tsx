@@ -1,7 +1,7 @@
 import { REVALIDATE } from '../../helpers/Constants';
 import { PageData } from '../../types';
 import DatabaseItemHead from '../../components/DatabaseItemHead';
-import DatabaseItemContent from '../../components/DatabaseItemContent';
+import DatabaseItemContent from '../../components/database/DatabaseItemContent';
 import getPages from '../../helpers/getPages';
 import getPage from '../../helpers/getPage';
 

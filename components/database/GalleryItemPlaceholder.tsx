@@ -1,4 +1,4 @@
-import styles from '../styles/GalleryItemPlaceholder.module.css';
+import styles from '../../styles/GalleryItemPlaceholder.module.css';
 
 export default function GalleryItemPlaceholder() {
   const children = (
