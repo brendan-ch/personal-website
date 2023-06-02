@@ -3,6 +3,11 @@
  */
 type SortProperty = 'title' | 'description' | 'previewImage' | 'coverImage';
 
+/**
+ * Pages that can appear as selected through the mobile navigation bar.
+ */
+type SelectedPage = 'Home' | 'My Work' | 'Contact Me';
+
 interface PageExternalLink {
   name: string,
   url: string,
@@ -153,6 +158,7 @@ interface FormInputItem {
 }
 
 export {
+  SelectedPage,
   PageQuery,
   ContactFormBody,
   PageListQuery,
