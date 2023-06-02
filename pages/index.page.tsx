@@ -74,7 +74,7 @@ const Home = () => {
           <Link href="/work" className={styles.databaseEndLink}>
 
             <p>
-              See more
+              See more projects
             </p>
             <ChevronRight
               width={20}
