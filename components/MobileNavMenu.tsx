@@ -51,16 +51,6 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
       id={jsLoaded ? undefined : styles.navMenuContainer}
       role="menu"
     >
-      <div className={styles.grayBackground} />
-      <ImageWithFadeIn
-        src={require('../public/background-pattern.png')}
-        fill
-        style={{
-          zIndex: 3,
-          objectFit: 'cover',
-        }}
-        alt="Background image"
-      />
       <div className={styles.contentContainer}>
         <MobileNavBar
           style={{
