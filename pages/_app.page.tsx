@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <CustomLayout>
+        {/* @ts-ignore */}
         <Component {...pageProps} />
       </CustomLayout>
       <Analytics />
