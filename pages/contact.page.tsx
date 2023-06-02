@@ -1,4 +1,4 @@
-import styles from '../styles/contact.module.css';
+import styles from './contact.module.css';
 import utils from '../styles/utils.module.css';
 import PageButton from '../components/PageButton';
 import FormInput from '../components/FormInput';
