@@ -15,15 +15,12 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
   return (
     (<Link href={href} className={styles.buttonWrapper}>
 
-      <div className={styles.line} />
       <div className={styles.buttonTextContainer}>
-        <h2 className={toggled ? styles.red : undefined}>
-          {toggled ? (
-            <b>
-              {text}
-            </b>
-          ) : text}
-        </h2>
+        <h1 className={toggled ? styles.red : undefined}>
+          <b>
+            {text}
+          </b>
+        </h1>
       </div>
 
     </Link>)
@@ -31,7 +28,7 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 }
 
 interface Props {
-  selected?: string,
+  selected?: 'Home' | 'My Work' | 'Contact Me',
   visible?: boolean,
   onClose?: () => any,
 }
@@ -54,16 +51,6 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
       id={jsLoaded ? undefined : styles.navMenuContainer}
       role="menu"
     >
-      <div className={styles.grayBackground} />
-      <ImageWithFadeIn
-        src={require('../public/background-pattern.png')}
-        fill
-        style={{
-          zIndex: 3,
-          objectFit: 'cover',
-        }}
-        alt="Background image"
-      />
       <div className={styles.contentContainer}>
         <MobileNavBar
           style={{
@@ -72,15 +59,16 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
           }}
           mobileButtonType="close"
           onMobileButtonClick={onClose}
+          hideLogo
         />
         <div className={styles.buttons}>
           <MobileNavMenuButton
-            toggled={selected === 'Featured'}
+            toggled={selected === 'Home'}
             text="Home"
             href="/"
           />
           <MobileNavMenuButton
-            toggled={selected === 'Work'}
+            toggled={selected === 'My Work'}
             text="My Work"
             href="/work"
           />

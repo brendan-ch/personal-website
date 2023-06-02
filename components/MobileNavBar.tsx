@@ -43,6 +43,7 @@ interface Props {
   style?: CSSProperties,
   mobileButtonType?: 'hamburger' | 'close',
   onMobileButtonClick?: () => any,
+  hideLogo?: boolean,
 }
 
 /**
@@ -51,7 +52,7 @@ interface Props {
  * 
  * @todo make tab list customizable, and add tests for it
  */
-export default function MobileNavBar({ selected, style, mobileButtonType, onMobileButtonClick }: Props) {
+export default function MobileNavBar({ selected, style, mobileButtonType, onMobileButtonClick, hideLogo }: Props) {
   const [jsLoaded, setJsLoaded] = useState(false);
 
   useEffect(() => {
@@ -115,15 +116,17 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
   return (
     <nav className={styles.container} style={style}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
-      <div className={styles.contentContainer}>
-        <Link href="/" aria-label="Website Logo" className={styles.logoFull}>
+      <div className={hideLogo ? `${styles.contentContainer} ${styles.contentContainerWithoutLogo}` : styles.contentContainer}>
+        {!hideLogo ? (
+          <Link href="/" aria-label="Website Logo" className={styles.logoFull}>
 
-          <LogoFull
-            width={200}
-            height={1}
-          />
+            <LogoFull
+              width={200}
+              height={1}
+            />
 
-        </Link>
+          </Link>
+        ) : undefined}
         <Link href="/" aria-label="Website Logo" className={styles.logoStandalone}>
 
           <LogoStandalone
