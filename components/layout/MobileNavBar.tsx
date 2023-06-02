@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
-import styles from '../styles/MobileNavBar.module.css';
-import menuStyles from '../styles/MobileNavMenu.module.css';
-import Exit from './icons-v2/Exit';
-import Hamburger from './icons-v2/Hamburger';
-import LogoFull from './icons/LogoFull';
-import LogoStandalone from './icons/LogoStandalone';
+import styles from '../../styles/MobileNavBar.module.css';
+import menuStyles from '../../styles/MobileNavMenu.module.css';
+import Exit from '../icons-v2/Exit';
+import Hamburger from '../icons-v2/Hamburger';
+import LogoFull from '../icons/LogoFull';
+import LogoStandalone from '../icons/LogoStandalone';
 
 interface TabProps {
   text: string,

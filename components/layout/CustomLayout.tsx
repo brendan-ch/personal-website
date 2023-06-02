@@ -1,10 +1,10 @@
-import MobileNavBar from '../components/MobileNavBar';
-import utils from '../styles/utils.module.css';
-import Footer from '../components/Footer';
-import MobileNavMenu from '../components/MobileNavMenu';
+import MobileNavBar from './MobileNavBar';
+import utils from '../../styles/utils.module.css';
+import Footer from './Footer';
+import MobileNavMenu from './MobileNavMenu';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { SelectedPage } from '../types';
+import { SelectedPage } from '../../types';
 
 interface Props {
   children: JSX.Element | JSX.Element[],
