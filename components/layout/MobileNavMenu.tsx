@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import styles from '../styles/MobileNavMenu.module.css';
+import styles from './MobileNavMenu.module.css';
 import Footer from './Footer';
-import ImageWithFadeIn from './ImageWithFadeIn';
 import MobileNavBar from './MobileNavBar';
+import { SelectedPage } from '../../types';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -28,7 +28,7 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 }
 
 interface Props {
-  selected?: 'Home' | 'My Work' | 'Contact Me',
+  selected?: SelectedPage,
   visible?: boolean,
   onClose?: () => any,
 }

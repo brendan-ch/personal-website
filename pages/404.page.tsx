@@ -3,7 +3,7 @@ import Link from 'next/link';
 import utils from '../styles/utils.module.css';
 
 import Image404 from '../public/404.jpg';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/content/PageHeader';
 import Image from 'next/image';
 
 /**

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom';
 
-import { PageExternalLink } from "../types";
+import { PageExternalLink } from "../../types";
 import ShareCTA from "./ShareCTA";
 
 

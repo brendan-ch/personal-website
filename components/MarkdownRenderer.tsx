@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeRaw from 'rehype-raw';
 
-import styles from '../styles/MarkdownRenderer.module.css';
+import styles from './MarkdownRenderer.module.css';
 import utils from '../styles/utils.module.css';
 import { ImageSize } from '../types';
 

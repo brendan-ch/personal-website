@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import styles from '../styles/PageHeader.module.css';
+import styles from './PageHeader.module.css';
 
 interface Breadcrumb {
   name: string,

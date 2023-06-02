@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/TagBar.module.css';
+import styles from './TagBar.module.css';
 import { TagObject } from "../types";
 import Tag from "./Tag";
 
