@@ -59,6 +59,7 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
           }}
           mobileButtonType="close"
           onMobileButtonClick={onClose}
+          hideLogo
         />
         <div className={styles.buttons}>
           <MobileNavMenuButton
