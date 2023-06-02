@@ -74,11 +74,13 @@ to the bottom of the page. */
   flex: 1;
 }
 
-/* Use to wrap a full-width image on a page */
-.fullWidthImageWrapper {
-  width: 100vw;
-  min-height: calc(100vw / 4);
+/* Use to style an image within a page using `itemWrapper` and `innerItemWrapper`. Aspect ratio should be overwritten if image height/width is known. */
+.pageImageContainer {
+  width: 100%;
+  aspect-ratio: 3/2;
   position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .spacer {
@@ -93,6 +95,14 @@ to the bottom of the page. */
 
 .recaptchaBox {
   height: 80px;
+}
+
+.smallText {
+  font-size: 16px;
+}
+
+.monoText {
+  font-family: space-mono, monospace;
 }
 
 @keyframes fadein {

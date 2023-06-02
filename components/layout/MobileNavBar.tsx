@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
-import styles from '../styles/MobileNavBar.module.css';
-import menuStyles from '../styles/MobileNavMenu.module.css';
-import Exit from './icons-v2/Exit';
-import Hamburger from './icons-v2/Hamburger';
-import LogoFull from './icons/LogoFull';
-import LogoStandalone from './icons/LogoStandalone';
+import styles from './MobileNavBar.module.css';
+import menuStyles from './MobileNavMenu.module.css';
+import Exit from '../icons-v2/Exit';
+import Hamburger from '../icons-v2/Hamburger';
+import LogoFull from '../icons/LogoFull';
+import LogoStandalone from '../icons/LogoStandalone';
 
 interface TabProps {
   text: string,
@@ -24,15 +24,15 @@ function MobileNavBarTab({
 }: TabProps) {
   return (
     <div className={highlighted ? `${styles.tabHighlighted} ${styles.tab}` : styles.tab}>
-      <Link href={href}>
-        <a role="tab">
-          <p>
-            {text}
-          </p>
-        </a>
+      <Link href={href} role="tab">
+
+        <p>
+          {text}
+        </p>
+
       </Link>
     </div>
-  )
+  );
 }
 
 interface Props {
@@ -43,6 +43,7 @@ interface Props {
   style?: CSSProperties,
   mobileButtonType?: 'hamburger' | 'close',
   onMobileButtonClick?: () => any,
+  hideLogo?: boolean,
 }
 
 /**
@@ -51,7 +52,7 @@ interface Props {
  * 
  * @todo make tab list customizable, and add tests for it
  */
-export default function MobileNavBar({ selected, style, mobileButtonType, onMobileButtonClick }: Props) {
+export default function MobileNavBar({ selected, style, mobileButtonType, onMobileButtonClick, hideLogo }: Props) {
   const [jsLoaded, setJsLoaded] = useState(false);
 
   useEffect(() => {
@@ -115,22 +116,24 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
   return (
     <nav className={styles.container} style={style}>
       <div className={`${styles.line} ${styles.lineMobile}`} />
-      <div className={styles.contentContainer}>
-        <Link href="/" aria-label="Website Logo">
-          <a className={styles.logoFull}>
+      <div className={hideLogo ? `${styles.contentContainer} ${styles.contentContainerWithoutLogo}` : styles.contentContainer}>
+        {!hideLogo ? (
+          <Link href="/" aria-label="Website Logo" className={styles.logoFull}>
+
             <LogoFull
               width={200}
               height={1}
             />
-          </a>
-        </Link>
-        <Link href="/" aria-label="Website Logo">
-          <a className={styles.logoStandalone}>
-            <LogoStandalone
-              width={30.5}
-              height={30.5}
-            />
-          </a>
+
+          </Link>
+        ) : undefined}
+        <Link href="/" aria-label="Website Logo" className={styles.logoStandalone}>
+
+          <LogoStandalone
+            width={30.5}
+            height={30.5}
+          />
+
         </Link>
         <div className={styles.buttonsContainer} role="tablist">
           <MobileNavBarTab

@@ -43,20 +43,14 @@
   background-color: var(--emphasis);
 }
 
-.imageContainer {
-  width: 100%;
-  aspect-ratio: 3/2;
-  position: relative;
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
 .imageContainer:hover {
   cursor: pointer;
 }
 
 .image {
   background-repeat: no-repeat;
+  object-fit: contain;
+  object-position: 50%;
 }
 
 .bulletedListContainer {

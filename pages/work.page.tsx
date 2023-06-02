@@ -1,8 +1,8 @@
 import utils from '../styles/utils.module.css';
 import { PageListResponse, TagObject } from '../types';
 import Head from 'next/head';
-import PageHeader from '../components/PageHeader';
-import Database from '../components/Database';
+import PageHeader from '../components/content/PageHeader';
+import Database from '../components/database/Database';
 import getPages from '../helpers/getPages';
 import getTags from '../helpers/getTags';
 

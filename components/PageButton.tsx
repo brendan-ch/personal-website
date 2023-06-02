@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '../styles/PageButton.module.css';
+import styles from './PageButton.module.css';
 
 interface Props {
   text: string,
@@ -25,15 +25,13 @@ export default function PageButton({ text, onClick, href, highlighted, disabled 
 
   if (href) {
     return (
-      <Link
-        href={href}
-      >
-        <a className={className}>
-          <p>
-            {text}
-          </p>
-        </a>
-      </Link>
+      (<Link href={href} className={className}>
+
+        <p>
+          {text}
+        </p>
+
+      </Link>)
     );
   }
 

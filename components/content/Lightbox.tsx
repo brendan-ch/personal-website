@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
-import styles from '../styles/Lightbox.module.css';
-import Exit from './icons-v2/Exit';
+import styles from './Lightbox.module.css';
+import Exit from '../icons-v2/Exit';
 
 interface Props {
   imageLink?: string,
@@ -45,9 +45,11 @@ export default function Lightbox({ imageLink, caption, visible, onClose }: Props
           <div className={styles.imageWrapper}>
             <Image
               src={imageLink}
-              alt={caption}
-              layout="fill"
-              objectFit="contain"
+              alt={caption || ''}
+              fill
+              style={{
+                objectFit: 'contain',
+              }}
             />
           </div>
         ) : undefined}

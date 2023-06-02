@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import styles from '../styles/MobileNavMenu.module.css';
+import styles from './MobileNavMenu.module.css';
 import Footer from './Footer';
-import ImageWithFadeIn from './ImageWithFadeIn';
 import MobileNavBar from './MobileNavBar';
+import { SelectedPage } from '../../types';
 
 interface ButtonProps {
   toggled?: boolean,
@@ -13,25 +13,22 @@ interface ButtonProps {
 
 export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
   return (
-    <Link href={href}>
-      <a className={styles.buttonWrapper}>
-        <div className={styles.line} />
-        <div className={styles.buttonTextContainer}>
-          <h3 className={toggled ? styles.red : undefined}>
-            {toggled ? (
-              <b>
-                {text}
-              </b>
-            ) : text}
-          </h3>
-        </div>
-      </a>
-    </Link>
+    (<Link href={href} className={styles.buttonWrapper}>
+
+      <div className={styles.buttonTextContainer}>
+        <h1 className={toggled ? styles.red : undefined}>
+          <b>
+            {text}
+          </b>
+        </h1>
+      </div>
+
+    </Link>)
   );
 }
 
 interface Props {
-  selected?: string,
+  selected?: SelectedPage,
   visible?: boolean,
   onClose?: () => any,
 }
@@ -54,16 +51,6 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
       id={jsLoaded ? undefined : styles.navMenuContainer}
       role="menu"
     >
-      <div className={styles.grayBackground} />
-      <ImageWithFadeIn
-        src={require('../public/background-pattern.png')}
-        layout="fill"
-        objectFit="cover"
-        style={{
-          zIndex: 3,
-        }}
-        alt="Background image"
-      />
       <div className={styles.contentContainer}>
         <MobileNavBar
           style={{
@@ -72,15 +59,16 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
           }}
           mobileButtonType="close"
           onMobileButtonClick={onClose}
+          hideLogo
         />
         <div className={styles.buttons}>
           <MobileNavMenuButton
-            toggled={selected === 'Featured'}
+            toggled={selected === 'Home'}
             text="Home"
             href="/"
           />
           <MobileNavMenuButton
-            toggled={selected === 'Work'}
+            toggled={selected === 'My Work'}
             text="My Work"
             href="/work"
           />

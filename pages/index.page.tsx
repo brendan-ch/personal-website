@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import styles from './index.module.css';
+import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
 import AboutImage from '../public/about.jpeg';
@@ -39,10 +40,13 @@ const Home = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.sectionDivider}>
-          <Image
-            src={AboutImage}
-            alt="Me standing at the Getty Museum."
-          />
+          <div className={utils.pageImageContainer}>
+            <Image
+              src={AboutImage}
+              alt="Me standing at the Getty Museum."
+              fill
+            />
+          </div>
           <p>I{'\''}m Brendan, a designer, developer, and college student living in Orange, California. Currently, I{'\''}m a software engineering major and graphic design minor at Chapman University. In my free time, I enjoy reading, playing video games, and brewing coffee.</p>
         </div>
         <div className={styles.sectionDivider}>
@@ -64,19 +68,19 @@ const Home = () => {
           </p>
           <ul>
             <li>Designed and created <a href="https://clockwise.bchen.dev" target="_blank" rel="noreferrer"><u>Clockwise</u></a>, a Pomodoro timer designed to help you focus</li>
-            <li>Created <Link href="/work/standard-catalog"><a><u>Standard Catalog</u></a></Link>, a redesign of the college registration experience</li>
-            <li>Designed the official <Link href="/work/planner-cover"><a><u>planner cover</u></a></Link> for my high school</li>
+            <li>Created <Link href="/work/standard-catalog"><u>Standard Catalog</u></Link>, a redesign of the college registration experience</li>
+            <li>Designed the official <Link href="/work/planner-cover"><u>planner cover</u></Link> for my high school</li>
           </ul>
-          <Link href="/work">
-            <a className={styles.databaseEndLink}>
-              <p>
-                See more
-              </p>
-              <ChevronRight
-                width={20}
-                height={20}
-              />
-            </a>
+          <Link href="/work" className={styles.databaseEndLink}>
+
+            <p>
+              See more projects
+            </p>
+            <ChevronRight
+              width={20}
+              height={20}
+            />
+
           </Link>
         </div>
         <div className={styles.sectionDivider}>

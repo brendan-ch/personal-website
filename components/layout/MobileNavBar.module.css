@@ -45,6 +45,10 @@
   padding: 0px 32px;
 }
 
+.contentContainerWithoutLogo {
+  justify-content: flex-end !important;
+}
+
 .contentContainer > a {
   flex-direction: row;
   justify-content: center;

@@ -32,8 +32,25 @@ describe('MobileNavMenu', () => {
   });
 
   it('Renders with passing selected', () => {
-    render(<MobileNavMenu selected="About Me" />);
+    render(<MobileNavMenu selected="My Work" />);
     
     expect(screen.getByRole('menu')).toBeInTheDocument();
   });
+
+  it('Renders with different class names based on visibility', () => {
+    render((
+      <>
+        <MobileNavMenu
+          visible
+        />
+        <MobileNavMenu
+        />
+      </>
+    ));
+    
+    const menus = screen.getAllByRole('menu');
+    expect(menus.length).toBe(2);
+    expect(menus[0].classList).not.toStrictEqual(menus[1].classList);
+  });
+
 });

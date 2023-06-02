@@ -3,7 +3,7 @@ import Link from 'next/link';
 import utils from '../styles/utils.module.css';
 
 import Image500 from '../public/500.jpg';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/content/PageHeader';
 import Image from 'next/image';
 
 /**
@@ -26,34 +26,37 @@ export default function Custom500() {
       <div className={`${utils.itemWrapper}`}>
         <p>Something went wrong when loading this page. Maybe try again later?</p>
         <Link href="/">
-          <a>
-            <p>
-              <u>
-                Back to Home
-              </u>
-            </p>
-          </a>
+
+          <p>
+            <u>
+              Back to Home
+            </u>
+          </p>
+
         </Link>
-        <Image
-          src={Image500}
-          alt="Capybara swimming"
-        />
+        <div className={utils.pageImageContainer}>
+          <Image
+            src={Image500}
+            alt="Capybara in bath"
+            fill
+          />
+        </div>
         <p>
           (Image by{' '}
-          <Link href="https://unsplash.com/@sushioutlaw">
-            <a target="_blank">
-              <u>
-                Brian McGowan
-              </u>
-            </a>
+          <Link href="https://unsplash.com/@sushioutlaw" target="_blank">
+
+            <u>
+              Brian McGowan
+            </u>
+
           </Link>
           {' on '}
-          <Link href="https://unsplash.com">
-            <a target="_blank">
-              <u>
-                Unsplash
-              </u>
-            </a>
+          <Link href="https://unsplash.com" target="_blank">
+
+            <u>
+              Unsplash
+            </u>
+
           </Link>
           )
         </p>

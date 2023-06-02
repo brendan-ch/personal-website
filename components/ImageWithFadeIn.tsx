@@ -1,7 +1,7 @@
 import Image, { ImageProps } from 'next/image';
 import { useEffect, useState } from 'react';
 
-import styles from '../styles/ImageWithFadeIn.module.css';
+import styles from './ImageWithFadeIn.module.css';
 
 enum LoadingState {
   BEFORE,

@@ -1,10 +1,10 @@
-import styles from '../styles/contact.module.css';
+import styles from './contact.module.css';
 import utils from '../styles/utils.module.css';
 import PageButton from '../components/PageButton';
 import FormInput from '../components/FormInput';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/content/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -157,11 +157,11 @@ export default function ContactForm() {
         <p>
           Your message has been sent.{' '}
           <Link href="/">
-            <a>
-              <u>
-                Return to Home
-              </u>
-            </a>
+
+            <u>
+              Return to Home
+            </u>
+
           </Link>
         </p>
       );
@@ -209,12 +209,12 @@ export default function ContactForm() {
           ))}
           <div className={`g-recaptcha ${utils.recaptchaBox}`} data-sitekey="6Ld7rsghAAAAAIG8gMOX7BiLOoYC1BqDE1TkJcDM"></div>
           <p>Data that you provide in this form will be handled according to the{' '}
-            <Link href="/doc/privacy">
-              <a target="_blank" rel="noreferrer">
-                <u>
-                  Privacy Policy
-                </u>
-              </a>
+            <Link href="/doc/privacy" target="_blank" rel="noreferrer">
+
+              <u>
+                Privacy Policy
+              </u>
+
             </Link>
             .
           </p>

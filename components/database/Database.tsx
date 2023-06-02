@@ -1,12 +1,12 @@
-import { PageData, PageListFilter, PageListResponse, PageListSort, TagObject } from '../types';
-import styles from '../styles/Database.module.css';
+import { PageData, PageListFilter, PageListResponse, PageListSort, TagObject } from '../../types';
+import styles from './Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
-import PageButton from './PageButton';
-import { GROUP_PAGE_SIZE } from '../helpers/Constants';
-import TagBar from './TagBar';
+import PageButton from '../PageButton';
+import { GROUP_PAGE_SIZE } from '../../helpers/Constants';
+import TagBar from '../TagBar';
 import GalleryItemPlaceholder from './GalleryItemPlaceholder';
 
 interface RowProps {

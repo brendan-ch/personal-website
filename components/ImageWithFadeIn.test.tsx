@@ -9,7 +9,8 @@ describe('ImageWithFadeIn', () => {
     render(<ImageWithFadeIn
       src="/link-preview-image.png"
       alt="Testing Image"
-      layout="fill"
+      width={500}
+      height={250}
     />);
 
     // Expect there to be an image

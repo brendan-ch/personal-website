@@ -21,7 +21,6 @@ describe('Lightbox', () => {
 
     const img = screen.getByRole('img');
     expect(img).toBeInTheDocument();
-    expect(img.getAttribute('alt')).toBeNull();
   });
 
   it('Renders an image with the caption', () => {

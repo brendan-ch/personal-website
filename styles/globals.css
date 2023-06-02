@@ -77,15 +77,16 @@ button {
   --selected: #E67B75;
   --darker-gray: #3D3D3D; */
 
-  --background: #E6E6E6;
+  --background: #efefef;
   --background-translucent: rgba(230, 230, 230, 0.9);
+  --gray: #dddddd;
+  --gray2: #999999;
+  --gray3: #666666;
+  --gray4: #2E2E2E;
   --emphasis: #121212;
   --cyan: #376E77;
   --blue: #5D5CB2;
   --red: #BE3223;
-  --gray: #DCDCDC;
-  --gray2: #999999;
-  --gray3: #666666;
 
   --outer-guide-width: 72em;
   --inner-guide-width: 48em;
@@ -102,15 +103,8 @@ h1 {
 h2 {
   font-weight: 400;
   color: var(--emphasis);
-  font-size: 26px;
-  padding: 0px;
-  margin: 0px;
-}
-
-h3 {
-  font-weight: 400;
-  color: var(--emphasis);
-  font-size: 23px;
+  font-size: 24px;
+  line-height: 32px;
   padding: 0px;
   margin: 0px;
 }

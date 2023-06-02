@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CSSProperties } from 'react';
-import styles from '../styles/Footer.module.css';
-import ChevronUp from './icons-v2/ChevronUp';
+import styles from './Footer.module.css';
+import ChevronUp from '../icons-v2/ChevronUp';
 
 interface Props {
   style?: CSSProperties,
@@ -15,41 +15,41 @@ export default function Footer({ style, hideScroll, hideCopyright }: Props) {
       {!hideScroll ? (
         <div className={styles.horizontalWrapper}>
           <Link href="#top">
-            <a>
-              <p>
-                Back to top
-              </p>
-              <ChevronUp
-                width={24}
-                height={24}
-              />
-            </a>
+
+            <p>
+              Back to top
+            </p>
+            <ChevronUp
+              width={24}
+              height={24}
+            />
+
           </Link>
         </div>
       ) : undefined}
       <div className={styles.horizontalWrapper}>
         <Link href="/doc/privacy">
-          <a>
-            <p>
-              <u>Privacy Policy</u>
-            </p>
-          </a>
+
+          <p>
+            <u>Privacy Policy</u>
+          </p>
+
         </Link>
         {/* <p>|</p> */}
         <Link href="/doc/open-source-licenses">
-          <a>
-            <p>
-              <u>Open Source Licenses</u>
-            </p>
-          </a>
+
+          <p>
+            <u>Open Source Licenses</u>
+          </p>
+
         </Link>
         {/* <p>|</p> */}
         <Link href="/doc/fair-use-statement">
-          <a>
-            <p>
-              <u>Fair Use Statement</u>
-            </p>
-          </a>
+
+          <p>
+            <u>Fair Use Statement</u>
+          </p>
+
         </Link>
       </div>
       {!hideCopyright ? (
