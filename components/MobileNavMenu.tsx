@@ -28,7 +28,7 @@ export function MobileNavMenuButton({ toggled, text, href }: ButtonProps) {
 }
 
 interface Props {
-  selected?: string,
+  selected?: 'Home' | 'My Work' | 'Contact Me',
   visible?: boolean,
   onClose?: () => any,
 }
@@ -63,12 +63,12 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
         />
         <div className={styles.buttons}>
           <MobileNavMenuButton
-            toggled={selected === 'Featured'}
+            toggled={selected === 'Home'}
             text="Home"
             href="/"
           />
           <MobileNavMenuButton
-            toggled={selected === 'Work'}
+            toggled={selected === 'My Work'}
             text="My Work"
             href="/work"
           />
