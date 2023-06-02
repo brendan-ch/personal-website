@@ -1,5 +1,5 @@
 import { PageExternalLink } from "../../types";
-import styles from '../../styles/ShareCTA.module.css';
+import styles from './ShareCTA.module.css';
 import ExternalLink from "../ExternalLink";
 
 interface Props {

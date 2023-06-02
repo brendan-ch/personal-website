@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CSSProperties } from 'react';
-import styles from '../../styles/Footer.module.css';
+import styles from './Footer.module.css';
 import ChevronUp from '../icons-v2/ChevronUp';
 
 interface Props {

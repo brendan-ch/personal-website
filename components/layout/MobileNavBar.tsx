@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
-import styles from '../../styles/MobileNavBar.module.css';
-import menuStyles from '../../styles/MobileNavMenu.module.css';
+import styles from './MobileNavBar.module.css';
+import menuStyles from './MobileNavMenu.module.css';
 import Exit from '../icons-v2/Exit';
 import Hamburger from '../icons-v2/Hamburger';
 import LogoFull from '../icons/LogoFull';

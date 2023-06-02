@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import styles from '../../styles/MobileNavMenu.module.css';
+import styles from './MobileNavMenu.module.css';
 import Footer from './Footer';
 import MobileNavBar from './MobileNavBar';
 import { SelectedPage } from '../../types';

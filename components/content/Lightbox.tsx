@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
-import styles from '../styles/Lightbox.module.css';
-import Exit from './icons-v2/Exit';
+import styles from './Lightbox.module.css';
+import Exit from '../icons-v2/Exit';
 
 interface Props {
   imageLink?: string,

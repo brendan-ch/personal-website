@@ -3,9 +3,9 @@ import utils from '../../styles/utils.module.css';
 import { PageData, PageExternalLink } from '../../types';
 import MarkdownRenderer from '../MarkdownRenderer';
 import React, { useCallback, useState } from 'react';
-import Lightbox from '../Lightbox';
+import Lightbox from '../content/Lightbox';
 import ExternalLink from '../ExternalLink';
-import styles from '../../styles/DatabaseItemContent.module.css';
+import styles from './DatabaseItemContent.module.css';
 import ShareCTA from '../content/ShareCTA';
 
 interface CalloutInformationProps {

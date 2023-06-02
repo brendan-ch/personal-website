@@ -1,7 +1,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import React from 'react';
-import styles from '../../styles/GalleryItem.module.css';
+import styles from './GalleryItem.module.css';
 
 interface Props {
   imageLink?: string,

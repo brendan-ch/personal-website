@@ -1,5 +1,5 @@
 import ArrowUpAndRight from './icons-v2/ArrowUpAndRight';
-import styles from '../styles/ExternalLink.module.css';
+import styles from './ExternalLink.module.css';
 import AppStore from './logos/AppStore';
 import Figma from './logos/Figma';
 import GitHub from './logos/GitHub';

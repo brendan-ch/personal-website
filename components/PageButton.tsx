@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '../styles/PageButton.module.css';
+import styles from './PageButton.module.css';
 
 interface Props {
   text: string,

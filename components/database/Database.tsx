@@ -1,5 +1,5 @@
 import { PageData, PageListFilter, PageListResponse, PageListSort, TagObject } from '../../types';
-import styles from '../../styles/Database.module.css';
+import styles from './Database.module.css';
 import GalleryItem from './GalleryItem';
 import useSWR from 'swr';
 import axios from 'axios';
