@@ -4,7 +4,7 @@ import PageButton from '../components/PageButton';
 import FormInput from '../components/FormInput';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/content/PageHeader';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
