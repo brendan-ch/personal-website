@@ -10,10 +10,36 @@ import ChevronRight from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
 
 /**
+ * React component for the unified home page.
+ * This home page prioritizes quality of work over quantity,
+ * while keeping users engaged.
+ */
+function UnifiedHome() {
+  return (
+    <main>
+      <Head>
+        <title>Brendan Chen</title>
+      </Head>
+      <div>
+        <h1>
+          I{'\''}m Brendan, a
+        </h1>
+        <h1>
+          designer and developer
+        </h1>
+        <h1>
+          in Orange, CA.
+        </h1>
+      </div>
+    </main>
+  )
+}
+
+/**
  * Home page.
  * @returns
  */
-const Home = () => {
+function Home() {
   return (
     <main>
       <Head>
@@ -118,4 +144,5 @@ const Home = () => {
   );
 }
 
-export default Home;
+const toExport = process.env.NEXT_PUBLIC_UNIFIED_HOME === '1' ? UnifiedHome : Home;
+export default toExport;
