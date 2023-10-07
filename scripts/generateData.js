@@ -32,7 +32,7 @@ async function getData() {
       const images = [...matterResult.content.matchAll(imagePathRegex)].map((matchValue) => matchValue[0]);
 
       const imageSizes = await Promise.all(images.map(async (imagePath) => {
-        const { width, height } = await sizeOf(path.join(contentDirectory, imagePath));
+        const { width, height } = await sizeOf(path.join('public', imagePath));
 
         return {
           imagePath,
