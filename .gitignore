@@ -34,9 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# content folder images
-public/static
-
 # obsidian vault data
 content/.obsidian/appearance.json
 content/.obsidian/workspace
