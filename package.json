@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn copy && yarn generate && next dev",
-    "build": "yarn copy && yarn generate && next build",
-    "copy": "copyfiles -u 1 \"./content/static/**/*\" \"./public\"",
+    "dev": "yarn generate && next dev",
+    "build": "yarn generate && next build",
     "generate": "node scripts/generateData.js",
     "start": "next start",
     "lint": "next lint",
