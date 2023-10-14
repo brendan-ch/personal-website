@@ -50,7 +50,7 @@ function UnifiedHome() {
             }]}
           title="CMES Admin Panel"
           description="UI/UX design and web development project for Techies Without Borders. I led the redesign and re-implementation of the CMES admin panel, facilitating the distribution of medical content to resource-constrained countries."
-          imagePath="/static/work/preview/cmes-preview.png"
+          imagePath="/static/ufh/cmes.png"
           imageAlt="Preview image for CMES Admin Panel"
         />
         <Card
@@ -70,7 +70,7 @@ function UnifiedHome() {
           ]}
           title="Clockwise"
           description="The Pomodoro timer designed to help you focus. Designed, developed, and shipped over an initial 3-month period, with a stream of new features and improvements added post-launch. Built using React Native."
-          imagePath="/static/work/preview/cmes-preview.png"
+          imagePath="/static/ufh/clockwise.png"
           imageAlt="Preview image for Clockwise"
         />
         <Card
@@ -86,7 +86,7 @@ function UnifiedHome() {
           ]}
           title="Design by Brendan Chen"
           description="My personal design portfolio, designed to showcase a variety of visual works."
-          imagePath="/static/work/preview/cmes-preview.png"
+          imagePath="/static/ufh/design.png"
           imageAlt="Preview image for Design by Brendan Chen"
         />
       </div>
