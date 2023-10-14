@@ -36,11 +36,16 @@
   gap: 16px;
 
   flex: 1 0 0;
+
+  max-width: 572px;
+  
 }
 
 .externalLinks {
   display: flex;
   flex-direction: 16px;
+
+  gap: 16px;
 }
 
 .imageContainer {
@@ -53,6 +58,8 @@
   align-items: center;
 
   aspect-ratio: 1 / 1;
+
+  max-width: 572px;
 }
 
 .image {
@@ -75,9 +82,15 @@
     line-height: 40px;
   }
 
+  .text {
+    max-width: unset;
+  }
+
   .imageContainer {
     width: 100%;
     height: auto;
     flex: unset;
+
+    max-width: unset;
   }
 }
