@@ -23,7 +23,11 @@
 }
 
 .container p {
-  color: var(--ufh-emphasis);
+  color: var(--ufh-emphasis) !important;
+}
+
+.container path {
+  fill: var(--ufh-emphasis) !important;
 }
 
 .text {
