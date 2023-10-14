@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './index.module.css';
+import unified from './unified.module.css';
 import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
@@ -8,6 +9,7 @@ import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWitho
 import Link from 'next/link';
 import ChevronRight from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
+import Card from '../components/content/Card';
 
 /**
  * React component for the unified home page.
@@ -16,11 +18,11 @@ import PageButton from '../components/PageButton';
  */
 function UnifiedHome() {
   return (
-    <main>
+    <main className={unified.main}>
       <Head>
         <title>Brendan Chen</title>
       </Head>
-      <div>
+      <div className={unified.hero}>
         <h1>
           I{'\''}m Brendan, a
         </h1>
@@ -30,6 +32,85 @@ function UnifiedHome() {
         <h1>
           in Orange, CA.
         </h1>
+      </div>
+      <div className={unified.works}>
+        <Card
+          externalLinks={[
+            {
+              name: 'View design',
+              url: 'https://design.bchen.dev/work/cmes-admin-panel'
+            },
+            {
+              name: 'Techies Without Borders',
+              url: 'https://techieswithoutborders.us'
+            },
+            {
+              name: 'CMES Project',
+              url: 'https://cmesworld.org',
+            }]}
+          title="CMES Admin Panel"
+          description="UI/UX design and web development project for Techies Without Borders. I led the redesign and re-implementation of the CMES admin panel, facilitating the distribution of medical content to resource-constrained countries."
+          imagePath="/static/work/preview/cmes-preview.png"
+          imageAlt="Preview image for CMES Admin Panel"
+        />
+        <Card
+          externalLinks={[
+            {
+              name: 'View design',
+              url: 'https://design.bchen.dev/work/cmes-admin-panel'
+            },
+            {
+              name: 'View GitHub',
+              url: 'https://github.com/brendan-ch/clockwise'
+            },
+            {
+              name: 'View web app',
+              url: 'https://clockwise.bchen.dev'
+            },
+          ]}
+          title="Clockwise"
+          description="The Pomodoro timer designed to help you focus. Designed, developed, and shipped over an initial 3-month period, with a stream of new features and improvements added post-launch. Built using React Native."
+          imagePath="/static/work/preview/cmes-preview.png"
+          imageAlt="Preview image for Clockwise"
+        />
+        <Card
+          externalLinks={[
+            {
+              name: 'View website',
+              url: 'https://design.bchen.dev/'
+            },
+            {
+              name: 'View GitHub',
+              url: 'https://github.com/brendan-ch/personal-design-website'
+            },
+          ]}
+          title="Design by Brendan Chen"
+          description="My personal design portfolio, designed to showcase a variety of visual works."
+          imagePath="/static/work/preview/cmes-preview.png"
+          imageAlt="Preview image for Design by Brendan Chen"
+        />
+      </div>
+      <div className={unified.contact}>
+        <h1>Let{"'"}s work together.</h1>
+        <div className={unified.contactButtons}>
+          <PageButton text="Resume" />
+          <PageButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
+        </div>
+      </div>
+      <div className={unified.footer}>
+        <Link href="#">
+          <p>
+            Back to top
+          </p>
+        </Link>
+        <Link href="/docs/open-source-licenses">
+          <p>
+            Open Source Licenses
+          </p>
+        </Link>
+        <p>
+          © 2023 Brendan Chen
+        </p>
       </div>
     </main>
   )
