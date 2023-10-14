@@ -1,4 +1,7 @@
+import styles from './Card.module.css';
 import { PageExternalLink } from "../../types";
+import Image from 'next/image';
+import ExternalLink from '../ExternalLink';
 
 interface CardProps {
   /**
@@ -19,9 +22,14 @@ interface CardProps {
   imagePath: string,
 
   /**
+   * Alt text for the provided gallery image.
+   */
+  imageAlt: string,
+
+  /**
    * External links to display within the card.
    */
-  externalLinks: PageExternalLink[]
+  externalLinks: PageExternalLink[],
 }
 
 /**
@@ -32,6 +40,29 @@ export default function Card({
   title,
   description,
   imagePath,
+  imageAlt,
+  externalLinks,
 }: CardProps) {
-  return <></>
+  return <div className={styles.container}>
+    <div className={styles.text}>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <div className={styles.externalLinks}>
+        {externalLinks.map((value, i) => (
+          <ExternalLink
+            action="open"
+            {...value}
+            key={i}
+          />
+        ))}
+      </div>
+    </div>
+    <div className={styles.imageContainer}>
+      <Image
+        src={imagePath}
+        alt={imageAlt}
+        fill
+      />
+    </div>    
+  </div>
 }
