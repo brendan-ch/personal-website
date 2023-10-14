@@ -62,6 +62,7 @@ export default function Card({
         src={imagePath}
         alt={imageAlt}
         fill
+        className={styles.image}
       />
     </div>    
   </div>
