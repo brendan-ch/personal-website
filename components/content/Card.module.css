@@ -46,6 +46,8 @@
   flex-direction: 16px;
 
   gap: 16px;
+
+  flex-wrap: wrap;
 }
 
 .imageContainer {
