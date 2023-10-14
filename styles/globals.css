@@ -88,6 +88,9 @@ button {
   --blue: #5D5CB2;
   --red: #BE3223;
 
+  --ufh-background: #121212;
+  --ufh-emphasis: #efefef;
+
   --outer-guide-width: 72em;
   --inner-guide-width: 48em;
 }
