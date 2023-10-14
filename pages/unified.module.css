@@ -1,0 +1,53 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+
+  padding-bottom: 32px;
+
+  animation-name: fadein;
+  animation-duration: 500ms;
+}
+
+/* Override all heading elements */
+.main h1 {
+  color: var(--ufh-emphasis);
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.main p {
+  color: var(--ufh-emphasis) !important;
+}
+
+.main path {
+  fill: var(--ufh-emphasis) !important;
+}
+
+.contact {
+  display: flex;
+  width: 100%;
+
+  padding: 0px 32px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  background-color: var(--ufh-background);
+
+  height: 256px;
+}
+
+.contactButtons {
+  display: flex;
+  flex-direction: row;
+
+  gap: 16px;
+
+  width: 572px;
+}
