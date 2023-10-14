@@ -54,3 +54,26 @@
 .image {
   object-fit: cover;
 }
+
+@media only screen and (max-width: 720px) {
+  .container {
+    flex-direction: column-reverse;
+    padding: 16px;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .container h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: auto;
+    flex: unset;
+  }
+}
