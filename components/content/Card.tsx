@@ -33,7 +33,8 @@ interface CardProps {
 }
 
 /**
- * Component which displays a single 
+ * Component which displays a single project or work experience.
+ * Adapts to mobile and desktop layouts.
  * @param param0 
  */
 export default function Card({
@@ -44,9 +45,12 @@ export default function Card({
   externalLinks,
 }: CardProps) {
   return <div className={styles.container}>
+    {/* Text to display on the left/bottom */}
     <div className={styles.text}>
+      {/* Title and description */}
       <h1>{title}</h1>
       <p>{description}</p>
+      {/* External links to the project, website, etc. */}
       <div className={styles.externalLinks}>
         {externalLinks.map((value, i) => (
           <ExternalLink
@@ -57,6 +61,7 @@ export default function Card({
         ))}
       </div>
     </div>
+    {/* Image to display on the right/top */}
     <div className={styles.imageContainer}>
       <Image
         src={imagePath}
