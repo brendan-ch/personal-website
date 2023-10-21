@@ -45,6 +45,11 @@
   /* border-bottom: 1px white solid; */
 }
 
+.heroImage {
+  width: 100%;
+  object-fit: cover;
+}
+
 .heroContent {
   display: flex;
   flex-direction: column;
