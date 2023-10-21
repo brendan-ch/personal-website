@@ -4,18 +4,18 @@
   justify-content: center;
   align-items: center;
 
-  border: 1px solid var(--white);
+  border: 1px solid var(--ufh-emphasis);
 
   height: 48px;
   width: 100%;
 }
 
 .highlighted {
-  background: var(--white);
+  background: var(--ufh-emphasis);
 }
 
 .highlighted p {
-  color: var(--background);
+  color: var(--ufh-background) !important;
 }
 
 .highlighted:hover {
