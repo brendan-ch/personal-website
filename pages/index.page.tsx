@@ -108,7 +108,7 @@ function UnifiedHome() {
       <div className={unified.contact}>
         <h1>Let{"'"}s work together.</h1>
         <div className={unified.contactButtons}>
-          <PageButton text="Resume" />
+          {/* <PageButton text="Resume" /> */}
           <PageButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
         </div>
       </div>

@@ -103,3 +103,15 @@
 
   width: 572px;
 }
+
+@media only screen and (max-width: 720px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contactButtons {
+    display: flex;
+    flex-direction: column;
+  }
+}
