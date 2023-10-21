@@ -1,0 +1,187 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+
+  padding-bottom: 0px !important;
+
+  animation-name: fadein;
+  animation-duration: 500ms;
+}
+
+/* Override all heading elements */
+.main h1 {
+  color: var(--ufh-emphasis);
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.main h2 {
+  color: var(--ufh-emphasis);
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.main p {
+  color: var(--ufh-emphasis);
+}
+
+.main path {
+  fill: var(--ufh-emphasis) !important;
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--ufh-background) !important;
+}
+
+.heroContainer {
+  width: 100%;
+  height: 100%;
+
+  padding: 16px;
+  
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  z-index: 1;
+
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.heroImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 960px;
+
+  gap: 32px;
+
+  padding-bottom: 32px;
+
+  z-index: 1;
+}
+
+.focus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--ufh-background);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding: 16px;
+}
+
+.focusContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  max-width: 960px;
+  
+  gap: 32px;
+}
+
+.focusContent p {
+  font-size: 16px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.contact {
+  display: flex;
+  width: 100%;
+
+  padding: 0px 32px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  background-color: var(--ufh-background);
+
+  height: 256px;
+
+  gap: 16px;
+}
+
+.contact h1 {
+  flex: 1 0;
+}
+
+.contactButtons {
+  display: flex;
+  flex-direction: row;
+
+  gap: 16px;
+  flex: 1 0;
+  max-width: 572px;
+}
+
+.footer {
+  background-color: var(--ufh-background);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+
+  align-items: center;
+}
+
+@media only screen and (max-width: 720px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding: 0px 16px;
+  }
+
+  .contact h1 {
+    flex: unset;
+  }
+
+  .contactButtons {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: none;
+  }
+
+  .footer {
+    align-items: flex-start;
+  }
+}

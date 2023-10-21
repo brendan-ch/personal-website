@@ -12,22 +12,12 @@
   padding: 32px;
 
   position: relative;
-}
 
-/* Override all heading elements */
-.container h1 {
-  color: var(--ufh-emphasis);
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 56px;
+  gap: 16px;
 }
 
 .container p {
   color: var(--ufh-emphasis) !important;
-}
-
-.container path {
-  fill: var(--ufh-emphasis) !important;
 }
 
 .text {
@@ -77,6 +67,8 @@
     align-items: flex-start;
 
     gap: 16px;
+
+    min-height: 1000px;
   }
 
   .container h1 {

@@ -1,21 +1,25 @@
 import Link from 'next/link';
-import styles from './PageButton.module.css';
+import styles from './ActionButton.module.css';
 
 interface Props {
   text: string,
   onClick?: () => any,
   href?: string,
+  /**
+   * If set to true, the component will render an `<a>` element
+   * instead of a Next.js `<Link>` element.
+   */
+  useRegularLink?: boolean,
   highlighted?: boolean,
   disabled?: boolean,
 }
 
 /**
- * Button intended to be used on a page.
+ * Action button which signals the user to do something.
  * @param param0
  * @returns
- * @deprecated Use `ActionButton` component instead.
  */
-export default function PageButton({ text, onClick, href, highlighted, disabled }: Props) {
+export default function ActionButton({ text, onClick, href, useRegularLink, highlighted, disabled }: Props) {
   let className = `${styles.container}`;
   if (highlighted) {
     className += ` ${styles.highlighted}`;
@@ -24,7 +28,7 @@ export default function PageButton({ text, onClick, href, highlighted, disabled 
     className += ` ${styles.disabled}`;
   }
 
-  if (href) {
+  if (href && !useRegularLink) {
     return (
       (<Link href={href} className={className}>
 
@@ -34,6 +38,14 @@ export default function PageButton({ text, onClick, href, highlighted, disabled 
 
       </Link>)
     );
+  } else if (href) {
+    return (
+      <a href={href} className={className} rel="noreferrer" target="_blank">
+        <p>
+          {text}
+        </p>
+      </a>
+    )
   }
 
   return (
