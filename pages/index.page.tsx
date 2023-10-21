@@ -11,6 +11,7 @@ import ChevronRight from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
 import Card from '../components/content/Card';
 import LinkedIn from '../components/logos/LinkedIn';
+import GitHub from '../components/logos/GitHub';
 
 /**
  * React component for the unified home page.
@@ -31,6 +32,9 @@ function UnifiedHome() {
           <div className={unified.socials}>
             <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
               <LinkedIn />
+            </Link>
+            <Link href="https://github.com/brendan-ch" target="_blank" rel="noreferrer">
+              <GitHub />
             </Link>
           </div>
         </div>
