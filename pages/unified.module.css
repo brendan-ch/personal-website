@@ -95,13 +95,17 @@
   height: 256px;
 }
 
+.contact h1 {
+  flex: 1 0;
+}
+
 .contactButtons {
   display: flex;
   flex-direction: row;
 
   gap: 16px;
-
-  width: 572px;
+  flex: 1 0;
+  max-width: 572px;
 }
 
 .footer {
@@ -133,6 +137,7 @@
     flex-direction: column;
 
     width: 100%;
+    max-width: none;
   }
 
   .footer {
