@@ -29,6 +29,13 @@
   fill: var(--ufh-emphasis) !important;
 }
 
+.hero {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--ufh-background);
+}
+
 .contact {
   display: flex;
   width: 100%;
