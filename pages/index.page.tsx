@@ -10,6 +10,7 @@ import Link from 'next/link';
 import ChevronRight from '../components/icons-v2/ChevronRight';
 import PageButton from '../components/PageButton';
 import Card from '../components/content/Card';
+import LinkedIn from '../components/logos/LinkedIn';
 
 /**
  * React component for the unified home page.
@@ -23,15 +24,14 @@ function UnifiedHome() {
         <title>Brendan Chen</title>
       </Head>
       <div className={unified.hero}>
-        <h1>
-          I{'\''}m Brendan, a
-        </h1>
-        <h1>
-          designer and developer
-        </h1>
-        <h1>
-          in Orange, CA.
-        </h1>
+        <div className={unified.heroContent}>
+          <h1>
+            I{'\''}m Brendan, a designer and developer in Orange, CA.
+          </h1>
+          <div className={unified.socials}>
+            <LinkedIn />
+          </div>
+        </div>
       </div>
       <div className={unified.works}>
         <Card
