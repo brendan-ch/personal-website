@@ -72,7 +72,7 @@ function UnifiedHome() {
           externalLinks={[
             {
               name: 'View design',
-              url: 'https://design.bchen.dev/work/cmes-admin-panel'
+              url: 'https://design.bchen.dev/work/clockwise'
             },
             {
               name: 'View GitHub',
