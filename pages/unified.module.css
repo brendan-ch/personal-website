@@ -56,6 +56,12 @@
   padding-bottom: 32px;
 }
 
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
 .contact {
   display: flex;
   width: 100%;
