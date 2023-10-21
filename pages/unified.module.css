@@ -7,7 +7,7 @@
   width: 100%;
   overflow-wrap: break-word;
 
-  padding-bottom: 32px;
+  padding-bottom: 0px !important;
 
   animation-name: fadein;
   animation-duration: 500ms;
@@ -102,6 +102,15 @@
   gap: 16px;
 
   width: 572px;
+}
+
+.footer {
+  background-color: var(--ufh-background);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
 }
 
 @media only screen and (max-width: 720px) {
