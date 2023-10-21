@@ -132,6 +132,10 @@
     padding: 0px 16px;
   }
 
+  .contact h1 {
+    flex: unset;
+  }
+
   .contactButtons {
     display: flex;
     flex-direction: column;
