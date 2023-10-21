@@ -34,6 +34,17 @@
   height: 100vh;
 
   background-color: var(--ufh-background);
+  
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero h1 {
+  max-width: 960px;
 }
 
 .contact {
