@@ -49,6 +49,12 @@ function UnifiedHome() {
           </div>
         </div>
       </div>
+      <div className={unified.focus}>
+        <div className={unified.focusContent}>
+          <h2>I create <i>meaningful</i> projects and bring them to life through <i>innovative design</i> and <i>meticulous execution</i>.</h2>
+          <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
+        </div>
+      </div>
       <div className={unified.works}>
         <Card
           externalLinks={[
