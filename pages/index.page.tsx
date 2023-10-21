@@ -29,7 +29,9 @@ function UnifiedHome() {
             I{'\''}m Brendan, a designer and developer in Orange, CA.
           </h1>
           <div className={unified.socials}>
-            <LinkedIn />
+            <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
+              <LinkedIn />
+            </Link>
           </div>
         </div>
       </div>
