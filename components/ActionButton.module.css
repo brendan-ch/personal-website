@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--white);
+
+  height: 48px;
+  width: 100%;
+}
+
+.highlighted {
+  background: var(--white);
+}
+
+.highlighted p {
+  color: var(--background);
+}
+
+.highlighted:hover {
+  background: var(--gray);
+  border: 1px solid var(--gray);
+}
+
+.disabled p {
+  color: var(--gray2) !important;
+}
