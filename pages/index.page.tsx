@@ -118,9 +118,9 @@ function UnifiedHome() {
             Back to top
           </p>
         </Link>
-        <Link href="/docs/open-source-licenses">
+        <Link href="https://github.com/brendan-ch/personal-website" target="_blank" rel="noreferrer">
           <p>
-            Open Source Licenses
+            View on GitHub
           </p>
         </Link>
         <p>
