@@ -12,6 +12,7 @@ import PageButton from '../components/PageButton';
 import Card from '../components/content/Card';
 import LinkedIn from '../components/logos/LinkedIn';
 import GitHub from '../components/logos/GitHub';
+import ActionButton from '../components/ActionButton';
 
 /**
  * React component for the unified home page.
@@ -109,7 +110,7 @@ function UnifiedHome() {
         <h1>Let{"'"}s work together.</h1>
         <div className={unified.contactButtons}>
           {/* <PageButton text="Resume" /> */}
-          <PageButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
+          <ActionButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
         </div>
       </div>
       <div className={unified.footer}>
