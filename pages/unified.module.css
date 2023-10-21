@@ -111,6 +111,8 @@
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+
+  align-items: center;
 }
 
 @media only screen and (max-width: 720px) {
@@ -131,5 +133,9 @@
     flex-direction: column;
 
     width: 100%;
+  }
+
+  .footer {
+    align-items: flex-start;
   }
 }
