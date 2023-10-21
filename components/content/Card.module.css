@@ -16,6 +16,10 @@
   gap: 16px;
 }
 
+.container p {
+  color: var(--ufh-emphasis) !important;
+}
+
 .text {
   display: flex;
   flex-direction: column;

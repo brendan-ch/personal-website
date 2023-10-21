@@ -28,7 +28,7 @@
 }
 
 .main p {
-  color: var(--ufh-emphasis) !important;
+  color: var(--ufh-emphasis);
 }
 
 .main path {
