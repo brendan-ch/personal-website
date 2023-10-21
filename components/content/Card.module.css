@@ -61,6 +61,8 @@
     align-items: flex-start;
 
     gap: 16px;
+
+    min-height: 1000px;
   }
 
   .container h1 {
