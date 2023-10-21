@@ -51,7 +51,8 @@ function UnifiedHome() {
       </div>
       <div className={unified.focus}>
         <div className={unified.focusContent}>
-          <h2>I create <i>meaningful</i> projects and bring them to life through <i>innovative design</i> and <i>meticulous execution</i>.</h2>
+          <h2>I{"'"}m a second-year student at <b>Chapman University</b>, majoring in <b>software engineering</b> and minoring in <b>graphic design</b> and <b>Chinese</b>.</h2>
+          <h2>I create <b>meaningful</b> projects and bring them to life through <b>innovative design</b> and <b>meticulous execution</b>.</h2>
           <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
         </div>
       </div>
