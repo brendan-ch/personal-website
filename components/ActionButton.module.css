@@ -15,7 +15,7 @@
 }
 
 .highlighted p {
-  color: var(--ufh-background) !important;
+  color: var(--background) !important;
 }
 
 .highlighted:hover {

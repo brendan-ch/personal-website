@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: var(--ufh-background);
+  background-color: var(--background);
 
   display: flex;
   flex-direction: row;
