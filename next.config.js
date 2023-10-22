@@ -8,6 +8,11 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
+        source: '/contact',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/work',
         destination: '/',
         permanent: true,
