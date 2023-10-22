@@ -36,6 +36,7 @@ export const BUCKET_NAME = 'bchen-personal-website';
 export const RED = '#DB4D3D';
 export const BLUE = '#7A78BF';
 export const CYAN = '#438893';
+export const EMPHASIS = '#efefef';
 
 /**
  * Maximum depth that the `getChildrenBlocks` function can recurse to.
