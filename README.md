@@ -17,7 +17,7 @@ To start the project locally:
 yarn dev
 ```
 
-This command compiles Markdown content into an output file, and copies images to the `public/` folder before starting the dev server. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This command compiles Markdown content into an output file before starting the dev server. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 This project uses automated testing with Jest. To run tests:
 
@@ -38,9 +38,9 @@ All site content is generated from the `content` folder, which is an [Obsidian](
 
 The folder structure is as follows:
 - `doc`: miscellaneous documents such as privacy policies, changelogs, and copyright information
-- `static`: all images go inside this folder
 - `templates`: contains Obsidian templates for creating new database items
-- `work`: contains projects that are displayed under the "My Work" page
+
+Relevant images go inside the `public` folder.
 
 Keep in mind that content changes will not be reflected when fast reload is running; you must restart the server for changes to take effect.
 

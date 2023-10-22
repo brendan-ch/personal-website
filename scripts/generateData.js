@@ -11,7 +11,7 @@ const sizeOf = require('image-size');
  */
 async function getData() {
   const contentDirectory = path.join(process.cwd(), 'content');
-  const prefixes = ['work', 'doc', 'blog'];
+  const prefixes = ['doc', 'blog'];
 
   let allFiles = {};
   
