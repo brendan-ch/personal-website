@@ -77,16 +77,16 @@ button {
   --selected: #E67B75;
   --darker-gray: #3D3D3D; */
 
-  --background: #efefef;
-  --background-translucent: rgba(230, 230, 230, 0.9);
+  --background: #121212;
+  --background-translucent: rgba(0, 0, 0, 0.9);
   --gray: #dddddd;
   --gray2: #999999;
   --gray3: #666666;
   --gray4: #2E2E2E;
-  --emphasis: #121212;
-  --cyan: #376E77;
-  --blue: #5D5CB2;
-  --red: #BE3223;
+  --emphasis: #efefef;
+  --cyan: #438893;
+  --blue: #7A78BF;
+  --red: #DB4D3D;
 
   --ufh-background: #121212;
   --ufh-emphasis: #efefef;
