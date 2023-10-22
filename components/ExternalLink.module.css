@@ -7,5 +7,5 @@
 }
 
 .container button > p, .container a > p {
-  color: var(--cyan);
+  color: var(--emphasis);
 }

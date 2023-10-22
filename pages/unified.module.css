@@ -15,24 +15,24 @@
 
 /* Override all heading elements */
 .main h1 {
-  color: var(--ufh-emphasis);
+  color: var(--emphasis);
   font-weight: bold;
   font-size: 48px;
   line-height: 56px;
 }
 
 .main h2 {
-  color: var(--ufh-emphasis);
+  color: var(--emphasis);
   font-size: 32px;
   line-height: 40px;
 }
 
 .main p {
-  color: var(--ufh-emphasis);
+  color: var(--emphasis);
 }
 
 .main path {
-  fill: var(--ufh-emphasis) !important;
+  fill: var(--emphasis) !important;
 }
 
 .hero {
@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
 
-  background-color: var(--ufh-background) !important;
+  background-color: var(--background) !important;
 }
 
 .heroContainer {
@@ -87,7 +87,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--ufh-background);
+  background-color: var(--background);
 
   width: 100vw;
   height: 100vh;
@@ -125,7 +125,7 @@
   justify-content: space-between;
   align-items: center;
   
-  background-color: var(--ufh-background);
+  background-color: var(--background);
 
   height: 256px;
 
@@ -146,7 +146,7 @@
 }
 
 .footer {
-  background-color: var(--ufh-background);
+  background-color: var(--background);
   width: 100vw;
   display: flex;
   flex-direction: column;
