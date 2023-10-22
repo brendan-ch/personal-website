@@ -1,14 +1,9 @@
 import Image from 'next/image';
-import styles from './index.module.css';
 import unified from './unified.module.css';
 import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
-import AboutImage from '../public/about.jpeg';
-import LogoStandaloneWithoutBorder from '../components/icons/LogoStandaloneWithoutBorder';
 import Link from 'next/link';
-import ChevronRight from '../components/icons-v2/ChevronRight';
-import PageButton from '../components/PageButton';
 import Card from '../components/content/Card';
 import LinkedIn from '../components/logos/LinkedIn';
 import GitHub from '../components/logos/GitHub';
