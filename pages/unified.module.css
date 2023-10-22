@@ -15,24 +15,24 @@
 
 /* Override all heading elements */
 .main h1 {
-  color: var(--ufh-emphasis);
+  color: var(--emphasis);
   font-weight: bold;
   font-size: 48px;
   line-height: 56px;
 }
 
 .main h2 {
-  color: var(--ufh-emphasis);
+  color: var(--emphasis);
   font-size: 32px;
   line-height: 40px;
 }
 
 .main p {
-  color: var(--ufh-emphasis);
+  color: var(--emphasis);
 }
 
 .main path {
-  fill: var(--ufh-emphasis) !important;
+  fill: var(--emphasis) !important;
 }
 
 .hero {
