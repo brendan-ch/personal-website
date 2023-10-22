@@ -33,9 +33,9 @@ export const REGION = 'us-west-1';
 export const BUCKET_NAME = 'bchen-personal-website';
 
 /* Colors */
-export const RED = '#BE3223';
-export const BLUE = '#5D5CB2';
-export const CYAN = '#376E77';
+export const RED = '#DB4D3D';
+export const BLUE = '#7A78BF';
+export const CYAN = '#438893';
 
 /**
  * Maximum depth that the `getChildrenBlocks` function can recurse to.
