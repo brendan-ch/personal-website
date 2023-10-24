@@ -13,7 +13,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#be3223" />
           <meta name="msapplication-TileColor" content="#e6e6e6" />
-          <meta name="theme-color" content="#E6E6E6"></meta>
+          <meta name="theme-color" content="#121212"></meta>
 
           <meta name="description" content="I'm Brendan, a developer and designer living in Orange, California."></meta>
 
