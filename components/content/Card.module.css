@@ -28,7 +28,7 @@
   flex: 1 0 0;
 
   max-width: 572px;
-  
+
 }
 
 .externalLinks {
@@ -56,6 +56,48 @@
 
 .image {
   object-fit: cover;
+}
+
+/* Vertical container styling */
+
+.verticalContainer {
+  width: 100vw;
+
+  background-color: var(--background);
+
+  display: flex;
+  position: relative;
+
+  gap: 16px;
+  flex-direction: column-reverse;
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-bottom: 64px;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  min-height: 1000px;
+}
+
+.verticalContainer h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.verticalContainer .text {
+  max-width: unset;
+}
+
+.verticalContainer .imageContainer {
+  width: 100%;
+  height: auto;
+  flex: unset;
+
+  max-width: unset;
 }
 
 @media only screen and (max-width: 880px) {

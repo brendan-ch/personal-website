@@ -35,7 +35,7 @@ interface CardProps {
    * Whether the component should also use the vertical layout
    * on desktop, in addition to mobile.
    */
-  keepVertical: boolean,
+  keepVertical?: boolean,
 }
 
 /**
@@ -51,7 +51,7 @@ export default function Card({
   externalLinks,
   keepVertical,
 }: CardProps) {
-  return <div className={styles.container}>
+  return <div className={keepVertical ? styles.verticalContainer : styles.container}>
     {/* Text to display on the left/bottom */}
     <div className={styles.text}>
       {/* Title and description */}
