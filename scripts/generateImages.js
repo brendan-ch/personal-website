@@ -1,7 +1,15 @@
+// @ts-check
+
 // This script generates a JSON file mapping all images in the `static` folder
 // to plaiceholder data.
 
-const path = require("path");
+import { readdir, stat, readFile, mkdir, writeFile } from "fs/promises";
+import { join } from "path";
+import { getPlaiceholder } from "plaiceholder";
+
+const plaiceholderConfig = {
+  size: 16,
+}
 
 /**
  * Recursively generate image data from a folder and save it to a data object.
@@ -9,7 +17,28 @@ const path = require("path");
  * @param {object} dataObject Reference to the data object to write to.
  */
 async function getImageDataFromFolder(folder, dataObject) {
-  
+  const files = await readdir(folder);
+  await Promise.all(files.map(async (file) => {
+    // For each file, get stats
+    // If it's a directory, then recursively check files within that directory
+    // If it's an image, then process it
+    // If it's neither, ignore it
+
+    const filepath = join(folder, file);
+
+    const stats = await stat(filepath);
+    if (stats.isDirectory()) {
+      await getImageDataFromFolder(filepath, dataObject);
+    } else if (file.endsWith('.png') || file.endsWith('.jpg')) {
+      // Process the image
+      const imageBuffer = await readFile(filepath);
+      const placeholder = await getPlaiceholder(imageBuffer, plaiceholderConfig);
+
+      // Write to object
+      dataObject[filepath] = placeholder;
+    }
+    // Otherwise do nothing
+  }));
 }
 
 /**
@@ -17,10 +46,10 @@ async function getImageDataFromFolder(folder, dataObject) {
  * plaiceholder data.
  */
 async function getImageData() {
-  const staticDirectory = path.join(process.cwd(), 'public', 'static');
+  const staticDirectory = join(process.cwd(), 'public', 'static');
 
   let dataObject = {};
-  getImageDataFromFolder(staticDirectory, dataObject);
+  await getImageDataFromFolder(staticDirectory, dataObject);
 
   return dataObject;
 }
@@ -30,12 +59,12 @@ async function getImageData() {
  */
 async function writeData(data) {
   // Check for output directory
-  const exists = (await readdir(path.join(process.cwd(), 'scripts'))).includes('output');
+  const exists = (await readdir(join(process.cwd(), 'scripts'))).includes('output');
   if (!exists) {
-    await mkdir(path.join(process.cwd(), 'scripts', 'output'));
+    await mkdir(join(process.cwd(), 'scripts', 'output'));
   }
 
-  await writeFile(path.join(process.cwd(), 'scripts', 'output', 'imageData.json'), JSON.stringify(data));
+  await writeFile(join(process.cwd(), 'scripts', 'output', 'imageData.json'), JSON.stringify(data));
 }
 
 getImageData()
