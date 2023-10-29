@@ -95,8 +95,8 @@
 }
 
 .verticalContainer h1 {
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 32px !important;
+  line-height: 40px !important;
 }
 
 .verticalContainer .text {
@@ -132,8 +132,8 @@
   }
 
   .container h1 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 32px !important;
+    line-height: 40px !important;
   }
 
   .text {
