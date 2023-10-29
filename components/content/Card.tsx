@@ -68,7 +68,7 @@ export default function Card({
   keepVertical,
   style,
 }: CardProps) {
-  const { css } = generatePlaceholder(imagePath);
+  const placeholderData = generatePlaceholder(imagePath);
 
   return <div className={keepVertical ? styles.verticalContainer : styles.container} style={style}>
     {/* Text to display on the left/bottom */}
@@ -89,7 +89,7 @@ export default function Card({
     </div>
     {/* Image to display on the right/top */}
     <div className={styles.imageContainer}>
-      <div className={styles.imagePlaceholder} style={css}></div>
+      <div className={styles.imagePlaceholder} style={placeholderData ? placeholderData.css : undefined}></div>
       <Image
         src={imagePath}
         alt={imageAlt}
