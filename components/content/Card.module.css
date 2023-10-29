@@ -61,8 +61,6 @@
 /* Vertical container styling */
 
 .verticalContainer {
-  width: 100vw;
-
   background-color: var(--background);
 
   display: flex;
@@ -101,6 +99,10 @@
 }
 
 @media only screen and (max-width: 880px) {
+  .verticalContainer {
+    width: 100vw;
+  }
+
   .container {
     flex-direction: column-reverse;
     padding-left: 16px;
