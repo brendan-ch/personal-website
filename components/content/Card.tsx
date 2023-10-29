@@ -2,6 +2,7 @@ import styles from './Card.module.css';
 import { PageExternalLink } from "../../types";
 import Image from 'next/image';
 import ExternalLink from '../ExternalLink';
+import { CSSProperties } from 'react';
 
 interface CardProps {
   /**
@@ -30,6 +31,27 @@ interface CardProps {
    * External links to display within the card.
    */
   externalLinks: PageExternalLink[],
+
+  /**
+   * Whether the component should also use the vertical layout
+   * on desktop, in addition to mobile.
+   */
+  keepVertical?: boolean,
+
+  /**
+   * Add additional styling options to the card container.
+   */
+  style?: CSSProperties,
+}
+
+/**
+ * Given a local image path, return the placeholder data.
+ * @param path
+ * @returns
+ */
+function generatePlaceholder(path: string) {
+  const parsed = require('../../scripts/output/imageData.json');
+  return parsed[path];
 }
 
 /**
@@ -43,8 +65,12 @@ export default function Card({
   imagePath,
   imageAlt,
   externalLinks,
+  keepVertical,
+  style,
 }: CardProps) {
-  return <div className={styles.container}>
+  const placeholderData = generatePlaceholder(imagePath);
+
+  return <div className={keepVertical ? styles.verticalContainer : styles.container} style={style}>
     {/* Text to display on the left/bottom */}
     <div className={styles.text}>
       {/* Title and description */}
@@ -63,6 +89,7 @@ export default function Card({
     </div>
     {/* Image to display on the right/top */}
     <div className={styles.imageContainer}>
+      <div className={styles.imagePlaceholder} style={placeholderData ? placeholderData.css : undefined}></div>
       <Image
         src={imagePath}
         alt={imageAlt}
