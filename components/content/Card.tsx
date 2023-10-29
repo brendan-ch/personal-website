@@ -2,6 +2,7 @@ import styles from './Card.module.css';
 import { PageExternalLink } from "../../types";
 import Image from 'next/image';
 import ExternalLink from '../ExternalLink';
+import { CSSProperties } from 'react';
 
 interface CardProps {
   /**
@@ -36,6 +37,11 @@ interface CardProps {
    * on desktop, in addition to mobile.
    */
   keepVertical?: boolean,
+
+  /**
+   * Add additional styling options to the card container.
+   */
+  style?: CSSProperties,
 }
 
 /**
@@ -50,8 +56,9 @@ export default function Card({
   imageAlt,
   externalLinks,
   keepVertical,
+  style,
 }: CardProps) {
-  return <div className={keepVertical ? styles.verticalContainer : styles.container}>
+  return <div className={keepVertical ? styles.verticalContainer : styles.container} style={style}>
     {/* Text to display on the left/bottom */}
     <div className={styles.text}>
       {/* Title and description */}
