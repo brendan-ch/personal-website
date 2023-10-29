@@ -1,28 +1,28 @@
 // This script generates a JSON file from the content/ directory, for use in serverless endpoints.
 
-const { readFile, readdir, writeFile, mkdir, stat } = require('fs/promises');
-const matter = require('gray-matter');
-const path = require('path');
-const sizeOf = require('image-size');
+import { readFile, readdir, writeFile, mkdir, stat } from 'fs/promises';
+import matter from 'gray-matter';
+import { join } from 'path';
+import sizeOf from 'image-size';
 
 /**
  * Read data inside the content/ folder.
  * @returns {Promise<object>}
  */
 async function getData() {
-  const contentDirectory = path.join(process.cwd(), 'content');
+  const contentDirectory = join(process.cwd(), 'content');
   const prefixes = ['doc', 'blog'];
 
   let allFiles = {};
   
   await Promise.all(prefixes.map(async (prefix) => {
     // Read all files, and get file data
-    let files = await readdir(path.join(contentDirectory, prefix));
+    let files = await readdir(join(contentDirectory, prefix));
     files = files.filter((value) => value.endsWith('.md'));
 
     // Get page data
     const pages = await Promise.all(files.map(async (file) => {
-      const content = await readFile(path.join(contentDirectory, prefix, file));
+      const content = await readFile(join(contentDirectory, prefix, file));
       
       // Parse metadata
       const matterResult = matter(content);
@@ -32,7 +32,7 @@ async function getData() {
       const images = [...matterResult.content.matchAll(imagePathRegex)].map((matchValue) => matchValue[0]);
 
       const imageSizes = await Promise.all(images.map(async (imagePath) => {
-        const { width, height } = await sizeOf(path.join('public', imagePath));
+        const { width, height } = await sizeOf(join('public', imagePath));
 
         return {
           imagePath,
@@ -43,7 +43,7 @@ async function getData() {
 
       const coverImageDimensions = matterResult.data.coverImage ? {
         imagePath: matterResult.data.coverImage,
-        ...sizeOf(path.join(contentDirectory, matterResult.data.coverImage)),
+        ...sizeOf(join(contentDirectory, matterResult.data.coverImage)),
       } : null;
 
       return {
@@ -74,12 +74,12 @@ async function getData() {
  */
 async function writeData(data) {
   // Check for output directory
-  const exists = (await readdir(path.join(process.cwd(), 'scripts'))).includes('output');
+  const exists = (await readdir(join(process.cwd(), 'scripts'))).includes('output');
   if (!exists) {
-    await mkdir(path.join(process.cwd(), 'scripts', 'output'));
+    await mkdir(join(process.cwd(), 'scripts', 'output'));
   }
 
-  await writeFile(path.join(process.cwd(), 'scripts', 'output', 'data.json'), JSON.stringify(data));
+  await writeFile(join(process.cwd(), 'scripts', 'output', 'data.json'), JSON.stringify(data));
 }
 
 getData()
