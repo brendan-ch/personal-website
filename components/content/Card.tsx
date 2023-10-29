@@ -30,6 +30,12 @@ interface CardProps {
    * External links to display within the card.
    */
   externalLinks: PageExternalLink[],
+
+  /**
+   * Whether the component should also use the vertical layout
+   * on desktop, in addition to mobile.
+   */
+  keepVertical: boolean,
 }
 
 /**
@@ -43,6 +49,7 @@ export default function Card({
   imagePath,
   imageAlt,
   externalLinks,
+  keepVertical,
 }: CardProps) {
   return <div className={styles.container}>
     {/* Text to display on the left/bottom */}
