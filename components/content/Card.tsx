@@ -45,6 +45,16 @@ interface CardProps {
 }
 
 /**
+ * Given a local image path, return the placeholder data.
+ * @param path
+ * @returns
+ */
+function generatePlaceholder(path: string) {
+  const parsed = require('../../scripts/output/imageData.json');
+  return parsed[path];
+}
+
+/**
  * Component which displays a single project or work experience.
  * Adapts to mobile and desktop layouts.
  * @param param0 
@@ -58,6 +68,8 @@ export default function Card({
   keepVertical,
   style,
 }: CardProps) {
+  const { css } = generatePlaceholder(imagePath);
+
   return <div className={keepVertical ? styles.verticalContainer : styles.container} style={style}>
     {/* Text to display on the left/bottom */}
     <div className={styles.text}>
@@ -77,6 +89,7 @@ export default function Card({
     </div>
     {/* Image to display on the right/top */}
     <div className={styles.imageContainer}>
+      <div className={styles.imagePlaceholder} style={css}></div>
       <Image
         src={imagePath}
         alt={imageAlt}
