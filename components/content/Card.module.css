@@ -61,7 +61,10 @@
 @media only screen and (max-width: 880px) {
   .container {
     flex-direction: column-reverse;
-    padding: 16px;
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 64px;
 
     justify-content: flex-start;
     align-items: flex-start;
