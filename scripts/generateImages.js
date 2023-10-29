@@ -35,7 +35,9 @@ async function getImageDataFromFolder(folder, dataObject) {
       const placeholder = await getPlaiceholder(imageBuffer, plaiceholderConfig);
 
       // Write to object
-      dataObject[filepath] = placeholder;
+      // Only write the path starting with "static"
+      const startIndex = filepath.indexOf('/static');
+      dataObject[filepath.substring(startIndex)] = placeholder;
     }
     // Otherwise do nothing
   }));
