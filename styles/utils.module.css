@@ -97,12 +97,13 @@ to the bottom of the page. */
   height: 80px;
 }
 
+/* TO-DO: component library; each style will have its own component */
 .smallText {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .monoText {
-  font-family: space-mono, monospace;
+  font-family: space-mono, monospace !important;
 }
 
 @keyframes fadein {
