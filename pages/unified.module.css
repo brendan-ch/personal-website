@@ -31,10 +31,6 @@
   color: var(--emphasis);
 }
 
-.main path {
-  fill: var(--emphasis) !important;
-}
-
 .hero {
   width: 100vw;
   height: 100vh;
@@ -166,9 +162,17 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
+  padding: 32px 16px;
 
   align-items: center;
+}
+
+.footer p {
+  color: var(--gray2)
+}
+
+.footer path {
+  fill: var(--gray2);
 }
 
 .horizontalWrapper {
