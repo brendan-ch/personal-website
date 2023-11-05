@@ -171,6 +171,12 @@
   align-items: center;
 }
 
+.horizontalWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
 @media only screen and (max-width: 720px) {
   .contact {
     display: flex;

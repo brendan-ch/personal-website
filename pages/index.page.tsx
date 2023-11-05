@@ -8,6 +8,7 @@ import Card from '../components/content/Card';
 import LinkedIn from '../components/logos/LinkedIn';
 import GitHub from '../components/logos/GitHub';
 import ActionButton from '../components/ActionButton';
+import ChevronUp from '../components/icons-v2/ChevronUp';
 
 /**
  * React component for the unified home page.
@@ -116,10 +117,14 @@ function UnifiedHome() {
         </div>
       </div>
       <div className={unified.footer}>
-        <Link href="#">
+        <Link href="#" className={unified.horizontalWrapper}>
           <p>
             Back to top
           </p>
+          <ChevronUp
+            width={24}
+            height={24}
+          />
         </Link>
         <Link href="https://github.com/brendan-ch/personal-website" target="_blank" rel="noreferrer">
           <p>
