@@ -115,6 +115,11 @@ function UnifiedHome() {
           imageAlt="Preview image for Design by Brendan Chen"
         />
       </div>
+      {/* <div className={unified.anchorWrapper}>
+        <Anchor
+          text="More Works"
+        />
+      </div> */}
       <div className={unified.contact}>
         <h1>Let{"'"}s work together.</h1>
         <div className={unified.contactButtons}>
