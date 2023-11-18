@@ -47,3 +47,23 @@
     padding: 16px;
   }
 }
+
+.imageContainer {
+  position: relative;
+  flex: 1 0 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: 1 / 1;
+
+  max-width: 572px;
+
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
