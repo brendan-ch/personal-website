@@ -1,6 +1,6 @@
 .focus {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 
@@ -11,6 +11,10 @@
 
   padding: 32px;
   gap: 16px;
+}
+
+.focusWithImage {
+  justify-content: space-between !important;
 }
 
 .focusContent {

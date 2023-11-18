@@ -9,7 +9,7 @@ interface Props {
 
 export default function Focus({ children, imagePath, imageAlt }: Props) {
   return (
-    <div className={styles.focus}>
+    <div className={imagePath && imageAlt ? `${styles.focus} ${styles.focusWithImage}` : styles.focus}>
       <div className={styles.focusContent}>
         {children}
       </div>
