@@ -104,6 +104,7 @@ to the bottom of the page. */
 
 .monoText {
   font-family: space-mono, monospace !important;
+  font-weight: normal !important;
 }
 
 @keyframes fadein {
