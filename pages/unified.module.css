@@ -46,7 +46,7 @@
   height: 100%;
 
   padding: 16px;
-  
+
   padding: 16px;
 
   display: flex;
@@ -77,54 +77,10 @@
   z-index: 1;
 }
 
-.focus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: var(--background);
-
-  width: 100vw;
-  height: 100vh;
-
-  padding: 16px;
-}
-
-.focusContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  max-width: 960px;
-  
-  gap: 32px;
-
-  /* See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline */
-  /* Currently only supported on Chrome */
-  animation: linear fadein both;
-  animation-range: entry 25% cover 50%;
-  view-timeline-name: --subjectReveal;
-  animation-timeline: --subjectReveal;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 20%;
-  } 100% {
-    opacity: 100%;
-  }
-}
-
-.focusContent p {
-  font-size: 16px;
-}
-
 .anchorWrapper {
   display: flex;
   padding: 64px 32px 16px 32px;
-  
+
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
@@ -144,7 +100,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
+
   background-color: var(--background);
 
   height: 256px;
@@ -194,19 +150,19 @@
   .anchorWrapper {
     padding: 64px 16px 16px 16px;
   }
-}
 
-@media only screen and (max-width: 720px) {
   .contact {
     display: flex;
     flex-direction: column;
 
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 
     gap: 16px;
 
     padding: 0px 16px;
+
+    min-height: 560px;
   }
 
   .contact h1 {
@@ -216,11 +172,15 @@
   .contactButtons {
     display: flex;
     flex-direction: column;
+    flex: unset;
+    gap: 16px;
 
     width: 100%;
     max-width: none;
   }
+}
 
+@media only screen and (max-width: 720px) {
   .footer {
     align-items: flex-start;
   }
