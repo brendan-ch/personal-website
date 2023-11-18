@@ -121,6 +121,15 @@
   font-size: 16px;
 }
 
+.anchorWrapper {
+  display: flex;
+  padding: 64px 32px 16px 32px;
+  
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
 .socials {
   display: flex;
   flex-direction: row;
