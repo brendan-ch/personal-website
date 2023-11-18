@@ -10,6 +10,7 @@
   height: 100vh;
 
   padding: 32px;
+  gap: 16px;
 }
 
 .focusContent {
@@ -42,12 +43,6 @@
   font-size: 16px;
 }
 
-@media only screen and (max-width: 880px) {
-  .focus {
-    padding: 16px;
-  }
-}
-
 .imageContainer {
   position: relative;
   flex: 1 0 0;
@@ -66,4 +61,17 @@
 
 .image {
   object-fit: cover;
+}
+
+@media only screen and (max-width: 880px) {
+  .focus {
+    padding: 128px 16px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: auto;
+    flex: unset;
+    max-width: unset;
+  }
 }
