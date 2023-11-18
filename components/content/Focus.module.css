@@ -14,7 +14,7 @@
 }
 
 .focusWithImage {
-  justify-content: space-between !important;
+  justify-content: space-between;
 }
 
 .focusContent {
@@ -23,7 +23,8 @@
   justify-content: flex-start;
   align-items: flex-start;
 
-  max-width: 960px;
+  max-width: 572px;
+  flex: 1 0 0;
   
   gap: 32px;
 
@@ -70,6 +71,14 @@
 @media only screen and (max-width: 880px) {
   .focus {
     padding: 128px 16px;
+    flex-direction: column;
+    justify-content: center !important;
+
+    flex: 1;
+  }
+
+  .focusContent {
+    max-width: unset;
   }
 
   .imageContainer {
