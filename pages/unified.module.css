@@ -77,50 +77,6 @@
   z-index: 1;
 }
 
-.focus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: var(--background);
-
-  width: 100vw;
-  height: 100vh;
-
-  padding: 16px;
-}
-
-.focusContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  max-width: 960px;
-  
-  gap: 32px;
-
-  /* See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline */
-  /* Currently only supported on Chrome */
-  animation: linear fadein both;
-  animation-range: entry 25% cover 50%;
-  view-timeline-name: --subjectReveal;
-  animation-timeline: --subjectReveal;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 20%;
-  } 100% {
-    opacity: 100%;
-  }
-}
-
-.focusContent p {
-  font-size: 16px;
-}
-
 .anchorWrapper {
   display: flex;
   padding: 64px 32px 16px 32px;

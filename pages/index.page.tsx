@@ -10,6 +10,7 @@ import GitHub from '../components/logos/GitHub';
 import ActionButton from '../components/ActionButton';
 import ChevronUp from '../components/icons-v2/ChevronUp';
 import Anchor from '../components/Anchor';
+import Focus from '../components/content/Focus';
 
 /**
  * React component for the unified home page.
@@ -46,13 +47,11 @@ function UnifiedHome() {
           </div>
         </div>
       </div>
-      <div className={unified.focus}>
-        <div className={unified.focusContent}>
-          <h2>I{"'"}m a second-year student at <b>Chapman University</b>, majoring in <b>software engineering</b> and minoring in <b>graphic design</b> and <b>Chinese</b>.</h2>
-          <h2>I create <b>meaningful</b> projects and bring them to life through <b>innovative design</b> and <b>meticulous execution</b>.</h2>
-          <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
-        </div>
-      </div>
+      <Focus>
+        <h2>I{"'"}m a second-year student at <b>Chapman University</b>, majoring in <b>software engineering</b> and minoring in <b>graphic design</b> and <b>Chinese</b>.</h2>
+        <h2>I create <b>meaningful</b> projects and bring them to life through <b>innovative design</b> and <b>meticulous execution</b>.</h2>
+        <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
+      </Focus>
       <div className={unified.anchorWrapper}>
         <Anchor
           text="Select Works"
