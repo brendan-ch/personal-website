@@ -9,6 +9,7 @@ import LinkedIn from '../components/logos/LinkedIn';
 import GitHub from '../components/logos/GitHub';
 import ActionButton from '../components/ActionButton';
 import ChevronUp from '../components/icons-v2/ChevronUp';
+import Anchor from '../components/Anchor';
 
 /**
  * React component for the unified home page.
@@ -51,6 +52,11 @@ function UnifiedHome() {
           <h2>I create <b>meaningful</b> projects and bring them to life through <b>innovative design</b> and <b>meticulous execution</b>.</h2>
           <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
         </div>
+      </div>
+      <div className={unified.anchorWrapper}>
+        <Anchor
+          text="Select Works"
+        />
       </div>
       <div className={unified.works}>
         <Card
@@ -107,6 +113,16 @@ function UnifiedHome() {
           description="My personal design portfolio, designed to showcase a variety of visual works."
           imagePath="/static/ufh/design.png"
           imageAlt="Preview image for Design by Brendan Chen"
+        />
+      </div>
+      {/* <div className={unified.anchorWrapper}>
+        <Anchor
+          text="More Works"
+        />
+      </div> */}
+      <div className={unified.anchorWrapper}>
+        <Anchor
+          text="Contact Me"
         />
       </div>
       <div className={unified.contact}>

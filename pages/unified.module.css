@@ -121,6 +121,15 @@
   font-size: 16px;
 }
 
+.anchorWrapper {
+  display: flex;
+  padding: 64px 32px 16px 32px;
+  
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
 .socials {
   display: flex;
   flex-direction: row;
@@ -179,6 +188,12 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
+}
+
+@media only screen and (max-width: 880px) {
+  .anchorWrapper {
+    padding: 64px 16px 16px 16px;
+  }
 }
 
 @media only screen and (max-width: 720px) {
