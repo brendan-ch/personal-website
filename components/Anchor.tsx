@@ -38,7 +38,7 @@ export default function Anchor({
       id={id}
       style={style}
     >
-      <h1 className={`${utils.monoText} ${utils.smallText}`}>{text}</h1>
+      <h1 className={`${utils.monoText} ${utils.smallText} ${styles.lineHeightOverride}`}>{text}</h1>
     </div>
   );
 }

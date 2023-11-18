@@ -16,3 +16,7 @@
 .container p {
   text-transform: uppercase;
 }
+
+.lineHeightOverride {
+  line-height: 20px !important;
+}
