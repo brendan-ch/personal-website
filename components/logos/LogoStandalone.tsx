@@ -1,7 +1,7 @@
 import { IconProps } from '../icons/icon-types';
 import { RED } from '../../helpers/Constants';
 
-export default function LogoStandalone({ width, height }: IconProps) {
+export default function PortfolioLogo({ width, height }: IconProps) {
   return (
     <svg width={`${width}`} height={`${height}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M50 10V0H60V10H50Z" fill={RED}/>

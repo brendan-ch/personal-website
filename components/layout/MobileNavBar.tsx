@@ -5,7 +5,7 @@ import menuStyles from './MobileNavMenu.module.css';
 import Exit from '../icons-v2/Exit';
 import Hamburger from '../icons-v2/Hamburger';
 import LogoFull from '../icons/LogoFull';
-import LogoStandalone from '../logos/LogoStandalone';
+import PortfolioLogo from '../logos/LogoStandalone';
 
 interface TabProps {
   text: string,
@@ -129,7 +129,7 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
         ) : undefined}
         <Link href="/" aria-label="Website Logo" className={styles.logoStandalone}>
 
-          <LogoStandalone
+          <PortfolioLogo
             width={30.5}
             height={30.5}
           />
