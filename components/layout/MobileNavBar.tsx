@@ -122,7 +122,6 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
 
             <LogoFull
               width={200}
-              height={1}
             />
 
           </Link>

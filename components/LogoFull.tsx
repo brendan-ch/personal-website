@@ -1,7 +1,6 @@
 import { RED } from '../helpers/Constants';
-import { IconProps } from './icons/icon-types';
 
-export default function LogoFull({ width, height }: IconProps) {
+export default function LogoFull({ width }: { width: number }) {
   return (
     <svg width={`${width}`} height={`${width / 6.47619048}`} viewBox="0 0 272 42" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M20.5055 4.1011V0H24.6066V4.1011H20.5055Z" fill={RED}/>
