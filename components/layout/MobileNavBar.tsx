@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
 import styles from './MobileNavBar.module.css';
 import menuStyles from './MobileNavMenu.module.css';
-import Exit from '../icons-v2/Exit';
-import Hamburger from '../icons-v2/Hamburger';
+import Exit from '../icons/Exit';
+import Hamburger from '../icons/Hamburger';
 import LogoFull from '../LogoFull';
 import PortfolioLogo from '../logos/PortfolioLogo';
 
