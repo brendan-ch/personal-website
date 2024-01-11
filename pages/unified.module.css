@@ -121,31 +121,6 @@
   max-width: 572px;
 }
 
-.footer {
-  background-color: var(--background);
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 32px 16px;
-
-  align-items: center;
-}
-
-.footer p {
-  color: var(--gray2)
-}
-
-.footer path {
-  fill: var(--gray2);
-}
-
-.horizontalWrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-}
-
 @media only screen and (max-width: 880px) {
   .anchorWrapper {
     padding: 64px 16px 16px 16px;
