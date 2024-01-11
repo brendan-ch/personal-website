@@ -11,6 +11,7 @@ import ActionButton from '../components/ActionButton';
 import ChevronUp from '../components/icons-v2/ChevronUp';
 import Anchor from '../components/Anchor';
 import Focus from '../components/content/Focus';
+import Footer from '../components/Footer';
 
 /**
  * React component for the unified home page.
@@ -131,6 +132,7 @@ function UnifiedHome() {
           <ActionButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
         </div>
       </div>
+      <Footer />
     </main>
   )
 }
