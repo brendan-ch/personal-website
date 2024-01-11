@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from './MobileNavMenu.module.css';
-import Footer from './Footer';
+// import Footer from './Footer';
 import MobileNavBar from './MobileNavBar';
 import { SelectedPage } from '../../types';
 
@@ -79,13 +79,13 @@ export default function MobileNavMenu({ selected, visible, onClose }: Props) {
             href="/contact"
           />
         </div>
-        <Footer
+        {/* <Footer
           hideScroll
           hideCopyright
           style={{
             backgroundColor: 'transparent',
           }}
-        />
+        /> */}
       </div>
     </div>
   );
