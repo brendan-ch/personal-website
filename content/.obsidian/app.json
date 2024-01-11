@@ -1,9 +1,0 @@
-{
-  "showFrontmatter": true,
-  "attachmentFolderPath": "/static",
-  "useMarkdownLinks": true,
-  "newLinkFormat": "absolute",
-  "alwaysUpdateLinks": true,
-  "promptDelete": false,
-  "showUnsupportedFiles": true
-}

@@ -1,4 +1,4 @@
-import ArrowUpAndRight from './icons-v2/ArrowUpAndRight';
+import ArrowUpAndRight from './icons/ArrowUpAndRight';
 import styles from './ExternalLink.module.css';
 import AppStore from './logos/AppStore';
 import Figma from './logos/Figma';
@@ -7,7 +7,7 @@ import GooglePlay from './logos/GooglePlay';
 import LinkedIn from './logos/LinkedIn';
 import Twitter from './logos/Twitter';
 import { PageExternalLink } from '../types';
-import Copy from './icons-v2/Copy';
+import Copy from './icons/Copy';
 import { useCallback, useEffect, useState } from 'react';
 
 const ICON_WIDTH = 20;

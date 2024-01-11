@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { CSSProperties, useEffect, useState } from 'react';
 import styles from './MobileNavBar.module.css';
 import menuStyles from './MobileNavMenu.module.css';
-import Exit from '../icons-v2/Exit';
-import Hamburger from '../icons-v2/Hamburger';
-import LogoFull from '../icons/LogoFull';
-import LogoStandalone from '../icons/LogoStandalone';
+import Exit from '../icons/Exit';
+import Hamburger from '../icons/Hamburger';
+import LogoFull from '../LogoFull';
+import PortfolioLogo from '../logos/PortfolioLogo';
 
 interface TabProps {
   text: string,
@@ -122,14 +122,13 @@ export default function MobileNavBar({ selected, style, mobileButtonType, onMobi
 
             <LogoFull
               width={200}
-              height={1}
             />
 
           </Link>
         ) : undefined}
         <Link href="/" aria-label="Website Logo" className={styles.logoStandalone}>
 
-          <LogoStandalone
+          <PortfolioLogo
             width={30.5}
             height={30.5}
           />

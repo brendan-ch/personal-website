@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ChevronUp from '../components/icons-v2/ChevronUp';
+import ChevronUp from '../components/icons/ChevronUp';
 import styles from './Footer.module.css';
 
 export default function Footer() {

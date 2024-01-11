@@ -8,7 +8,6 @@ import Card from '../components/content/Card';
 import LinkedIn from '../components/logos/LinkedIn';
 import GitHub from '../components/logos/GitHub';
 import ActionButton from '../components/ActionButton';
-import ChevronUp from '../components/icons-v2/ChevronUp';
 import Anchor from '../components/Anchor';
 import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
