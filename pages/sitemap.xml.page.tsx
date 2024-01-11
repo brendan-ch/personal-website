@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import getPages from '../helpers/getPages';
 
 // Generate the sitemap in a server-side function
 export async function getServerSideProps({ req, res }: { req: NextApiRequest, res: NextApiResponse }) {
