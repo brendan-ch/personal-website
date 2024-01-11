@@ -131,25 +131,6 @@ function UnifiedHome() {
           <ActionButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
         </div>
       </div>
-      <div className={unified.footer}>
-        <Link href="#" className={unified.horizontalWrapper}>
-          <p>
-            Back to top
-          </p>
-          <ChevronUp
-            width={24}
-            height={24}
-          />
-        </Link>
-        <Link href="https://github.com/brendan-ch/personal-website" target="_blank" rel="noreferrer">
-          <p>
-            View on GitHub
-          </p>
-        </Link>
-        <p>
-          © 2023 Brendan Chen
-        </p>
-      </div>
     </main>
   )
 }
