@@ -5,7 +5,7 @@ import menuStyles from './MobileNavMenu.module.css';
 import Exit from '../icons-v2/Exit';
 import Hamburger from '../icons-v2/Hamburger';
 import LogoFull from '../icons/LogoFull';
-import LogoStandalone from '../icons/LogoStandalone';
+import LogoStandalone from '../logos/LogoStandalone';
 
 interface TabProps {
   text: string,

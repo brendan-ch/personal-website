@@ -1,4 +1,4 @@
-import { IconProps } from './icon-types';
+import { IconProps } from '../icons/icon-types';
 import { RED } from '../../helpers/Constants';
 
 export default function LogoStandalone({ width, height }: IconProps) {
