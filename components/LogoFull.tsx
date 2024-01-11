@@ -1,5 +1,5 @@
-import { RED } from '../../helpers/Constants';
-import { IconProps } from './icon-types';
+import { RED } from '../helpers/Constants';
+import { IconProps } from './icons/icon-types';
 
 export default function LogoFull({ width, height }: IconProps) {
   return (
