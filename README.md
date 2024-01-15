@@ -4,11 +4,9 @@ My personal portfolio website, built using [Next.js](https://nextjs.org/).
 
 # Copyright and Licensing
 
-I, Brendan Chen, reserve full copyright for content under the `/content` and `/public` folders of this repository. This includes, but is not limited to, Markdown (.md) pages, images, and PDF files (e.g. my resume).
+I, Brendan Chen, reserve full copyright for image assets and copy text in all visible aspects of the website.
 
-The rest of the project is licensed under the MIT license.
-
-Visit the open source licenses page for information about projects used on this website.
+The rest of the project, including React components and helpers, is licensed under the MIT license.
 
 # Developing Locally
 
