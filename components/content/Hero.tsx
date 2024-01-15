@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './Hero.module.css';
 
 interface Props extends React.PropsWithChildren {
@@ -14,9 +15,22 @@ interface Props extends React.PropsWithChildren {
   /**
    * Alt text for the hero image.
    */
-  alt: string,
+  imageAlt: string,
 }
 
-export default function Hero({ imagePath, alt, children }: Props) {
-  return <></>
+export default function Hero({ imagePath, imageAlt, children }: Props) {
+  return <div>
+    <Image
+      src={imagePath}
+      alt={imageAlt}
+      fill
+      priority
+      className={styles.heroImage}
+    />
+    <div>
+      <div>
+        {children}
+      </div>
+    </div>
+  </div>
 }
