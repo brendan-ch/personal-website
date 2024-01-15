@@ -11,6 +11,7 @@ import ActionButton from '../components/ActionButton';
 import Anchor from '../components/Anchor';
 import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
+import Hero from '../components/content/Hero';
 
 /**
  * React component for the unified home page.
@@ -23,30 +24,24 @@ function UnifiedHome() {
       <Head>
         <title>Brendan Chen</title>
       </Head>
-      <div className={unified.hero}>
-        <Image
-          src="https://images.unsplash.com/photo-1696979944149-b33f63ef97b8?auto=format&fit=crop&q=80&w=2148&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Lightning over a dark sky"
-          fill
-          priority
-          className={unified.heroImage}
-        />
-        <div className={unified.heroContainer}>
-          <div className={unified.heroContent}>
-            <h1>
-              I{'\''}m Brendan, a designer and developer in Orange, CA.
-            </h1>
-            <div className={unified.socials}>
-              <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
-                <LinkedIn />
-              </Link>
-              <Link href="https://github.com/brendan-ch" target="_blank" rel="noreferrer">
-                <GitHub />
-              </Link>
-            </div>
-          </div>
+      <Hero
+        imagePath="https://images.unsplash.com/photo-1696979944149-b33f63ef97b8?auto=format&fit=crop&q=80&w=2148&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        imageAlt="Lightning over a dark sky"
+      >
+        <h1>
+          I{'\''}m Brendan, a designer and developer in Orange, CA.
+        </h1>
+        <div className={unified.socials}>
+          <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
+            <LinkedIn />
+          </Link>
+          <Link href="https://github.com/brendan-ch" target="_blank" rel="noreferrer">
+            <GitHub />
+          </Link>
         </div>
-      </div>
+      </Hero>
+
+
       <Focus imagePath="/static/ufh/about.png" imageAlt="Me standing in front of a painting.">
         <h2>I{"'"}m a second-year student at <b>Chapman University</b>, majoring in <b>software engineering</b> and minoring in <b>graphic design</b> and <b>Chinese</b>.</h2>
         <h2>I work on projects that <b>I personally believe in</b>, with a focus on <b>agility</b>, <b>attention to detail</b>, and <b>process</b>.</h2>
