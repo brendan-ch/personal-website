@@ -13,24 +13,6 @@
   animation-duration: 500ms;
 }
 
-/* Override all heading elements */
-.main h1 {
-  color: var(--emphasis);
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 56px;
-}
-
-.main h2 {
-  color: var(--emphasis);
-  font-size: 32px;
-  line-height: 40px;
-}
-
-.main p {
-  color: var(--emphasis);
-}
-
 .anchorWrapper {
   display: flex;
   padding: 64px 32px 16px 32px;
