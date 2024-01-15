@@ -28,8 +28,10 @@ export default function Custom404() {
               </u>
             </p>
           </Link>
-          <p>
-            (Image by{' '}
+        </div>
+        <div className={styles.creditTextWrapper}>
+          <p className={`${styles.creditText}`}>
+            Image by{' '}
             <Link href="https://unsplash.com/@veverkolog" target="_blank">
 
               <u>
@@ -44,8 +46,7 @@ export default function Custom404() {
                 Unsplash
               </u>
 
-            </Link>
-            )
+            </Link>.
           </p>
         </div>
       </Hero>
