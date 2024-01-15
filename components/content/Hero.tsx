@@ -1,3 +1,5 @@
+import styles from './Hero.module.css';
+
 interface Props extends React.PropsWithChildren {
   /**
    * Path to an image to display.
