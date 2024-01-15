@@ -30,18 +30,6 @@ yarn lint # check code formatting
 yarn typecheck # run tsc
 ```
 
-# Editing Site Content
-
-All site content is generated from the `content` folder, which is an [Obsidian](https://obsidian.md) vault containing collections of Markdown files. To edit site content, simply open up a Markdown file and edit what's inside.
-
-The folder structure is as follows:
-- `doc`: miscellaneous documents such as privacy policies, changelogs, and copyright information
-- `templates`: contains Obsidian templates for creating new database items
-
-Relevant images go inside the `public` folder.
-
-Keep in mind that content changes will not be reflected when fast reload is running; you must restart the server for changes to take effect.
-
 # Building for Production
 
 To create and run a production build:
