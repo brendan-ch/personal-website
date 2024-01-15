@@ -19,18 +19,20 @@ interface Props extends React.PropsWithChildren {
 }
 
 export default function Hero({ imagePath, imageAlt, children }: Props) {
-  return <div>
-    <Image
-      src={imagePath}
-      alt={imageAlt}
-      fill
-      priority
-      className={styles.heroImage}
-    />
-    <div>
-      <div>
-        {children}
+  return (
+    <div className={styles.hero}>
+      <Image
+        src={imagePath}
+        alt={imageAlt}
+        fill
+        priority
+        className={styles.heroImage}
+      />
+      <div className={styles.heroContainer}>
+        <div className={styles.heroContent}>
+          {children}
+        </div>
       </div>
     </div>
-  </div>
+  );
 }
