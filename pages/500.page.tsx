@@ -10,7 +10,7 @@ import styles from './404.module.css'
  */
 export default function Custom500() {
   return (
-    <main>
+    <main className={styles.main}>
       <Head>
         <title>Internal Server Error | Brendan Chen</title>
       </Head>

@@ -10,7 +10,7 @@ import styles from './404.module.css';
  */
 export default function Custom404() {
   return (
-    <main>
+    <main className={styles.main}>
       <Head>
         <title>Page Not Found | Brendan Chen</title>
       </Head>
