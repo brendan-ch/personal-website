@@ -1,10 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import utils from '../styles/utils.module.css';
 
-import Image500 from '../public/500.jpg';
-import PageHeader from '../components/content/PageHeader';
-import Image from 'next/image';
+import Hero from '../components/content/Hero';
+import styles from './404.module.css'
 
 /**
  * Custom 500 page.
@@ -16,51 +14,42 @@ export default function Custom500() {
       <Head>
         <title>Internal Server Error | Brendan Chen</title>
       </Head>
-      <div className={utils.itemWrapper}>
-        <PageHeader
-          belowText="Internal Server Error"
-        // includeBackButton
-        // backButtonHref="/"
-        />
-      </div>
-      <div className={`${utils.itemWrapper}`}>
-        <p>Something went wrong when loading this page. Maybe try again later?</p>
-        <Link href="/">
-
-          <p>
-            <u>
-              Back to Home
-            </u>
-          </p>
-
-        </Link>
-        <div className={utils.pageImageContainer}>
-          <Image
-            src={Image500}
-            alt="Capybara in bath"
-            fill
-          />
+      <Hero
+        imagePath="/500.jpg"
+        imageAlt="Capybara sitting in bath."
+      >
+        <h1>Internal server error</h1>
+        <div className={styles.textContainer}>
+          <p>Something went wrong while loading this page; maybe try again later?</p>
+          <Link href="/">
+            <p>
+              <u>
+                Back to Home
+              </u>
+            </p>
+          </Link>
         </div>
-        <p>
-          (Image by{' '}
-          <Link href="https://unsplash.com/@sushioutlaw" target="_blank">
+        <div className={styles.creditTextWrapper}>
+          <p className={styles.creditText}>
+            Image by{' '}
+            <Link href="https://unsplash.com/@sushioutlaw" target="_blank">
 
-            <u>
-              Brian McGowan
-            </u>
+              <u>
+                Brian McGowan
+              </u>
 
-          </Link>
-          {' on '}
-          <Link href="https://unsplash.com" target="_blank">
+            </Link>
+            {' on '}
+            <Link href="https://unsplash.com" target="_blank">
 
-            <u>
-              Unsplash
-            </u>
+              <u>
+                Unsplash
+              </u>
 
-          </Link>
-          )
-        </p>
-      </div>
+            </Link>.
+          </p>
+        </div>
+      </Hero>
     </main>
   );
 }
