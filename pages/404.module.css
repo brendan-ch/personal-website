@@ -1,0 +1,25 @@
+.main {
+  padding-bottom: 0px !important;
+}
+
+.textContainer {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: '100%';
+}
+
+.creditTextWrapper {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+}
+
+.creditText u {
+  color: var(--gray2);
+}
+
+.creditText {
+  color: var(--gray2);
+}
