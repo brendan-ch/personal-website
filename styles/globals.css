@@ -96,19 +96,21 @@ button {
   --inner-guide-width: 48em;
 }
 
+/* Override all heading elements */
 h1 {
-  font-weight: 400;
   color: var(--emphasis);
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
   padding: 0px;
   margin: 0px;
-  font-size: 33px;
 }
 
 h2 {
-  font-weight: 400;
   color: var(--emphasis);
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
   padding: 0px;
   margin: 0px;
 }
