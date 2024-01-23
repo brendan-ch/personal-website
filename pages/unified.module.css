@@ -90,9 +90,3 @@
     max-width: none;
   }
 }
-
-@media only screen and (max-width: 720px) {
-  .footer {
-    align-items: flex-start;
-  }
-}
