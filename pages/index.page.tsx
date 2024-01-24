@@ -75,6 +75,17 @@ function UnifiedHome() {
         <Card
           externalLinks={[
             {
+              name: 'The Farmer\'s Dog',
+              url: 'https://www.thefarmersdog.com'
+            }]}
+          title={'The Farmer\'s Dog Trivia Game'}
+          description="A Windows kiosk application designed to connect customers with the Farmer's Dog experience. Play the interactive trivia game, score points, and win swag! I worked with another developer to plan out dependencies and requirements, set up the codebase, and implement the screens for the app using React Native for Windows."
+          imagePath="/static/ufh/farmers-dog-03.png"
+          imageAlt="Preview image for The Farmer's Dog Trivia Game"
+        />
+        <Card
+          externalLinks={[
+            {
               name: 'View design',
               url: 'https://design.bchen.dev/work/cmes-admin-panel'
             },
