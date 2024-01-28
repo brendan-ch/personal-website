@@ -1,6 +1,7 @@
 .container {
   width: 100vw;
   height: 66vh;
+  min-height: 720px;
 
   background-color: var(--background);
 
