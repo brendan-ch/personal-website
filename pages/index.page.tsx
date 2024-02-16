@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import unified from './unified.module.css';
 import utils from '../styles/utils.module.css';
 import Head from 'next/head';
@@ -7,7 +6,6 @@ import Link from 'next/link';
 import Card from '../components/content/Card';
 import LinkedIn from '../components/logos/LinkedIn';
 import GitHub from '../components/logos/GitHub';
-import ActionButton from '../components/ActionButton';
 import Anchor from '../components/Anchor';
 import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
@@ -148,13 +146,6 @@ function UnifiedHome() {
         <Anchor
           text="Contact Me"
         />
-      </div>
-      <div className={unified.contact}>
-        <h1>Let{"'"}s work together.</h1>
-        <div className={unified.contactButtons}>
-          <ActionButton text="View resume" href="/resume.pdf" useRegularLink />
-          <ActionButton text="me@bchen.dev" href="mailto:me@bchen.dev" highlighted />
-        </div>
       </div>
       <Footer />
     </main>
