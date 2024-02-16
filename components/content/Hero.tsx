@@ -18,6 +18,11 @@ interface Props extends React.PropsWithChildren {
   imageAlt: string,
 }
 
+/**
+ * Component which displays children with a full-screen background image.
+ * @param param0
+ * @returns
+ */
 export default function Hero({ imagePath, imageAlt, children }: Props) {
   return (
     <div className={styles.hero}>
