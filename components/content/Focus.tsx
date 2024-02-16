@@ -18,7 +18,7 @@ interface Props extends React.PropsWithChildren {
  * @param param0
  * @returns
  * 
- * @see [Link to Figma component](https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1553-3271&mode=design&t=dJcQz7ncJPzewvDt-11)
+ * @see [Figma component](https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1553-3271&mode=design&t=dJcQz7ncJPzewvDt-11)
  */
 export default function Focus({ children, imagePath, imageAlt }: Props) {
   return (

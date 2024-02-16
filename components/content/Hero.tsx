@@ -22,6 +22,8 @@ interface Props extends React.PropsWithChildren {
  * Component which displays children with a full-screen background image.
  * @param param0
  * @returns
+ * 
+ * @see [Figma component](https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1676-8810&mode=design&t=dJcQz7ncJPzewvDt-11)
  */
 export default function Hero({ imagePath, imageAlt, children }: Props) {
   return (
