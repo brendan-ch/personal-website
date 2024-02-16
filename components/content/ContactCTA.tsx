@@ -1,6 +1,6 @@
 import ActionButton from '../ActionButton';
 
-import styles from 'ContactCTA.module.css';
+import styles from './ContactCTA.module.css';
 
 export default function ContactCTA() {
   return (
