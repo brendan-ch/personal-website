@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn generate && next dev",
-    "build": "yarn generate && next build",
+    "dev": "npm run generate && next dev",
+    "build": "npm run generate && next build",
     "generate": "node scripts/generateImages.js",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc",
-    "test": "yarn generate && jest --watch",
-    "test:ci": " yarn generate && jest --ci",
-    "test:coverage": "yarn generate && jest --ci --coverage"
+    "test": "npm run generate && jest --watch",
+    "test:ci": "npm run generate && jest --ci",
+    "test:coverage": "npm run generate && jest --ci --coverage"
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.8",
