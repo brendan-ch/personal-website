@@ -1,0 +1,28 @@
+.contact {
+  display: flex;
+  width: 100%;
+
+  padding: 0px 32px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--background);
+
+  height: 256px;
+
+  gap: 16px;
+}
+
+.contact h1 {
+  flex: 1 0;
+}
+
+.contactButtons {
+  display: flex;
+  flex-direction: row;
+
+  gap: 16px;
+  flex: 1 0;
+  max-width: 572px;
+}
