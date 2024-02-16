@@ -10,6 +10,7 @@ import Anchor from '../components/Anchor';
 import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
 import Hero from '../components/content/Hero';
+import ContactCTA from '../components/content/ContactCTA';
 
 /**
  * React component for the unified home page.
@@ -147,6 +148,7 @@ function UnifiedHome() {
           text="Contact Me"
         />
       </div>
+      <ContactCTA />
       <Footer />
     </main>
   )
