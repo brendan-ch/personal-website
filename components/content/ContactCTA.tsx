@@ -2,7 +2,7 @@ import ActionButton from '../ActionButton';
 
 import styles from 'ContactCTA.module.css';
 
-export default function Contact() {
+export default function ContactCTA() {
   return (
     <div className={styles.contact}>
       <h1>Let{"'"}s work together.</h1>
