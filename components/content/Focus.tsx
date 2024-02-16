@@ -1,9 +1,14 @@
 import styles from './Focus.module.css';
 import Image from 'next/image';
 
-interface Props {
-  children: React.ReactNode | React.ReactNode[],
+interface Props extends React.PropsWithChildren {
+  /**
+   * Path to the image to display.
+   */
   imagePath?: string,
+  /**
+   * Alt text for the image. Required if `imagePath` is provided.
+   */
   imageAlt?: string,
 }
 
