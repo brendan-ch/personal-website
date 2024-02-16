@@ -143,11 +143,6 @@ function UnifiedHome() {
           text="More Works"
         />
       </div> */}
-      <div className={unified.anchorWrapper}>
-        <Anchor
-          text="Contact Me"
-        />
-      </div>
       <ContactCTA />
       <Footer />
     </main>
