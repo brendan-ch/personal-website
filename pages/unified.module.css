@@ -32,32 +32,4 @@
   .anchorWrapper {
     padding: 64px 16px 16px 16px;
   }
-
-  .contact {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: flex-start;
-
-    gap: 16px;
-
-    padding: 0px 16px;
-
-    min-height: 560px;
-  }
-
-  .contact h1 {
-    flex: unset;
-  }
-
-  .contactButtons {
-    display: flex;
-    flex-direction: column;
-    flex: unset;
-    gap: 16px;
-
-    width: 100%;
-    max-width: none;
-  }
 }
