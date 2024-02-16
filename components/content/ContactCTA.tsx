@@ -8,7 +8,7 @@ export default function ContactCTA() {
     <div className={styles.contact}>
       <Image
         alt="Contact CTA background."
-        src="/background-pattern.png"
+        src="/contact-cta-background.png"
         fill
         className={styles.backgroundImage}
       />
