@@ -12,7 +12,7 @@ The rest of the project, including React components and helpers, is licensed und
 
 To start the project locally:
 ```bash
-yarn dev
+npm run dev
 ```
 
 This command compiles Markdown content into an output file before starting the dev server. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -20,22 +20,22 @@ This command compiles Markdown content into an output file before starting the d
 This project uses automated testing with Jest. To run tests:
 
 ```bash
-yarn test  # to run tests in watch mode
-yarn test:ci  # for running all tests once
+npm run test  # to run tests in watch mode
+npm run test:ci  # for running all tests once
 ```
 
 Other useful commands:
 ```bash
-yarn lint # check code formatting
-yarn typecheck # run tsc
+npm run lint # check code formatting
+npm run typecheck # run tsc
 ```
 
 # Building for Production
 
 To create and run a production build:
 ```bash
-yarn build  # create a new production build
-yarn start
+npm run build  # create a new production build
+npm run start
 ```
 
 [See more information on Next.js deployment.](https://nextjs.org/docs/deployment)

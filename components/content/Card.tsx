@@ -58,6 +58,8 @@ function generatePlaceholder(path: string) {
  * Component which displays a single project or work experience.
  * Adapts to mobile and desktop layouts.
  * @param param0 
+ * 
+ * @see [Figma component](https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1553-2522&mode=design&t=dJcQz7ncJPzewvDt-11)
  */
 export default function Card({
   title,

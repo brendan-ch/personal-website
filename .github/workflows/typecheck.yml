@@ -18,11 +18,10 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          cache: 'yarn'
+          node-version: '18.x'
           
       - name: Install packages
-        run: yarn install
+        run: npm install
         
       - name: Run tsc
-        run: yarn typecheck
+        run: npm run typecheck

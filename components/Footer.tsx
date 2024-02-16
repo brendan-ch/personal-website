@@ -3,6 +3,8 @@ import ChevronUp from '../components/icons/ChevronUp';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const currentYear = (new Date()).getFullYear();
+
   return (
     <div className={styles.footer}>
       <Link href="#" className={styles.horizontalWrapper}>
@@ -20,7 +22,7 @@ export default function Footer() {
         </p>
       </Link>
       <p>
-        © 2023 Brendan Chen
+        © {currentYear} Brendan Chen
       </p>
     </div>
   )
