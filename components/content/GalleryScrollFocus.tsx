@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from 'react';
 import styles from './GalleryScrollFocus.module.css';
 import Image from 'next/image';
 
@@ -29,13 +30,27 @@ interface Props extends React.PropsWithChildren {
  * @see {Figma component}(https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1701-1475&mode=design&t=7Zzw0Yri5WF9ynbK-11)
  */
 export default function GalleryScrollFocus({ images, children }: Props) {
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const imageHeight = galleryRef.current?.children.item(0)?.clientHeight;
+    const innerHeight = window.innerHeight;
+
+    if (galleryRef.current && imageHeight) {
+      // console.log('Updating');
+      galleryRef.current.style.paddingTop = `${(innerHeight - imageHeight) / 2}px`;
+      // console.log(galleryRef.current.style);
+    }
+
+  }, [galleryRef.current]);
+
   return (
     <div className={styles.focus}>
       <div className={styles.focusContent}>
         {children}
       </div>
-        
-      <div className={styles.gallery}> 
+
+      <div className={styles.gallery} ref={galleryRef}>
         {images.map(({ imagePath, imageAlt }) => (
           <div className={styles.imageContainer}>
             <Image
