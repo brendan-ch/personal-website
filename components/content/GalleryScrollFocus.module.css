@@ -1,12 +1,12 @@
 .focus {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 
   background-color: var(--background);
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 
   padding: 32px;
   gap: 16px;
@@ -43,6 +43,15 @@
 
 .focusContent p {
   font-size: 16px;
+}
+
+.gallery {
+  flex: 1 0 0;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 572px;
 }
 
 .imageContainer {
