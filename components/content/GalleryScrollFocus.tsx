@@ -39,6 +39,7 @@ export default function GalleryScrollFocus({ images, children }: Props) {
     if (galleryRef.current && imageHeight) {
       // console.log('Updating');
       galleryRef.current.style.paddingTop = `${(innerHeight - imageHeight) / 2}px`;
+      galleryRef.current.style.paddingBottom = `${(innerHeight - imageHeight) / 2}px`;
       // console.log(galleryRef.current.style);
     }
 
