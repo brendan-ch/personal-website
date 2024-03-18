@@ -1,0 +1,87 @@
+.focus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: var(--background);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding: 32px;
+  gap: 16px;
+
+  justify-content: space-between;
+}
+
+.focusContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  max-width: 572px;
+  flex: 1 0 0;
+  
+  gap: 32px;
+
+  /* See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline */
+  /* Currently only supported on Chrome */
+  animation: linear fadein both;
+  animation-range: entry 25% cover 50%;
+  view-timeline-name: --subjectReveal;
+  animation-timeline: --subjectReveal;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 20%;
+  } 100% {
+    opacity: 100%;
+  }
+}
+
+.focusContent p {
+  font-size: 16px;
+}
+
+.imageContainer {
+  position: relative;
+  flex: 1 0 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: 1 / 1;
+
+  max-width: 572px;
+
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 880px) {
+  .focus {
+    padding: 128px 16px;
+    flex-direction: column;
+    justify-content: center !important;
+
+    flex: 1;
+  }
+
+  .focusContent {
+    max-width: unset;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: auto;
+    flex: unset;
+    max-width: unset;
+  }
+}

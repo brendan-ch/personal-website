@@ -30,7 +30,7 @@ interface Props extends React.PropsWithChildren {
  */
 export default function GalleryScrollFocus({ images, children }: Props) {
   return (
-    <div className={styles.focusWithImage}>
+    <div className={styles.focus}>
       <div className={styles.focusContent}>
         {children}
       </div>
