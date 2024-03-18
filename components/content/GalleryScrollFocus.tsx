@@ -43,7 +43,7 @@ export default function GalleryScrollFocus({ images, children }: Props) {
       // console.log(galleryRef.current.style);
     }
 
-  }, [galleryRef.current]);
+  }, []);
 
   return (
     <div className={styles.focus}>
@@ -53,9 +53,8 @@ export default function GalleryScrollFocus({ images, children }: Props) {
 
       <div className={styles.gallery} ref={galleryRef}>
         {images.map(({ imagePath, imageAlt }) => (
-          <div className={styles.imageContainer}>
+          <div className={styles.imageContainer} key={imagePath}>
             <Image
-              key={imagePath}
               src={imagePath}
               alt={imageAlt}
               fill
