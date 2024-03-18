@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './GalleryScrollFocus.module.css';
 import Image from 'next/image';
 
@@ -33,16 +33,24 @@ export default function GalleryScrollFocus({ images, children }: Props) {
   const galleryRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const imageHeight = galleryRef.current?.children.item(0)?.clientHeight;
-    const innerHeight = window.innerHeight;
-
-    if (galleryRef.current && imageHeight) {
-      // console.log('Updating');
-      galleryRef.current.style.paddingTop = `${(innerHeight - imageHeight) / 2}px`;
-      galleryRef.current.style.paddingBottom = `${(innerHeight - imageHeight) / 2}px`;
-      // console.log(galleryRef.current.style);
+    function updateGalleryPositioning() {
+      const imageHeight = galleryRef.current?.children.item(0)?.clientHeight;
+      const innerHeight = window.innerHeight;
+  
+      if (galleryRef.current && imageHeight) {
+        // console.log('Updating');
+        galleryRef.current.style.paddingTop = `${(innerHeight - imageHeight) / 2}px`;
+        galleryRef.current.style.paddingBottom = `${(innerHeight - imageHeight) / 2}px`;
+        // console.log(galleryRef.current.style);
+      }
     }
 
+    window.addEventListener('resize', updateGalleryPositioning);
+    updateGalleryPositioning();
+
+    return () => {
+      window.removeEventListener('resize', updateGalleryPositioning);
+    }
   }, []);
 
   return (
