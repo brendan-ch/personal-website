@@ -1,14 +1,15 @@
 import styles from './GalleryScrollFocus.module.css';
+import Image from 'next/image';
 
 interface GalleryImage {
   /**
    * Path to the image to display.
    */
-  imagePath?: string,
+  imagePath: string,
   /**
    * Alt text for the image. Required if `imagePath` is provided.
    */
-  imageAlt?: string,
+  imageAlt: string,
 }
 
 interface Props extends React.PropsWithChildren {
@@ -27,8 +28,26 @@ interface Props extends React.PropsWithChildren {
  * 
  * @see {Figma component}(https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1701-1475&mode=design&t=7Zzw0Yri5WF9ynbK-11)
  */
-export default function GalleryScrollFocus({ images }: Props) {
+export default function GalleryScrollFocus({ images, children }: Props) {
   return (
-    <></>
+    <div className={styles.focusWithImage}>
+      <div className={styles.focusContent}>
+        {children}
+      </div>
+        
+      <div className={styles.gallery}> 
+        {images.map(({ imagePath, imageAlt }) => (
+          <div className={styles.imageContainer}>
+            <Image
+              key={imagePath}
+              src={imagePath}
+              alt={imageAlt}
+              fill
+              className={styles.image}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
