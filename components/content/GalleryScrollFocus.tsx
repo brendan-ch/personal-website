@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './GalleryScrollFocus.module.css';
 import Image from 'next/image';
+import generatePlaceholder from '../../helpers/generatePlaceholder';
 
 interface GalleryImage {
   /**
@@ -30,6 +31,7 @@ interface Props extends React.PropsWithChildren {
  * @see {Figma component}(https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1701-1475&mode=design&t=7Zzw0Yri5WF9ynbK-11)
  */
 export default function GalleryScrollFocus({ images, children }: Props) {
+  const placeholderData = images.map((image) => generatePlaceholder(image.imagePath));
   const galleryRef = useRef<HTMLDivElement>(null);
 
   // See https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
@@ -64,8 +66,9 @@ export default function GalleryScrollFocus({ images, children }: Props) {
       </div>
 
       <div className={styles.gallery} ref={galleryRef}>
-        {images.map(({ imagePath, imageAlt }) => (
+        {images.map(({ imagePath, imageAlt }, index) => (
           <div className={styles.imageContainer} key={imagePath}>
+            <div className={styles.imagePlaceholder} style={placeholderData[index] ? placeholderData[index].css : undefined}></div>
             <Image
               src={imagePath}
               alt={imageAlt}

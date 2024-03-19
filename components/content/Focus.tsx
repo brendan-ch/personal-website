@@ -1,3 +1,4 @@
+import generatePlaceholder from '../../helpers/generatePlaceholder';
 import styles from './Focus.module.css';
 import Image from 'next/image';
 
@@ -21,6 +22,8 @@ interface Props extends React.PropsWithChildren {
  * @see [Figma component](https://www.figma.com/file/Dal59aHrblUpA2afXrThW7/bchen.dev?type=design&node-id=1553-3271&mode=design&t=dJcQz7ncJPzewvDt-11)
  */
 export default function Focus({ children, imagePath, imageAlt }: Props) {
+  const placeholderData = imagePath ? generatePlaceholder(imagePath) : undefined;
+
   return (
     <div className={imagePath && imageAlt ? `${styles.focus} ${styles.focusWithImage}` : styles.focus}>
       <div className={styles.focusContent}>
@@ -28,6 +31,7 @@ export default function Focus({ children, imagePath, imageAlt }: Props) {
       </div>
       {imagePath && imageAlt ? (
         <div className={styles.imageContainer}>
+          <div className={styles.imagePlaceholder} style={placeholderData ? placeholderData.css : undefined}></div>
           <Image
             src={imagePath}
             alt={imageAlt}
