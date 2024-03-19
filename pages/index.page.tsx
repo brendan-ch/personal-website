@@ -48,7 +48,7 @@ function UnifiedHome() {
         <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
         <ActionButton text="Learn More" highlighted href="/about" />
       </Focus>
-      <div className={unified.anchorWrapper}>
+      <div className={utils.anchorWrapper}>
         <Anchor
           text="Select Works"
         />
@@ -140,7 +140,7 @@ function UnifiedHome() {
           imageAlt="Preview image for Design by Brendan Chen"
         />
       </div>
-      {/* <div className={unified.anchorWrapper}>
+      {/* <div className={utils.anchorWrapper}>
         <Anchor
           text="More Works"
         />
