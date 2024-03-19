@@ -34,6 +34,7 @@ export default function GalleryScrollFocus({ images, children }: Props) {
 
   // See https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
   if (typeof window !== "undefined") {
+    // eslint-disable-next-line
     useLayoutEffect(() => {
       function updateGalleryPositioning() {
         const imageHeight = galleryRef.current?.children.item(0)?.clientHeight;
