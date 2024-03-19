@@ -84,6 +84,8 @@
     justify-content: center !important;
 
     flex: 1;
+
+    gap: 16px;
   }
 
   .focusContent {
@@ -101,5 +103,9 @@
 
     padding-top: 32px !important;
     padding-bottom: 0px !important;
+  }
+
+  .imageContainer {
+    max-width: unset;
   }
 }
