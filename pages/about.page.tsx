@@ -36,6 +36,27 @@ function About() {
       <GalleryScrollFocus images={[]}>
         <p>In the future, I aspire to be a <b>software engineer</b> who challenges the status quo. I consider myself a calculated risk-taker, a critical thinker, who stops at nothing and <b>dares to dream</b> about future ambitions.</p>
       </GalleryScrollFocus>
+      <div>
+        <h1>Project Philosophy</h1>
+        <div>
+          <p>I work on a variety of personal projects and contracted work. In each project, I try to adhere to a set of guiding principles.</p>
+          <div>
+            <div>
+              <p><b>1.</b></p>
+              <p><b>I work on projects that I personally believe in.</b> I'm more interested in projects where I can see the impact on real-world users.</p>
+            </div>
+            <div>
+              <p><b>3.</b></p>
+              <p><b>I move fast through clear communication and an efficient work style.</b>{'\n'}I prefer to maximize efficiency through focus sessions, comprehensive documentation, and asynchronous communication.</p>
+            </div>
+            <div>
+              <p><b>3.</b></p>
+              <p><b>I care equally as much about the process as the final product.</b>{'\n'}I aim to leave behind something that can be iterated upon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <ContactCTA />
       <Footer />
     </main>
