@@ -11,6 +11,7 @@ import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
 import Hero from '../components/content/Hero';
 import ContactCTA from '../components/content/ContactCTA';
+import ActionButton from '../components/ActionButton';
 
 /**
  * React component for the unified home page.
@@ -45,6 +46,7 @@ function UnifiedHome() {
         <h2>I{"'"}m a second-year student at <b>Chapman University</b>, majoring in <b>software engineering</b> and minoring in <b>Chinese</b>.</h2>
         <h2>I work on projects that <b>I personally believe in</b>, with a focus on <b>agility</b>, <b>attention to detail</b>, and <b>process</b>.</h2>
         <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
+        <ActionButton text="Learn More" highlighted href="/about" />
       </Focus>
       <div className={unified.anchorWrapper}>
         <Anchor
