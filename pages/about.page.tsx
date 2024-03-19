@@ -8,6 +8,7 @@ import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
 import ContactCTA from '../components/content/ContactCTA';
 import GalleryScrollFocus from '../components/content/GalleryScrollFocus';
+import Link from 'next/link';
 
 /**
  * React component for the unified home page.
@@ -20,6 +21,12 @@ function About() {
       <Head>
         <title>About | Brendan Chen</title>
       </Head>
+
+      <div className={styles.backButtonContainer}>
+        <Link href="/">
+          <p className={`${utils.monoText} ${utils.smallText}`}>← Back to Home</p>
+        </Link>
+      </div>
 
       <Focus imagePath="/static/about/image-0.png" imageAlt="Me standing in the woods.">
         <h2>I'm Brendan, a designer, developer, and second year student at Chapman University.</h2>

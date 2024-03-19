@@ -1,3 +1,11 @@
+.backButtonContainer {
+  display: flex;
+  width: 100vw;
+
+  padding-left: 32px;
+  padding-top: 32px;
+}
+
 .projectPhilosophyWrapper {
   display: flex;
   flex-direction: column;
@@ -32,8 +40,11 @@
   gap: 8px;
 }
 
-/* TO-DO: mobile styling */
 @media only screen and (max-width: 880px) {
+  .backButtonContainer {
+    padding-left: 16px;
+  }
+
   .projectPhilosophyWrapper {
     padding-left: 16px;
     padding-right: 16px;
