@@ -32,26 +32,29 @@ interface Props extends React.PropsWithChildren {
 export default function GalleryScrollFocus({ images, children }: Props) {
   const galleryRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    function updateGalleryPositioning() {
-      const imageHeight = galleryRef.current?.children.item(0)?.clientHeight;
-      const innerHeight = window.innerHeight;
-  
-      if (galleryRef.current && imageHeight) {
-        // console.log('Updating');
-        galleryRef.current.style.paddingTop = `${(innerHeight - imageHeight) / 2}px`;
-        galleryRef.current.style.paddingBottom = `${(innerHeight - imageHeight) / 2}px`;
-        // console.log(galleryRef.current.style);
+  // See https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
+  if (typeof window !== "undefined") {
+    useLayoutEffect(() => {
+      function updateGalleryPositioning() {
+        const imageHeight = galleryRef.current?.children.item(0)?.clientHeight;
+        const innerHeight = window.innerHeight;
+    
+        if (galleryRef.current && imageHeight) {
+          // console.log('Updating');
+          galleryRef.current.style.paddingTop = `${(innerHeight - imageHeight) / 2}px`;
+          galleryRef.current.style.paddingBottom = `${(innerHeight - imageHeight) / 2}px`;
+          // console.log(galleryRef.current.style);
+        }
       }
-    }
-
-    window.addEventListener('resize', updateGalleryPositioning);
-    updateGalleryPositioning();
-
-    return () => {
-      window.removeEventListener('resize', updateGalleryPositioning);
-    }
-  }, []);
+  
+      window.addEventListener('resize', updateGalleryPositioning);
+      updateGalleryPositioning();
+  
+      return () => {
+        window.removeEventListener('resize', updateGalleryPositioning);
+      }
+    }, []);
+  }
 
   return (
     <div className={styles.focus}>
