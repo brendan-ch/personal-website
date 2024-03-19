@@ -4,6 +4,6 @@
  * @returns
  */
 export default function generatePlaceholder(path: string) {
-  const parsed = require('../../scripts/output/imageData.json');
+  const parsed = require('../scripts/output/imageData.json');
   return parsed[path];
 }
