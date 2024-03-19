@@ -82,7 +82,7 @@
   max-width: 572px;
 
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
 }
 
 .image {
