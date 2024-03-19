@@ -36,16 +36,23 @@
   animation-timeline: --subjectReveal;
 }
 
+.imagePlaceholder {
+  filter: blur(32px);
+  transform: scale(1.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 @keyframes fadein {
   0% {
     opacity: 20%;
   } 100% {
     opacity: 100%;
   }
-}
-
-.focusContent p {
-  font-size: 16px;
 }
 
 .imageContainer {
@@ -75,6 +82,7 @@
     justify-content: center !important;
 
     flex: 1;
+    gap: 32px;
   }
 
   .focusContent {

@@ -92,11 +92,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/about',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/project/:prettyLink',
         destination: '/work/:prettyLink',
         permanent: true,

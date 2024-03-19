@@ -33,9 +33,20 @@
   /* See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline */
   /* Currently only supported on Chrome */
   animation: linear fadein both;
-  animation-range: entry 25% cover 50%;
+  animation-range: entry 0% cover 25%;
   view-timeline-name: --subjectReveal;
   animation-timeline: --subjectReveal;
+}
+
+.imagePlaceholder {
+  filter: blur(32px);
+  transform: scale(1.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 @keyframes fadein {
@@ -44,10 +55,6 @@
   } 100% {
     opacity: 100%;
   }
-}
-
-.focusContent p {
-  font-size: 16px;
 }
 
 .gallery {
@@ -75,6 +82,7 @@
   max-width: 572px;
 
   overflow: hidden;
+  z-index: 2;
 }
 
 .image {
@@ -88,6 +96,8 @@
     justify-content: center !important;
 
     flex: 1;
+
+    gap: 16px;
   }
 
   .focusContent {
@@ -105,5 +115,9 @@
 
     padding-top: 32px !important;
     padding-bottom: 0px !important;
+  }
+
+  .imageContainer {
+    max-width: unset;
   }
 }

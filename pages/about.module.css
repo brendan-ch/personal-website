@@ -1,0 +1,64 @@
+.backButtonContainer {
+  display: flex;
+  width: 100vw;
+
+  padding-left: 32px;
+  padding-top: 32px;
+}
+
+.projectPhilosophyWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 96px 32px;
+  gap: 16px;
+  width: 100vw;
+}
+
+.projectPhilosophyHorizontalLayout {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  flex: 1 0 0;
+}
+
+.projectPhilosophyDescriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+.projectPhilosophyDescriptionWrapper p {
+  max-width: 520px;
+}
+
+.projectPhilosophyListWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  flex: 1 0 0;
+}
+
+.projectPhilosophyListItem {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+@media only screen and (max-width: 880px) {
+  .backButtonContainer {
+    padding-left: 16px;
+  }
+
+  .projectPhilosophyWrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .projectPhilosophyHorizontalLayout {
+    flex-direction: column;
+  }
+
+  .projectPhilosophyListWrapper {
+    gap: 32px;
+  }
+}

@@ -1,4 +1,4 @@
-import unified from './unified.module.css';
+import styles from './index.module.css';
 import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
@@ -11,6 +11,7 @@ import Focus from '../components/content/Focus';
 import Footer from '../components/Footer';
 import Hero from '../components/content/Hero';
 import ContactCTA from '../components/content/ContactCTA';
+import ActionButton from '../components/ActionButton';
 
 /**
  * React component for the unified home page.
@@ -19,7 +20,7 @@ import ContactCTA from '../components/content/ContactCTA';
  */
 function UnifiedHome() {
   return (
-    <main className={unified.main}>
+    <main className={styles.main}>
       <Head>
         <title>Brendan Chen</title>
       </Head>
@@ -28,9 +29,9 @@ function UnifiedHome() {
         imageAlt="Lightning over a dark sky"
       >
         <h1>
-          I{'\''}m Brendan, a designer and developer in Orange, CA.
+          I{'\''}m Brendan, a developer and college student in Orange, CA.
         </h1>
-        <div className={unified.socials}>
+        <div className={styles.socials}>
           <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
             <LinkedIn />
           </Link>
@@ -44,14 +45,14 @@ function UnifiedHome() {
       <Focus imagePath="/static/ufh/about.png" imageAlt="Me standing in front of a painting.">
         <h2>I{"'"}m a second-year student at <b>Chapman University</b>, majoring in <b>software engineering</b> and minoring in <b>Chinese</b>.</h2>
         <h2>I work on projects that <b>I personally believe in</b>, with a focus on <b>agility</b>, <b>attention to detail</b>, and <b>process</b>.</h2>
-        <p className={utils.monoText}>Keep scrolling for some of my selected works...</p>
+        <ActionButton text="Learn more about me" href="/about" />
       </Focus>
-      <div className={unified.anchorWrapper}>
+      <div className={utils.anchorWrapper}>
         <Anchor
           text="Select Works"
         />
       </div>
-      <div className={unified.works}>
+      <div className={styles.works}>
       <Card
           externalLinks={[
             {
@@ -138,7 +139,7 @@ function UnifiedHome() {
           imageAlt="Preview image for Design by Brendan Chen"
         />
       </div>
-      {/* <div className={unified.anchorWrapper}>
+      {/* <div className={utils.anchorWrapper}>
         <Anchor
           text="More Works"
         />

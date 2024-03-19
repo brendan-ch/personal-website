@@ -1,100 +1,10 @@
-.rootContainer {
+.anchorWrapper {
   display: flex;
-  flex: 1;
+  padding: 64px 32px 16px 32px;
+
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100vw;
-
-  min-height: 100vh;
-}
-
-.minHeightWrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-}
-
-.scrollable {
-  flex: 1;
-  /* overflow-y: scroll; */
-  padding: 15px;
-  animation-name: fadein;
-  animation-duration: 500ms;
-  overflow-wrap: break-word;
-}
-
-.scrollableFade {
-  animation-name: fadeout;
-  animation-duration: 500ms;
-}
-
-/* Apply to items on a page that need to
-stretch until a maximum width. */
-.itemWrapper {
-  padding: 0px 32px;
-  max-width: var(--outer-guide-width);
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.innerItemWrapper {
-  padding: 0px 32px;
-  max-width: var(--inner-guide-width);
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-@media only screen and (max-width: 720px) {
-  .itemWrapper {
-    padding: 0px 16px;
-  }
-
-  .innerItemWrapper {
-    padding: 0px 16px;
-  }
-}
-
-/* Apply to items on a page that adhere to
-the "wide" alignment guide.*/
-.wideWrapper {
-  padding: 0px 32px;
-}
-
-/* Apply to items on a page that need to stretch
-to the bottom of the page. */
-.stretchToEnd {
-  flex: 1;
-}
-
-/* Use to style an image within a page using `itemWrapper` and `innerItemWrapper`. Aspect ratio should be overwritten if image height/width is known. */
-.pageImageContainer {
-  width: 100%;
-  aspect-ratio: 3/2;
-  position: relative;
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-.spacer {
-  height: 40px;
-}
-
-.footerWrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.recaptchaBox {
-  height: 80px;
+  align-items: flex-start;
+  align-self: stretch;
 }
 
 /* TO-DO: component library; each style will have its own component */
@@ -107,22 +17,8 @@ to the bottom of the page. */
   font-weight: normal !important;
 }
 
-@keyframes fadein {
-  0% {
-    opacity: 0%;
-  } 30% {
-    opacity: 0%;
-  } 100% {
-    opacity: 100%;
-  }
-}
-
-@keyframes fadeout {
-  0% {
-    opacity: 100%;
-  } 70% {
-    opacity: 0%;
-  } 100% {
-    opacity: 0%;
+@media only screen and (max-width: 880px) {
+  .anchorWrapper {
+    padding: 64px 16px 16px 16px;
   }
 }
