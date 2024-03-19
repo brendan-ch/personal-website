@@ -1,4 +1,4 @@
-import unified from './unified.module.css';
+import styles from './index.module.css';
 import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
@@ -20,7 +20,7 @@ import ActionButton from '../components/ActionButton';
  */
 function UnifiedHome() {
   return (
-    <main className={unified.main}>
+    <main className={styles.main}>
       <Head>
         <title>Brendan Chen</title>
       </Head>
@@ -31,7 +31,7 @@ function UnifiedHome() {
         <h1>
           I{'\''}m Brendan, a designer and developer in Orange, CA.
         </h1>
-        <div className={unified.socials}>
+        <div className={styles.socials}>
           <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
             <LinkedIn />
           </Link>
@@ -53,7 +53,7 @@ function UnifiedHome() {
           text="Select Works"
         />
       </div>
-      <div className={unified.works}>
+      <div className={styles.works}>
       <Card
           externalLinks={[
             {

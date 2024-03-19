@@ -1,4 +1,3 @@
-import unified from './unified.module.css';
 import utils from '../styles/utils.module.css';
 import Head from 'next/head';
 
@@ -16,7 +15,7 @@ import GalleryScrollFocus from '../components/content/GalleryScrollFocus';
  */
 function About() {
   return (
-    <main className={unified.main}>
+    <main>
       <Head>
         <title>About | Brendan Chen</title>
       </Head>
