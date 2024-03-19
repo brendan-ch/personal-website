@@ -1,0 +1,49 @@
+.projectPhilosophyWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 96px 32px;
+  gap: 16px;
+  width: 100vw;
+}
+
+.projectPhilosophyHorizontalLayout {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  flex: 1 0 0;
+}
+
+.projectPhilosophyDescriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+.projectPhilosophyListWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  flex: 1 0 0;
+}
+
+.projectPhilosophyListItem {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+/* TO-DO: mobile styling */
+@media only screen and (max-width: 880px) {
+  .projectPhilosophyWrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .projectPhilosophyHorizontalLayout {
+    flex-direction: column;
+  }
+
+  .projectPhilosophyListWrapper {
+    gap: 32px;
+  }
+}
