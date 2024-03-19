@@ -30,7 +30,7 @@ function About() {
 
       <Focus imagePath="/static/about/image-0.png" imageAlt="Me standing in the woods.">
         <h2>I{"'"}m Brendan, a developer and second year student at Chapman University.</h2>
-        <p className={utils.monoText}>Scroll down to learn more about me...</p>
+        <p className={`${utils.monoText} ${utils.smallText}`}>Scroll down to learn more about me...</p>
       </Focus>
       <GalleryScrollFocus images={[
         {
