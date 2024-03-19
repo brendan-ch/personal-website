@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.container p {
+  font-size: 20px !important;
+}
+
 .highlighted {
   background: var(--emphasis);
 }
