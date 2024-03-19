@@ -36,6 +36,17 @@
   animation-timeline: --subjectReveal;
 }
 
+.imagePlaceholder {
+  filter: blur(32px);
+  transform: scale(1.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 @keyframes fadein {
   0% {
     opacity: 20%;
