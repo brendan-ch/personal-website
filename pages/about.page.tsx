@@ -80,7 +80,6 @@ function About() {
           <div className={styles.projectPhilosophyDescriptionWrapper}>
             <p>
               I work on a variety of personal projects and contracted work.
-              <br></br>
               In each project, I try to adhere to a set of guiding principles.
             </p>
           </div>
