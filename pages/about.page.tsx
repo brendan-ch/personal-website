@@ -29,7 +29,7 @@ function About() {
       </div>
 
       <Focus imagePath="/static/about/image-0.png" imageAlt="Me standing in the woods.">
-        <h2>I'm Brendan, a developer and second year student at Chapman University.</h2>
+        <h2>I{"'"}m Brendan, a developer and second year student at Chapman University.</h2>
         <p className={utils.monoText}>Scroll down to learn more about me...</p>
       </Focus>
       <GalleryScrollFocus images={[
@@ -46,7 +46,7 @@ function About() {
           imageAlt: 'Outside patio in Chapman University\'s Keck science center.',
         },
       ]}>
-        <h2>In August 2022, I started studying <b>computer science</b> at Chapman University's <b>Fowler School of Engineering</b>.</h2>
+        <h2>In August 2022, I started studying <b>computer science</b> at Chapman University{"'"}s <b>Fowler School of Engineering</b>.</h2>
         <p>I chose this path because I view <b>engineering as an art form</b>, a method of communication with an audience that spans billions. Computer science is the means to understanding the toolset required for success.</p>
       </GalleryScrollFocus>
       <GalleryScrollFocus images={[
@@ -90,7 +90,7 @@ function About() {
               <p>
                 <b>I work on projects that I personally believe in.</b>
                 <br></br>
-                I'm more interested in projects where I can see the impact on real-world users.
+                I{"'"}m more interested in projects where I can see the impact on real-world users.
               </p>
             </div>
             <div className={styles.projectPhilosophyListItem}>

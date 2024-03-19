@@ -29,7 +29,7 @@ function UnifiedHome() {
         imageAlt="Lightning over a dark sky"
       >
         <h1>
-          I'm Brendan, a developer and college student in Orange, CA.
+          I{'\''}m Brendan, a developer and college student in Orange, CA.
         </h1>
         <div className={styles.socials}>
           <Link href="https://linkedin.com/in/brendan-ch" target="_blank" rel="noreferrer">
