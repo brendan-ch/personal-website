@@ -33,7 +33,7 @@
   /* See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline */
   /* Currently only supported on Chrome */
   animation: linear fadein both;
-  animation-range: entry 25% cover 50%;
+  animation-range: entry 0% cover 25%;
   view-timeline-name: --subjectReveal;
   animation-timeline: --subjectReveal;
 }
