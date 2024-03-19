@@ -21,19 +21,50 @@ function About() {
         <title>About | Brendan Chen</title>
       </Head>
 
-      <Focus imagePath="/static/ufh/about.png" imageAlt="Me standing in front of a painting.">
+      <Focus imagePath="/static/about/image-0.png" imageAlt="Me standing in the woods.">
         <h2>I'm Brendan, a designer, developer, and second year student at Chapman University.</h2>
         <p className={utils.monoText}>Scroll down to learn more about me...</p>
       </Focus>
-      <GalleryScrollFocus images={[]}>
+      <GalleryScrollFocus images={[
+        {
+          imagePath: '/static/about/image-1.png',
+          imageAlt: 'Chapman University\'s Fowler School of Engineering, located in Swenson Hall.',
+        },
+        {
+          imagePath: '/static/about/image-2.png',
+          imageAlt: 'Whiteboards in Chapman University\'s Keck science center.'
+        },
+        {
+          imagePath: '/static/about/image-3.png',
+          imageAlt: 'Outside patio in Chapman University\'s Keck science center.',
+        },
+      ]}>
         <h2>In August 2022, I started studying <b>computer science</b> at Chapman University's <b>Fowler School of Engineering</b>.</h2>
         <p>I chose this path because I view <b>engineering as an art form</b>, a method of communication with an audience that spans billions. Computer science is the means to understanding the toolset required for success.</p>
       </GalleryScrollFocus>
-      <GalleryScrollFocus images={[]}>
+      <GalleryScrollFocus images={[
+        {
+          imagePath: '/static/about/image-4.png',
+          imageAlt: 'My team standing on a stage to accept the CruzHacks 2024 President\'s Pick award.',
+        },
+        {
+          imagePath: '/static/about/image-5.png',
+          imageAlt: 'My team sitting around a table, working on the CruzHacks 2024 project. Several laptops are open, including one with Xcode running.',
+        },
+        {
+          imagePath: '/static/about/image-6.png',
+          imageAlt: 'My CruzHacks 2024 team walking outside on a late night.',
+        },
+      ]}>
         <p>Through a strong focus on academics, I was selected for the Provost’s List award in spring and fall 2023. I also participate in several engineering-related clubs and served as the graphic designer for Chapman’s iOS Developers Club.</p>
         <p>In January 2024, I attended <b>CruzHacks 2024</b> representing Chapman’s <b>Computer Science Club</b>, winning the President’s Pick award with our project.</p>
       </GalleryScrollFocus>
-      <GalleryScrollFocus images={[]}>
+      <GalleryScrollFocus images={[
+        {
+          imagePath: '/static/about/image-7.png',
+          imageAlt: 'Me walking around under a set of flowers, on the top floor of Taipei 101.',
+        }
+      ]}>
         <p>In the future, I aspire to be a <b>software engineer</b> who challenges the status quo. I consider myself a calculated risk-taker, a critical thinker, who stops at nothing and <b>dares to dream</b> about future ambitions.</p>
       </GalleryScrollFocus>
       <div className={styles.projectPhilosophyWrapper}>
