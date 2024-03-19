@@ -1,8 +1,9 @@
+import { CSSProperties } from 'react';
 import styles from './Card.module.css';
 import { PageExternalLink } from "../../types";
 import Image from 'next/image';
 import ExternalLink from '../ExternalLink';
-import { CSSProperties } from 'react';
+import generatePlaceholder from '../../helpers/generatePlaceholder';
 
 interface CardProps {
   /**
@@ -42,16 +43,6 @@ interface CardProps {
    * Add additional styling options to the card container.
    */
   style?: CSSProperties,
-}
-
-/**
- * Given a local image path, return the placeholder data.
- * @param path
- * @returns
- */
-function generatePlaceholder(path: string) {
-  const parsed = require('../../scripts/output/imageData.json');
-  return parsed[path];
 }
 
 /**
